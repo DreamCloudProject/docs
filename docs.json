@@ -1,9 +1,9 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Documentation",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#770A86",
     "light": "#07C983",
     "dark": "#15803D"
   },
@@ -88,8 +88,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mastermindcms.com"
+      "label": "Account",
+      "href": "https://mastermindcms.com"
     }
   },
   "footer": {

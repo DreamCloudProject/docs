@@ -12,48 +12,115 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "default" : true,
+        "tabs": [
           {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "development"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Get Started",
+                "pages": [
+                  "en/introduction",
+                  "en/quickstart",
+                  "en/development"
+                ]
+              },
+              {
+                "group": "Essentials",
+                "pages": [
+                  "essentials/markdown",
+                  "essentials/code",
+                  "essentials/images",
+                  "essentials/settings",
+                  "essentials/navigation",
+                  "essentials/reusable-snippets"
+                ]
+              }
             ]
           },
           {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "Endpoint Examples",
+                "pages": [
+                  "api-reference/endpoint/get",
+                  "api-reference/endpoint/create",
+                  "api-reference/endpoint/delete",
+                  "api-reference/endpoint/webhook"
+                ]
+              }
             ]
+          }
+        ],
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["en/introduction", "en/quickstart", "en/development"]
           }
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
+        "language": "de",
+        "tabs": [
           {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Get Started",
+                "pages": [
+                  "de/introduction",
+                  "de/quickstart",
+                  "de/development"
+                ]
+              },
+              {
+                "group": "Essentials",
+                "pages": [
+                  "essentials/markdown",
+                  "essentials/code",
+                  "essentials/images",
+                  "essentials/settings",
+                  "essentials/navigation",
+                  "essentials/reusable-snippets"
+                ]
+              }
             ]
           },
           {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "Endpoint Examples",
+                "pages": [
+                  "api-reference/endpoint/get",
+                  "api-reference/endpoint/create",
+                  "api-reference/endpoint/delete",
+                  "api-reference/endpoint/webhook"
+                ]
+              }
             ]
+          }
+        ],
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["de/introduction", "de/quickstart", "de/development"]
           }
         ]
       }

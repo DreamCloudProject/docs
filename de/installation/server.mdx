@@ -1,0 +1,103 @@
+---
+title: Serverinstallation
+description: Installation von MastermindCMS auf einem Linux-Server für den Produktionseinsatz
+---
+
+Diese Anleitung beschreibt, wie **MastermindCMS** auf einem Linux-Server für **Produktionsumgebungen** installiert wird.
+
+Die Serverinstallation bietet:
+- Volle Kontrolle über die Infrastruktur
+- Bessere Performance und Skalierbarkeit
+- Integration mit Reverse Proxies, SSL und Monitoring
+
+---
+
+## Voraussetzungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
+
+- Ein Linux-Server **(RHEL/CentOS, Debian/Ubuntu)**
+- Root- oder sudo-Zugriff
+- Eine öffentliche Domain oder Subdomain
+- Offene Ports **80** und **443**
+
+<Tip>
+    MastermindCMS ist für den containerisierten Betrieb ausgelegt. Auch bei einer Serverinstallation ist Docker erforderlich.
+</Tip>
+
+---
+
+## Schritt 1: Lokales YUM-Repository einrichten
+
+Fügen Sie auf Ihren UnixOS-Client-Systemen die lokalen Repositories zur YUM-Konfiguration hinzu.
+
+### RHEL/CentOS
+
+```shell
+vim /etc/yum.repos.d/local-repos.repo
+```
+
+Kopieren Sie die folgende Konfiguration in die Datei local-repos.repo
+(passen Sie die Werte bei Bedarf an):
+
+```ini
+[local-dreamcloud]
+name=Dreamcloud Repo
+baseurl=https://repouser:welcome@repos.mastermindcms.com/rpms
+enabled=1
+gpgcheck=0
+```
+
+Speichern Sie die Datei und aktivieren Sie das lokale YUM-Repository.
+
+Führen Sie anschließend folgenden Befehl aus, um die verfügbaren YUM-Repositories anzuzeigen:
+
+```shell
+yum repolist all
+```
+
+### Debian/Ubuntu
+
+Importieren Sie den öffentlichen Schlüssel und fügen Sie das Repository zu den APT-Quellen hinzu.
+
+```shell
+sudo apt-get install gnupg
+wget -qO - https://<user>:<password>@repos.mastermindcms.com/debian/debian-repo-public.gpg | sudo apt-key add -
+echo "deb https://repouser:welcome@repos.mastermindcms.com/debian/ / " > /etc/apt/sources.list.d/dreamcloud-repo.list
+```
+
+Aktualisieren Sie die verfügbare Paketliste.
+
+```shell
+sudo apt-get update
+```
+
+## Schritt 2: MSM2-Applikation installieren
+
+### RHEL/CentOS
+
+Installieren Sie die MSM2-Anwendung mit folgendem Befehl:
+
+```shell
+yum install msm2-application
+```
+
+Starten Sie die MSM2-Applikation:
+
+```shell
+service msm2-application start
+```
+
+### Debian/Ubuntu
+
+Installieren Sie die MSM2-Applikation mit folgendem Befehl:
+
+```shell
+apt-get install msm2-application
+```
+
+Starten Sie die MSM2-Applikation:
+
+```shell
+service msm2-application start
+```

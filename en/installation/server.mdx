@@ -1,0 +1,100 @@
+---
+title: Server Installation
+description: Install MastermindCMS on a Linux server for production use
+---
+
+This guide explains how to install **MastermindCMS** on a Linux server for **production environments**.
+
+The server installation gives you:
+- Full control over infrastructure
+- Better performance and scalability
+- Integration with reverse proxies, SSL, and monitoring
+
+---
+
+## Prerequisites
+
+Before you start, make sure you have:
+
+- A Linux server **(RHEL/CentOS, Debian/Ubuntu)**
+- Root or sudo access
+- A public domain or subdomain
+- Open ports **80** and **443**
+
+<Tip>
+    MastermindCMS is designed to run containerized. Even on a server installation, Docker is required.
+</Tip>
+
+---
+
+## Step 1: Setup Local YUM Repository
+
+Now on your UnixOS client machines, add your local repos to the YUM configuration.
+
+### RHEL/CentOS
+
+```shell
+vim /etc/yum.repos.d/local-repos.repo
+```
+Copy and paste the configuration below in the file **local-repos.repo** (make changes where necessary).
+
+```ini
+[local-dreamcloud]
+name=Dreamcloud Repo
+baseurl=https://repouser:welcome@repos.mastermindcms.com/rpms
+enabled=1
+gpgcheck=0
+```
+Save the file and start using your local YUM mirrors.
+
+Next, run the following command to view your local repos in the list of available YUM repos, on the client machines.
+
+```shell
+yum repolist all
+```
+
+### Debian/Ubuntu
+
+Import the public key into apt and add the repo to the sources.
+
+```shell
+sudo apt-get install gnupg
+wget -qO - https://<user>:<password>@repos.mastermindcms.com/debian/debian-repo-public.gpg | sudo apt-key add -
+echo "deb https://repouser:welcome@repos.mastermindcms.com/debian/ / " > /etc/apt/sources.list.d/dreamcloud-repo.list
+```
+
+Update the available package list.
+
+```shell
+sudo apt-get update
+```
+
+## Step 2: Install MSM2 Application
+
+### RHEL/CentOS
+
+Run the following command to install the **MSM2** application on your server.
+
+```shell
+yum install msm2-application
+```
+
+Run MSM2 Application with command below:
+
+```shell
+service msm2-application start
+```
+
+### Debian/Ubuntu
+
+Run the following command to install the **MSM2** application on your server.
+
+```shell
+apt-get install msm2-application
+```
+
+Run MSM2 Application with command below:
+
+```shell
+service msm2-application start
+```

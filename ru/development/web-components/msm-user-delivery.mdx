@@ -5,15 +5,19 @@ description: "Web-компонент msm-user-delivery."
 
 `msm-user-delivery` — web-компонент на Lit.
 
+## Назначение
+
 UI-блоки для пользователя/аккаунта.
+
+## Пример
 
 ```html
 <msm-user-delivery order-id="ORDER_ID"></msm-user-delivery>
 ```
 
-Атрибуты / свойства
+## Атрибуты / свойства
 
-| Name | Type | Default | Notes |
+| Имя | Тип | По умолчанию | Примечания |
 | --- | --- | --- | --- |
 | `isShowError` | boolean | `false` | property only |
 | `isLogged` | boolean | - | property only |
@@ -26,13 +30,13 @@ UI-блоки для пользователя/аккаунта.
 | `show-radio` | boolean | `false` |  |
 | `required` | boolean | - |  |
 
-События
+## События
 
-| Event | detail | Когда |
+| Событие | detail | Когда |
 | --- | --- | --- |
 | `select` | `address` |  |
 
-Пример
+### Пример
 
 ```html
 <msm-user-delivery order-id="ORDER_ID">
@@ -47,19 +51,19 @@ UI-блоки для пользователя/аккаунта.
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 
-Слоты
+## Слоты
 
 Документированных слотов нет.
 
-Методы
+## Методы
 
 - `validate()`
 
-Примечания
+## Примечания
 
 - Custom events bubble.

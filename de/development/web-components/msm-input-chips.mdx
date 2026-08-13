@@ -5,15 +5,19 @@ description: "Web-Komponente msm-input-chips."
 
 `msm-input-chips` ist eine Web-Komponente (Lit).
 
+## Zweck
+
 Wiederverwendbarer UI-Baustein.
+
+## Beispiel
 
 ```html
 <msm-input-chips></msm-input-chips>
 ```
 
-Attribute / Properties
+## Attribute / Properties
 
-| Name | Type | Default | Notes |
+| Name | Typ | Standard | Hinweise |
 | --- | --- | --- | --- |
 | `name` | string | - |  |
 | `leadingIcon` | object | - | property only |
@@ -29,7 +33,7 @@ Attribute / Properties
 | `required` | boolean | - |  |
 | `limited` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | Wann |
 | --- | --- | --- |
@@ -37,7 +41,7 @@ Events
 | `msm-chips-selected` | `item`, `selectedItems`, `selectedItemsIds` |  |
 | `msm-chips-removed` | `item`, `selectedItems`, `selectedItemsIds` |  |
 
-Beispiel
+### Beispiel
 
 ```html
 <msm-input-chips>
@@ -60,18 +64,18 @@ Beispiel
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 Keine `part`-Slots dokumentiert.
 
-Slots
+## Slots
 
 Keine Slots dokumentiert.
 
-Methoden
+## Methoden
 
 - `validate()`
 
-Hinweise
+## Hinweise
 
 - Custom events bubble.

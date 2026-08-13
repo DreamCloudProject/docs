@@ -5,13 +5,17 @@ description: "Delivery selection component based on the CDEK widget."
 
 `msm-cdek-widget` is a web component built with Lit.
 
+## Purpose
+
 Let users choose a delivery option/address and handle emitted events to update the order.
+
+## Usage
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
 ```
 
-Attributes / properties
+## Attributes / properties
 
 | Name | Type | Default | Notes |
 | --- | --- | --- | --- |
@@ -21,14 +25,14 @@ Attributes / properties
 | `disabled` | boolean | - |  |
 | `required` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | When |
 | --- | --- | --- |
 | `msm-delivery-calculated` | `prices`, `address` |  |
 | `msm-address-selected` | `type`, `deliveryAmount`, `shippingAddress`, `metaInfo` |  |
 
-Usage
+### Usage
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID">
@@ -47,21 +51,20 @@ Usage
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 
-Slots
+## Slots
 
 No documented slots.
 
-Methods
+## Methods
 
 - `validate()`
 
-Notes
+## Notes
 
-- Geolocation is requested only when supported by the browser.
 - Geolocation is only requested on HTTPS pages (browser limitation).
 - Custom events bubble.

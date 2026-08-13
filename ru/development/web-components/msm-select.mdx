@@ -5,28 +5,32 @@ description: "Web-компонент msm-select."
 
 `msm-select` — web-компонент на Lit.
 
+## Назначение
+
 Поля форм и элементы управления.
+
+## Пример
 
 ```html
 <msm-select value="msm-select"></msm-select>
 ```
 
-Атрибуты / свойства
+## Атрибуты / свойства
 
-| Name | Type | Default | Notes |
+| Имя | Тип | По умолчанию | Примечания |
 | --- | --- | --- | --- |
 | `theme` | string | - |  |
 | `type` | MenuItemType | - |  |
 | `value` | string | - |  |
 | `selected` | boolean | - |  |
 
-События
+## События
 
-| Event | detail | Когда |
+| Событие | detail | Когда |
 | --- | --- | --- |
 | `msm-item-change` | `label`, `selected` |  |
 
-Пример
+### Пример
 
 ```html
 <msm-select value="msm-select">
@@ -41,23 +45,23 @@ description: "Web-компонент msm-select."
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 - `prefix`
 - `suffix`
 
-Слоты
+## Слоты
 
 - `slot[name="prefix"]`
 - `slot`
 - `slot[name="suffix"]`
 
-Методы
+## Методы
 
 - `validate()`
 
-Примечания
+## Примечания
 
 - Custom events bubble.

@@ -5,28 +5,32 @@ description: "Web-Komponente msm-select."
 
 `msm-select` ist eine Web-Komponente (Lit).
 
+## Zweck
+
 Formulareingaben und UI-Controls.
+
+## Beispiel
 
 ```html
 <msm-select value="msm-select"></msm-select>
 ```
 
-Attribute / Properties
+## Attribute / Properties
 
-| Name | Type | Default | Notes |
+| Name | Typ | Standard | Hinweise |
 | --- | --- | --- | --- |
 | `theme` | string | - |  |
 | `type` | MenuItemType | - |  |
 | `value` | string | - |  |
 | `selected` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | Wann |
 | --- | --- | --- |
 | `msm-item-change` | `label`, `selected` |  |
 
-Beispiel
+### Beispiel
 
 ```html
 <msm-select value="msm-select">
@@ -41,23 +45,23 @@ Beispiel
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 - `prefix`
 - `suffix`
 
-Slots
+## Slots
 
 - `slot[name="prefix"]`
 - `slot`
 - `slot[name="suffix"]`
 
-Methoden
+## Methoden
 
 - `validate()`
 
-Hinweise
+## Hinweise
 
 - Custom events bubble.

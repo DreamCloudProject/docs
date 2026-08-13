@@ -5,15 +5,19 @@ description: "Web-компонент msm-image-upload."
 
 `msm-image-upload` — web-компонент на Lit.
 
+## Назначение
+
 Отображение медиа (изображения/видео).
+
+## Пример
 
 ```html
 <msm-image-upload></msm-image-upload>
 ```
 
-Атрибуты / свойства
+## Атрибуты / свойства
 
-| Name | Type | Default | Notes |
+| Имя | Тип | По умолчанию | Примечания |
 | --- | --- | --- | --- |
 | `variant` | string | `UploadType.fromValue(this.variant).name` |  |
 | `command` | string | - |  |
@@ -22,14 +26,14 @@ description: "Web-компонент msm-image-upload."
 | `src` | string | - |  |
 | `required` | boolean | - |  |
 
-События
+## События
 
-| Event | detail | Когда |
+| Событие | detail | Когда |
 | --- | --- | --- |
 | `msm-image-upload` | `imageUrl` |  |
 | `msm-image-remove` | `imageUrl` |  |
 
-Пример
+### Пример
 
 ```html
 <msm-image-upload>
@@ -48,18 +52,18 @@ description: "Web-компонент msm-image-upload."
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 
-Слоты
+## Слоты
 
 Документированных слотов нет.
 
-Методы
+## Методы
 
 - `validate()`
 
-Примечания
+## Примечания
 
 - Custom events bubble.

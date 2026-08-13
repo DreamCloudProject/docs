@@ -5,15 +5,19 @@ description: "Web-Komponente msm-user-delivery."
 
 `msm-user-delivery` ist eine Web-Komponente (Lit).
 
+## Zweck
+
 UI-Bausteine für Benutzer/Account.
+
+## Beispiel
 
 ```html
 <msm-user-delivery order-id="ORDER_ID"></msm-user-delivery>
 ```
 
-Attribute / Properties
+## Attribute / Properties
 
-| Name | Type | Default | Notes |
+| Name | Typ | Standard | Hinweise |
 | --- | --- | --- | --- |
 | `isShowError` | boolean | `false` | property only |
 | `isLogged` | boolean | - | property only |
@@ -26,13 +30,13 @@ Attribute / Properties
 | `show-radio` | boolean | `false` |  |
 | `required` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | Wann |
 | --- | --- | --- |
 | `select` | `address` |  |
 
-Beispiel
+### Beispiel
 
 ```html
 <msm-user-delivery order-id="ORDER_ID">
@@ -47,19 +51,19 @@ Beispiel
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 
-Slots
+## Slots
 
 Keine Slots dokumentiert.
 
-Methoden
+## Methoden
 
 - `validate()`
 
-Hinweise
+## Hinweise
 
 - Custom events bubble.

@@ -5,13 +5,17 @@ description: "Web component msm-select-item."
 
 `msm-select-item` is a web component built with Lit.
 
+## Purpose
+
 Render form inputs and UI controls.
+
+## Usage
 
 ```html
 <msm-select-item value="msm-select-item"></msm-select-item>
 ```
 
-Attributes / properties
+## Attributes / properties
 
 | Name | Type | Default | Notes |
 | --- | --- | --- | --- |
@@ -20,13 +24,13 @@ Attributes / properties
 | `value` | string | - |  |
 | `selected` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | When |
 | --- | --- | --- |
 | `msm-item-change` | `label`, `selected` |  |
 
-Usage
+### Usage
 
 ```html
 <msm-select-item value="msm-select-item">
@@ -41,23 +45,23 @@ Usage
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 - `prefix`
 - `suffix`
 
-Slots
+## Slots
 
 - `slot[name="prefix"]`
 - `slot`
 - `slot[name="suffix"]`
 
-Methods
+## Methods
 
 - `validate()`
 
-Notes
+## Notes
 
 - Custom events bubble.

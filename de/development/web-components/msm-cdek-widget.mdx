@@ -5,15 +5,19 @@ description: "Web-Komponente msm-cdek-widget."
 
 `msm-cdek-widget` ist eine Web-Komponente (Lit).
 
+## Zweck
+
 Ermöglicht die Auswahl einer Lieferoption/-adresse und feuert Events zur Aktualisierung der Bestellung.
+
+## Beispiel
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
 ```
 
-Attribute / Properties
+## Attribute / Properties
 
-| Name | Type | Default | Notes |
+| Name | Typ | Standard | Hinweise |
 | --- | --- | --- | --- |
 | `delivery-type` | string | `"door"` |  |
 | `order-id` | string | - |  |
@@ -21,14 +25,14 @@ Attribute / Properties
 | `disabled` | boolean | - |  |
 | `required` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | Wann |
 | --- | --- | --- |
 | `msm-delivery-calculated` | `prices`, `address` |  |
 | `msm-address-selected` | `type`, `deliveryAmount`, `shippingAddress`, `metaInfo` |  |
 
-Beispiel
+### Beispiel
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID">
@@ -47,21 +51,20 @@ Beispiel
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 
-Slots
+## Slots
 
 Keine Slots dokumentiert.
 
-Methoden
+## Methoden
 
 - `validate()`
 
-Hinweise
+## Hinweise
 
-- Geolocation is requested only when supported by the browser.
 - Geolocation is only requested on HTTPS pages (browser limitation).
 - Custom events bubble.

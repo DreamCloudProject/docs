@@ -5,13 +5,17 @@ description: "Web component msm-user-delivery."
 
 `msm-user-delivery` is a web component built with Lit.
 
+## Purpose
+
 Provide user/account UI building blocks.
+
+## Usage
 
 ```html
 <msm-user-delivery order-id="ORDER_ID"></msm-user-delivery>
 ```
 
-Attributes / properties
+## Attributes / properties
 
 | Name | Type | Default | Notes |
 | --- | --- | --- | --- |
@@ -26,13 +30,13 @@ Attributes / properties
 | `show-radio` | boolean | `false` |  |
 | `required` | boolean | - |  |
 
-Events
+## Events
 
 | Event | detail | When |
 | --- | --- | --- |
 | `select` | `address` |  |
 
-Usage
+### Usage
 
 ```html
 <msm-user-delivery order-id="ORDER_ID">
@@ -47,19 +51,19 @@ Usage
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 
-Slots
+## Slots
 
 No documented slots.
 
-Methods
+## Methods
 
 - `validate()`
 
-Notes
+## Notes
 
 - Custom events bubble.

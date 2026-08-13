@@ -5,15 +5,19 @@ description: "Web-компонент msm-cdek-widget."
 
 `msm-cdek-widget` — web-компонент на Lit.
 
+## Назначение
+
 Позволяет выбрать способ/адрес доставки и генерирует события для обновления заказа.
+
+## Пример
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
 ```
 
-Атрибуты / свойства
+## Атрибуты / свойства
 
-| Name | Type | Default | Notes |
+| Имя | Тип | По умолчанию | Примечания |
 | --- | --- | --- | --- |
 | `delivery-type` | string | `"door"` |  |
 | `order-id` | string | - |  |
@@ -21,14 +25,14 @@ description: "Web-компонент msm-cdek-widget."
 | `disabled` | boolean | - |  |
 | `required` | boolean | - |  |
 
-События
+## События
 
-| Event | detail | Когда |
+| Событие | detail | Когда |
 | --- | --- | --- |
 | `msm-delivery-calculated` | `prices`, `address` |  |
 | `msm-address-selected` | `type`, `deliveryAmount`, `shippingAddress`, `metaInfo` |  |
 
-Пример
+### Пример
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID">
@@ -47,21 +51,20 @@ description: "Web-компонент msm-cdek-widget."
 </script>
 ```
 
-CSS parts
+## CSS parts
 
 - `base`
 - `label`
 
-Слоты
+## Слоты
 
 Документированных слотов нет.
 
-Методы
+## Методы
 
 - `validate()`
 
-Примечания
+## Примечания
 
-- Geolocation is requested only when supported by the browser.
 - Geolocation is only requested on HTTPS pages (browser limitation).
 - Custom events bubble.

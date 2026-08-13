@@ -1,0 +1,240 @@
+---
+title: 'Введение'
+description: 'Как вызывать API MastermindCMS (WebSocket/STOMP и REST)'
+---
+
+В MastermindCMS используются два стиля API:
+
+- WebSocket API (STOMP) для интерактивных, событийных запросов и SSR/UI-обновлений
+- REST API для аутентификации и операций с файлами/данными (и HTTP-фолбэк для сервисных вызовов)
+
+## WebSocket API (STOMP)
+
+MastermindCMS предоставляет STOMP-брокер поверх WebSocket:
+
+- Native WebSocket endpoint: `/ws`
+- SockJS fallback endpoint: `/sock`
+- Application destination prefix: `/request`
+- Broker destinations: `/topic/**`, `/user/topic/**` и `/queue/**`
+
+### Подписки
+
+Стандартные JSON-ответы:
+
+- `/topic/msm/json`
+- `/user/topic/msm/json`
+
+Стандартные HTML-ответы рендера (SSR):
+
+- `/topic/msm/render`
+- `/user/topic/msm/render`
+
+Бэкенд также может публиковать доменные события в произвольные destinations внутри `/topic/**` (например `/topic/jobs`, `/topic/job/{id}`, `/topic/order/{id}`, `/topic/customer/{id}`).
+
+### Destinations для publish
+
+Рендер (SSR):
+
+| Destination | Назначение |
+| --- | --- |
+| `/request/msm/render` | Рендер текущей страницы или отдельных элементов |
+| `/request/beans/invoke` | Вызвать метод сервиса и затем отрендерить |
+| `/request/beans/update` | Обновить bean и затем отрендерить |
+| `/request/repository/call` | Вызовы репозитория и затем рендер |
+| `/request/documents` | Операции с документами БД и затем рендер |
+
+JSON:
+
+| Destination | Назначение |
+| --- | --- |
+| `/request/json/bean/INVOKE` | Вызов метода backend-сервиса (reflection-based) |
+| `/request/json/bean/UPDATE` | Обновление backend-bean (payload-based) |
+| `/request/json/repository/INVOKE` | Чтение из репозитория |
+| `/request/json/repository/UPDATE` | Запись/обновление через репозиторий |
+| `/request/json/database` | Операции с документами БД (`READ`, `ADD`, `REMOVE`) |
+| `/request/notifier` | Публикация notification-пейлоада в topic |
+
+### Формат запроса и ответа
+
+Все WebSocket-запросы основаны на `BasicRequestMessage`:
+
+- `path`: путь текущей страницы (контекст запроса)
+- `payload`: опциональные данные (зависит от destination)
+- `elements`: опциональный список payload’ов элементов для частичных обновлений
+- `actionId`: опциональный correlation id (рекомендуется)
+- `eventType`: `USER`, `SHARED` или `GLOBAL`
+- `sharedEndpoint`: опциональный логический endpoint (ответ приходит в `/topic/<sharedEndpoint>`)
+
+Специализированные сообщения добавляют поля:
+
+- `BeanRequestMessage`: `scope`, `beanId`, `functionName`, `args`
+- `RepositoryRequestMessage`: `repositoryId`, `requestType`
+- `DocumentRequestMessage`: `databaseName`, `collectionName`, `requestType`
+
+JSON-ответ имеет вид:
+
+```json
+{
+  "result": {},
+  "actionId": "a1b2c3d4e5f6"
+}
+```
+
+### Пример (browser)
+
+```js
+import { Client } from "@stomp/stompjs";
+import SockJS from "sockjs-client";
+
+const client = new Client({
+  // brokerURL: "wss://example.com/ws",
+  webSocketFactory: () => new SockJS("/sock"),
+  reconnectDelay: 2000,
+});
+
+client.onConnect = () => {
+  client.subscribe("/user/topic/msm/json", (msg) => {
+    console.log("JSON response", JSON.parse(msg.body));
+  });
+
+  const actionId = Math.random().toString(16).slice(2, 14);
+
+  client.publish({
+    destination: "/request/json/bean/INVOKE",
+    headers: {
+      // Опционально: JWT как native STOMP header
+      // Authorization: "Bearer <token>",
+    },
+    body: JSON.stringify({
+      path: "/current/page",
+      scope: "PROTOTYPE",
+      beanId: "someServiceImpl",
+      functionName: "someMethod",
+      args: [{ 0: { query: {}, language: "en" } }],
+      actionId,
+      eventType: "USER",
+    }),
+  });
+};
+
+client.activate();
+```
+
+### Примечания по авторизации
+
+- JSON-обработчики WebSocket могут принимать JWT через native header `Authorization: Bearer <token>`.
+- Для части операций нужны повышенные права (например обновления репозитория и запись в БД). При отсутствии доступа бэкенд отвечает `{ "error": "Access denied", ... }`.
+
+## REST API
+
+REST используется для:
+
+- аутентификации (`/api/v1/authenticate`, `/api/v1/logout`, операции с токеном)
+- операций с файлами/данными (upload/remove/download)
+- экспорта отчётов и получения ассетов
+- интеграций (например, провайдеры доставки/оплаты)
+- HTTP-фолбэка для сервисных вызовов (`/api/v1/bean/request`)
+
+### Общие заголовки
+
+Некоторые endpoints (в частности `/api/v1/bean/request`) требуют заголовки контекста:
+
+| Header | Пример | Назначение |
+| --- | --- | --- |
+| `Site-Context` | `my-site` | Контекст сайта |
+| `Lang-Context` | `en` | Контекст языка |
+| `Authorization` | `Bearer <token>` | Опциональный bearer token |
+
+### Аутентификация
+
+`POST /api/v1/authenticate` аутентифицирует пользователя (обычно через session/remember-me cookies).
+
+Чтобы получить JWT для API-вызовов, используйте `POST /api/v1/auth/token` (возвращает `{ token, expires }`). Проверить токен можно через `POST /api/v1/auth/validate-token`.
+
+`POST /api/v1/logout` выполняет logout текущей сессии и ожидает JSON body с `role` (например `"user"` или `"admin"`).
+
+### Универсальный сервисный вызов по HTTP
+
+`POST /api/v1/bean/request` вызывает метод backend-bean тем же reflection-based механизмом, что и WebSocket API.
+
+Обязательные заголовки:
+
+- `Site-Context`
+- `Lang-Context`
+
+Пример запроса:
+
+```json
+{
+  "beanId": "someServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "someMethod",
+  "args": [
+    {
+      "0": {
+        "query": {},
+        "language": "en"
+      }
+    }
+  ]
+}
+```
+
+Пример ответа:
+
+```json
+{
+  "result": {}
+}
+```
+
+### Upload, download, assets, reports
+
+| Endpoint | Method | Назначение |
+| --- | --- | --- |
+| `/api/v1/uploadImage` | `POST` | Загрузка изображения (multipart: `file`, `payload`, опционально `command`) |
+| `/api/v1/removeImage` | `POST` | Удаление изображения (multipart: `payload`, опционально `command`) |
+| `/api/v1/uploadData` | `POST` | Загрузка файла/документа (multipart: `file`, `payload`, опционально `id`, опционально `command`) |
+| `/api/v1/removeDocument` | `POST` | Удаление файла/документа (multipart: `payload`, опционально `id`, опционально `command`) |
+| `/api/v1/downloadData` | `GET` | Скачивание файла/документа (query: `pathName`, опционально `fileName`) |
+| `/api/v1/images` | `POST` | Список изображений для asset manager (multipart: `path`, `urlPrefix`) |
+| `/api/v1/downloadReportsData` | `POST` | Скачивание сформированного отчёта (multipart: `payload`, `command`) |
+
+Пример: загрузка изображения
+
+```js
+const formData = new FormData();
+formData.append("file", file);
+formData.append("payload", JSON.stringify({ destination: "/local/images" }));
+formData.append("command", "UPLOAD_IMAGE");
+
+const res = await fetch("/api/v1/uploadImage", { method: "POST", body: formData });
+const json = await res.json(); // например { url: "...", name: "..." }
+```
+
+Пример: экспорт отчёта
+
+```js
+const formData = new FormData();
+formData.append("payload", JSON.stringify({ fileName: "report.csv", searchRequest: {/* ... */} }));
+formData.append("command", "EXPORT_SEARCH_DATA_DUMP");
+
+const res = await fetch("/api/v1/downloadReportsData", { method: "POST", body: formData });
+const blob = await res.blob();
+```
+
+### Интеграции доставки и оплаты
+
+Некоторые интеграции доступны как REST endpoints и используются соответствующими UI-компонентами. Примеры:
+
+- `/api/v1/cdek` (сервис/прокси для виджета доставки)
+- `/api/v1/yookassa` (интеграция оплаты)
+
+### Сброс пароля и верификация
+
+Если включены email/password flows, MastermindCMS может предоставлять endpoints:
+
+- `/api/v1/auth/verify`
+- `/api/v1/auth/reset-password`
+- `/api/v1/auth/change-password`
+- `/api/v1/auth/save-password`

@@ -1,0 +1,240 @@
+---
+title: 'Einführung'
+description: 'Wie MastermindCMS APIs aufgerufen werden (WebSocket/STOMP und REST)'
+---
+
+Dieser Abschnitt erklärt die zwei API-Stile, die MastermindCMS-Clients verwenden:
+
+- WebSocket API (STOMP) für interaktive, ereignisbasierte Requests und SSR/UI-Updates
+- REST API für Authentifizierung sowie Datei-/Daten-Operationen (und ein HTTP-Fallback für Service-Calls)
+
+## WebSocket API (STOMP)
+
+MastermindCMS stellt einen STOMP-Broker über WebSocket bereit:
+
+- Native WebSocket-Endpoint: `/ws`
+- SockJS-Fallback-Endpoint: `/sock`
+- Application Destination Prefix: `/request`
+- Broker Destinations: `/topic/**`, `/user/topic/**` und `/queue/**`
+
+### Subscribe
+
+Standard-JSON-Responses:
+
+- `/topic/msm/json`
+- `/user/topic/msm/json`
+
+Standard-HTML-(SSR)-Render-Responses:
+
+- `/topic/msm/render`
+- `/user/topic/msm/render`
+
+Das Backend kann außerdem Domain-Events an eigene Destinations unter `/topic/**` publizieren (z. B. `/topic/jobs`, `/topic/job/{id}`, `/topic/order/{id}`, `/topic/customer/{id}`).
+
+### Publish-Destinations
+
+Render (SSR):
+
+| Destination | Zweck |
+| --- | --- |
+| `/request/msm/render` | Aktuelle Seite oder bestimmte Elemente rendern |
+| `/request/beans/invoke` | Service-Methode aufrufen und danach rendern |
+| `/request/beans/update` | Bean aktualisieren und danach rendern |
+| `/request/repository/call` | Repository-Calls und danach rendern |
+| `/request/documents` | Datenbank-Dokument-Operationen und danach rendern |
+
+JSON:
+
+| Destination | Zweck |
+| --- | --- |
+| `/request/json/bean/INVOKE` | Backend-Service-Methode aufrufen (reflection-based) |
+| `/request/json/bean/UPDATE` | Backend-Bean aktualisieren (payload-based) |
+| `/request/json/repository/INVOKE` | Aus einem Repository lesen |
+| `/request/json/repository/UPDATE` | Über ein Repository schreiben/aktualisieren |
+| `/request/json/database` | Datenbank-Dokument-Operationen (`READ`, `ADD`, `REMOVE`) |
+| `/request/notifier` | Notification-Payload an ein Topic publizieren |
+
+### Request- und Response-Format
+
+Alle WebSocket-Requests basieren auf `BasicRequestMessage`:
+
+- `path`: aktueller Page-Pfad (Request-Kontext)
+- `payload`: optionale Daten (abhängig von der Destination)
+- `elements`: optionale Liste von Element-Payloads für Partial Updates
+- `actionId`: optionale Correlation-Id (empfohlen)
+- `eventType`: `USER`, `SHARED` oder `GLOBAL`
+- `sharedEndpoint`: optionaler logischer Endpoint-Name (Antwort kommt an `/topic/<sharedEndpoint>`)
+
+Spezialisierte Request-Messages ergänzen Felder:
+
+- `BeanRequestMessage`: `scope`, `beanId`, `functionName`, `args`
+- `RepositoryRequestMessage`: `repositoryId`, `requestType`
+- `DocumentRequestMessage`: `databaseName`, `collectionName`, `requestType`
+
+JSON-Responses haben die Form:
+
+```json
+{
+  "result": {},
+  "actionId": "a1b2c3d4e5f6"
+}
+```
+
+### Beispiel (Browser)
+
+```js
+import { Client } from "@stomp/stompjs";
+import SockJS from "sockjs-client";
+
+const client = new Client({
+  // brokerURL: "wss://example.com/ws",
+  webSocketFactory: () => new SockJS("/sock"),
+  reconnectDelay: 2000,
+});
+
+client.onConnect = () => {
+  client.subscribe("/user/topic/msm/json", (msg) => {
+    console.log("JSON response", JSON.parse(msg.body));
+  });
+
+  const actionId = Math.random().toString(16).slice(2, 14);
+
+  client.publish({
+    destination: "/request/json/bean/INVOKE",
+    headers: {
+      // Optional: JWT als native STOMP-Header
+      // Authorization: "Bearer <token>",
+    },
+    body: JSON.stringify({
+      path: "/current/page",
+      scope: "PROTOTYPE",
+      beanId: "someServiceImpl",
+      functionName: "someMethod",
+      args: [{ 0: { query: {}, language: "en" } }],
+      actionId,
+      eventType: "USER",
+    }),
+  });
+};
+
+client.activate();
+```
+
+### Hinweise zur Autorisierung
+
+- WebSocket-JSON-Handler akzeptieren optional ein JWT über den nativen Header `Authorization: Bearer <token>`.
+- Einige Operationen erfordern höhere Berechtigungen (z. B. Repository-Updates und Datenbank-Schreiboperationen). Bei fehlendem Zugriff antwortet das Backend mit `{ "error": "Access denied", ... }`.
+
+## REST API
+
+REST wird verwendet für:
+
+- Authentifizierung (`/api/v1/authenticate`, `/api/v1/logout`, Token-Operationen)
+- Datei- und Daten-Operationen (upload/remove/download)
+- Report-Export und Asset-Listing
+- Integrationen (z. B. Delivery/Payment Provider)
+- HTTP-Fallback für Service-Calls (`/api/v1/bean/request`)
+
+### Häufige Header
+
+Einige Endpoints (insbesondere `/api/v1/bean/request`) benötigen Context-Header:
+
+| Header | Beispiel | Zweck |
+| --- | --- | --- |
+| `Site-Context` | `my-site` | Site-Kontext |
+| `Lang-Context` | `en` | Sprachkontext |
+| `Authorization` | `Bearer <token>` | Optionales Bearer-Token |
+
+### Authentifizierung
+
+`POST /api/v1/authenticate` authentifiziert einen Benutzer (typischerweise via Session/Remember-me Cookies).
+
+Um ein JWT für API-Calls zu erhalten, nutze `POST /api/v1/auth/token` (liefert `{ token, expires }`). Ein Token kann mit `POST /api/v1/auth/validate-token` validiert werden.
+
+`POST /api/v1/logout` meldet die aktuelle Session ab und erwartet einen JSON-Body mit `role` (z. B. `"user"` oder `"admin"`).
+
+### Unified Service Call über HTTP
+
+`POST /api/v1/bean/request` ruft eine Backend-Bean-Methode über denselben reflection-based Mechanismus auf wie die WebSocket API.
+
+Erforderliche Header:
+
+- `Site-Context`
+- `Lang-Context`
+
+Request-Beispiel:
+
+```json
+{
+  "beanId": "someServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "someMethod",
+  "args": [
+    {
+      "0": {
+        "query": {},
+        "language": "en"
+      }
+    }
+  ]
+}
+```
+
+Response-Beispiel:
+
+```json
+{
+  "result": {}
+}
+```
+
+### Uploads, Downloads, Assets, Reports
+
+| Endpoint | Methode | Zweck |
+| --- | --- | --- |
+| `/api/v1/uploadImage` | `POST` | Bild hochladen (multipart: `file`, `payload`, optional `command`) |
+| `/api/v1/removeImage` | `POST` | Hochgeladenes Bild entfernen (multipart: `payload`, optional `command`) |
+| `/api/v1/uploadData` | `POST` | Datei/Dokument hochladen (multipart: `file`, `payload`, optional `id`, optional `command`) |
+| `/api/v1/removeDocument` | `POST` | Hochgeladene Datei/Dokument entfernen (multipart: `payload`, optional `id`, optional `command`) |
+| `/api/v1/downloadData` | `GET` | Datei/Dokument herunterladen (Query: `pathName`, optional `fileName`) |
+| `/api/v1/images` | `POST` | Bilder für einen Asset-Manager auflisten (multipart: `path`, `urlPrefix`) |
+| `/api/v1/downloadReportsData` | `POST` | Generierten Report herunterladen (multipart: `payload`, `command`) |
+
+Beispiel: Bild hochladen
+
+```js
+const formData = new FormData();
+formData.append("file", file);
+formData.append("payload", JSON.stringify({ destination: "/local/images" }));
+formData.append("command", "UPLOAD_IMAGE");
+
+const res = await fetch("/api/v1/uploadImage", { method: "POST", body: formData });
+const json = await res.json(); // z. B. { url: "...", name: "..." }
+```
+
+Beispiel: Report exportieren
+
+```js
+const formData = new FormData();
+formData.append("payload", JSON.stringify({ fileName: "report.csv", searchRequest: {/* ... */} }));
+formData.append("command", "EXPORT_SEARCH_DATA_DUMP");
+
+const res = await fetch("/api/v1/downloadReportsData", { method: "POST", body: formData });
+const blob = await res.blob();
+```
+
+### Delivery- und Payment-Integrationen
+
+Einige Integrationen sind als REST-Endpoints verfügbar und werden von entsprechenden UI-Komponenten genutzt. Beispiele:
+
+- `/api/v1/cdek` (Delivery Widget Service/Proxy)
+- `/api/v1/yookassa` (Payment Integration)
+
+### Passwort-Reset und Verifikation
+
+Wenn E-Mail/Passwort-Flows aktiviert sind, kann MastermindCMS Endpoints wie diese bereitstellen:
+
+- `/api/v1/auth/verify`
+- `/api/v1/auth/reset-password`
+- `/api/v1/auth/change-password`
+- `/api/v1/auth/save-password`

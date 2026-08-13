@@ -206,16 +206,7 @@
                   {
                     "group": "API Documentation",
                     "pages": [
-                      "api-reference/introduction"
-                    ]
-                  },
-                  {
-                    "group": "Endpoint Examples",
-                    "pages": [
-                      "api-reference/endpoint/get",
-                      "api-reference/endpoint/create",
-                      "api-reference/endpoint/delete",
-                      "api-reference/endpoint/webhook"
+                      "en/api-reference/introduction"
                     ]
                   }
                 ]
@@ -424,18 +415,9 @@
                 "tab": "API-Referenz",
                 "groups": [
                   {
-                    "group": "API Documentation",
+                    "group": "API-Dokumentation",
                     "pages": [
-                      "api-reference/introduction"
-                    ]
-                  },
-                  {
-                    "group": "Endpoint Examples",
-                    "pages": [
-                      "api-reference/endpoint/get",
-                      "api-reference/endpoint/create",
-                      "api-reference/endpoint/delete",
-                      "api-reference/endpoint/webhook"
+                      "de/api-reference/introduction"
                     ]
                   }
                 ]
@@ -644,18 +626,9 @@
                 "tab": "API-справочник",
                 "groups": [
                   {
-                    "group": "API Documentation",
+                    "group": "Документация API",
                     "pages": [
-                      "api-reference/introduction"
-                    ]
-                  },
-                  {
-                    "group": "Endpoint Examples",
-                    "pages": [
-                      "api-reference/endpoint/get",
-                      "api-reference/endpoint/create",
-                      "api-reference/endpoint/delete",
-                      "api-reference/endpoint/webhook"
+                      "ru/api-reference/introduction"
                     ]
                   }
                 ]

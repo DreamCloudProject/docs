@@ -1,0 +1,19 @@
+---
+title: 'Constants'
+description: 'Built-in client instance and helper exports'
+---
+
+This module provides access to the built-in browser client instance and a few core helpers.
+
+## Exports
+
+- `MSM2App`: the shared client instance created by the library
+- `MSM2AuthHelper`: authentication helper (`MSM2.App.AuthHelper`)
+- `MSM2HtmlHelper`: HTML helper (`MSM2.App.HtmlHelper`)
+- `MSM2ScriptHelper`: script loading helper (`MSM2.App.ScriptHelper`)
+
+## Notes
+
+- You don’t need to create `new MSM2.App()` yourself when you use `msm-components`.
+- `MSM2` must already exist in the browser at the moment `msm-components` is loaded.
+

@@ -1,72 +1,33 @@
 ---
-title: 'Сервисы msm-components'
-description: 'Использование сервисных хелперов из библиотеки web-компонентов'
+title: 'Модуль компонентов'
+description: 'Сервисные хелперы, которые доступны при подключении msm-components'
 ---
 
-Этот подход подходит, если вы уже используете библиотеку web-компонентов и хотите переиспользовать её сервисный слой, не реализуя low-level WebSocket/STOMP вызовы вручную.
+Если вы используете `msm-components`, у вас уже есть небольшой набор клиентских хелперов.
 
-## Предварительные условия
+Важное поведение:
 
-Сервисы предполагают, что браузерный клиент `MSM2` доступен и инициализирован:
+- Библиотека создаёт инстанс встроенного браузерного клиента внутри себя (через `Constants.js`), поэтому вам не нужно инициализировать `MSM2.App` вручную.
+- Глобальный namespace `MSM2` должен быть доступен в браузере до загрузки `msm-components`.
 
-```js
-window.app = window.app || new MSM2.App();
-```
+## Сервисы
 
-### Как используется `MSM2App`
+Выберите хелпер:
 
-Внутри библиотеки `MSM2App` — это алиас на инициализированный глобальный клиент:
+<CardGroup cols="2">
+  <Card title="Constants" icon="bolt" href="/ru/api-reference/clients/msm-components/constants">
+    Доступ к клиентскому инстансу и базовым хелперам (AuthHelper, HtmlHelper, ScriptHelper).
+  </Card>
 
-```js
-window.app = window.app || new MSM2.App();
-export const MSM2App = window.app;
-```
+  <Card title="Utils" icon="wrench" href="/ru/api-reference/clients/msm-components/utils">
+    Универсальные сервисные вызовы, вызовы репозитория, обновление bean, cookies и прочие хелперы.
+  </Card>
 
-Дальше сервисы и компоненты вызывают WebSocket-хелперы через `MSM2App`, не обращаясь напрямую к `window.app`.
+  <Card title="TranslationManager" icon="language" href="/ru/api-reference/clients/msm-components/translation-manager">
+    Хелперы переводов, ленивое получение переводов и интеграция i18next.
+  </Card>
 
-## Что дают сервисы
-
-В библиотеке есть JavaScript‑сервисы, которые оборачивают типовые API‑вызовы:
-
-- сервисные вызовы через WebSocket JSON (`/request/json/bean/INVOKE`)
-- вызовы репозитория через WebSocket JSON (`/request/json/repository/*`)
-- загрузки/скачивания через REST (`/api/v1/uploadImage`, `/api/v1/uploadData`, `/api/v1/downloadData`, …)
-- хелперы аутентификации (REST login/logout и token flows)
-
-В типичной конфигурации сервисы предоставляют:
-
-- `MSM2App` как алиас для `window.app`
-- хелперы вроде `MSM2AuthHelper`, `MSM2HtmlHelper`, `MSM2ScriptHelper`
-
-## Пример: вызов backend-сервиса
-
-Многие сервисы — это тонкие обёртки над универсальной функцией (часто `callService`), которая внутри использует `MSM2App.invokeAndGetJson$`.
-
-```js
-// Псевдокод: путь импорта зависит от сборки/бандлера
-import { callService } from "msm-components/services/Utils.js";
-
-const res = await callService(
-  "someServiceImpl",
-  "PROTOTYPE",
-  "someMethod",
-  [{ query: {} }],
-  "USER"
-);
-
-console.log(res.result);
-```
-
-Внутри это обычно сводится к WebSocket JSON вызову примерно такого вида:
-
-```js
-MSM2App.invokeAndGetJson$(beanId, scope, functionName, args, null, eventType, endpoint)
-  .subscribe((e) => {
-    // e.result содержит результат вызова
-  });
-```
-
-## Примечания
-
-- Сервисный слой рассчитан на совместную работу с web-компонентами и их dataflow.
-- Если нужен полный контроль или среда не браузерная, лучше использовать подход Свой клиент.
+  <Card title="RouteManager" icon="route" href="/ru/api-reference/clients/msm-components/route-manager">
+    Простой хелпер клиентского роутинга.
+  </Card>
+</CardGroup>

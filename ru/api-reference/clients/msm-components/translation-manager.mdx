@@ -1,0 +1,37 @@
+---
+title: 'TranslationManager'
+description: 'Хелперы переводов, которые экспортирует msm-components'
+---
+
+`TranslationManager` оборачивает i18next и добавляет хелперы для получения переводов из MastermindCMS.
+
+## Инициализация
+
+Перед использованием `translate()` один раз задайте путь к JSON с локалями:
+
+```js
+setLocalesPath("/path/to/locales/{{lng}}.json");
+```
+
+## Экспорты
+
+Через `msm-components` можно использовать:
+
+- `setLocalesPath(loadPath)`
+- `translate(...args)`
+- `translations` (proxy для ленивого доступа к переводам)
+- `tr(key, repository?)` (загружает/возвращает один перевод)
+- `loadTranslation(key, repository?)`
+- `loadManyTranslations(...keys)`
+- `loadByLangCodeForEntity(entityId, lang, repository?)`
+- `loadByLangCode(key, lang)`
+- `loadTranslationById(id)`
+- `clearTranslationsCache()`
+- `getLanguages()`
+- `getAlphabetForActiveLanguage()`
+
+## Примечания
+
+- Если `setLocalesPath()` не был вызван, функции переводов выбросят ошибку, чтобы проблема конфигурации была сразу заметна.
+- Внутри используется универсальный механизм сервисных вызовов (service/repository), поэтому это опирается на инстанс встроенного клиента, который предоставляет `msm-components`.
+

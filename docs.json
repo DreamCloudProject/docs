@@ -204,12 +204,21 @@
                 "tab": "API Reference",
                 "groups": [
                   {
-                    "group": "API Documentation",
+                    "group": "Client integration",
                     "pages": [
                       "en/api-reference/introduction",
                       "en/api-reference/clients/custom-client",
                       "en/api-reference/clients/built-in-client",
                       "en/api-reference/clients/msm-components"
+                    ]
+                  },
+                  {
+                    "group": "Services",
+                    "pages": [
+                      "en/api-reference/clients/msm-components/constants",
+                      "en/api-reference/clients/msm-components/utils",
+                      "en/api-reference/clients/msm-components/translation-manager",
+                      "en/api-reference/clients/msm-components/route-manager"
                     ]
                   }
                 ]
@@ -226,7 +235,20 @@
             "icon": "newspaper",
             "href": "https://mastermindcms.com/"
           }
-        ]
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "Support",
+              "href": "mailto:info@mastermindcms.com"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Account",
+            "href": "https://mastermindcms.com"
+          }
+        }
       },
       {
         "language": "de",
@@ -418,12 +440,21 @@
                 "tab": "API-Referenz",
                 "groups": [
                   {
-                    "group": "API-Dokumentation",
+                    "group": "Client-Integration",
                     "pages": [
                       "de/api-reference/introduction",
                       "de/api-reference/clients/custom-client",
                       "de/api-reference/clients/built-in-client",
                       "de/api-reference/clients/msm-components"
+                    ]
+                  },
+                  {
+                    "group": "Services",
+                    "pages": [
+                      "de/api-reference/clients/msm-components/constants",
+                      "de/api-reference/clients/msm-components/utils",
+                      "de/api-reference/clients/msm-components/translation-manager",
+                      "de/api-reference/clients/msm-components/route-manager"
                     ]
                   }
                 ]
@@ -440,7 +471,20 @@
             "icon": "newspaper",
             "href": "https://mastermindcms.com/"
           }
-        ]
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "Support",
+              "href": "mailto:info@mastermindcms.com"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Konto",
+            "href": "https://mastermindcms.com"
+          }
+        }
       },
       {
         "language": "ru",
@@ -632,12 +676,21 @@
                 "tab": "API-справочник",
                 "groups": [
                   {
-                    "group": "Документация API",
+                    "group": "Клиенты",
                     "pages": [
                       "ru/api-reference/introduction",
                       "ru/api-reference/clients/custom-client",
                       "ru/api-reference/clients/built-in-client",
                       "ru/api-reference/clients/msm-components"
+                    ]
+                  },
+                  {
+                    "group": "Сервисы",
+                    "pages": [
+                      "ru/api-reference/clients/msm-components/constants",
+                      "ru/api-reference/clients/msm-components/utils",
+                      "ru/api-reference/clients/msm-components/translation-manager",
+                      "ru/api-reference/clients/msm-components/route-manager"
                     ]
                   }
                 ]
@@ -654,26 +707,26 @@
             "icon": "newspaper",
             "href": "https://mastermindcms.com/"
           }
-        ]
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "Поддержка",
+              "href": "mailto:info@mastermindcms.com"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Аккаунт",
+            "href": "https://mastermindcms.com"
+          }
+        }
       }
     ]
   },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:info@mastermindcms.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Account",
-      "href": "https://mastermindcms.com"
-    }
   },
   "footer": {
     "socials": {

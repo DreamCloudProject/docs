@@ -1,0 +1,43 @@
+---
+title: 'Utils'
+description: 'Unified Calls und allgemeine Helper, die msm-components exportiert'
+---
+
+`Utils` stellt kleine Helper-Funktionen bereit, die von vielen Components und Services genutzt werden.
+
+## Unified WebSocket Calls
+
+Diese Helper verwenden die Built-in Client-Instanz (exportiert als `MSM2App`), um die Unified WebSocket JSON API aufzurufen:
+
+- `callService(beanId, scope, functionName, args, eventType?, endpoint?)`
+- `callRepository(repositoryId, query, eventType?, endpoint?)`
+- `updateBean(beanId, scope, payload, eventType?, endpoint?)`
+
+## Context- und Settings-Helper
+
+- `getLangCode()`
+- `getActiveLanguages()`
+- `getLanguageDetection()`
+- `getWebSiteSettings()`
+- `getCdnFolder()`
+- `getSecuredFolder()`
+- `getSeoUrl(entityId, repositoryName)`
+- `getSuperUserLogin()`
+- `getAttributeTypes()`
+- `getAttributeAreaTypes()`
+- `getFormattedDate(date, pattern)`
+- `isLogged()`
+- `getLoggedProfile()`
+- `isOpenAiActive()`
+
+## Cookies- und URL-Helper
+
+- `getCookie(name)`
+- `setCookie(name, value, expires?, domain?, path?)`
+- `deleteAllCookies(ignore)`
+- `getDomainName()`
+- `languageAwareUrl(url)`
+- `setPlatformInfo()`
+- `escapeRegExp(string)`
+- `getPayloadOfForm(element)`
+

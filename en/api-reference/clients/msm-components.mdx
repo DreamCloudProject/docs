@@ -1,72 +1,33 @@
 ---
-title: 'msm-components services'
-description: 'Use the service helpers that come with the web components library'
+title: 'Components Module'
+description: 'Service helpers you can use when you add msm-components to your project'
 ---
 
-Use this approach when you already use the web components library and want to reuse its service layer instead of writing low-level WebSocket/STOMP calls.
+When you use `msm-components`, a small set of client-side helpers is already available.
 
-## Prerequisites
+Important behavior:
 
-The services assume the `MSM2` browser client is available and initialized:
+- The library creates the built-in browser client instance internally (via `Constants.js`), so you don’t need to initialize `MSM2.App` yourself.
+- The global `MSM2` namespace still must be available in the browser before `msm-components` is loaded.
 
-```js
-window.app = window.app || new MSM2.App();
-```
+## Services
 
-### How `MSM2App` is used
+Choose a helper:
 
-Inside the library, `MSM2App` is an alias for the initialized global client:
+<CardGroup cols="2">
+  <Card title="Constants" icon="bolt" href="/en/api-reference/clients/msm-components/constants">
+    Access the built-in client instance and core helpers (AuthHelper, HtmlHelper, ScriptHelper).
+  </Card>
 
-```js
-window.app = window.app || new MSM2.App();
-export const MSM2App = window.app;
-```
+  <Card title="Utils" icon="wrench" href="/en/api-reference/clients/msm-components/utils">
+    Unified service calls, repository calls, bean updates, cookies, and common helpers.
+  </Card>
 
-Services and components then call WebSocket helpers through `MSM2App` instead of accessing `window.app` directly.
+  <Card title="TranslationManager" icon="language" href="/en/api-reference/clients/msm-components/translation-manager">
+    Translation helpers, lazy translation loading, and i18next integration.
+  </Card>
 
-## What the services provide
-
-The library includes JavaScript services that wrap common API calls:
-
-- service calls via WebSocket JSON (`/request/json/bean/INVOKE`)
-- repository calls via WebSocket JSON (`/request/json/repository/*`)
-- uploads/downloads via REST (`/api/v1/uploadImage`, `/api/v1/uploadData`, `/api/v1/downloadData`, …)
-- auth helpers (REST login/logout and token flows)
-
-In typical setups, the services expose:
-
-- `MSM2App` as an alias for `window.app`
-- helpers like `MSM2AuthHelper`, `MSM2HtmlHelper`, `MSM2ScriptHelper`
-
-## Example: call a backend service
-
-Many services are thin wrappers around a generic helper (often called `callService`) which internally uses `MSM2App.invokeAndGetJson$`.
-
-```js
-// Pseudocode: import path depends on your bundler setup
-import { callService } from "msm-components/services/Utils.js";
-
-const res = await callService(
-  "someServiceImpl",
-  "PROTOTYPE",
-  "someMethod",
-  [{ query: {} }],
-  "USER"
-);
-
-console.log(res.result);
-```
-
-Under the hood, this typically resolves a WebSocket JSON call via:
-
-```js
-MSM2App.invokeAndGetJson$(beanId, scope, functionName, args, null, eventType, endpoint)
-  .subscribe((e) => {
-    // e.result contains the service result
-  });
-```
-
-## Notes
-
-- The service layer is designed to work together with the web components and their data flow.
-- If you need full control or you are not running in a browser, prefer the Custom client approach.
+  <Card title="RouteManager" icon="route" href="/en/api-reference/clients/msm-components/route-manager">
+    Simple client-side routing helper.
+  </Card>
+</CardGroup>

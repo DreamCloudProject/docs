@@ -1,0 +1,19 @@
+---
+title: 'Constants'
+description: 'Built-in Client-Instanz und Helper-Exports'
+---
+
+Dieses Modul stellt Zugriff auf die Built-in Browser-Client-Instanz und einige Core-Helper bereit.
+
+## Exports
+
+- `MSM2App`: die geteilte Client-Instanz, die von der Bibliothek erzeugt wird
+- `MSM2AuthHelper`: Auth-Helper (`MSM2.App.AuthHelper`)
+- `MSM2HtmlHelper`: HTML-Helper (`MSM2.App.HtmlHelper`)
+- `MSM2ScriptHelper`: Script-Loading Helper (`MSM2.App.ScriptHelper`)
+
+## Hinweise
+
+- Wenn du `msm-components` verwendest, musst du `new MSM2.App()` nicht selbst aufrufen.
+- `MSM2` muss im Browser bereits existieren, wenn `msm-components` geladen wird.
+

@@ -1,0 +1,43 @@
+---
+title: 'Utils'
+description: 'Универсальные вызовы и общие хелперы, которые экспортирует msm-components'
+---
+
+`Utils` содержит небольшие хелперы, которые используются многими компонентами и сервисами.
+
+## Универсальные WebSocket вызовы
+
+Эти функции используют инстанс встроенного клиента (экспортируется как `MSM2App`), чтобы вызывать unified WebSocket JSON API:
+
+- `callService(beanId, scope, functionName, args, eventType?, endpoint?)`
+- `callRepository(repositoryId, query, eventType?, endpoint?)`
+- `updateBean(beanId, scope, payload, eventType?, endpoint?)`
+
+## Хелперы контекста и настроек
+
+- `getLangCode()`
+- `getActiveLanguages()`
+- `getLanguageDetection()`
+- `getWebSiteSettings()`
+- `getCdnFolder()`
+- `getSecuredFolder()`
+- `getSeoUrl(entityId, repositoryName)`
+- `getSuperUserLogin()`
+- `getAttributeTypes()`
+- `getAttributeAreaTypes()`
+- `getFormattedDate(date, pattern)`
+- `isLogged()`
+- `getLoggedProfile()`
+- `isOpenAiActive()`
+
+## Cookies и URL хелперы
+
+- `getCookie(name)`
+- `setCookie(name, value, expires?, domain?, path?)`
+- `deleteAllCookies(ignore)`
+- `getDomainName()`
+- `languageAwareUrl(url)`
+- `setPlatformInfo()`
+- `escapeRegExp(string)`
+- `getPayloadOfForm(element)`
+

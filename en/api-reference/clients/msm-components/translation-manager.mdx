@@ -1,0 +1,37 @@
+---
+title: 'TranslationManager'
+description: 'Translation helpers exported by msm-components'
+---
+
+`TranslationManager` wraps i18next and adds helpers for loading translations from MastermindCMS.
+
+## Initialization
+
+Before you use `translate()`, set the locales JSON path once:
+
+```js
+setLocalesPath("/path/to/locales/{{lng}}.json");
+```
+
+## Exports
+
+From `msm-components` you can use:
+
+- `setLocalesPath(loadPath)`
+- `translate(...args)`
+- `translations` (a proxy for lazy translation access)
+- `tr(key, repository?)` (loads/returns a single translation)
+- `loadTranslation(key, repository?)`
+- `loadManyTranslations(...keys)`
+- `loadByLangCodeForEntity(entityId, lang, repository?)`
+- `loadByLangCode(key, lang)`
+- `loadTranslationById(id)`
+- `clearTranslationsCache()`
+- `getLanguages()`
+- `getAlphabetForActiveLanguage()`
+
+## Notes
+
+- If `setLocalesPath()` was not called, translation functions throw an error to make the misconfiguration obvious.
+- The helper uses the unified service call mechanism under the hood (service/repository calls), so it relies on the built-in client instance provided by `msm-components`.
+

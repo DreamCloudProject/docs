@@ -1,0 +1,45 @@
+---
+title: "Запуск через Docker"
+description: "Запуск MastermindCMS через Docker / Docker Compose"
+---
+
+Эта страница описывает самый быстрый способ локального запуска через Docker Compose.
+
+## Требования
+
+- Docker
+- Docker Compose (v2)
+
+## Запуск
+
+1. Укажите версию MastermindCMS в `.env`:
+
+```dotenv
+TAG="2.16.8"
+```
+
+2. Поднимите контейнеры:
+
+```shell
+docker compose --env-file .env up -d
+```
+
+3. Откройте в браузере:
+
+`http://localhost:5000`
+
+## Переменные окружения (`.env`)
+
+| Переменная | Что управляет | Примечания |
+|---|---|---|
+| `TAG` | Тег образа MastermindCMS (`mastermindcms/enterprise:${TAG}`) | Например `2.16.8`. |
+| `DB_PORT` | Порт MongoDB | Можно изменить, если порт занят. |
+| `MONGO_INITDB_ROOT_USERNAME` | Root-пользователь MongoDB | Инициализация MongoDB при первом запуске. |
+| `MONGO_INITDB_ROOT_PASSWORD` | Root-пароль MongoDB | Инициализация MongoDB при первом запуске. Для не-demo окружений обязательно меняйте. |
+| `WORKING_DIR` | Папка на хосте для volume-ов | Монтируются `${WORKING_DIR}/www`, `${WORKING_DIR}/files`, `${WORKING_DIR}/config`, `${WORKING_DIR}/data`. Обычно `.`. |
+| `REPO_USER` | Логин к репозиторию артефактов | Нужен только если установка тянет артефакты из защищённого репозитория (для базового docker-demo не обязателен). |
+| `REPO_PASS` | Пароль к репозиторию артефактов | Секрет. |
+| `LOCALE_ALL` | Locale (LC_ALL) | Опционально. |
+| `LOCALE_LANG` | Locale (LANG) | Опционально. |
+| `LOCALE_LANGUAGE` | Locale (LANGUAGE) | Опционально. |
+

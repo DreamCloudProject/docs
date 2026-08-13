@@ -1,0 +1,56 @@
+---
+title: "Run with Docker"
+description: "Start MastermindCMS with Docker / Docker Compose"
+---
+
+## Prerequisites
+
+You need:
+
+- Docker
+- Docker Compose (v2)
+
+## Start the stack
+
+1. Set the MastermindCMS version in your `.env`:
+
+```dotenv
+TAG="2.16.8"
+```
+
+2. Start containers:
+
+```shell
+docker compose --env-file .env up -d
+```
+
+3. Open MastermindCMS in your browser:
+
+`http://localhost:5000`
+
+## Mounted folders
+
+Docker Compose mounts these folders into the container (so you edit locally, CMS reads inside the container):
+
+- `./www  -> /MSM2/www`
+- `./files -> /MSM2/files`
+- `./config -> /MSM2/config`
+
+## Environment variables (`.env`)
+
+| Variable | What it controls | Notes |
+|---|---|---|
+| `TAG` | MastermindCMS image tag used by Docker Compose (`mastermindcms/enterprise:${TAG}`) | Set this to the version you want to run, e.g. `2.16.8`. |
+| `DB_PORT` | MongoDB port | The compose file maps this port on the host and uses it inside the MongoDB container. Change if the port is already in use. |
+| `MONGO_INITDB_ROOT_USERNAME` | MongoDB root username | Used to initialize the MongoDB instance on first start. |
+| `MONGO_INITDB_ROOT_PASSWORD` | MongoDB root password | Used to initialize the MongoDB instance on first start. Change it for anything beyond local demos. |
+| `WORKING_DIR` | Host folder used for mounted volumes | Compose mounts `${WORKING_DIR}/www`, `${WORKING_DIR}/files`, `${WORKING_DIR}/config`, `${WORKING_DIR}/data`. Keep `.` to use the current compose directory. |
+| `REPO_USER` | Repository username (package/download access) | Used for installations that pull artifacts from a protected repository (not required for the basic Docker Compose demo). |
+| `REPO_PASS` | Repository password (package/download access) | Same as above. Treat as a secret. |
+| `LOCALE_ALL` | Locale (LC_ALL) | Optional. Useful when the runtime environment needs a specific locale (e.g. sorting, formatting). |
+| `LOCALE_LANG` | Locale (LANG) | Optional. |
+| `LOCALE_LANGUAGE` | Locale language list (LANGUAGE) | Optional. |
+
+<Note>
+  The example `.env` often contains default credentials (like MongoDB root password). Change them for anything beyond local demos.
+</Note>

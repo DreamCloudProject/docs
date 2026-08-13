@@ -1,0 +1,47 @@
+---
+title: "Ausführung mit Docker"
+description: "MastermindCMS mit Docker / Docker Compose starten"
+---
+
+Diese Seite beschreibt den schnellsten lokalen Start mit Docker Compose.
+
+## Voraussetzungen
+
+- Docker
+- Docker Compose (v2)
+
+## Stack starten
+
+1. Version in `.env` setzen:
+
+```dotenv
+TAG="2.16.8"
+```
+
+2. Container starten:
+
+```shell
+docker compose --env-file .env up -d
+```
+
+3. Im Browser öffnen:
+
+`http://localhost:5000`
+
+## Environment-Variablen (`.env`)
+
+Diese Variablen steuern das Docker-Compose-Setup (Details werden noch erweitert):
+
+| Variable | Bedeutung |
+|---|---|
+| `TAG` | Image-Tag `mastermindcms/enterprise:${TAG}` |
+| `DB_PORT` | MongoDB Port |
+| `MONGO_INITDB_ROOT_USERNAME` | MongoDB Root-User |
+| `MONGO_INITDB_ROOT_PASSWORD` | MongoDB Root-Passwort |
+| `WORKING_DIR` | Host-Verzeichnis für Volumes |
+| `REPO_USER` | Repo-User (falls benötigt) |
+| `REPO_PASS` | Repo-Passwort (falls benötigt) |
+| `LOCALE_ALL` | Locale (LC_ALL) |
+| `LOCALE_LANG` | Locale (LANG) |
+| `LOCALE_LANGUAGE` | Locale (LANGUAGE) |
+

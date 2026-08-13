@@ -16,189 +16,203 @@
       {
         "language": "en",
         "default" : true,
-        "tabs": [
+        "anchors": [
           {
-            "tab": "Guides",
-            "groups": [
+            "anchor": "Documentation",
+            "icon": "book-open-cover",
+            "tabs": [
               {
-                "group": "Get Started",
-                "pages": [
-                  "en/introduction",
-                  "en/quickstart",
-                  "en/development"
+                "tab": "Guides",
+                "groups": [
+                  {
+                    "group": "Get Started",
+                    "pages": [
+                      "en/introduction",
+                      "en/installation/docker",
+                      "en/installation/server",
+                      "en/development"
+                    ]
+                  },
+                  {
+                    "group": "Essentials",
+                    "pages": [
+                      "essentials/markdown",
+                      "essentials/code",
+                      "essentials/images",
+                      "essentials/settings",
+                      "essentials/navigation",
+                      "essentials/reusable-snippets"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Essentials",
-                "pages": [
-                  "essentials/markdown",
-                  "essentials/code",
-                  "essentials/images",
-                  "essentials/settings",
-                  "essentials/navigation",
-                  "essentials/reusable-snippets"
+                "tab": "API Reference",
+                "groups": [
+                  {
+                    "group": "API Documentation",
+                    "pages": [
+                      "api-reference/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Endpoint Examples",
+                    "pages": [
+                      "api-reference/endpoint/get",
+                      "api-reference/endpoint/create",
+                      "api-reference/endpoint/delete",
+                      "api-reference/endpoint/webhook"
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            "tab": "API Reference",
-            "groups": [
-              {
-                "group": "API Documentation",
-                "pages": [
-                  "api-reference/introduction"
-                ]
-              },
-              {
-                "group": "Endpoint Examples",
-                "pages": [
-                  "api-reference/endpoint/get",
-                  "api-reference/endpoint/create",
-                  "api-reference/endpoint/delete",
-                  "api-reference/endpoint/webhook"
-                ]
-              }
-            ]
-          }
-        ],
-        "groups": [
+            "anchor": "Community",
+            "icon": "slack",
+            "href": "https://mastermindcms.com/"
+          },
           {
-            "group": "Getting Started",
-            "pages": ["en/introduction", "en/quickstart", "en/development"]
+            "anchor": "Blog",
+            "icon": "newspaper",
+            "href": "https://mastermindcms.com/"
           }
         ]
       },
       {
         "language": "de",
-        "tabs": [
+        "anchors": [
           {
-            "tab": "Guides",
-            "groups": [
+            "anchor": "Dokumentation",
+            "icon": "book-open-cover",
+            "tabs": [
               {
-                "group": "Get Started",
-                "pages": [
-                  "de/introduction",
-                  "de/quickstart",
-                  "de/development"
+                "tab": "Guides",
+                "groups": [
+                  {
+                    "group": "Get Started",
+                    "pages": [
+                      "de/introduction",
+                      "de/installation/docker",
+                      "de/installation/server",
+                      "de/development"
+                    ]
+                  },
+                  {
+                    "group": "Essentials",
+                    "pages": [
+                      "essentials/markdown",
+                      "essentials/code",
+                      "essentials/images",
+                      "essentials/settings",
+                      "essentials/navigation",
+                      "essentials/reusable-snippets"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Essentials",
-                "pages": [
-                  "essentials/markdown",
-                  "essentials/code",
-                  "essentials/images",
-                  "essentials/settings",
-                  "essentials/navigation",
-                  "essentials/reusable-snippets"
+                "tab": "API Reference",
+                "groups": [
+                  {
+                    "group": "API Documentation",
+                    "pages": [
+                      "api-reference/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Endpoint Examples",
+                    "pages": [
+                      "api-reference/endpoint/get",
+                      "api-reference/endpoint/create",
+                      "api-reference/endpoint/delete",
+                      "api-reference/endpoint/webhook"
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            "tab": "API Reference",
-            "groups": [
-              {
-                "group": "API Documentation",
-                "pages": [
-                  "api-reference/introduction"
-                ]
-              },
-              {
-                "group": "Endpoint Examples",
-                "pages": [
-                  "api-reference/endpoint/get",
-                  "api-reference/endpoint/create",
-                  "api-reference/endpoint/delete",
-                  "api-reference/endpoint/webhook"
-                ]
-              }
-            ]
-          }
-        ],
-        "groups": [
+            "anchor": "Community",
+            "icon": "slack",
+            "href": "https://mastermindcms.com/"
+          },
           {
-            "group": "Getting Started",
-            "pages": ["de/introduction", "de/quickstart", "de/development"]
+            "anchor": "Blog",
+            "icon": "newspaper",
+            "href": "https://mastermindcms.com/"
           }
         ]
       },
       {
         "language": "ru",
-        "tabs": [
+        "anchors": [
           {
-            "tab": "Guides",
-            "groups": [
+            "anchor": "Документация",
+            "icon": "book-open-cover",
+            "tabs": [
               {
-                "group": "Get Started",
-                "pages": [
-                  "ru/introduction",
-                  "ru/quickstart",
-                  "ru/development"
+                "tab": "Guides",
+                "groups": [
+                  {
+                    "group": "Get Started",
+                    "pages": [
+                      "ru/introduction",
+                      "ru/installation/docker",
+                      "ru/installation/server",
+                      "ru/development"
+                    ]
+                  },
+                  {
+                    "group": "Essentials",
+                    "pages": [
+                      "essentials/markdown",
+                      "essentials/code",
+                      "essentials/images",
+                      "essentials/settings",
+                      "essentials/navigation",
+                      "essentials/reusable-snippets"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Essentials",
-                "pages": [
-                  "essentials/markdown",
-                  "essentials/code",
-                  "essentials/images",
-                  "essentials/settings",
-                  "essentials/navigation",
-                  "essentials/reusable-snippets"
+                "tab": "API Reference",
+                "groups": [
+                  {
+                    "group": "API Documentation",
+                    "pages": [
+                      "api-reference/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Endpoint Examples",
+                    "pages": [
+                      "api-reference/endpoint/get",
+                      "api-reference/endpoint/create",
+                      "api-reference/endpoint/delete",
+                      "api-reference/endpoint/webhook"
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            "tab": "API Reference",
-            "groups": [
-              {
-                "group": "API Documentation",
-                "pages": [
-                  "api-reference/introduction"
-                ]
-              },
-              {
-                "group": "Endpoint Examples",
-                "pages": [
-                  "api-reference/endpoint/get",
-                  "api-reference/endpoint/create",
-                  "api-reference/endpoint/delete",
-                  "api-reference/endpoint/webhook"
-                ]
-              }
-            ]
-          }
-        ],
-        "groups": [
+            "anchor": "Сообщество",
+            "icon": "slack",
+            "href": "https://mastermindcms.com/"
+          },
           {
-            "group": "Getting Started",
-            "pages": ["ru/introduction", "ru/quickstart", "ru/development"]
+            "anchor": "Блог",
+            "icon": "newspaper",
+            "href": "https://mastermindcms.com/"
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://docs.mastermindcms.com/",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mastermindcms.com/",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mastermindcms.com/",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",

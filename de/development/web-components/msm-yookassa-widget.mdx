@@ -1,17 +1,29 @@
 ---
 title: "msm-yookassa-widget"
-description: "Web-Komponente msm-yookassa-widget."
+description: "Komponente zur Auswahl der Zahlungsmethode (YooKassa)."
 ---
 
-`msm-yookassa-widget` ist eine Web-Komponente (Lit).
+`msm-yookassa-widget` rendert eine auswählbare Zahlungsoption (radio-artig) mit der Beschriftung „YooKassa“.
 
 ```html
-<msm-yookassa-widget></msm-yookassa-widget>
+<msm-yookassa-widget value="yookassa"></msm-yookassa-widget>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Typ | Standard | Hinweise |
+| --- | --- | --- | --- |
+| `value` | string | — | Wert für den zugrunde liegenden Radio-Input. |
+| `checked` | boolean | `false` | Markiert die Option als ausgewählt. |
+| `disabled` | boolean | `false` | Deaktiviert die Interaktion. |
+| `required` | boolean | `false` | Wird von `validate()` genutzt. |
 
+Events
+
+Diese Komponente feuert keine eigenen Custom Events.
+
+Beispiel
+
+```html
+<msm-yookassa-widget value="yookassa" checked></msm-yookassa-widget>
+```

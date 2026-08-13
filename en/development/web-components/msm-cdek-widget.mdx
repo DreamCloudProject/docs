@@ -1,17 +1,57 @@
 ---
 title: "msm-cdek-widget"
-description: "Web component msm-cdek-widget."
+description: "Delivery selection component based on the CDEK widget."
 ---
 
-`msm-cdek-widget` is a web component built with Lit.
+`msm-cdek-widget` lets a user choose a delivery option/address using the CDEK widget and emits events you can handle to update the order.
 
 ```html
-<msm-cdek-widget></msm-cdek-widget>
+<msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
 ```
 
-Props, slots, events
+Attributes / properties
+
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `order-id` | string | — | Order id used to load order + seller data. Required for the widget to initialize. |
+| `delivery-type` | string | `door` | Delivery type (`door`, `office`, `pickup`). Can be changed by the widget. |
+| `value` | string | — | Value for the underlying radio input. |
+| `checked` | boolean | `false` | Marks the option as selected. |
+| `disabled` | boolean | `false` | Disables user interaction. |
+| `required` | boolean | `false` | Used by `validate()`. |
+
+Events
+
+| Event | `detail` | When |
+| --- | --- | --- |
+| `msm-delivery-calculated` | `{ prices, address }` | When CDEK calculates delivery prices for an address. |
+| `msm-address-selected` | `{ type, deliveryAmount, shippingAddress, metaInfo }` | When the user chooses a delivery option/address. |
+
+Usage
+
+```html
+<msm-cdek-widget order-id="ORDER_ID" required value="cdek"></msm-cdek-widget>
+
+<script>
+  const el = document.querySelector("msm-cdek-widget");
+
+  el.addEventListener("msm-delivery-calculated", (e) => {
+    // e.detail.prices, e.detail.address
+    console.log("Delivery calculated", e.detail);
+  });
+
+  el.addEventListener("msm-address-selected", (e) => {
+    // e.detail.shippingAddress, e.detail.metaInfo.delivery
+    console.log("Address selected", e.detail);
+  });
+</script>
+```
+
+Notes
+
+- Geolocation is only requested on HTTPS pages (browser limitation).
+- The widget opens a popup when the user clicks “Change delivery address”.
 
 - Props: to be documented
 - Events: to be documented
 - Slots: to be documented
-

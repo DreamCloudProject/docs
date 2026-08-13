@@ -1,0 +1,68 @@
+---
+title: 'Встроенный браузерный клиент'
+description: 'Использование /msm2.bundle.js и клиента MSM2.App в браузере'
+---
+
+Этот подход подходит, если вам нужен готовый браузерный клиент, который уже умеет:
+
+- подключаться к WebSocket/STOMP (`/ws` с SockJS‑фолбэком на `/sock`)
+- подписываться на стандартные топики (`/topic/msm/*` и `/user/topic/msm/*`)
+- отправлять SSR‑рендер запросы и JSON‑запросы
+
+## Подключение
+
+Подключите бандл и инициализируйте приложение:
+
+```html
+<script src="/msm2.bundle.js"></script>
+<script>
+  const MSM2App = new MSM2.App();
+</script>
+```
+
+Если вы инициализируете клиент из ES-модуля, можно экспортировать инстанс:
+
+```js
+export const MSM2App = new MSM2.App();
+```
+
+`MSM2.App` автоматически открывает WebSocket‑соединение и регистрирует стандартные слушатели HTML и JSON ответов.
+
+## Вызовы API
+
+После инициализации `MSM2App` предоставляет удобные методы для двух стилей WebSocket запросов:
+
+- рендер (SSR): `renderPage`, `renderElement`, `invokeAndRender`, `updateBeanAndRender`, `addToRepositoryAndRender`, `saveToRepositoryAndRender`, `removeFromRepositoryAndRender`, `addDocumentAndRender`, `removeDocumentAndRender`
+- JSON: `invoke`, `invokeAndGetJson$`, `updateBeanAndGetJson$`, вызовы репозитория и операции с документами БД
+
+### Пример: SSR рендер
+
+```js
+// Перерендерить текущую страницу
+MSM2App.renderPage();
+```
+
+### Пример: вызвать сервис и получить JSON
+
+```js
+MSM2App
+  .invokeAndGetJson$("someServiceImpl", "PROTOTYPE", "someMethod", [{ query: {} }], null, "USER")
+  .subscribe((res) => {
+    console.log(res.result);
+  });
+```
+
+### Пример: подписка на кастомный топик
+
+Если бэкенд публикует события в собственные destinations внутри `/topic/**`, можно зарегистрировать дополнительного слушателя:
+
+```js
+MSM2App.registerJsonWebSocket("jobs", (res) => {
+  console.log("jobs event", res);
+});
+```
+
+## Примечания
+
+- Для JSON‑вызовов можно использовать `actionId` для корреляции, если вы формируете сообщения вручную. При использовании `invokeAndGetJson$` и похожих хелперов `actionId` генерируется автоматически.
+- Авторизация может быть через session/remember‑me cookies или через JWT — зависит от конфигурации.

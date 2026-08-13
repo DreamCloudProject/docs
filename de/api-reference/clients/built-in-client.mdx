@@ -1,0 +1,68 @@
+---
+title: 'Eingebauter Browser-Client'
+description: 'Mit /msm2.bundle.js und dem MSM2.App Client im Browser arbeiten'
+---
+
+Diesen Ansatz nutzt du, wenn du einen sofort nutzbaren Browser-Client willst, der bereits:
+
+- die WebSocket/STOMP Verbindung aufbaut (`/ws` mit SockJS-Fallback auf `/sock`)
+- die Standard-Topics abonniert (`/topic/msm/*` und `/user/topic/msm/*`)
+- SSR-Render- und JSON-Requests publiziert
+
+## Setup
+
+Bundle einbinden und App initialisieren:
+
+```html
+<script src="/msm2.bundle.js"></script>
+<script>
+  const MSM2App = new MSM2.App();
+</script>
+```
+
+Wenn du den Client aus einem ES-Modul initialisierst, kannst du die Instanz exportieren:
+
+```js
+export const MSM2App = new MSM2.App();
+```
+
+`MSM2.App` öffnet die WebSocket-Verbindung automatisch und registriert Standard-Listener für HTML- und JSON-Responses.
+
+## APIs aufrufen
+
+Nach der Initialisierung stellt `MSM2App` Convenience-Methoden für zwei WebSocket-Request-Stile bereit:
+
+- Render (SSR): `renderPage`, `renderElement`, `invokeAndRender`, `updateBeanAndRender`, `addToRepositoryAndRender`, `saveToRepositoryAndRender`, `removeFromRepositoryAndRender`, `addDocumentAndRender`, `removeDocumentAndRender`
+- JSON: `invoke`, `invokeAndGetJson$`, `updateBeanAndGetJson$`, Repository-Calls und Datenbank-Dokument-Calls
+
+### Beispiel: SSR rendern
+
+```js
+// Aktuelle Seite neu rendern
+MSM2App.renderPage();
+```
+
+### Beispiel: Backend-Service aufrufen und JSON erhalten
+
+```js
+MSM2App
+  .invokeAndGetJson$("someServiceImpl", "PROTOTYPE", "someMethod", [{ query: {} }], null, "USER")
+  .subscribe((res) => {
+    console.log(res.result);
+  });
+```
+
+### Beispiel: Custom Topic abonnieren
+
+Wenn dein Backend eigene Events unter `/topic/**` publiziert, kannst du einen zusätzlichen Listener registrieren:
+
+```js
+MSM2App.registerJsonWebSocket("jobs", (res) => {
+  console.log("jobs event", res);
+});
+```
+
+## Hinweise
+
+- Für JSON-Calls kannst du `actionId` zur Korrelation verwenden, wenn du eigene Request-Messages baust. Bei `invokeAndGetJson$` und ähnlichen Helfern wird `actionId` automatisch erzeugt.
+- Autorisierung kann je nach Konfiguration über Session/Remember-me Cookies oder über JWT erfolgen.

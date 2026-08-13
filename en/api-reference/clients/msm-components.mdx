@@ -1,0 +1,72 @@
+---
+title: 'msm-components services'
+description: 'Use the service helpers that come with the web components library'
+---
+
+Use this approach when you already use the web components library and want to reuse its service layer instead of writing low-level WebSocket/STOMP calls.
+
+## Prerequisites
+
+The services assume the `MSM2` browser client is available and initialized:
+
+```js
+window.app = window.app || new MSM2.App();
+```
+
+### How `MSM2App` is used
+
+Inside the library, `MSM2App` is an alias for the initialized global client:
+
+```js
+window.app = window.app || new MSM2.App();
+export const MSM2App = window.app;
+```
+
+Services and components then call WebSocket helpers through `MSM2App` instead of accessing `window.app` directly.
+
+## What the services provide
+
+The library includes JavaScript services that wrap common API calls:
+
+- service calls via WebSocket JSON (`/request/json/bean/INVOKE`)
+- repository calls via WebSocket JSON (`/request/json/repository/*`)
+- uploads/downloads via REST (`/api/v1/uploadImage`, `/api/v1/uploadData`, `/api/v1/downloadData`, …)
+- auth helpers (REST login/logout and token flows)
+
+In typical setups, the services expose:
+
+- `MSM2App` as an alias for `window.app`
+- helpers like `MSM2AuthHelper`, `MSM2HtmlHelper`, `MSM2ScriptHelper`
+
+## Example: call a backend service
+
+Many services are thin wrappers around a generic helper (often called `callService`) which internally uses `MSM2App.invokeAndGetJson$`.
+
+```js
+// Pseudocode: import path depends on your bundler setup
+import { callService } from "msm-components/services/Utils.js";
+
+const res = await callService(
+  "someServiceImpl",
+  "PROTOTYPE",
+  "someMethod",
+  [{ query: {} }],
+  "USER"
+);
+
+console.log(res.result);
+```
+
+Under the hood, this typically resolves a WebSocket JSON call via:
+
+```js
+MSM2App.invokeAndGetJson$(beanId, scope, functionName, args, null, eventType, endpoint)
+  .subscribe((e) => {
+    // e.result contains the service result
+  });
+```
+
+## Notes
+
+- The service layer is designed to work together with the web components and their data flow.
+- If you need full control or you are not running in a browser, prefer the Custom client approach.

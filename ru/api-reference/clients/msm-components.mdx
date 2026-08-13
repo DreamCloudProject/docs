@@ -1,0 +1,72 @@
+---
+title: 'Сервисы msm-components'
+description: 'Использование сервисных хелперов из библиотеки web-компонентов'
+---
+
+Этот подход подходит, если вы уже используете библиотеку web-компонентов и хотите переиспользовать её сервисный слой, не реализуя low-level WebSocket/STOMP вызовы вручную.
+
+## Предварительные условия
+
+Сервисы предполагают, что браузерный клиент `MSM2` доступен и инициализирован:
+
+```js
+window.app = window.app || new MSM2.App();
+```
+
+### Как используется `MSM2App`
+
+Внутри библиотеки `MSM2App` — это алиас на инициализированный глобальный клиент:
+
+```js
+window.app = window.app || new MSM2.App();
+export const MSM2App = window.app;
+```
+
+Дальше сервисы и компоненты вызывают WebSocket-хелперы через `MSM2App`, не обращаясь напрямую к `window.app`.
+
+## Что дают сервисы
+
+В библиотеке есть JavaScript‑сервисы, которые оборачивают типовые API‑вызовы:
+
+- сервисные вызовы через WebSocket JSON (`/request/json/bean/INVOKE`)
+- вызовы репозитория через WebSocket JSON (`/request/json/repository/*`)
+- загрузки/скачивания через REST (`/api/v1/uploadImage`, `/api/v1/uploadData`, `/api/v1/downloadData`, …)
+- хелперы аутентификации (REST login/logout и token flows)
+
+В типичной конфигурации сервисы предоставляют:
+
+- `MSM2App` как алиас для `window.app`
+- хелперы вроде `MSM2AuthHelper`, `MSM2HtmlHelper`, `MSM2ScriptHelper`
+
+## Пример: вызов backend-сервиса
+
+Многие сервисы — это тонкие обёртки над универсальной функцией (часто `callService`), которая внутри использует `MSM2App.invokeAndGetJson$`.
+
+```js
+// Псевдокод: путь импорта зависит от сборки/бандлера
+import { callService } from "msm-components/services/Utils.js";
+
+const res = await callService(
+  "someServiceImpl",
+  "PROTOTYPE",
+  "someMethod",
+  [{ query: {} }],
+  "USER"
+);
+
+console.log(res.result);
+```
+
+Внутри это обычно сводится к WebSocket JSON вызову примерно такого вида:
+
+```js
+MSM2App.invokeAndGetJson$(beanId, scope, functionName, args, null, eventType, endpoint)
+  .subscribe((e) => {
+    // e.result содержит результат вызова
+  });
+```
+
+## Примечания
+
+- Сервисный слой рассчитан на совместную работу с web-компонентами и их dataflow.
+- Если нужен полный контроль или среда не браузерная, лучше использовать подход Свой клиент.

@@ -206,7 +206,10 @@
                   {
                     "group": "API Documentation",
                     "pages": [
-                      "en/api-reference/introduction"
+                      "en/api-reference/introduction",
+                      "en/api-reference/clients/custom-client",
+                      "en/api-reference/clients/built-in-client",
+                      "en/api-reference/clients/msm-components"
                     ]
                   }
                 ]
@@ -417,7 +420,10 @@
                   {
                     "group": "API-Dokumentation",
                     "pages": [
-                      "de/api-reference/introduction"
+                      "de/api-reference/introduction",
+                      "de/api-reference/clients/custom-client",
+                      "de/api-reference/clients/built-in-client",
+                      "de/api-reference/clients/msm-components"
                     ]
                   }
                 ]
@@ -628,7 +634,10 @@
                   {
                     "group": "Документация API",
                     "pages": [
-                      "ru/api-reference/introduction"
+                      "ru/api-reference/introduction",
+                      "ru/api-reference/clients/custom-client",
+                      "ru/api-reference/clients/built-in-client",
+                      "ru/api-reference/clients/msm-components"
                     ]
                   }
                 ]

@@ -1,0 +1,68 @@
+---
+title: 'Built-in browser client'
+description: 'Use /msm2.bundle.js and the MSM2.App client in the browser'
+---
+
+Use this approach when you want a ready-to-use browser client that already knows how to:
+
+- connect to WebSocket/STOMP (`/ws` with SockJS fallback to `/sock`)
+- subscribe to the default topics (`/topic/msm/*` and `/user/topic/msm/*`)
+- publish SSR render and JSON requests
+
+## Setup
+
+Include the bundle and initialize the app:
+
+```html
+<script src="/msm2.bundle.js"></script>
+<script>
+  const MSM2App = new MSM2.App();
+</script>
+```
+
+If you initialize the client from an ES module, you can export the instance:
+
+```js
+export const MSM2App = new MSM2.App();
+```
+
+`MSM2.App` opens the WebSocket connection automatically and registers default listeners for HTML and JSON responses.
+
+## Calling APIs
+
+After initialization, `MSM2App` exposes convenience methods for the two WebSocket request styles:
+
+- render (SSR): `renderPage`, `renderElement`, `invokeAndRender`, `updateBeanAndRender`, `addToRepositoryAndRender`, `saveToRepositoryAndRender`, `removeFromRepositoryAndRender`, `addDocumentAndRender`, `removeDocumentAndRender`
+- JSON: `invoke`, `invokeAndGetJson$`, `updateBeanAndGetJson$`, repository calls, and database document calls
+
+### Example: SSR render
+
+```js
+// Re-render the current page
+MSM2App.renderPage();
+```
+
+### Example: call a backend service and get JSON
+
+```js
+MSM2App
+  .invokeAndGetJson$("someServiceImpl", "PROTOTYPE", "someMethod", [{ query: {} }], null, "USER")
+  .subscribe((res) => {
+    console.log(res.result);
+  });
+```
+
+### Example: custom topic subscription
+
+If your backend publishes custom events under `/topic/**`, you can register an additional listener:
+
+```js
+MSM2App.registerJsonWebSocket("jobs", (res) => {
+  console.log("jobs event", res);
+});
+```
+
+## Notes
+
+- For JSON calls, use `actionId` correlation if you are building your own request messages. When using `invokeAndGetJson$` and similar helpers, the client generates `actionId` automatically.
+- Authorization can be done via session/remember-me cookies or via JWT, depending on your configuration.

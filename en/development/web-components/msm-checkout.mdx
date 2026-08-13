@@ -1,11 +1,36 @@
 ---
 title: "msm-checkout"
-description: "Checkout web component"
+description: "Checkout flow component."
 ---
 
+`msm-checkout` is a web component built with Lit.
+
+Build the checkout flow UI.
+
 ```html
-<msm-checkout></msm-checkout>
+<msm-checkout order-id="ORDER_ID"></msm-checkout>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `order-id` | string | - |  |
+| `calculation` | boolean | `false` |  |
+| `nft-token-id` | string | - |  |
+
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.

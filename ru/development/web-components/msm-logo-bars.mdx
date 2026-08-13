@@ -5,13 +5,39 @@ description: "Web-компонент msm-logo-bars."
 
 `msm-logo-bars` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-logo-bars></msm-logo-bars>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `margin-top` | number | `0` |  |
+| `margin-bottom` | number | `0` |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+- `slot[name="${ name }${ i }"]`
+- `slot[name="title"]`
+- `slot[name="heading1"]`
+- `slot[name="heading2"]`
+- `slot[name="heading3"]`
+- `slot[name="heading4"]`
+- `slot[name="heading5"]`
+- `slot[name="icon"]`
+- `slot[name="iconDescription"]`
+
+Методы
+
+Публичные методы не документированы.

@@ -5,13 +5,44 @@ description: "Web-Komponente msm-user-logout-button."
 
 `msm-user-logout-button` ist eine Web-Komponente (Lit).
 
+UI für Authentifizierung (Login/Logout).
+
 ```html
 <msm-user-logout-button></msm-user-logout-button>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `z-index` | number | - |  |
+| `window` | string | - |  |
+| `isShowNewPasswordError` | boolean | `false` | property only |
+| `isShowConfirmPasswordError` | boolean | `false` | property only |
+| `theme` | string | - |  |
+| `color-scheme` | string | - |  |
+| `type` | string | - |  |
+| `icon` | string | - |  |
+| `icon-height` | string | - |  |
+| `logout-page-url` | string | - |  |
+| `account-page-url` | string | - |  |
+| `privacy-page-url` | string | - |  |
+| `terms-page-url` | string | - |  |
+| `role` | string | `"user"` |  |
 
+Events
+
+Diese Komponente feuert keine eigenen Custom Events.
+
+CSS parts
+
+- `base`
+- `label`
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.

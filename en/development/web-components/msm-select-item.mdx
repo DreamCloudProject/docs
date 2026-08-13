@@ -5,13 +5,59 @@ description: "Web component msm-select-item."
 
 `msm-select-item` is a web component built with Lit.
 
+Render form inputs and UI controls.
+
 ```html
-<msm-select-item></msm-select-item>
+<msm-select-item value="msm-select-item"></msm-select-item>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `theme` | string | - |  |
+| `type` | MenuItemType | - |  |
+| `value` | string | - |  |
+| `selected` | boolean | - |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `msm-item-change` | `label`, `selected` |  |
+
+Usage
+
+```html
+<msm-select-item value="msm-select-item">
+</msm-select-item>
+
+<script>
+  const el = document.querySelector("msm-select-item");
+  el.addEventListener("msm-item-change", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `label`
+- `prefix`
+- `suffix`
+
+Slots
+
+- `slot[name="prefix"]`
+- `slot`
+- `slot[name="suffix"]`
+
+Methods
+
+- `validate()`
+
+Notes
+
+- Custom events bubble.

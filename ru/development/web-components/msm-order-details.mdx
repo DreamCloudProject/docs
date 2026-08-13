@@ -5,13 +5,34 @@ description: "Web-компонент msm-order-details."
 
 `msm-order-details` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
-<msm-order-details></msm-order-details>
+<msm-order-details order-id="ORDER_ID"></msm-order-details>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `order-id` | string | `null` |  |
+| `domain` | string | - |  |
+| `unique-item-id` | string | - |  |
+| `nft-token-id` | string | - |  |
+| `secret-code-id` | string | - |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+- `base`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.

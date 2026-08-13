@@ -5,13 +5,33 @@ description: "Web-компонент msm-review."
 
 `msm-review` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-review></msm-review>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `secret-code-id` | string | - |  |
+| `seller-sku-id` | string | - |  |
+| `params` | boolean | - |  |
+| `reviewObj` | object | - | property only |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`

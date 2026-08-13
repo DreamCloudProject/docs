@@ -1,11 +1,60 @@
 ---
 title: "msm-add-to-cart"
-description: "Web-компонент добавления в корзину"
+description: "Web-компонент msm-add-to-cart."
 ---
+
+`msm-add-to-cart` — web-компонент на Lit.
+
+Отображение и взаимодействие с корзиной.
 
 ```html
 <msm-add-to-cart></msm-add-to-cart>
 ```
 
-Props/events будут описаны.
+Атрибуты / свойства
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `seller-sku-id` | string | - |  |
+| `discount-price-id` | string | - |  |
+| `theme` | string | - |  |
+| `add-to-cart-icon` | string | - |  |
+| `remove-from-cart-icon` | string | - |  |
+
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-add-to-cart` | - |  |
+| `msm-remove-from-cart` | - |  |
+
+Пример
+
+```html
+<msm-add-to-cart>
+</msm-add-to-cart>
+
+<script>
+  const el = document.querySelector("msm-add-to-cart");
+  el.addEventListener("msm-add-to-cart", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-remove-from-cart", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.

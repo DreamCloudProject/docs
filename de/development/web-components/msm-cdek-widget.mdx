@@ -1,9 +1,11 @@
 ---
 title: "msm-cdek-widget"
-description: "Komponente zur Lieferauswahl auf Basis des CDEK-Widgets."
+description: "Web-Komponente msm-cdek-widget."
 ---
 
-`msm-cdek-widget` ermöglicht die Auswahl einer Lieferoption/-adresse über das CDEK-Widget und feuert Events, die du zur Aktualisierung der Bestellung verarbeiten kannst.
+`msm-cdek-widget` ist eine Web-Komponente (Lit).
+
+Ermöglicht die Auswahl einer Lieferoption/-adresse und feuert Events zur Aktualisierung der Bestellung.
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
@@ -11,45 +13,55 @@ description: "Komponente zur Lieferauswahl auf Basis des CDEK-Widgets."
 
 Attribute / Properties
 
-| Name | Typ | Standard | Hinweise |
+| Name | Type | Default | Notes |
 | --- | --- | --- | --- |
-| `order-id` | string | — | Bestell-ID zum Laden von Bestell- und Verkäuferdaten. Erforderlich für die Initialisierung. |
-| `delivery-type` | string | `door` | Lieferart (`door`, `office`, `pickup`). Kann vom Widget geändert werden. |
-| `value` | string | — | Wert für den zugrunde liegenden Radio-Input. |
-| `checked` | boolean | `false` | Markiert die Option als ausgewählt. |
-| `disabled` | boolean | `false` | Deaktiviert die Interaktion. |
-| `required` | boolean | `false` | Wird von `validate()` genutzt. |
+| `delivery-type` | string | `"door"` |  |
+| `order-id` | string | - |  |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
 
 Events
 
-| Event | `detail` | Wann |
+| Event | detail | Wann |
 | --- | --- | --- |
-| `msm-delivery-calculated` | `{ prices, address }` | Wenn CDEK Lieferpreise für eine Adresse berechnet. |
-| `msm-address-selected` | `{ type, deliveryAmount, shippingAddress, metaInfo }` | Wenn der Nutzer eine Lieferoption/-adresse auswählt. |
+| `msm-delivery-calculated` | `prices`, `address` |  |
+| `msm-address-selected` | `type`, `deliveryAmount`, `shippingAddress`, `metaInfo` |  |
 
 Beispiel
 
 ```html
-<msm-cdek-widget order-id="ORDER_ID" required value="cdek"></msm-cdek-widget>
+<msm-cdek-widget order-id="ORDER_ID">
+</msm-cdek-widget>
 
 <script>
   const el = document.querySelector("msm-cdek-widget");
-
   el.addEventListener("msm-delivery-calculated", (e) => {
-    console.log("Delivery calculated", e.detail);
+    console.log(e.detail);
   });
 
   el.addEventListener("msm-address-selected", (e) => {
-    console.log("Address selected", e.detail);
+    console.log(e.detail);
   });
+
 </script>
 ```
 
+CSS parts
+
+- `base`
+- `label`
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+- `validate()`
+
 Hinweise
 
-- Geolocation wird nur auf HTTPS-Seiten angefragt (Browser-Einschränkung).
-- Das Widget öffnet ein Popup, wenn der Nutzer “Change delivery address” klickt.
-
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+- Geolocation is requested only when supported by the browser.
+- Geolocation is only requested on HTTPS pages (browser limitation).
+- Custom events bubble.

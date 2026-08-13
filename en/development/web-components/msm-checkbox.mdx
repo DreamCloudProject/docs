@@ -1,11 +1,40 @@
 ---
 title: "msm-checkbox"
-description: "Checkbox web component"
+description: "Web component msm-checkbox."
 ---
+
+`msm-checkbox` is a web component built with Lit.
+
+Render form inputs and UI controls.
 
 ```html
 <msm-checkbox></msm-checkbox>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `name` | string | - |  |
+| `type` | string | - |  |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
+
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+- `checkbox`
+- `label`
+
+Slots
+
+- `slot`
+
+Methods
+
+- `validate()`

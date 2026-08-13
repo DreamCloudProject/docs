@@ -1,0 +1,77 @@
+---
+title: "msm-input-chips"
+description: "Web-Komponente msm-input-chips."
+---
+
+`msm-input-chips` ist eine Web-Komponente (Lit).
+
+Wiederverwendbarer UI-Baustein.
+
+```html
+<msm-input-chips></msm-input-chips>
+```
+
+Attribute / Properties
+
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `name` | string | - |  |
+| `leadingIcon` | object | - | property only |
+| `trailingIcon` | object | - | property only |
+| `type` | ChipsType | - |  |
+| `items` | array | - |  |
+| `selectedItems` | array | - | property only |
+| `searchFunction` | Function | - | property only |
+| `title` | string | - |  |
+| `placeholder` | string | - |  |
+| `helper` | string | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
+| `limited` | boolean | - |  |
+
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `show` | `state` |  |
+| `msm-chips-selected` | `item`, `selectedItems`, `selectedItemsIds` |  |
+| `msm-chips-removed` | `item`, `selectedItems`, `selectedItemsIds` |  |
+
+Beispiel
+
+```html
+<msm-input-chips>
+</msm-input-chips>
+
+<script>
+  const el = document.querySelector("msm-input-chips");
+  el.addEventListener("show", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-chips-selected", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-chips-removed", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Keine `part`-Slots dokumentiert.
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+- `validate()`
+
+Hinweise
+
+- Custom events bubble.

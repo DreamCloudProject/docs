@@ -5,13 +5,39 @@ description: "Web-компонент msm-listing-feature."
 
 `msm-listing-feature` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-listing-feature></msm-listing-feature>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `theme` | string | - |  |
+| `type` | string | - |  |
+| `href` | string | - |  |
+| `noLink` | boolean | - | property only |
+| `required` | boolean | - |  |
+| `params` | boolean | - |  |
+| `seller-sku-id` | string | - |  |
+| `feature-id` | string | - |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+- `slot[name="prefix"]`
+- `slot[name="suffix"]`
+- `slot`
+
+Методы
+
+Публичные методы не документированы.

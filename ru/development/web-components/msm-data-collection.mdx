@@ -5,13 +5,54 @@ description: "Web-компонент msm-data-collection."
 
 `msm-data-collection` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-data-collection></msm-data-collection>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `variant` | string | - |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-array-updated` | `items`, `itemsAsString` |  |
+
+Пример
+
+```html
+<msm-data-collection>
+</msm-data-collection>
+
+<script>
+  const el = document.querySelector("msm-data-collection");
+  el.addEventListener("msm-array-updated", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `frame`
+- `helper`
+- `label`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.
+
+Примечания
+
+- Custom events bubble.

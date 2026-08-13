@@ -5,13 +5,61 @@ description: "Web-компонент msm-user-delivery."
 
 `msm-user-delivery` — web-компонент на Lit.
 
+UI-блоки для пользователя/аккаунта.
+
 ```html
-<msm-user-delivery></msm-user-delivery>
+<msm-user-delivery order-id="ORDER_ID"></msm-user-delivery>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `isShowError` | boolean | `false` | property only |
+| `isLogged` | boolean | - | property only |
+| `isEditMode` | boolean | `false` | property only |
+| `isSaveMode` | boolean | `false` | property only |
+| `seller` | promise | `getLoggedSeller()` |  |
+| `theme` | string | - |  |
+| `order-id` | string | - |  |
+| `color-scheme` | string | - |  |
+| `show-radio` | boolean | `false` |  |
+| `required` | boolean | - |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `select` | `address` |  |
+
+Пример
+
+```html
+<msm-user-delivery order-id="ORDER_ID">
+</msm-user-delivery>
+
+<script>
+  const el = document.querySelector("msm-user-delivery");
+  el.addEventListener("select", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `label`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`
+
+Примечания
+
+- Custom events bubble.

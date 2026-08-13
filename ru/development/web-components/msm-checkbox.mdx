@@ -1,11 +1,40 @@
 ---
 title: "msm-checkbox"
-description: "Web-компонент чекбокса"
+description: "Web-компонент msm-checkbox."
 ---
+
+`msm-checkbox` — web-компонент на Lit.
+
+Поля форм и элементы управления.
 
 ```html
 <msm-checkbox></msm-checkbox>
 ```
 
-Props/events будут описаны.
+Атрибуты / свойства
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `name` | string | - |  |
+| `type` | string | - |  |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
+
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+- `base`
+- `checkbox`
+- `label`
+
+Слоты
+
+- `slot`
+
+Методы
+
+- `validate()`

@@ -1,11 +1,63 @@
 ---
 title: "msm-select"
-description: "Web-компонент select"
+description: "Web-компонент msm-select."
 ---
 
+`msm-select` — web-компонент на Lit.
+
+Поля форм и элементы управления.
+
 ```html
-<msm-select></msm-select>
+<msm-select value="msm-select"></msm-select>
 ```
 
-Props/events будут описаны.
+Атрибуты / свойства
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `theme` | string | - |  |
+| `type` | MenuItemType | - |  |
+| `value` | string | - |  |
+| `selected` | boolean | - |  |
+
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-item-change` | `label`, `selected` |  |
+
+Пример
+
+```html
+<msm-select value="msm-select">
+</msm-select>
+
+<script>
+  const el = document.querySelector("msm-select");
+  el.addEventListener("msm-item-change", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `label`
+- `prefix`
+- `suffix`
+
+Слоты
+
+- `slot[name="prefix"]`
+- `slot`
+- `slot[name="suffix"]`
+
+Методы
+
+- `validate()`
+
+Примечания
+
+- Custom events bubble.

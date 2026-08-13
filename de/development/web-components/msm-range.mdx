@@ -5,13 +5,59 @@ description: "Web-Komponente msm-range."
 
 `msm-range` ist eine Web-Komponente (Lit).
 
+Wiederverwendbarer UI-Baustein.
+
 ```html
 <msm-range></msm-range>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `variant` | RangeType | - |  |
+| `unit` | string | - |  |
+| `step` | number | `this.step ? this.step : 1` |  |
+| `min` | number | `this.min ? this.min : 0` |  |
+| `max` | number | `this.max ? this.max : 1` |  |
+| `disabled` | boolean | - |  |
+| `multiple` | boolean | - |  |
+| `required` | boolean | - |  |
 
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `msm-range-changed` | `value` |  |
+
+Beispiel
+
+```html
+<msm-range>
+</msm-range>
+
+<script>
+  const el = document.querySelector("msm-range");
+  el.addEventListener("msm-range-changed", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `progress`
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+- `validate()`
+
+Hinweise
+
+- Custom events bubble.

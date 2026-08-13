@@ -5,13 +5,44 @@ description: "Web-компонент msm-user-logout-button."
 
 `msm-user-logout-button` — web-компонент на Lit.
 
+UI для аутентификации (логин/логаут).
+
 ```html
 <msm-user-logout-button></msm-user-logout-button>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `z-index` | number | - |  |
+| `window` | string | - |  |
+| `isShowNewPasswordError` | boolean | `false` | property only |
+| `isShowConfirmPasswordError` | boolean | `false` | property only |
+| `theme` | string | - |  |
+| `color-scheme` | string | - |  |
+| `type` | string | - |  |
+| `icon` | string | - |  |
+| `icon-height` | string | - |  |
+| `logout-page-url` | string | - |  |
+| `account-page-url` | string | - |  |
+| `privacy-page-url` | string | - |  |
+| `terms-page-url` | string | - |  |
+| `role` | string | `"user"` |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+- `base`
+- `label`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.

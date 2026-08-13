@@ -1,11 +1,44 @@
 ---
 title: "msm-button"
-description: "Button web component"
+description: "Web component msm-button."
 ---
+
+`msm-button` is a web component built with Lit.
+
+Render form inputs and UI controls.
 
 ```html
 <msm-button></msm-button>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `theme` | string | - |  |
+| `type` | string | - |  |
+| `variant` | string | - |  |
+| `loading` | boolean | - |  |
+| `href` | string | - |  |
+
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+- `label`
+- `prefix`
+- `suffix`
+
+Slots
+
+- `slot[name="icon"]`
+- `slot[name="prefix"]`
+- `slot`
+- `slot[name="suffix"]`
+
+Methods
+
+No documented public methods.

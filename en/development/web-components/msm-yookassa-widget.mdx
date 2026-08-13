@@ -3,31 +3,35 @@ title: "msm-yookassa-widget"
 description: "Payment option (YooKassa) selector component."
 ---
 
-`msm-yookassa-widget` renders a selectable payment option (as a radio-style item) labeled “YooKassa”.
+`msm-yookassa-widget` is a web component built with Lit.
+
+Render a selectable payment option.
 
 ```html
-<msm-yookassa-widget value="yookassa"></msm-yookassa-widget>
+<msm-yookassa-widget></msm-yookassa-widget>
 ```
 
 Attributes / properties
 
 | Name | Type | Default | Notes |
 | --- | --- | --- | --- |
-| `value` | string | — | Value for the underlying radio input. |
-| `checked` | boolean | `false` | Marks the option as selected. |
-| `disabled` | boolean | `false` | Disables user interaction. |
-| `required` | boolean | `false` | Used by `validate()`. |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
 
 Events
 
 This component does not emit custom events.
 
-Usage
+CSS parts
 
-```html
-<msm-yookassa-widget value="yookassa" checked></msm-yookassa-widget>
-```
+- `base`
+- `label`
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+Slots
+
+No documented slots.
+
+Methods
+
+- `validate()`

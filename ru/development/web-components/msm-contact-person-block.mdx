@@ -5,13 +5,42 @@ description: "Web-компонент msm-contact-person-block."
 
 `msm-contact-person-block` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-contact-person-block></msm-contact-person-block>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `button-link` | string | - |  |
+| `button-text` | string | `'Button text'` |  |
+| `button-outgoing` | boolean | - |  |
+| `margin-top` | number | `0` |  |
+| `margin-bottom` | number | `0` |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+- `slot[name="image"]`
+- `slot[name="heading1"]`
+- `slot[name="text1"]`
+- `slot[name="text2"]`
+- `slot[name="text3"]`
+- `slot[name="heading2"]`
+- `slot[name="name"]`
+- `slot[name="position"]`
+- `slot[name="contact-info"]`
+
+Методы
+
+Публичные методы не документированы.

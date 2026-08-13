@@ -5,13 +5,37 @@ description: "Web component msm-radio-button."
 
 `msm-radio-button` is a web component built with Lit.
 
+Render form inputs and UI controls.
+
 ```html
 <msm-radio-button></msm-radio-button>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `name` | string | - |  |
+| `type` | string | - |  |
+| `group` | boolean | - |  |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
 
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+- `label`
+- `radio`
+
+Slots
+
+- `slot`
+
+Methods
+
+- `validate()`

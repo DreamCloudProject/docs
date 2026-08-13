@@ -1,11 +1,60 @@
 ---
 title: "msm-add-to-cart"
-description: "Add-to-cart web component"
+description: "Shopping cart component."
 ---
+
+`msm-add-to-cart` is a web component built with Lit.
+
+Display and interact with the shopping cart.
 
 ```html
 <msm-add-to-cart></msm-add-to-cart>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `seller-sku-id` | string | - |  |
+| `discount-price-id` | string | - |  |
+| `theme` | string | - |  |
+| `add-to-cart-icon` | string | - |  |
+| `remove-from-cart-icon` | string | - |  |
+
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `msm-add-to-cart` | - |  |
+| `msm-remove-from-cart` | - |  |
+
+Usage
+
+```html
+<msm-add-to-cart>
+</msm-add-to-cart>
+
+<script>
+  const el = document.querySelector("msm-add-to-cart");
+  el.addEventListener("msm-add-to-cart", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-remove-from-cart", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.

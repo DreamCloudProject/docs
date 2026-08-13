@@ -5,13 +5,49 @@ description: "Web-компонент msm-form-field."
 
 `msm-form-field` — web-компонент на Lit.
 
+Поля форм и элементы управления.
+
 ```html
 <msm-form-field></msm-form-field>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `title` | string | - |  |
+| `item` | object | - |  |
+| `checked` | boolean | `false` |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-field-change` | `deleted` |  |
+
+Пример
+
+```html
+<msm-form-field>
+</msm-form-field>
+
+<script>
+  const el = document.querySelector("msm-form-field");
+  el.addEventListener("msm-field-change", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`

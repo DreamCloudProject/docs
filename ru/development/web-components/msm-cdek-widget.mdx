@@ -1,9 +1,11 @@
 ---
 title: "msm-cdek-widget"
-description: "Компонент выбора доставки на базе виджета CDEK."
+description: "Web-компонент msm-cdek-widget."
 ---
 
-`msm-cdek-widget` позволяет пользователю выбрать способ/адрес доставки через виджет CDEK и генерирует события, которые можно обработать, чтобы обновить заказ.
+`msm-cdek-widget` — web-компонент на Lit.
+
+Позволяет выбрать способ/адрес доставки и генерирует события для обновления заказа.
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
@@ -11,41 +13,55 @@ description: "Компонент выбора доставки на базе в�
 
 Атрибуты / свойства
 
-| Имя | Тип | По умолчанию | Примечания |
+| Name | Type | Default | Notes |
 | --- | --- | --- | --- |
-| `order-id` | string | — | ID заказа для загрузки данных заказа и продавца. Нужен для инициализации виджета. |
-| `delivery-type` | string | `door` | Тип доставки (`door`, `office`, `pickup`). Может изменяться виджетом. |
-| `value` | string | — | Значение для внутреннего radio-input. |
-| `checked` | boolean | `false` | Отмечает вариант как выбранный. |
-| `disabled` | boolean | `false` | Отключает взаимодействие. |
-| `required` | boolean | `false` | Используется в `validate()`. |
+| `delivery-type` | string | `"door"` |  |
+| `order-id` | string | - |  |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
 
 События
 
-| Событие | `detail` | Когда |
+| Event | detail | Когда |
 | --- | --- | --- |
-| `msm-delivery-calculated` | `{ prices, address }` | Когда CDEK рассчитывает стоимость доставки для адреса. |
-| `msm-address-selected` | `{ type, deliveryAmount, shippingAddress, metaInfo }` | Когда пользователь выбирает способ/адрес доставки. |
+| `msm-delivery-calculated` | `prices`, `address` |  |
+| `msm-address-selected` | `type`, `deliveryAmount`, `shippingAddress`, `metaInfo` |  |
 
 Пример
 
 ```html
-<msm-cdek-widget order-id="ORDER_ID" required value="cdek"></msm-cdek-widget>
+<msm-cdek-widget order-id="ORDER_ID">
+</msm-cdek-widget>
 
 <script>
   const el = document.querySelector("msm-cdek-widget");
-
   el.addEventListener("msm-delivery-calculated", (e) => {
-    console.log("Delivery calculated", e.detail);
+    console.log(e.detail);
   });
 
   el.addEventListener("msm-address-selected", (e) => {
-    console.log("Address selected", e.detail);
+    console.log(e.detail);
   });
+
 </script>
 ```
 
+CSS parts
+
+- `base`
+- `label`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`
+
 Примечания
 
-- Геолокация запрашивается только на HTTPS-страницах (ограничение браузера).
-- Виджет открывает popup при клике по “Change delivery address”.
+- Geolocation is requested only when supported by the browser.
+- Geolocation is only requested on HTTPS pages (browser limitation).
+- Custom events bubble.

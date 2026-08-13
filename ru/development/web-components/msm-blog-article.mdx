@@ -5,13 +5,36 @@ description: "Web-компонент msm-blog-article."
 
 `msm-blog-article` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-blog-article></msm-blog-article>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `margin-top` | number | `0` |  |
+| `margin-bottom` | number | `0` |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+- `slot[name="date"]`
+- `slot[name="title"]`
+- `slot[name="text1"]`
+- `slot[name="quotation-mark"]`
+- `slot[name="quote"]`
+- `slot[name="text2"]`
+
+Методы
+
+Публичные методы не документированы.

@@ -5,13 +5,70 @@ description: "Web-компонент msm-search-card."
 
 `msm-search-card` — web-компонент на Lit.
 
+UI для поиска (ввод, фильтры, результаты, пагинация).
+
 ```html
 <msm-search-card></msm-search-card>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `type` | string | - |  |
+| `loading` | boolean | - |  |
+| `seller-sku-id` | string | - |  |
+| `discount-price-id` | string | - |  |
+| `filtered-features` | string | - |  |
+| `item` | object | - |  |
+| `theme` | string | - |  |
+| `add-to-cart-icon` | string | - |  |
+| `remove-from-cart-icon` | string | - |  |
+| `favorites` | boolean | - |  |
+| `favorite-icon` | string | - |  |
+| `background-color` | string | - |  |
+| `object-fit` | string | - |  |
+| `border-color` | string | - |  |
+| `border-width` | string | - |  |
+| `border-style` | string | - |  |
+| `border-radius` | string | - |  |
+| `data-view-href` | string | - |  |
+| `deletable` | boolean | - |  |
+| `viewable` | boolean | - |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-search-card-deleted` | `item` |  |
+
+Пример
+
+```html
+<msm-search-card>
+</msm-search-card>
+
+<script>
+  const el = document.querySelector("msm-search-card");
+  el.addEventListener("msm-search-card-deleted", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.
+
+Примечания
+
+- Custom events bubble.

@@ -5,13 +5,52 @@ description: "Web component msm-story-viewer."
 
 `msm-story-viewer` is a web component built with Lit.
 
+Use this component as a reusable UI building block.
+
 ```html
 <msm-story-viewer></msm-story-viewer>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `hammer` | object | - |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `entered` | - |  |
+| `exited` | - |  |
+
+Usage
+
+```html
+<msm-story-viewer>
+</msm-story-viewer>
+
+<script>
+  const el = document.querySelector("msm-story-viewer");
+  el.addEventListener("entered", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("exited", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Slots
+
+- `slot`
+
+Methods
+
+No documented public methods.

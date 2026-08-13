@@ -5,13 +5,39 @@ description: "Web component msm-listing-feature."
 
 `msm-listing-feature` is a web component built with Lit.
 
+Use this component as a reusable UI building block.
+
 ```html
 <msm-listing-feature></msm-listing-feature>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `theme` | string | - |  |
+| `type` | string | - |  |
+| `href` | string | - |  |
+| `noLink` | boolean | - | property only |
+| `required` | boolean | - |  |
+| `params` | boolean | - |  |
+| `seller-sku-id` | string | - |  |
+| `feature-id` | string | - |  |
 
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+No documented `part` slots.
+
+Slots
+
+- `slot[name="prefix"]`
+- `slot[name="suffix"]`
+- `slot`
+
+Methods
+
+No documented public methods.

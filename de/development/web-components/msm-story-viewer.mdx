@@ -5,13 +5,52 @@ description: "Web-Komponente msm-story-viewer."
 
 `msm-story-viewer` ist eine Web-Komponente (Lit).
 
+Wiederverwendbarer UI-Baustein.
+
 ```html
 <msm-story-viewer></msm-story-viewer>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `hammer` | object | - |  |
 
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `entered` | - |  |
+| `exited` | - |  |
+
+Beispiel
+
+```html
+<msm-story-viewer>
+</msm-story-viewer>
+
+<script>
+  const el = document.querySelector("msm-story-viewer");
+  el.addEventListener("entered", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("exited", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Slots
+
+- `slot`
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.

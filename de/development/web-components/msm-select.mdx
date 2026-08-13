@@ -1,11 +1,63 @@
 ---
 title: "msm-select"
-description: "Select Web-Komponente"
+description: "Web-Komponente msm-select."
 ---
 
+`msm-select` ist eine Web-Komponente (Lit).
+
+Formulareingaben und UI-Controls.
+
 ```html
-<msm-select></msm-select>
+<msm-select value="msm-select"></msm-select>
 ```
 
-Props/Events werden dokumentiert.
+Attribute / Properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `theme` | string | - |  |
+| `type` | MenuItemType | - |  |
+| `value` | string | - |  |
+| `selected` | boolean | - |  |
+
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `msm-item-change` | `label`, `selected` |  |
+
+Beispiel
+
+```html
+<msm-select value="msm-select">
+</msm-select>
+
+<script>
+  const el = document.querySelector("msm-select");
+  el.addEventListener("msm-item-change", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `label`
+- `prefix`
+- `suffix`
+
+Slots
+
+- `slot[name="prefix"]`
+- `slot`
+- `slot[name="suffix"]`
+
+Methoden
+
+- `validate()`
+
+Hinweise
+
+- Custom events bubble.

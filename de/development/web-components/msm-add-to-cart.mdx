@@ -1,11 +1,60 @@
 ---
 title: "msm-add-to-cart"
-description: "Add-to-cart Web-Komponente"
+description: "Web-Komponente msm-add-to-cart."
 ---
+
+`msm-add-to-cart` ist eine Web-Komponente (Lit).
+
+Anzeige und Interaktion mit dem Warenkorb.
 
 ```html
 <msm-add-to-cart></msm-add-to-cart>
 ```
 
-Props/Events werden dokumentiert.
+Attribute / Properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `seller-sku-id` | string | - |  |
+| `discount-price-id` | string | - |  |
+| `theme` | string | - |  |
+| `add-to-cart-icon` | string | - |  |
+| `remove-from-cart-icon` | string | - |  |
+
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `msm-add-to-cart` | - |  |
+| `msm-remove-from-cart` | - |  |
+
+Beispiel
+
+```html
+<msm-add-to-cart>
+</msm-add-to-cart>
+
+<script>
+  const el = document.querySelector("msm-add-to-cart");
+  el.addEventListener("msm-add-to-cart", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-remove-from-cart", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.

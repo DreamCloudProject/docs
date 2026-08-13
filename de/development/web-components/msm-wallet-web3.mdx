@@ -5,13 +5,55 @@ description: "Web-Komponente msm-wallet-web3."
 
 `msm-wallet-web3` ist eine Web-Komponente (Lit).
 
+Web3-UI (Wallet/NFT-Flows).
+
 ```html
 <msm-wallet-web3></msm-wallet-web3>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `signer` | object | - |  |
+| `walletAddress` | string | - | property only |
+| `blockchain` | string | - |  |
+| `activeNetwork` | object | - | property only |
+| `isLogged` | boolean | - | property only |
 
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `wallet-connected` | `walletAddress` |  |
+
+Beispiel
+
+```html
+<msm-wallet-web3>
+</msm-wallet-web3>
+
+<script>
+  const el = document.querySelector("msm-wallet-web3");
+  el.addEventListener("wallet-connected", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Keine `part`-Slots dokumentiert.
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.
+
+Hinweise
+
+- Custom events bubble.

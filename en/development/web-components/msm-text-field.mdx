@@ -1,11 +1,48 @@
 ---
 title: "msm-text-field"
-description: "Text field web component"
+description: "Web component msm-text-field."
 ---
+
+`msm-text-field` is a web component built with Lit.
+
+Render form inputs and UI controls.
 
 ```html
 <msm-text-field></msm-text-field>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `title` | string | - |  |
+| `type` | string | - |  |
+| `theme` | string | - |  |
+| `placeholder` | string | - |  |
+| `helper` | string | - |  |
+| `leadingIcon` | object | - | property only |
+| `trailingIcon` | object | - | property only |
+| `multiline` | boolean | - |  |
+| `required` | boolean | - |  |
+| `disabled` | boolean | - |  |
+
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+- `frame`
+- `helper`
+- `input`
+- `label`
+- `notch`
+
+Slots
+
+- `slot[name="button"]`
+
+Methods
+
+- `validate()`

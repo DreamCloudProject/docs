@@ -5,13 +5,38 @@ description: "Web-компонент msm-user-profile-editor."
 
 `msm-user-profile-editor` — web-компонент на Lit.
 
+UI-блоки для пользователя/аккаунта.
+
 ```html
 <msm-user-profile-editor></msm-user-profile-editor>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `href` | string | - |  |
+| `isLogged` | boolean | - | property only |
+| `isEditFullName` | boolean | `false` | property only |
+| `isEditMobilePhone` | boolean | `false` | property only |
+| `isEditEmail` | boolean | `false` | property only |
+| `isShowEmailError` | boolean | `false` | property only |
+| `isEditBirthdate` | boolean | `false` | property only |
+| `item` | object | - |  |
+| `profile` | promise | - |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+- `base`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.

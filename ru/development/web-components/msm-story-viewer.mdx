@@ -5,13 +5,52 @@ description: "Web-компонент msm-story-viewer."
 
 `msm-story-viewer` — web-компонент на Lit.
 
+Переиспользуемый UI-блок.
+
 ```html
 <msm-story-viewer></msm-story-viewer>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `hammer` | object | - |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `entered` | - |  |
+| `exited` | - |  |
+
+Пример
+
+```html
+<msm-story-viewer>
+</msm-story-viewer>
+
+<script>
+  const el = document.querySelector("msm-story-viewer");
+  el.addEventListener("entered", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("exited", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Слоты
+
+- `slot`
+
+Методы
+
+Публичные методы не документированы.

@@ -1,17 +1,63 @@
 ---
 title: "msm-documents-upload"
-description: "Web component msm-documents-upload."
+description: "Upload UI component."
 ---
 
 `msm-documents-upload` is a web component built with Lit.
+
+Upload files or images from the UI.
 
 ```html
 <msm-documents-upload></msm-documents-upload>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `payload` | object | `{}` |  |
+| `entityId` | string | `""` | property only |
+| `urls` | array | - |  |
+| `url` | string | - |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `msm-file-upload` | - |  |
+| `msm-file-remove` | - |  |
+
+Usage
+
+```html
+<msm-documents-upload>
+</msm-documents-upload>
+
+<script>
+  const el = document.querySelector("msm-documents-upload");
+  el.addEventListener("msm-file-upload", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-file-remove", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.
+
+Notes
+
+- Custom events bubble.

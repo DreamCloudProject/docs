@@ -1,17 +1,74 @@
 ---
 title: "msm-search-card"
-description: "Web component msm-search-card."
+description: "Search UI component."
 ---
 
 `msm-search-card` is a web component built with Lit.
+
+Provide search UI (input, filters, results, pagination).
 
 ```html
 <msm-search-card></msm-search-card>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `type` | string | - |  |
+| `loading` | boolean | - |  |
+| `seller-sku-id` | string | - |  |
+| `discount-price-id` | string | - |  |
+| `filtered-features` | string | - |  |
+| `item` | object | - |  |
+| `theme` | string | - |  |
+| `add-to-cart-icon` | string | - |  |
+| `remove-from-cart-icon` | string | - |  |
+| `favorites` | boolean | - |  |
+| `favorite-icon` | string | - |  |
+| `background-color` | string | - |  |
+| `object-fit` | string | - |  |
+| `border-color` | string | - |  |
+| `border-width` | string | - |  |
+| `border-style` | string | - |  |
+| `border-radius` | string | - |  |
+| `data-view-href` | string | - |  |
+| `deletable` | boolean | - |  |
+| `viewable` | boolean | - |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `msm-search-card-deleted` | `item` |  |
+
+Usage
+
+```html
+<msm-search-card>
+</msm-search-card>
+
+<script>
+  const el = document.querySelector("msm-search-card");
+  el.addEventListener("msm-search-card-deleted", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+No documented `part` slots.
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.
+
+Notes
+
+- Custom events bubble.

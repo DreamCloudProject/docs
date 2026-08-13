@@ -1,11 +1,36 @@
 ---
 title: "msm-checkout"
-description: "Web-компонент checkout"
+description: "Web-компонент msm-checkout."
 ---
 
+`msm-checkout` — web-компонент на Lit.
+
+UI-блок для оформления заказа (checkout).
+
 ```html
-<msm-checkout></msm-checkout>
+<msm-checkout order-id="ORDER_ID"></msm-checkout>
 ```
 
-Props/events будут описаны.
+Атрибуты / свойства
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `order-id` | string | - |  |
+| `calculation` | boolean | `false` |  |
+| `nft-token-id` | string | - |  |
+
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+- `base`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.

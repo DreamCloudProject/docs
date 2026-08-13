@@ -5,13 +5,49 @@ description: "Web component msm-form-field."
 
 `msm-form-field` is a web component built with Lit.
 
+Render form inputs and UI controls.
+
 ```html
 <msm-form-field></msm-form-field>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `title` | string | - |  |
+| `item` | object | - |  |
+| `checked` | boolean | `false` |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `msm-field-change` | `deleted` |  |
+
+Usage
+
+```html
+<msm-form-field>
+</msm-form-field>
+
+<script>
+  const el = document.querySelector("msm-form-field");
+  el.addEventListener("msm-field-change", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+No documented `part` slots.
+
+Slots
+
+No documented slots.
+
+Methods
+
+- `validate()`

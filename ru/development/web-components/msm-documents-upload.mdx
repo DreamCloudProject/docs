@@ -5,13 +5,59 @@ description: "Web-компонент msm-documents-upload."
 
 `msm-documents-upload` — web-компонент на Lit.
 
+Загрузка файлов или изображений из UI.
+
 ```html
 <msm-documents-upload></msm-documents-upload>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `payload` | object | `{}` |  |
+| `entityId` | string | `""` | property only |
+| `urls` | array | - |  |
+| `url` | string | - |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-file-upload` | - |  |
+| `msm-file-remove` | - |  |
+
+Пример
+
+```html
+<msm-documents-upload>
+</msm-documents-upload>
+
+<script>
+  const el = document.querySelector("msm-documents-upload");
+  el.addEventListener("msm-file-upload", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-file-remove", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+Публичные методы не документированы.
+
+Примечания
+
+- Custom events bubble.

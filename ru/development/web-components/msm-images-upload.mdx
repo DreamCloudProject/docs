@@ -5,13 +5,58 @@ description: "Web-компонент msm-images-upload."
 
 `msm-images-upload` — web-компонент на Lit.
 
+Отображение медиа (изображения/видео).
+
 ```html
 <msm-images-upload></msm-images-upload>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `image` | string | - |  |
+| `imageUrls` | array | - | property only |
+| `required` | boolean | - |  |
 
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `msm-image-upload` | - |  |
+| `msm-image-remove` | - |  |
+
+Пример
+
+```html
+<msm-images-upload>
+</msm-images-upload>
+
+<script>
+  const el = document.querySelector("msm-images-upload");
+  el.addEventListener("msm-image-upload", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-image-remove", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`
+
+Примечания
+
+- Custom events bubble.

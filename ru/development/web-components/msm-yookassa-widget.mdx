@@ -1,29 +1,37 @@
 ---
 title: "msm-yookassa-widget"
-description: "Компонент выбора способа оплаты (YooKassa)."
+description: "Web-компонент msm-yookassa-widget."
 ---
 
-`msm-yookassa-widget` отображает вариант оплаты (в виде radio-элемента) с подписью «YooKassa».
+`msm-yookassa-widget` — web-компонент на Lit.
+
+Отображает вариант оплаты, который можно выбрать.
 
 ```html
-<msm-yookassa-widget value="yookassa"></msm-yookassa-widget>
+<msm-yookassa-widget></msm-yookassa-widget>
 ```
 
 Атрибуты / свойства
 
-| Имя | Тип | По умолчанию | Примечания |
+| Name | Type | Default | Notes |
 | --- | --- | --- | --- |
-| `value` | string | — | Значение для внутреннего radio-input. |
-| `checked` | boolean | `false` | Отмечает вариант как выбранный. |
-| `disabled` | boolean | `false` | Отключает взаимодействие. |
-| `required` | boolean | `false` | Используется в `validate()`. |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
 
 События
 
 Этот компонент не генерирует собственных CustomEvent.
 
-Пример
+CSS parts
 
-```html
-<msm-yookassa-widget value="yookassa" checked></msm-yookassa-widget>
-```
+- `base`
+- `label`
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`

@@ -1,11 +1,48 @@
 ---
 title: "msm-user-login-modal"
-description: "Login modal web component"
+description: "Login UI component."
 ---
+
+`msm-user-login-modal` is a web component built with Lit.
+
+Provide authentication-related UI (login/logout).
 
 ```html
 <msm-user-login-modal></msm-user-login-modal>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `z-index` | number | - |  |
+| `window` | string | - |  |
+| `isShowNewPasswordError` | boolean | `false` | property only |
+| `isShowConfirmPasswordError` | boolean | `false` | property only |
+| `theme` | string | - |  |
+| `color-scheme` | string | - |  |
+| `type` | string | - |  |
+| `icon` | string | - |  |
+| `icon-height` | string | - |  |
+| `logout-page-url` | string | - |  |
+| `account-page-url` | string | - |  |
+| `privacy-page-url` | string | - |  |
+| `terms-page-url` | string | - |  |
+| `role` | string | `"user"` |  |
+
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+- `label`
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.

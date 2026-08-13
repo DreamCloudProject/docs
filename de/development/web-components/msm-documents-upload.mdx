@@ -5,13 +5,59 @@ description: "Web-Komponente msm-documents-upload."
 
 `msm-documents-upload` ist eine Web-Komponente (Lit).
 
+Upload von Dateien oder Bildern.
+
 ```html
 <msm-documents-upload></msm-documents-upload>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `payload` | object | `{}` |  |
+| `entityId` | string | `""` | property only |
+| `urls` | array | - |  |
+| `url` | string | - |  |
 
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `msm-file-upload` | - |  |
+| `msm-file-remove` | - |  |
+
+Beispiel
+
+```html
+<msm-documents-upload>
+</msm-documents-upload>
+
+<script>
+  const el = document.querySelector("msm-documents-upload");
+  el.addEventListener("msm-file-upload", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-file-remove", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.
+
+Hinweise
+
+- Custom events bubble.

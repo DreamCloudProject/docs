@@ -1,0 +1,77 @@
+---
+title: "msm-input-chips"
+description: "Web-компонент msm-input-chips."
+---
+
+`msm-input-chips` — web-компонент на Lit.
+
+Переиспользуемый UI-блок.
+
+```html
+<msm-input-chips></msm-input-chips>
+```
+
+Атрибуты / свойства
+
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `name` | string | - |  |
+| `leadingIcon` | object | - | property only |
+| `trailingIcon` | object | - | property only |
+| `type` | ChipsType | - |  |
+| `items` | array | - |  |
+| `selectedItems` | array | - | property only |
+| `searchFunction` | Function | - | property only |
+| `title` | string | - |  |
+| `placeholder` | string | - |  |
+| `helper` | string | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
+| `limited` | boolean | - |  |
+
+События
+
+| Event | detail | Когда |
+| --- | --- | --- |
+| `show` | `state` |  |
+| `msm-chips-selected` | `item`, `selectedItems`, `selectedItemsIds` |  |
+| `msm-chips-removed` | `item`, `selectedItems`, `selectedItemsIds` |  |
+
+Пример
+
+```html
+<msm-input-chips>
+</msm-input-chips>
+
+<script>
+  const el = document.querySelector("msm-input-chips");
+  el.addEventListener("show", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-chips-selected", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-chips-removed", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+Документированных слотов нет.
+
+Методы
+
+- `validate()`
+
+Примечания
+
+- Custom events bubble.

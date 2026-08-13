@@ -5,13 +5,55 @@ description: "Web component msm-wallet-web3."
 
 `msm-wallet-web3` is a web component built with Lit.
 
+Integrate Web3 UI (wallet/NFT flows).
+
 ```html
 <msm-wallet-web3></msm-wallet-web3>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `signer` | object | - |  |
+| `walletAddress` | string | - | property only |
+| `blockchain` | string | - |  |
+| `activeNetwork` | object | - | property only |
+| `isLogged` | boolean | - | property only |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `wallet-connected` | `walletAddress` |  |
+
+Usage
+
+```html
+<msm-wallet-web3>
+</msm-wallet-web3>
+
+<script>
+  const el = document.querySelector("msm-wallet-web3");
+  el.addEventListener("wallet-connected", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+No documented `part` slots.
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.
+
+Notes
+
+- Custom events bubble.

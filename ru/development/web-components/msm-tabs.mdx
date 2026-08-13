@@ -5,13 +5,33 @@ description: "Web-компонент msm-tabs."
 
 `msm-tabs` — web-компонент на Lit.
 
+Вкладки (tabs).
+
 ```html
 <msm-tabs></msm-tabs>
 ```
 
-Свойства, слоты, события
+Атрибуты / свойства
 
-- Свойства: будет добавлено
-- События: будет добавлено
-- Слоты: будет добавлено
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `activeTabTitle` | number | - | property only |
+| `tabs` | array | `[]` |  |
+| `application-name` | string | - |  |
 
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+Документированных `part`-слотов нет.
+
+Слоты
+
+- `slot[name="button-${tab.id}"]`
+- `slot[name="tab-${this.activeTab.id}"]`
+
+Методы
+
+Публичные методы не документированы.

@@ -5,13 +5,41 @@ description: "Web component msm-introduction-banner."
 
 `msm-introduction-banner` is a web component built with Lit.
 
+Use this component as a reusable UI building block.
+
 ```html
 <msm-introduction-banner></msm-introduction-banner>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `first-button-link` | string | - |  |
+| `first-button-text` | string | `'Some link'` |  |
+| `first-button-outgoing` | boolean | - |  |
+| `first-button-download` | boolean | - |  |
+| `second-button-link` | string | - |  |
+| `second-button-text` | string | `'Some other link'` |  |
+| `second-button-outgoing` | boolean | - |  |
+| `second-button-download` | boolean | - |  |
+| `margin-top` | number | `0` |  |
+| `margin-bottom` | number | `0` |  |
 
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+No documented `part` slots.
+
+Slots
+
+- `slot[name="title"]`
+- `slot[name="content"]`
+- `slot[name="image"]`
+
+Methods
+
+No documented public methods.

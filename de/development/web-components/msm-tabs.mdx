@@ -5,13 +5,33 @@ description: "Web-Komponente msm-tabs."
 
 `msm-tabs` ist eine Web-Komponente (Lit).
 
+Tabbed UI.
+
 ```html
 <msm-tabs></msm-tabs>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `activeTabTitle` | number | - | property only |
+| `tabs` | array | `[]` |  |
+| `application-name` | string | - |  |
 
+Events
+
+Diese Komponente feuert keine eigenen Custom Events.
+
+CSS parts
+
+Keine `part`-Slots dokumentiert.
+
+Slots
+
+- `slot[name="button-${tab.id}"]`
+- `slot[name="tab-${this.activeTab.id}"]`
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.

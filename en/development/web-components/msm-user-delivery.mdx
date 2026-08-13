@@ -5,13 +5,61 @@ description: "Web component msm-user-delivery."
 
 `msm-user-delivery` is a web component built with Lit.
 
+Provide user/account UI building blocks.
+
 ```html
-<msm-user-delivery></msm-user-delivery>
+<msm-user-delivery order-id="ORDER_ID"></msm-user-delivery>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `isShowError` | boolean | `false` | property only |
+| `isLogged` | boolean | - | property only |
+| `isEditMode` | boolean | `false` | property only |
+| `isSaveMode` | boolean | `false` | property only |
+| `seller` | promise | `getLoggedSeller()` |  |
+| `theme` | string | - |  |
+| `order-id` | string | - |  |
+| `color-scheme` | string | - |  |
+| `show-radio` | boolean | `false` |  |
+| `required` | boolean | - |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `select` | `address` |  |
+
+Usage
+
+```html
+<msm-user-delivery order-id="ORDER_ID">
+</msm-user-delivery>
+
+<script>
+  const el = document.querySelector("msm-user-delivery");
+  el.addEventListener("select", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `label`
+
+Slots
+
+No documented slots.
+
+Methods
+
+- `validate()`
+
+Notes
+
+- Custom events bubble.

@@ -3,7 +3,9 @@ title: "msm-cdek-widget"
 description: "Delivery selection component based on the CDEK widget."
 ---
 
-`msm-cdek-widget` lets a user choose a delivery option/address using the CDEK widget and emits events you can handle to update the order.
+`msm-cdek-widget` is a web component built with Lit.
+
+Let users choose a delivery option/address and handle emitted events to update the order.
 
 ```html
 <msm-cdek-widget order-id="ORDER_ID"></msm-cdek-widget>
@@ -13,45 +15,53 @@ Attributes / properties
 
 | Name | Type | Default | Notes |
 | --- | --- | --- | --- |
-| `order-id` | string | — | Order id used to load order + seller data. Required for the widget to initialize. |
-| `delivery-type` | string | `door` | Delivery type (`door`, `office`, `pickup`). Can be changed by the widget. |
-| `value` | string | — | Value for the underlying radio input. |
-| `checked` | boolean | `false` | Marks the option as selected. |
-| `disabled` | boolean | `false` | Disables user interaction. |
-| `required` | boolean | `false` | Used by `validate()`. |
+| `delivery-type` | string | `"door"` |  |
+| `order-id` | string | - |  |
+| `checked` | boolean | - |  |
+| `disabled` | boolean | - |  |
+| `required` | boolean | - |  |
 
 Events
 
-| Event | `detail` | When |
+| Event | detail | When |
 | --- | --- | --- |
-| `msm-delivery-calculated` | `{ prices, address }` | When CDEK calculates delivery prices for an address. |
-| `msm-address-selected` | `{ type, deliveryAmount, shippingAddress, metaInfo }` | When the user chooses a delivery option/address. |
+| `msm-delivery-calculated` | `prices`, `address` |  |
+| `msm-address-selected` | `type`, `deliveryAmount`, `shippingAddress`, `metaInfo` |  |
 
 Usage
 
 ```html
-<msm-cdek-widget order-id="ORDER_ID" required value="cdek"></msm-cdek-widget>
+<msm-cdek-widget order-id="ORDER_ID">
+</msm-cdek-widget>
 
 <script>
   const el = document.querySelector("msm-cdek-widget");
-
   el.addEventListener("msm-delivery-calculated", (e) => {
-    // e.detail.prices, e.detail.address
-    console.log("Delivery calculated", e.detail);
+    console.log(e.detail);
   });
 
   el.addEventListener("msm-address-selected", (e) => {
-    // e.detail.shippingAddress, e.detail.metaInfo.delivery
-    console.log("Address selected", e.detail);
+    console.log(e.detail);
   });
+
 </script>
 ```
 
+CSS parts
+
+- `base`
+- `label`
+
+Slots
+
+No documented slots.
+
+Methods
+
+- `validate()`
+
 Notes
 
+- Geolocation is requested only when supported by the browser.
 - Geolocation is only requested on HTTPS pages (browser limitation).
-- The widget opens a popup when the user clicks “Change delivery address”.
-
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+- Custom events bubble.

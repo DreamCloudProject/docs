@@ -1,11 +1,42 @@
 ---
 title: "msm-user-profile"
-description: "User profile web component"
+description: "Web component msm-user-profile."
 ---
+
+`msm-user-profile` is a web component built with Lit.
+
+Provide user/account UI building blocks.
 
 ```html
 <msm-user-profile></msm-user-profile>
 ```
 
-Props/events will be documented.
+Attributes / properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `href` | string | - |  |
+| `isLogged` | boolean | - | property only |
+| `isEditFullName` | boolean | `false` | property only |
+| `isEditMobilePhone` | boolean | `false` | property only |
+| `isEditEmail` | boolean | `false` | property only |
+| `isShowEmailError` | boolean | `false` | property only |
+| `isEditBirthdate` | boolean | `false` | property only |
+| `item` | object | - |  |
+| `profile` | promise | - |  |
+
+Events
+
+This component does not emit custom events.
+
+CSS parts
+
+- `base`
+
+Slots
+
+No documented slots.
+
+Methods
+
+No documented public methods.

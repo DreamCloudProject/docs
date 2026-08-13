@@ -5,13 +5,70 @@ description: "Web-Komponente msm-search-card."
 
 `msm-search-card` ist eine Web-Komponente (Lit).
 
+UI für Suche (Eingabe, Filter, Ergebnisse, Pagination).
+
 ```html
 <msm-search-card></msm-search-card>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `type` | string | - |  |
+| `loading` | boolean | - |  |
+| `seller-sku-id` | string | - |  |
+| `discount-price-id` | string | - |  |
+| `filtered-features` | string | - |  |
+| `item` | object | - |  |
+| `theme` | string | - |  |
+| `add-to-cart-icon` | string | - |  |
+| `remove-from-cart-icon` | string | - |  |
+| `favorites` | boolean | - |  |
+| `favorite-icon` | string | - |  |
+| `background-color` | string | - |  |
+| `object-fit` | string | - |  |
+| `border-color` | string | - |  |
+| `border-width` | string | - |  |
+| `border-style` | string | - |  |
+| `border-radius` | string | - |  |
+| `data-view-href` | string | - |  |
+| `deletable` | boolean | - |  |
+| `viewable` | boolean | - |  |
 
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `msm-search-card-deleted` | `item` |  |
+
+Beispiel
+
+```html
+<msm-search-card>
+</msm-search-card>
+
+<script>
+  const el = document.querySelector("msm-search-card");
+  el.addEventListener("msm-search-card-deleted", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+Keine `part`-Slots dokumentiert.
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.
+
+Hinweise
+
+- Custom events bubble.

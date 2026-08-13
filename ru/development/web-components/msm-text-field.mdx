@@ -1,11 +1,48 @@
 ---
 title: "msm-text-field"
-description: "Web-компонент текстового поля"
+description: "Web-компонент msm-text-field."
 ---
+
+`msm-text-field` — web-компонент на Lit.
+
+Поля форм и элементы управления.
 
 ```html
 <msm-text-field></msm-text-field>
 ```
 
-Props/events будут описаны.
+Атрибуты / свойства
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `title` | string | - |  |
+| `type` | string | - |  |
+| `theme` | string | - |  |
+| `placeholder` | string | - |  |
+| `helper` | string | - |  |
+| `leadingIcon` | object | - | property only |
+| `trailingIcon` | object | - | property only |
+| `multiline` | boolean | - |  |
+| `required` | boolean | - |  |
+| `disabled` | boolean | - |  |
+
+События
+
+Этот компонент не генерирует собственных CustomEvent.
+
+CSS parts
+
+- `base`
+- `frame`
+- `helper`
+- `input`
+- `label`
+- `notch`
+
+Слоты
+
+- `slot[name="button"]`
+
+Методы
+
+- `validate()`

@@ -1,11 +1,48 @@
 ---
 title: "msm-text-field"
-description: "Textfeld Web-Komponente"
+description: "Web-Komponente msm-text-field."
 ---
+
+`msm-text-field` ist eine Web-Komponente (Lit).
+
+Formulareingaben und UI-Controls.
 
 ```html
 <msm-text-field></msm-text-field>
 ```
 
-Props/Events werden dokumentiert.
+Attribute / Properties
 
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `title` | string | - |  |
+| `type` | string | - |  |
+| `theme` | string | - |  |
+| `placeholder` | string | - |  |
+| `helper` | string | - |  |
+| `leadingIcon` | object | - | property only |
+| `trailingIcon` | object | - | property only |
+| `multiline` | boolean | - |  |
+| `required` | boolean | - |  |
+| `disabled` | boolean | - |  |
+
+Events
+
+Diese Komponente feuert keine eigenen Custom Events.
+
+CSS parts
+
+- `base`
+- `frame`
+- `helper`
+- `input`
+- `label`
+- `notch`
+
+Slots
+
+- `slot[name="button"]`
+
+Methoden
+
+- `validate()`

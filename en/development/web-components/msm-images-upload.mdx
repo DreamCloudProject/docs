@@ -1,17 +1,62 @@
 ---
 title: "msm-images-upload"
-description: "Web component msm-images-upload."
+description: "Upload UI component."
 ---
 
 `msm-images-upload` is a web component built with Lit.
+
+Render media content (images/video).
 
 ```html
 <msm-images-upload></msm-images-upload>
 ```
 
-Props, slots, events
+Attributes / properties
 
-- Props: to be documented
-- Events: to be documented
-- Slots: to be documented
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `image` | string | - |  |
+| `imageUrls` | array | - | property only |
+| `required` | boolean | - |  |
 
+Events
+
+| Event | detail | When |
+| --- | --- | --- |
+| `msm-image-upload` | - |  |
+| `msm-image-remove` | - |  |
+
+Usage
+
+```html
+<msm-images-upload>
+</msm-images-upload>
+
+<script>
+  const el = document.querySelector("msm-images-upload");
+  el.addEventListener("msm-image-upload", (e) => {
+    console.log(e.detail);
+  });
+
+  el.addEventListener("msm-image-remove", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+No documented `part` slots.
+
+Slots
+
+No documented slots.
+
+Methods
+
+- `validate()`
+
+Notes
+
+- Custom events bubble.

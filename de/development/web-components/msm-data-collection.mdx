@@ -5,13 +5,54 @@ description: "Web-Komponente msm-data-collection."
 
 `msm-data-collection` ist eine Web-Komponente (Lit).
 
+Wiederverwendbarer UI-Baustein.
+
 ```html
 <msm-data-collection></msm-data-collection>
 ```
 
-Properties, Slots, Events
+Attribute / Properties
 
-- Properties: folgt
-- Events: folgt
-- Slots: folgt
+| Name | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `variant` | string | - |  |
 
+Events
+
+| Event | detail | Wann |
+| --- | --- | --- |
+| `msm-array-updated` | `items`, `itemsAsString` |  |
+
+Beispiel
+
+```html
+<msm-data-collection>
+</msm-data-collection>
+
+<script>
+  const el = document.querySelector("msm-data-collection");
+  el.addEventListener("msm-array-updated", (e) => {
+    console.log(e.detail);
+  });
+
+</script>
+```
+
+CSS parts
+
+- `base`
+- `frame`
+- `helper`
+- `label`
+
+Slots
+
+Keine Slots dokumentiert.
+
+Methoden
+
+Keine öffentlichen Methoden dokumentiert.
+
+Hinweise
+
+- Custom events bubble.

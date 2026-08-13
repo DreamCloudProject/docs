@@ -1,0 +1,35 @@
+---
+title: "<msm:text>"
+description: "Render text using a bean result or a JSON value"
+---
+
+`<msm:text>` renders plain text content using either:
+
+- a bean (and optional method call), or
+- a JSON `value`.
+
+## Basic usage
+
+```html
+<msm:text
+  id="pageTitle"
+  bean="translationServiceImpl"
+  function="getTranslation(RawMaterialSearch;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  ${t|value}
+</msm:text>
+```
+
+## Attributes
+
+| Attribute | Required | Meaning |
+|---|---:|---|
+| `id` | yes | Unique text id. |
+| `item-name` | no | Prefix for variables inside the text body. |
+| `bean` | no* | Bean id used as a data source. |
+| `scope` | no* | `PROTOTYPE` or `SESSION` (required when `bean` is set). |
+| `function` | no | Method definition to call on the bean (optional). |
+| `value` | no | JSON value used instead of calling a bean (optional). |
+

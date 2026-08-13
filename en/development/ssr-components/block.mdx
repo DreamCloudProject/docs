@@ -1,0 +1,46 @@
+---
+title: "<msm:block>"
+description: "Render a block using a bean result or a JSON value"
+---
+
+`<msm:block>` renders a block of HTML (usually via an inner `<msm:template>`) using data from a bean call or a JSON `value`.
+
+## Basic usage (bean)
+
+```html
+<msm:block id="settings" bean="settingsServiceImpl" scope="PROTOTYPE" item-name="s">
+  <msm:template>
+    <h1>${s|title}</h1>
+  </msm:template>
+</msm:block>
+```
+
+## Usage with a method call
+
+```html
+<msm:block
+  id="seo"
+  bean="translationServiceImpl"
+  function="getTranslation(HomeTitle;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  <msm:template>
+    <title>${t|value}</title>
+  </msm:template>
+</msm:block>
+```
+
+## Attributes
+
+| Attribute | Required | Meaning |
+|---|---:|---|
+| `id` | yes | Unique block id. |
+| `item-name` | no | Prefix for variables inside the block (e.g. `${t|value}`). |
+| `bean` | no* | Bean id used as a data source. |
+| `scope` | no* | `PROTOTYPE` or `SESSION` (required when `bean` is set). |
+| `function` | no | Method definition to call on the bean (optional). |
+| `value` | no | JSON value used instead of calling a bean (optional). |
+
+`*` In most cases you use either `value` or `bean+scope`.
+

@@ -1,0 +1,27 @@
+---
+title: "<msm:tree>"
+description: "Render hierarchical (nested) data"
+---
+
+`<msm:tree>` renders hierarchical data (items with nested children).
+
+It uses an inner `<msm:template>` and can work with different sources via `mode`.
+
+## Skeleton
+
+```html
+<msm:tree id="tree" mode="BEAN" bean="treeServiceImpl" scope="PROTOTYPE" items="getTree()" item-name="n" children="children">
+  <msm:template>
+    <div>${n|title}</div>
+  </msm:template>
+</msm:tree>
+```
+
+## Common attributes
+
+| Attribute | Meaning |
+|---|---|
+| `children` | Name of the nested children field (defaults to `children`). |
+| `mode` | Data source mode (e.g. `DATABASE`, `BEAN`, `REPOSITORY`). |
+| `item-name` | Variable prefix used for each node. |
+

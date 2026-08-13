@@ -1,0 +1,27 @@
+---
+title: "<msm:fragment>"
+description: "Include and render a fragment template"
+---
+
+`<msm:fragment>` inserts and renders another template (a “partial”) at the current position.
+
+## Basic usage
+
+```html
+<msm:fragment id="mainHeader" path="main/components/navbar.html" />
+```
+
+## Attributes
+
+| Attribute | Required | Meaning |
+|---|---:|---|
+| `id` | yes | Unique fragment id. |
+| `path` | yes | Fragment template path (resolved by the platform). |
+| `param` | no | Parameters passed into the fragment (string or JSON). |
+| `bean` | no | Bean id used to compute/compile the `path` (optional). |
+| `scope` | no | Bean scope when `bean` is used (`PROTOTYPE` or `SESSION`). |
+| `data-lazy-render` | no | If `true`, fragment can be rendered lazily. |
+| `data-lazy-load-js` | no | Optional lazy JS loader hint. |
+| `data-lazy-load-css` | no | Optional lazy CSS loader hint. |
+| `data-template-path` | no | Page template path used for lazy rendering. |
+

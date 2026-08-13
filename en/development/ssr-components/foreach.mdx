@@ -1,0 +1,34 @@
+---
+title: "<msm:foreach>"
+description: "Repeat a template for a list of items"
+---
+
+`<msm:foreach>` repeats an inner `<msm:template>` for a list of items.
+
+It supports multiple data sources via `mode` (for example: database, bean, repository).
+
+## Skeleton
+
+```html
+<msm:foreach id="items" mode="BEAN" bean="someServiceImpl" scope="PROTOTYPE" items="getItems()" item-name="i">
+  <msm:template>
+    <div>${i|name}</div>
+  </msm:template>
+  <msm:empty>
+    <div>No items</div>
+  </msm:empty>
+</msm:foreach>
+```
+
+## Common attributes
+
+| Attribute | Meaning |
+|---|---|
+| `mode` | Data source mode (e.g. `DATABASE`, `BEAN`, `REPOSITORY`). |
+| `item-name` | Variable prefix used for each item. |
+| `bean` / `scope` / `items` | Bean source configuration. |
+| `database` / `collection` / `filter` | Database source configuration. |
+| `repository` / `query` / `sort` | Repository source configuration. |
+| `offset` / `limit` | Pagination hints (when supported). |
+| `header` / `footer` | Optional JSON for header/footer rendering. |
+

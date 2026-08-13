@@ -33,10 +33,31 @@
                     ]
                   },
                   {
-                    "group": "Development",
+                    "group": "SSR components",
                     "pages": [
-                      "en/development/ssr-components",
-                      "en/development/web-components",
+                      "en/development/ssr-components/overview",
+                      "en/development/ssr-components/fragment",
+                      "en/development/ssr-components/placeholder",
+                      "en/development/ssr-components/block",
+                      "en/development/ssr-components/text",
+                      "en/development/ssr-components/foreach",
+                      "en/development/ssr-components/tree",
+                      "en/development/ssr-components/if",
+                      "en/development/ssr-components/select",
+                      "en/development/ssr-components/rest",
+                      "en/development/ssr-components/resource",
+                      "en/development/ssr-components/template"
+                    ]
+                  },
+                  {
+                    "group": "Web components",
+                    "pages": [
+                      "en/development/web-components"
+                    ]
+                  },
+                  {
+                    "group": "Examples",
+                    "pages": [
                       "en/development/examples"
                     ]
                   },
@@ -95,7 +116,7 @@
             "icon": "book-open-cover",
             "tabs": [
               {
-                "tab": "Guides",
+                "tab": "Anleitungen",
                 "groups": [
                   {
                     "group": "Erste Schritte",
@@ -106,10 +127,31 @@
                     ]
                   },
                   {
-                    "group": "Development",
+                    "group": "SSR-Komponenten",
                     "pages": [
-                      "de/development/ssr-components",
-                      "de/development/web-components",
+                      "de/development/ssr-components/overview",
+                      "de/development/ssr-components/fragment",
+                      "de/development/ssr-components/placeholder",
+                      "de/development/ssr-components/block",
+                      "de/development/ssr-components/text",
+                      "de/development/ssr-components/foreach",
+                      "de/development/ssr-components/tree",
+                      "de/development/ssr-components/if",
+                      "de/development/ssr-components/select",
+                      "de/development/ssr-components/rest",
+                      "de/development/ssr-components/resource",
+                      "de/development/ssr-components/template"
+                    ]
+                  },
+                  {
+                    "group": "Web-Komponenten",
+                    "pages": [
+                      "de/development/web-components"
+                    ]
+                  },
+                  {
+                    "group": "Beispiele",
+                    "pages": [
                       "de/development/examples"
                     ]
                   },
@@ -127,7 +169,7 @@
                 ]
               },
               {
-                "tab": "API Reference",
+                "tab": "API-Referenz",
                 "groups": [
                   {
                     "group": "API Documentation",
@@ -168,7 +210,7 @@
             "icon": "book-open-cover",
             "tabs": [
               {
-                "tab": "Guides",
+                "tab": "Руководства",
                 "groups": [
                   {
                     "group": "Начало работы",
@@ -179,10 +221,31 @@
                     ]
                   },
                   {
-                    "group": "Разработка",
+                    "group": "SSR-компоненты",
                     "pages": [
-                      "ru/development/ssr-components",
-                      "ru/development/web-components",
+                      "ru/development/ssr-components/overview",
+                      "ru/development/ssr-components/fragment",
+                      "ru/development/ssr-components/placeholder",
+                      "ru/development/ssr-components/block",
+                      "ru/development/ssr-components/text",
+                      "ru/development/ssr-components/foreach",
+                      "ru/development/ssr-components/tree",
+                      "ru/development/ssr-components/if",
+                      "ru/development/ssr-components/select",
+                      "ru/development/ssr-components/rest",
+                      "ru/development/ssr-components/resource",
+                      "ru/development/ssr-components/template"
+                    ]
+                  },
+                  {
+                    "group": "Web-компоненты",
+                    "pages": [
+                      "ru/development/web-components"
+                    ]
+                  },
+                  {
+                    "group": "Примеры",
+                    "pages": [
                       "ru/development/examples"
                     ]
                   },
@@ -200,7 +263,7 @@
                 ]
               },
               {
-                "tab": "API Reference",
+                "tab": "API-справочник",
                 "groups": [
                   {
                     "group": "API Documentation",

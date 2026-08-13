@@ -1,0 +1,17 @@
+---
+title: "<msm:placeholder>"
+description: "Placeholder markup (commonly used with lazy rendering)"
+---
+
+`<msm:placeholder>` defines placeholder HTML that can be shown before a lazily-rendered fragment/block is ready.
+
+## Typical pattern
+
+```html
+<msm:fragment id="block" path="main/fragments/some-block.html" data-lazy-render="true">
+  <msm:placeholder>
+    <div class="skeleton">Loading…</div>
+  </msm:placeholder>
+</msm:fragment>
+```
+

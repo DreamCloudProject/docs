@@ -1,0 +1,25 @@
+---
+title: "<msm:select>"
+description: "Build a <select> element from items"
+---
+
+`<msm:select>` builds a native HTML `<select>` by rendering options from items.
+
+## Skeleton
+
+```html
+<msm:select id="country" mode="DIRECT" items='[{"value":"DE","label":"Germany"},{"value":"US","label":"USA"}]'>
+  <msm:template>
+    <option value="${value}">${label}</option>
+  </msm:template>
+</msm:select>
+```
+
+## Common attributes
+
+| Attribute | Meaning |
+|---|---|
+| `mode` | Data source mode (e.g. `DATABASE`, `BEAN`, `REPOSITORY`, `DIRECT`). |
+| `selected` / `selectedValue` | How the selected option is determined. |
+| `item-name` | Variable prefix for each option item. |
+

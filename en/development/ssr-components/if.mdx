@@ -1,0 +1,26 @@
+---
+title: "<msm:if>"
+description: "Conditional rendering"
+---
+
+`<msm:if>` renders its inner content only if the condition is true.
+
+## Skeleton
+
+```html
+<msm:if id="loggedIn" bean="userServiceImpl" scope="SESSION" test="isLoggedIn">
+  <msm:template>
+    <div>Welcome back!</div>
+  </msm:template>
+</msm:if>
+```
+
+## Attributes
+
+| Attribute | Required | Meaning |
+|---|---:|---|
+| `id` | yes | Unique condition id. |
+| `test` | yes | Boolean expression or bean method definition. |
+| `bean` | no | Bean id (optional, when `test` is evaluated on a bean). |
+| `scope` | no | Bean scope (`PROTOTYPE` or `SESSION`). |
+

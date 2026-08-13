@@ -1,0 +1,30 @@
+---
+title: "<msm:rest>"
+description: "Call an HTTP endpoint and render the response"
+---
+
+`<msm:rest>` calls an external HTTP endpoint (GET/POST) and renders the response using templates.
+
+## Skeleton
+
+```html
+<msm:rest id="remote" endpoint="https://api.example.com/items" method="GET" item-name="r">
+  <msm:template>
+    <div>${r|value}</div>
+  </msm:template>
+  <msm:empty>
+    <div>No data</div>
+  </msm:empty>
+</msm:rest>
+```
+
+## Attributes
+
+| Attribute | Meaning |
+|---|---|
+| `endpoint` | HTTP URL to call. |
+| `method` | `GET` or `POST`. |
+| `request` | JSON request payload (for POST) or params (depending on setup). |
+| `header` / `footer` | Optional JSON for extra rendering sections. |
+| `item-name` | Prefix used inside templates. |
+

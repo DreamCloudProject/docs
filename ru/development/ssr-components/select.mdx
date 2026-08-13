@@ -1,7 +1,24 @@
 ---
-title: "<msm:select>"
-description: "Сборка <select> из items"
+title: "msm:select"
+description: "Сборка select из items"
 ---
 
-Будет дополнено.
+`<msm:select>` собирает нативный HTML-`<select>`, рендеря `<option>` из items.
 
+## Каркас
+
+```html
+<msm:select id="country" mode="DIRECT" items='[{"value":"DE","label":"Germany"},{"value":"US","label":"USA"}]'>
+  <msm:template>
+    <option value="${value}">${label}</option>
+  </msm:template>
+</msm:select>
+```
+
+## Частые атрибуты
+
+| Атрибут | Значение |
+|---|---|
+| `mode` | Режим источника (например `DATABASE`, `BEAN`, `REPOSITORY`, `DIRECT`). |
+| `selected` / `selectedValue` | Как определяется выбранная опция. |
+| `item-name` | Префикс переменных для каждого option item. |

@@ -1,7 +1,33 @@
 ---
-title: "<msm:foreach>"
+title: "msm:foreach"
 description: "Повтор шаблона по списку"
 ---
 
-Будет дополнено.
+`<msm:foreach>` повторяет внутренний ``<msm:template>`` для списка элементов.
 
+Поддерживает разные источники данных через `mode` (например: база данных, bean, repository).
+
+## Каркас
+
+```html
+<msm:foreach id="items" mode="BEAN" bean="someServiceImpl" scope="PROTOTYPE" items="getItems()" item-name="i">
+  <msm:template>
+    <div>${i|name}</div>
+  </msm:template>
+  <msm:empty>
+    <div>No items</div>
+  </msm:empty>
+</msm:foreach>
+```
+
+## Частые атрибуты
+
+| Атрибут | Значение |
+|---|---|
+| `mode` | Режим источника (например `DATABASE`, `BEAN`, `REPOSITORY`). |
+| `item-name` | Префикс переменных для каждого item. |
+| `bean` / `scope` / `items` | Конфигурация источника bean. |
+| `database` / `collection` / `filter` | Конфигурация источника БД. |
+| `repository` / `query` / `sort` | Конфигурация источника repository. |
+| `offset` / `limit` | Подсказки для пагинации (если поддерживается). |
+| `header` / `footer` | Опциональный JSON для рендера header/footer. |

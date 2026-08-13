@@ -1,7 +1,25 @@
 ---
-title: "<msm:if>"
+title: "msm:if"
 description: "Условный рендеринг"
 ---
 
-Будет дополнено.
+`<msm:if>` рендерит внутренний контент только если условие истинно.
 
+## Каркас
+
+```html
+<msm:if id="loggedIn" bean="userServiceImpl" scope="SESSION" test="isLoggedIn">
+  <msm:template>
+    <div>Welcome back!</div>
+  </msm:template>
+</msm:if>
+```
+
+## Атрибуты
+
+| Атрибут | Обязателен | Значение |
+|---|---:|---|
+| `id` | да | Уникальный id условия. |
+| `test` | да | Булево выражение или определение метода на бине. |
+| `bean` | нет | Bean id (если `test` вычисляется на бине). |
+| `scope` | нет | Scope бина (`PROTOTYPE` или `SESSION`). |

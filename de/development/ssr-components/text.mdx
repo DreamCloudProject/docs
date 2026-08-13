@@ -1,7 +1,34 @@
 ---
-title: "<msm:text>"
+title: "msm:text"
 description: "Text aus Bean-Ergebnis oder JSON-Wert rendern"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:text>` rendert Textinhalt basierend auf:
 
+- einem Bean (mit optionalem Method Call), oder
+- einem JSON-`value`.
+
+## Grundbeispiel
+
+```html
+<msm:text
+  id="pageTitle"
+  bean="translationServiceImpl"
+  function="getTranslation(RawMaterialSearch;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  ${t|value}
+</msm:text>
+```
+
+## Attribute
+
+| Attribut | Erforderlich | Bedeutung |
+|---|---:|---|
+| `id` | ja | Eindeutige Text-ID. |
+| `item-name` | nein | Prefix für Variablen im Textkörper. |
+| `bean` | nein* | Bean-ID als Datenquelle. |
+| `scope` | nein* | `PROTOTYPE` oder `SESSION` (erforderlich, wenn `bean` gesetzt ist). |
+| `function` | nein | Method-Definition, die auf dem Bean aufgerufen wird (optional). |
+| `value` | nein | JSON-Wert statt Bean-Call (optional). |

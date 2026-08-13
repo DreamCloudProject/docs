@@ -1,7 +1,51 @@
 ---
-title: "<msm:block>"
+title: "msm:block"
 description: "Block aus Bean-Ergebnis oder JSON-Wert rendern"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:block>` rendert einen HTML-Block (meist über ein inneres ``<msm:template>``) mit Daten aus einem Bean-Call oder einem JSON-`value`.
 
+## Grundbeispiel (Bean)
+
+```html
+<msm:block id="settings" bean="settingsServiceImpl" scope="PROTOTYPE" item-name="s">
+  <msm:template>
+    <h1>${s|title}</h1>
+  </msm:template>
+</msm:block>
+```
+
+## Verwendung mit Method Call
+
+```html
+<msm:block
+  id="seo"
+  bean="translationServiceImpl"
+  function="getTranslation(HomeTitle;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  <msm:template>
+    <title>${t|value}</title>
+  </msm:template>
+</msm:block>
+```
+
+## Attribute
+
+| Attribut | Erforderlich | Bedeutung |
+|---|---:|---|
+| `id` | ja | Eindeutige Block-ID. |
+| `item-name` | nein | Prefix für Variablen innerhalb des Blocks. |
+| `bean` | nein* | Bean-ID als Datenquelle. |
+| `scope` | nein* | `PROTOTYPE` oder `SESSION` (erforderlich, wenn `bean` gesetzt ist). |
+| `function` | nein | Method-Definition, die auf dem Bean aufgerufen wird (optional). |
+| `value` | nein | JSON-Wert statt Bean-Call (optional). |
+
+`*` In der Praxis nutzt du meistens entweder `value` oder `bean+scope`.
+
+Beispiel für die Variablensyntax:
+
+```text
+${t|value}
+```

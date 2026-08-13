@@ -1,7 +1,16 @@
 ---
-title: "<msm:placeholder>"
+title: "msm:placeholder"
 description: "Плейсхолдер-разметка"
 ---
 
-Будет дополнено.
+`<msm:placeholder>` задаёт HTML, который можно показать до того, как лениво отрендерится фрагмент/блок.
 
+## Типовой паттерн
+
+```html
+<msm:fragment id="block" path="main/fragments/some-block.html" data-lazy-render="true">
+  <msm:placeholder>
+    <div class="skeleton">Loading…</div>
+  </msm:placeholder>
+</msm:fragment>
+```

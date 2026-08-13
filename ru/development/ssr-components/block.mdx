@@ -1,7 +1,51 @@
 ---
-title: "<msm:block>"
+title: "msm:block"
 description: "Рендер блока из bean-результата или JSON value"
 ---
 
-Будет дополнено.
+`<msm:block>` рендерит HTML-блок (обычно через внутренний ``<msm:template>``) на основе результата вызова бина или JSON `value`.
 
+## Базовый пример (bean)
+
+```html
+<msm:block id="settings" bean="settingsServiceImpl" scope="PROTOTYPE" item-name="s">
+  <msm:template>
+    <h1>${s|title}</h1>
+  </msm:template>
+</msm:block>
+```
+
+## Пример с вызовом метода
+
+```html
+<msm:block
+  id="seo"
+  bean="translationServiceImpl"
+  function="getTranslation(HomeTitle;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  <msm:template>
+    <title>${t|value}</title>
+  </msm:template>
+</msm:block>
+```
+
+## Атрибуты
+
+| Атрибут | Обязателен | Значение |
+|---|---:|---|
+| `id` | да | Уникальный id блока. |
+| `item-name` | нет | Префикс для переменных внутри блока. |
+| `bean` | нет* | Bean id как источник данных. |
+| `scope` | нет* | `PROTOTYPE` или `SESSION` (нужно, если задан `bean`). |
+| `function` | нет | Определение метода для вызова на бине (опционально). |
+| `value` | нет | JSON value вместо вызова бина (опционально). |
+
+`*` Обычно используется либо `value`, либо `bean+scope`.
+
+Пример синтаксиса переменных:
+
+```text
+${t|value}
+```

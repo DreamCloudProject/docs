@@ -1,7 +1,25 @@
 ---
-title: "<msm:if>"
+title: "msm:if"
 description: "Bedingtes Rendern"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:if>` rendert den inneren Inhalt nur, wenn die Bedingung `true` ist.
 
+## Grundstruktur
+
+```html
+<msm:if id="loggedIn" bean="userServiceImpl" scope="SESSION" test="isLoggedIn">
+  <msm:template>
+    <div>Welcome back!</div>
+  </msm:template>
+</msm:if>
+```
+
+## Attribute
+
+| Attribut | Erforderlich | Bedeutung |
+|---|---:|---|
+| `id` | ja | Eindeutige Condition-ID. |
+| `test` | ja | Boolean-Ausdruck oder Bean-Method-Definition. |
+| `bean` | nein | Bean-ID (optional, wenn `test` auf einem Bean ausgewertet wird). |
+| `scope` | nein | Bean-Scope (`PROTOTYPE` oder `SESSION`). |

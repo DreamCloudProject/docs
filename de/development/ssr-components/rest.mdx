@@ -1,7 +1,29 @@
 ---
-title: "<msm:rest>"
+title: "msm:rest"
 description: "HTTP-Endpunkt aufrufen und Antwort rendern"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:rest>` ruft einen externen HTTP-Endpunkt (GET/POST) auf und rendert die Antwort mit Templates.
 
+## Grundstruktur
+
+```html
+<msm:rest id="remote" endpoint="https://api.example.com/items" method="GET" item-name="r">
+  <msm:template>
+    <div>${r|value}</div>
+  </msm:template>
+  <msm:empty>
+    <div>No data</div>
+  </msm:empty>
+</msm:rest>
+```
+
+## Attribute
+
+| Attribut | Bedeutung |
+|---|---|
+| `endpoint` | HTTP-URL. |
+| `method` | `GET` oder `POST`. |
+| `request` | JSON-Request-Payload (für POST) oder Params (je nach Setup). |
+| `header` / `footer` | Optionales JSON für zusätzliche Sections. |
+| `item-name` | Prefix innerhalb der Templates. |

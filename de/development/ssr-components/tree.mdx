@@ -1,7 +1,26 @@
 ---
-title: "<msm:tree>"
+title: "msm:tree"
 description: "Hierarchische Daten rendern"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:tree>` rendert hierarchische Daten (Items mit verschachtelten Children).
 
+Es nutzt ein inneres ``<msm:template>`` und kann je nach `mode` verschiedene Datenquellen verwenden.
+
+## Grundstruktur
+
+```html
+<msm:tree id="tree" mode="BEAN" bean="treeServiceImpl" scope="PROTOTYPE" items="getTree()" item-name="n" children="children">
+  <msm:template>
+    <div>${n|title}</div>
+  </msm:template>
+</msm:tree>
+```
+
+## Häufige Attribute
+
+| Attribut | Bedeutung |
+|---|---|
+| `children` | Name des Children-Felds (Default: `children`). |
+| `mode` | Datenquellenmodus (z. B. `DATABASE`, `BEAN`, `REPOSITORY`). |
+| `item-name` | Variablen-Prefix pro Node. |

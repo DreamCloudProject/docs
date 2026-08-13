@@ -1,7 +1,26 @@
 ---
-title: "<msm:tree>"
+title: "msm:tree"
 description: "Рендер иерархических данных"
 ---
 
-Будет дополнено.
+`<msm:tree>` рендерит иерархические данные (элементы с вложенными дочерними).
 
+Использует внутренний ``<msm:template>`` и может работать с разными источниками через `mode`.
+
+## Каркас
+
+```html
+<msm:tree id="tree" mode="BEAN" bean="treeServiceImpl" scope="PROTOTYPE" items="getTree()" item-name="n" children="children">
+  <msm:template>
+    <div>${n|title}</div>
+  </msm:template>
+</msm:tree>
+```
+
+## Частые атрибуты
+
+| Атрибут | Значение |
+|---|---|
+| `children` | Имя поля с дочерними элементами (по умолчанию `children`). |
+| `mode` | Режим источника (например `DATABASE`, `BEAN`, `REPOSITORY`). |
+| `item-name` | Префикс переменных для каждого узла. |

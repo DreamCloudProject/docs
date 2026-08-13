@@ -1,8 +1,66 @@
 ---
 title: "Обзор"
-description: "Оглавление SSR-компонентов MastermindCMS (<msm:*>)"
+description: "Оглавление SSR-компонентов MastermindCMS (msm:*)"
 ---
 
 SSR-компоненты MastermindCMS — это пользовательские теги в пространстве имён `<msm:*>`, которые используются в HTML-шаблонах.
 
-Эта страница будет постепенно расширяться.
+Выберите компонент:
+
+<CardGroup cols="3">
+  <Card title="msm:fragment" icon="puzzle-piece" href="/ru/development/ssr-components/fragment">
+    Подключить и отрендерить фрагмент.
+  </Card>
+
+  <Card title="msm:placeholder" icon="square-dashed" href="/ru/development/ssr-components/placeholder">
+    Плейсхолдер-разметка (часто для lazy-render).
+  </Card>
+
+  <Card title="msm:block" icon="square-terminal" href="/ru/development/ssr-components/block">
+    Рендер блока из bean-результата или JSON value.
+  </Card>
+
+  <Card title="msm:text" icon="text" href="/ru/development/ssr-components/text">
+    Рендер текста из bean-результата или JSON value.
+  </Card>
+
+  <Card title="msm:foreach" icon="repeat" href="/ru/development/ssr-components/foreach">
+    Повтор шаблона по списку.
+  </Card>
+
+  <Card title="msm:tree" icon="diagram-project" href="/ru/development/ssr-components/tree">
+    Рендер иерархических (вложенных) структур.
+  </Card>
+
+  <Card title="msm:if" icon="code-branch" href="/ru/development/ssr-components/if">
+    Условный рендеринг.
+  </Card>
+
+  <Card title="msm:select" icon="list-check" href="/ru/development/ssr-components/select">
+    Сборка select из items.
+  </Card>
+
+  <Card title="msm:rest" icon="globe" href="/ru/development/ssr-components/rest">
+    HTTP-запрос и рендер ответа.
+  </Card>
+
+  <Card title="msm:resource" icon="file" href="/ru/development/ssr-components/resource">
+    SSR-компонент для ресурсов.
+  </Card>
+
+  <Card title="msm:template" icon="layer-group" href="/ru/development/ssr-components/structural/template">
+    Основной template, который используется во многих SSR-компонентах.
+  </Card>
+
+  <Card title="msm:empty" icon="layer-group" href="/ru/development/ssr-components/structural/empty">
+    Fallback-разметка, когда данных для рендера нет.
+  </Card>
+
+  <Card title="msm:header" icon="layer-group" href="/ru/development/ssr-components/structural/header">
+    Опциональная секция header (если поддерживается).
+  </Card>
+
+  <Card title="msm:footer" icon="layer-group" href="/ru/development/ssr-components/structural/footer">
+    Опциональная секция footer (если поддерживается).
+  </Card>
+</CardGroup>

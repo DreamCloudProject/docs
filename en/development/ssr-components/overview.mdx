@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-description: "Index of MastermindCMS SSR components (<msm:*>)"
+description: "Index of MastermindCMS SSR components (msm:*)"
 ---
 
 MastermindCMS SSR components are custom tags in the `<msm:*>` namespace used inside HTML templates.
@@ -8,47 +8,59 @@ MastermindCMS SSR components are custom tags in the `<msm:*>` namespace used ins
 Choose a component:
 
 <CardGroup cols="3">
-  <Card title="<msm:fragment>" icon="puzzle-piece" href="/en/development/ssr-components/fragment">
+  <Card title="msm:fragment" icon="puzzle-piece" href="/en/development/ssr-components/fragment">
     Include and render a fragment template.
   </Card>
 
-  <Card title="<msm:placeholder>" icon="square-dashed" href="/en/development/ssr-components/placeholder">
+  <Card title="msm:placeholder" icon="square-dashed" href="/en/development/ssr-components/placeholder">
     Placeholder markup (commonly used with lazy rendering).
   </Card>
 
-  <Card title="<msm:block>" icon="square-terminal" href="/en/development/ssr-components/block">
+  <Card title="msm:block" icon="square-terminal" href="/en/development/ssr-components/block">
     Render a block using bean output or JSON value.
   </Card>
 
-  <Card title="<msm:text>" icon="text" href="/en/development/ssr-components/text">
+  <Card title="msm:text" icon="text" href="/en/development/ssr-components/text">
     Render text using bean output or JSON value.
   </Card>
 
-  <Card title="<msm:foreach>" icon="repeat" href="/en/development/ssr-components/foreach">
+  <Card title="msm:foreach" icon="repeat" href="/en/development/ssr-components/foreach">
     Repeat a template for a list of items.
   </Card>
 
-  <Card title="<msm:tree>" icon="diagram-project" href="/en/development/ssr-components/tree">
+  <Card title="msm:tree" icon="diagram-project" href="/en/development/ssr-components/tree">
     Render hierarchical (nested) structures.
   </Card>
 
-  <Card title="<msm:if>" icon="code-branch" href="/en/development/ssr-components/if">
+  <Card title="msm:if" icon="code-branch" href="/en/development/ssr-components/if">
     Conditional rendering.
   </Card>
 
-  <Card title="<msm:select>" icon="list-check" href="/en/development/ssr-components/select">
+  <Card title="msm:select" icon="list-check" href="/en/development/ssr-components/select">
     Build a &lt;select&gt; from items.
   </Card>
 
-  <Card title="<msm:rest>" icon="globe" href="/en/development/ssr-components/rest">
+  <Card title="msm:rest" icon="globe" href="/en/development/ssr-components/rest">
     Call an HTTP endpoint and render the response.
   </Card>
 
-  <Card title="<msm:resource>" icon="file" href="/en/development/ssr-components/resource">
+  <Card title="msm:resource" icon="file" href="/en/development/ssr-components/resource">
     Resource-related SSR component.
   </Card>
 
-  <Card title="Structural: template/empty/header/footer" icon="layer-group" href="/en/development/ssr-components/template">
-    Sub-components used inside other SSR components.
+  <Card title="msm:template" icon="layer-group" href="/en/development/ssr-components/structural/template">
+    Main template used by many SSR components.
+  </Card>
+
+  <Card title="msm:empty" icon="layer-group" href="/en/development/ssr-components/structural/empty">
+    Fallback markup when there is no data to render.
+  </Card>
+
+  <Card title="msm:header" icon="layer-group" href="/en/development/ssr-components/structural/header">
+    Optional header section (when supported).
+  </Card>
+
+  <Card title="msm:footer" icon="layer-group" href="/en/development/ssr-components/structural/footer">
+    Optional footer section (when supported).
   </Card>
 </CardGroup>

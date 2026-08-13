@@ -46,7 +46,10 @@
                       "en/development/ssr-components/select",
                       "en/development/ssr-components/rest",
                       "en/development/ssr-components/resource",
-                      "en/development/ssr-components/template"
+                      "en/development/ssr-components/structural/template",
+                      "en/development/ssr-components/structural/empty",
+                      "en/development/ssr-components/structural/header",
+                      "en/development/ssr-components/structural/footer"
                     ]
                   },
                   {
@@ -140,7 +143,10 @@
                       "de/development/ssr-components/select",
                       "de/development/ssr-components/rest",
                       "de/development/ssr-components/resource",
-                      "de/development/ssr-components/template"
+                      "de/development/ssr-components/structural/template",
+                      "de/development/ssr-components/structural/empty",
+                      "de/development/ssr-components/structural/header",
+                      "de/development/ssr-components/structural/footer"
                     ]
                   },
                   {
@@ -234,7 +240,10 @@
                       "ru/development/ssr-components/select",
                       "ru/development/ssr-components/rest",
                       "ru/development/ssr-components/resource",
-                      "ru/development/ssr-components/template"
+                      "ru/development/ssr-components/structural/template",
+                      "ru/development/ssr-components/structural/empty",
+                      "ru/development/ssr-components/structural/header",
+                      "ru/development/ssr-components/structural/footer"
                     ]
                   },
                   {

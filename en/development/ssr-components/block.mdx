@@ -1,9 +1,9 @@
 ---
-title: "<msm:block>"
+title: "msm:block"
 description: "Render a block using a bean result or a JSON value"
 ---
 
-`<msm:block>` renders a block of HTML (usually via an inner `<msm:template>`) using data from a bean call or a JSON `value`.
+`<msm:block>` renders a block of HTML (usually via an inner ``<msm:template>``) using data from a bean call or a JSON `value`.
 
 ## Basic usage (bean)
 
@@ -36,7 +36,7 @@ description: "Render a block using a bean result or a JSON value"
 | Attribute | Required | Meaning |
 |---|---:|---|
 | `id` | yes | Unique block id. |
-| `item-name` | no | Prefix for variables inside the block (e.g. `${t|value}`). |
+| `item-name` | no | Prefix for variables inside the block. |
 | `bean` | no* | Bean id used as a data source. |
 | `scope` | no* | `PROTOTYPE` or `SESSION` (required when `bean` is set). |
 | `function` | no | Method definition to call on the bean (optional). |
@@ -44,3 +44,8 @@ description: "Render a block using a bean result or a JSON value"
 
 `*` In most cases you use either `value` or `bean+scope`.
 
+Example variable syntax:
+
+```text
+${t|value}
+```

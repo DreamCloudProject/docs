@@ -1,7 +1,16 @@
 ---
-title: "<msm:placeholder>"
+title: "msm:placeholder"
 description: "Platzhalter-Markup"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:placeholder>` definiert HTML, das angezeigt werden kann, bevor ein lazy-gerendertes Fragment/Block fertig ist.
 
+## Typisches Muster
+
+```html
+<msm:fragment id="block" path="main/fragments/some-block.html" data-lazy-render="true">
+  <msm:placeholder>
+    <div class="skeleton">Loading…</div>
+  </msm:placeholder>
+</msm:fragment>
+```

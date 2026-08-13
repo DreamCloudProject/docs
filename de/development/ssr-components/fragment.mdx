@@ -1,7 +1,26 @@
 ---
-title: "<msm:fragment>"
+title: "msm:fragment"
 description: "Fragment-Template einbinden und rendern"
 ---
 
-Wird noch detailliert dokumentiert (Attribute, Beispiele, Lazy-Rendering).
+`<msm:fragment>` bindet ein anderes Template (ein „Partial“) an der aktuellen Stelle ein und rendert es.
 
+## Grundbeispiel
+
+```html
+<msm:fragment id="mainHeader" path="main/components/navbar.html" />
+```
+
+## Attribute
+
+| Attribut | Erforderlich | Bedeutung |
+|---|---:|---|
+| `id` | ja | Eindeutige Fragment-ID. |
+| `path` | ja | Pfad zum Fragment-Template (wird von der Plattform aufgelöst). |
+| `param` | nein | Parameter für das Fragment (String oder JSON). |
+| `bean` | nein | Bean-ID, um `path` dynamisch zu berechnen/kompilieren (optional). |
+| `scope` | nein | Bean-Scope, wenn `bean` verwendet wird (`PROTOTYPE` oder `SESSION`). |
+| `data-lazy-render` | nein | Wenn `true`, kann das Fragment lazy gerendert werden. |
+| `data-lazy-load-js` | nein | Optionaler Hinweis für Lazy-JS-Laden. |
+| `data-lazy-load-css` | nein | Optionaler Hinweis für Lazy-CSS-Laden. |
+| `data-template-path` | nein | Page-Template-Pfad für Lazy-Rendering. |

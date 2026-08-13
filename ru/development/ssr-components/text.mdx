@@ -1,7 +1,34 @@
 ---
-title: "<msm:text>"
+title: "msm:text"
 description: "Рендер текста из bean-результата или JSON value"
 ---
 
-Будет дополнено.
+`<msm:text>` рендерит текст, используя:
 
+- бин (и, опционально, вызов метода), или
+- JSON `value`.
+
+## Базовый пример
+
+```html
+<msm:text
+  id="pageTitle"
+  bean="translationServiceImpl"
+  function="getTranslation(RawMaterialSearch;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  ${t|value}
+</msm:text>
+```
+
+## Атрибуты
+
+| Атрибут | Обязателен | Значение |
+|---|---:|---|
+| `id` | да | Уникальный id текста. |
+| `item-name` | нет | Префикс для переменных в теле текста. |
+| `bean` | нет* | Bean id как источник данных. |
+| `scope` | нет* | `PROTOTYPE` или `SESSION` (нужно, если задан `bean`). |
+| `function` | нет | Определение метода для вызова на бине (опционально). |
+| `value` | нет | JSON value вместо вызова бина (опционально). |

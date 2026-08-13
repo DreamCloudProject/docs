@@ -1,7 +1,24 @@
 ---
-title: "<msm:select>"
-description: "<select> aus Items erstellen"
+title: "msm:select"
+description: "Select aus Items erstellen"
 ---
 
-Wird noch detailliert dokumentiert.
+`<msm:select>` baut ein natives HTML-`<select>`, indem es Optionen aus Items rendert.
 
+## Grundstruktur
+
+```html
+<msm:select id="country" mode="DIRECT" items='[{"value":"DE","label":"Germany"},{"value":"US","label":"USA"}]'>
+  <msm:template>
+    <option value="${value}">${label}</option>
+  </msm:template>
+</msm:select>
+```
+
+## Häufige Attribute
+
+| Attribut | Bedeutung |
+|---|---|
+| `mode` | Datenquellenmodus (z. B. `DATABASE`, `BEAN`, `REPOSITORY`, `DIRECT`). |
+| `selected` / `selectedValue` | Wie die selektierte Option bestimmt wird. |
+| `item-name` | Variablen-Prefix pro Option-Item. |

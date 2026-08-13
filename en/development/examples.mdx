@@ -1,0 +1,33 @@
+---
+title: "Examples"
+description: "Common MastermindCMS patterns (SSR + API + web components)"
+---
+
+## Page skeleton
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <script src="/msm2.bundle.js"></script>
+  </head>
+  <body>
+    <msm:fragment id="header" path="main/components/navbar.html" />
+
+    <main>
+      <msm:if id="isLoggedIn" bean="userServiceImpl" scope="SESSION" test="isLoggedIn">
+        <msm:template>
+          <msm-navbar></msm-navbar>
+        </msm:template>
+      </msm:if>
+    </main>
+  </body>
+</html>
+```
+
+## WebSocket JSON endpoints (overview)
+
+- `/request/json/bean/{INVOKE|UPDATE}`
+- `/request/json/repository/{INVOKE|UPDATE}`
+- `/request/json/database`
+

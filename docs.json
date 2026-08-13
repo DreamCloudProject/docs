@@ -25,12 +25,19 @@
                 "tab": "Guides",
                 "groups": [
                   {
-                    "group": "Get Started",
+                    "group": "Getting Started",
                     "pages": [
                       "en/introduction",
                       "en/installation/docker",
-                      "en/installation/server",
-                      "en/development"
+                      "en/installation/server"
+                    ]
+                  },
+                  {
+                    "group": "Development",
+                    "pages": [
+                      "en/development/ssr-components",
+                      "en/development/web-components",
+                      "en/development/examples"
                     ]
                   },
                   {
@@ -91,12 +98,19 @@
                 "tab": "Guides",
                 "groups": [
                   {
-                    "group": "Get Started",
+                    "group": "Erste Schritte",
                     "pages": [
                       "de/introduction",
                       "de/installation/docker",
-                      "de/installation/server",
-                      "de/development"
+                      "de/installation/server"
+                    ]
+                  },
+                  {
+                    "group": "Development",
+                    "pages": [
+                      "de/development/ssr-components",
+                      "de/development/web-components",
+                      "de/development/examples"
                     ]
                   },
                   {
@@ -157,12 +171,19 @@
                 "tab": "Guides",
                 "groups": [
                   {
-                    "group": "Get Started",
+                    "group": "Начало работы",
                     "pages": [
                       "ru/introduction",
                       "ru/installation/docker",
-                      "ru/installation/server",
-                      "ru/development"
+                      "ru/installation/server"
+                    ]
+                  },
+                  {
+                    "group": "Разработка",
+                    "pages": [
+                      "ru/development/ssr-components",
+                      "ru/development/web-components",
+                      "ru/development/examples"
                     ]
                   },
                   {

@@ -1,0 +1,45 @@
+---
+title: "SSR components"
+description: "Reference for MastermindCMS server-side rendering components (<msm:*>)"
+---
+
+MastermindCMS templates are HTML files extended with custom SSR components in the `<msm:*>` namespace.
+
+## Component list
+
+- `<msm:fragment>`: include and render a fragment template
+- `<msm:placeholder>`: placeholder markup (commonly used with lazy rendering)
+- `<msm:block>`: render a template block using a bean result or a JSON `value`
+- `<msm:text>`: render text using a bean result or a JSON `value`
+- `<msm:foreach>`: repeat a template for a list of items (database/bean/repository)
+- `<msm:tree>`: render hierarchical data with nested children
+- `<msm:if>`: conditional rendering
+- `<msm:select>`: build a `<select>` from items (database/bean/repository/direct)
+- `<msm:rest>`: call an external HTTP endpoint and render the response
+- `<msm:resource>`: resource-related component (details will be expanded)
+- Structural components used inside others: `<msm:template>`, `<msm:empty>`, `<msm:header>`, `<msm:footer>`
+
+## Common attributes
+
+- `id`: unique component id
+- `item-name`: prefix used for template variables (e.g. `${t|value}`)
+- `bean`: Spring bean id to use as a data source
+- `scope`: `PROTOTYPE` or `SESSION` (when a `bean` is used)
+- `mode`: data source mode for components that support multiple backends (e.g. `DATABASE`, `BEAN`, `REPOSITORY`)
+
+## Example
+
+```html
+<msm:fragment id="mainHeader" path="main/components/navbar.html" />
+
+<msm:text
+  id="pageTitle"
+  bean="translationServiceImpl"
+  function="getTranslation(RawMaterialSearch;translationsRepository)"
+  item-name="t"
+  scope="PROTOTYPE"
+>
+  ${t|value}
+</msm:text>
+```
+

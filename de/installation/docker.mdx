@@ -28,6 +28,48 @@ docker compose --env-file .env up -d
 
 `http://localhost:5000`
 
+## Beispiel `docker-compose.yml`
+
+```yaml
+version: "${TAG}"
+services:
+  mongodb-msm2-demo:
+    image: mongo:4.4
+    command: mongod --port ${DB_PORT}
+    container_name: mongodb-msm2-demo
+    restart: always
+    healthcheck:
+      test: echo 'db.adminCommand('ping').ok' | mongo admin -u ${MONGO_INITDB_ROOT_USERNAME} -p ${MONGO_INITDB_ROOT_PASSWORD} --quiet | grep 1
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - ${WORKING_DIR}/data:/data/db
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=admin
+  mastermindcms-demo:
+    image: mastermindcms/enterprise:${TAG}
+    container_name: mastermindcms-demo
+    restart: always
+
+    volumes:
+      - ${WORKING_DIR}/www:/MSM2/www
+      - ${WORKING_DIR}/files:/MSM2/files
+      - ${WORKING_DIR}/config:/MSM2/config
+    user: "1000:1000"
+    ports:
+      - 5000:5000
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb-msm2-demo:${DB_PORT}/admin?authSource=admin
+    depends_on:
+      mongodb-msm2-demo:
+        condition: service_healthy
+```
+
 ## Environment-Variablen (`.env`)
 
 Diese Variablen steuern das Docker-Compose-Setup (Details werden noch erweitert):
@@ -44,4 +86,3 @@ Diese Variablen steuern das Docker-Compose-Setup (Details werden noch erweitert)
 | `LOCALE_ALL` | Locale (LC_ALL) |
 | `LOCALE_LANG` | Locale (LANG) |
 | `LOCALE_LANGUAGE` | Locale (LANGUAGE) |
-

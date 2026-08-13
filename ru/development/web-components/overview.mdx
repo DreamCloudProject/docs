@@ -1,0 +1,221 @@
+---
+title: "Обзор"
+description: "Web-компоненты (LitElement), используемые в проектах MastermindCMS"
+---
+
+Этот раздел документирует web-компоненты на LitElement.
+
+Все компоненты
+
+export const iconMap = {
+  "msm-search-bar": "magnifying-glass",
+  "msm-language-switcher": "language",
+  "msm-login-form": "user",
+  "msm-user-account": "user-gear",
+  "msm-user-login-modal": "window",
+  "msm-user-profile": "id-card",
+  "msm-checkout": "credit-card",
+  "msm-shopping-cart": "cart-shopping",
+  "msm-add-to-cart": "cart-plus",
+  "msm-button": "square",
+  "msm-checkbox": "square-check",
+  "msm-select": "list",
+  "msm-text-field": "i-cursor",
+  "msm-data-grid": "table",
+  "msm-window-modal": "clone",
+}
+
+export const iconFor = (name) => {
+  if (iconMap[name]) return iconMap[name]
+
+  const n = name.toLowerCase()
+
+  if (n.includes("search")) return "magnifying-glass"
+  if (n.includes("filter")) return "filter"
+  if (n.includes("cart")) return "cart-shopping"
+  if (n.includes("checkout")) return "credit-card"
+  if (n.includes("order")) return "receipt"
+
+  if (n.includes("login")) return "user"
+  if (n.includes("logout")) return "right-from-bracket"
+  if (n.includes("user") || n.includes("profile") || n.includes("account")) return "user"
+
+  if (n.includes("language")) return "language"
+  if (n.includes("switcher")) return "arrows-rotate"
+
+  if (n.includes("modal") || n.includes("window")) return "window"
+
+  if (n.includes("cookie") || n.includes("consent")) return "cookie-bite"
+  if (n.includes("notification") || n.includes("alert")) return "bell"
+
+  if (n.includes("radio")) return "circle-dot"
+  if (n.includes("checkbox")) return "square-check"
+  if (n.includes("select") || n.includes("dropdown") || n.includes("enumeration")) return "list"
+
+  if (
+    n.includes("text-field") ||
+    n.includes("telephone") ||
+    n.includes("password") ||
+    n.includes("input") ||
+    n.includes("form") ||
+    n.includes("field")
+  )
+    return "i-cursor"
+
+  if (n.includes("table") || n.includes("grid")) return "table"
+
+  if (n.includes("image")) return "image"
+  if (n.includes("video")) return "video"
+  if (n.includes("upload")) return "upload"
+  if (n.includes("download")) return "download"
+
+  if (n.includes("link")) return "link"
+  if (n.includes("menu")) return "bars"
+
+  if (n.includes("quote")) return "quote-left"
+  if (n.includes("rating") || n.includes("review")) return "star"
+
+  if (n.includes("documents") || n.includes("article")) return "file"
+  if (n.includes("tabs")) return "folder"
+  if (n.includes("process")) return "diagram-project"
+
+  if (n.includes("web3") || n.includes("wallet") || n.includes("nft")) return "wallet"
+
+  return "cube"
+}
+
+export const components = [
+  "msm-add-to-cart",
+  "msm-alphabet-groups",
+  "msm-attributes",
+  "msm-blog-article",
+  "msm-blog-article-image",
+  "msm-breadcrumbs",
+  "msm-brick-style-blocks",
+  "msm-bulletpoint",
+  "msm-bullet-points",
+  "msm-bulletpoints-list",
+  "msm-button",
+  "msm-button-form",
+  "msm-category-filters",
+  "msm-cdek-widget",
+  "msm-centered-image",
+  "msm-checkbox",
+  "msm-checkbox-field-form",
+  "msm-checkout",
+  "msm-column",
+  "msm-common-searches",
+  "msm-comparison-table",
+  "msm-consent-banner",
+  "msm-contact-person-block",
+  "msm-content-divider",
+  "msm-cookies-preferences",
+  "msm-counter",
+  "msm-covered-image",
+  "msm-data-collection",
+  "msm-data-grid",
+  "msm-deploy-contract-web3",
+  "msm-documents-upload",
+  "msm-dropdown",
+  "msm-dropdown-filter",
+  "msm-enumeration",
+  "msm-form-field",
+  "msm-group-filter",
+  "msm-icon-article",
+  "msm-icon-articles",
+  "msm-icon-bar",
+  "msm-image-article",
+  "msm-image-background-banner",
+  "msm-image-process",
+  "msm-images-upload",
+  "msm-image-upload",
+  "msm-input-chips-field-form",
+  "msm-introduction-banner",
+  "msm-language-switcher",
+  "msm-link",
+  "msm-list-filters",
+  "msm-listing-feature",
+  "msm-listing-form-feature",
+  "msm-listing-page",
+  "msm-logical-filters",
+  "msm-login-form",
+  "msm-logo-bars",
+  "msm-main-container",
+  "msm-menu-block",
+  "msm-menu-card",
+  "msm-mint-nft-web3",
+  "msm-mobile-menu",
+  "msm-mobile-menu-link",
+  "msm-multiple-columns",
+  "msm-notification-alert",
+  "msm-numeric-group-filter",
+  "msm-order-details",
+  "msm-password-field-form",
+  "msm-process",
+  "msm-product-filters",
+  "msm-profile-orders",
+  "msm-property-filter",
+  "msm-quote",
+  "msm-radio-button",
+  "msm-range",
+  "msm-range-filter",
+  "msm-rating",
+  "msm-related-items",
+  "msm-reset-password",
+  "msm-review",
+  "msm-row",
+  "msm-salutation-field-form",
+  "msm-search-bar",
+  "msm-search-card",
+  "msm-search-filters",
+  "msm-search-pagination",
+  "msm-search-results",
+  "msm-select",
+  "msm-select-field-form",
+  "msm-select-item",
+  "msm-seller-page",
+  "msm-shopping-cart",
+  "msm-shopping-cart-button",
+  "msm-simple-process",
+  "msm-single-page-app",
+  "msm-sku-page",
+  "msm-small-container",
+  "msm-ssr",
+  "msm-story-viewer",
+  "msm-subscribe-form",
+  "msm-switcher",
+  "msm-table-row",
+  "msm-tabs",
+  "msm-telephone-field",
+  "msm-telephone-field-form",
+  "msm-text-field",
+  "msm-text-field-form",
+  "msm-three-cards",
+  "msm-typography",
+  "msm-user-account",
+  "msm-user-account-button",
+  "msm-user-delivery",
+  "msm-user-login-modal",
+  "msm-user-logout-button",
+  "msm-user-profile",
+  "msm-user-profile-editor",
+  "msm-user-switcher",
+  "msm-vertical-bulletpoints",
+  "msm-video-block",
+  "msm-wallet-web3",
+  "msm-window-modal",
+  "msm-yookassa-widget",
+]
+
+<CardGroup cols="3">
+  {components.map((name) => (
+    <Card
+      key={name}
+      title={name}
+      icon={iconFor(name)}
+      href={"/ru/development/web-components/" + name}
+    >
+      Документация.
+    </Card>
+  ))}
+</CardGroup>

@@ -41,7 +41,8 @@
                     "group": "Development",
                     "pages": [
                       "en/development/ssr-components/overview",
-                      "en/development/web-components/overview"
+                      "en/development/web-components/overview",
+                      "en/development/web-components/msc-components"
                     ]
                   },
                   {
@@ -292,7 +293,8 @@
                     "group": "Development",
                     "pages": [
                       "de/development/ssr-components/overview",
-                      "de/development/web-components/overview"
+                      "de/development/web-components/overview",
+                      "de/development/web-components/msc-components"
                     ]
                   },
                   {
@@ -540,12 +542,13 @@
                     ]
                   },
                   {
-                    "group": "Development",
-                    "pages": [
-                      "ru/development/ssr-components/overview",
-                      "ru/development/web-components/overview"
-                    ]
-                  },
+                  "group": "Development",
+                  "pages": [
+                    "ru/development/ssr-components/overview",
+                    "ru/development/web-components/overview",
+                    "ru/development/web-components/msc-components"
+                  ]
+                },
                   {
                     "group": "SSR components",
                     "pages": [

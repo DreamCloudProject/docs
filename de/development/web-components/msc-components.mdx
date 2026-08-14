@@ -1,5 +1,5 @@
 ---
-title: "Editor components"
+title: "Editor-Komponenten"
 description: "Editor-orientierte Web-Komponenten (msc-*), die zusammen mit msm-components ausgeliefert werden"
 ---
 
@@ -197,8 +197,8 @@ export const uniqueComponents = new Set([
 export const msmNameFor = (mscName) => mscName.replace("msc-", "msm-")
 
 export const descriptionFor = (mscName) => {
-  if (uniqueComponents.has(mscName)) return "Editor-only component."
-  return `Mirrors ${msmNameFor(mscName)} (functional overlap with msm-*).`
+  if (uniqueComponents.has(mscName)) return "Nur Editor-Komponente."
+  return `Entspricht ${msmNameFor(mscName)} (funktionale Überschneidung mit msm-*).`
 }
 
 export const hrefFor = (mscName) => {

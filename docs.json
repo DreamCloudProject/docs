@@ -808,13 +808,13 @@
                 "tab": "API-справочник",
                 "groups": [
                   {
-                    "group": "Клиенты",
+                    "group": "Клиенты для интеграции",
                     "pages": [
                       "ru/api-reference/introduction"
                     ]
                   },
                   {
-                    "group": "Клиенты (Справочник)",
+                    "group": "Клиенты",
                     "pages": [
                       "ru/api-reference/clients/custom-client",
                       "ru/api-reference/clients/built-in-client",

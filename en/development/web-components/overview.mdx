@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Web components"
 description: "Web components (LitElement) used in MastermindCMS projects"
 ---
 
@@ -87,6 +87,50 @@ export const iconFor = (name) => {
   if (n.includes("web3") || n.includes("wallet") || n.includes("nft")) return "wallet"
 
   return "cube"
+}
+
+export const descriptionFor = (name) => {
+  const n = name.toLowerCase()
+
+  if (n === "msm-yookassa-widget") return "YooKassa payment widget."
+  if (n === "msm-cdek-widget") return "CDEK delivery widget."
+  if (n.includes("web3") || n.includes("wallet") || n.includes("nft")) return "Web3 UI (wallet / NFTs)."
+
+  if (n.includes("search")) return "Search UI (input, results, filters, pagination)."
+  if (n.includes("filter")) return "Filtering UI for listings/search."
+
+  if (n.includes("checkout")) return "Checkout UI and flow."
+  if (n.includes("cart")) return "Shopping cart UI."
+  if (n.includes("order")) return "Order UI (details, history)."
+
+  if (n.includes("login") || n.includes("logout") || n.includes("reset-password")) return "Authentication UI."
+  if (n.includes("user") || n.includes("profile") || n.includes("account")) return "User account UI."
+
+  if (n.includes("cookie") || n.includes("consent")) return "Cookie consent / preferences UI."
+  if (n.includes("notification") || n.includes("alert")) return "Notification / alert UI."
+
+  if (n.includes("upload") || n.includes("documents")) return "Upload UI."
+
+  if (n.includes("image") || n.includes("video")) return "Media UI (images/video)."
+  if (n.includes("table") || n.includes("grid")) return "Table / data grid UI."
+
+  if (n.includes("menu") || n.includes("breadcrumbs") || n.includes("link")) return "Navigation UI."
+  if (n.includes("tabs")) return "Tabs UI."
+
+  if (n.includes("row") || n.includes("column") || n.includes("container")) return "Layout / container UI."
+
+  if (n.includes("form") || n.includes("field") || n.includes("checkbox") || n.includes("radio") || n.includes("select") || n.includes("dropdown") || n.includes("enumeration") || n.includes("text-field") || n.includes("telephone") || n.includes("password") || n.includes("input"))
+    return "Form control / input UI."
+
+  if (n.includes("rating") || n.includes("review")) return "Reviews / rating UI."
+  if (n.includes("process")) return "Process / steps UI."
+
+  if (n.includes("blog") || n.includes("article") || n.includes("story")) return "Content UI (articles/stories)."
+  if (n.includes("banner") || n.includes("logo")) return "Marketing / banner UI."
+
+  if (n.includes("ssr")) return "SSR helper UI."
+
+  return "UI component."
 }
 
 export const components = [
@@ -223,7 +267,7 @@ export const components = [
       icon={iconFor(name)}
       href={"/en/development/web-components/" + name}
     >
-      Documentation.
+      {descriptionFor(name)}
     </Card>
   ))}
 </CardGroup>

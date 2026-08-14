@@ -27,15 +27,26 @@
                   {
                     "group": "Getting Started",
                     "pages": [
-                      "en/introduction",
+                      "en/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Installation",
+                    "pages": [
                       "en/installation/docker",
                       "en/installation/server"
                     ]
                   },
                   {
-                    "group": "SSR components",
+                    "group": "Development",
                     "pages": [
                       "en/development/ssr-components/overview",
+                      "en/development/web-components/overview"
+                    ]
+                  },
+                  {
+                    "group": "SSR components",
+                    "pages": [
                       "en/development/ssr-components/fragment",
                       "en/development/ssr-components/placeholder",
                       "en/development/ssr-components/block",
@@ -55,7 +66,6 @@
                   {
                     "group": "Web components",
                     "pages": [
-                      "en/development/web-components/overview",
                       "en/development/web-components/msm-add-to-cart",
                       "en/development/web-components/msm-alphabet-groups",
                       "en/development/web-components/msm-attributes",
@@ -206,7 +216,12 @@
                   {
                     "group": "Client integration",
                     "pages": [
-                      "en/api-reference/introduction",
+                      "en/api-reference/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Clients",
+                    "pages": [
                       "en/api-reference/clients/custom-client",
                       "en/api-reference/clients/built-in-client",
                       "en/api-reference/clients/msm-components"
@@ -263,15 +278,26 @@
                   {
                     "group": "Erste Schritte",
                     "pages": [
-                      "de/introduction",
+                      "de/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Installation",
+                    "pages": [
                       "de/installation/docker",
                       "de/installation/server"
                     ]
                   },
                   {
-                    "group": "SSR-Komponenten",
+                    "group": "Development",
                     "pages": [
                       "de/development/ssr-components/overview",
+                      "de/development/web-components/overview"
+                    ]
+                  },
+                  {
+                    "group": "SSR components",
+                    "pages": [
                       "de/development/ssr-components/fragment",
                       "de/development/ssr-components/placeholder",
                       "de/development/ssr-components/block",
@@ -289,9 +315,8 @@
                     ]
                   },
                   {
-                    "group": "Web-Komponenten",
+                    "group": "Web components",
                     "pages": [
-                      "de/development/web-components/overview",
                       "de/development/web-components/msm-add-to-cart",
                       "de/development/web-components/msm-alphabet-groups",
                       "de/development/web-components/msm-attributes",
@@ -442,7 +467,12 @@
                   {
                     "group": "Client-Integration",
                     "pages": [
-                      "de/api-reference/introduction",
+                      "de/api-reference/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Clients",
+                    "pages": [
                       "de/api-reference/clients/custom-client",
                       "de/api-reference/clients/built-in-client",
                       "de/api-reference/clients/msm-components"
@@ -499,15 +529,26 @@
                   {
                     "group": "Начало работы",
                     "pages": [
-                      "ru/introduction",
+                      "ru/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Установка",
+                    "pages": [
                       "ru/installation/docker",
                       "ru/installation/server"
                     ]
                   },
                   {
-                    "group": "SSR-компоненты",
+                    "group": "Development",
                     "pages": [
                       "ru/development/ssr-components/overview",
+                      "ru/development/web-components/overview"
+                    ]
+                  },
+                  {
+                    "group": "SSR components",
+                    "pages": [
                       "ru/development/ssr-components/fragment",
                       "ru/development/ssr-components/placeholder",
                       "ru/development/ssr-components/block",
@@ -525,9 +566,8 @@
                     ]
                   },
                   {
-                    "group": "Web-компоненты",
+                    "group": "Web components",
                     "pages": [
-                      "ru/development/web-components/overview",
                       "ru/development/web-components/msm-add-to-cart",
                       "ru/development/web-components/msm-alphabet-groups",
                       "ru/development/web-components/msm-attributes",
@@ -678,7 +718,12 @@
                   {
                     "group": "Клиенты",
                     "pages": [
-                      "ru/api-reference/introduction",
+                      "ru/api-reference/introduction"
+                    ]
+                  },
+                  {
+                    "group": "Клиенты (Справочник)",
+                    "pages": [
                       "ru/api-reference/clients/custom-client",
                       "ru/api-reference/clients/built-in-client",
                       "ru/api-reference/clients/msm-components"

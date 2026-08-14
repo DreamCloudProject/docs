@@ -319,7 +319,7 @@
                     ]
                   },
                   {
-                    "group": "Development",
+                    "group": "Entwicklung",
                     "pages": [
                       "de/development/ssr-components/overview",
                       "de/development/web-components/overview",
@@ -327,7 +327,7 @@
                     ]
                   },
                   {
-                    "group": "SSR components",
+                    "group": "SSR-Komponenten",
                     "pages": [
                       "de/development/ssr-components/fragment",
                       "de/development/ssr-components/placeholder",
@@ -346,7 +346,7 @@
                     ]
                   },
                   {
-                    "group": "Web components",
+                    "group": "Web-Komponenten",
                     "pages": [
                       "de/development/web-components/msc-components",
                       "de/development/web-components/msc-active-filters",
@@ -601,7 +601,7 @@
                     ]
                   },
                   {
-                  "group": "Development",
+                  "group": "Разработка",
                   "pages": [
                     "ru/development/ssr-components/overview",
                     "ru/development/web-components/overview",
@@ -609,7 +609,7 @@
                   ]
                 },
                   {
-                    "group": "SSR components",
+                    "group": "Серверные компоненты",
                     "pages": [
                       "ru/development/ssr-components/fragment",
                       "ru/development/ssr-components/placeholder",
@@ -628,7 +628,7 @@
                     ]
                   },
                   {
-                    "group": "Web components",
+                    "group": "Веб-компоненты",
                     "pages": [
                       "ru/development/web-components/msc-components",
                       "ru/development/web-components/msc-active-filters",

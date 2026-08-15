@@ -630,7 +630,6 @@
                   {
                     "group": "Веб-компоненты",
                     "pages": [
-                      "ru/development/web-components/msc-components",
                       "ru/development/web-components/msc-active-filters",
                       "ru/development/web-components/msc-attributes-viewer",
                       "ru/development/web-components/msc-catalog",

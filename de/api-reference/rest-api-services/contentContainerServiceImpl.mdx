@@ -29,12 +29,17 @@ Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übe
 
 </ResponseField>
 
-## Endpunkt und Autorisierung
+## Headers
 
 ```http
 POST /api/v1/bean/request
 Content-Type: application/json
+Lang-Context: de
+Site-Context: my-site
+Authorization: Bearer <token>
 ```
+
+Senden Sie `Lang-Context` und `Site-Context` mit jeder Anfrage. Für geschützte Methoden senden Sie das JWT im Header `Authorization` im Format `Bearer <token>`.
 
 **Zugriff:** ADMIN. **Bearer Token:** erforderlich.
 

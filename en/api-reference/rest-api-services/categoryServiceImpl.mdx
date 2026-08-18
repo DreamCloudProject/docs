@@ -29,12 +29,17 @@ The method argument array. Each argument is passed as an object with index 0, 1,
 
 </ResponseField>
 
-## Endpoint and authorization
+## Headers
 
 ```http
 POST /api/v1/bean/request
 Content-Type: application/json
+Lang-Context: en
+Site-Context: my-site
+Authorization: Bearer <token>
 ```
+
+Send `Lang-Context` and `Site-Context` with every request. For protected methods, send the JWT in the `Authorization` header as `Bearer <token>`.
 
 **Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
 

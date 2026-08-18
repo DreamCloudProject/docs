@@ -29,12 +29,17 @@ accessManagementServiceImpl
 
 </ResponseField>
 
-## Endpoint и авторизация
+## Headers
 
 ```http
 POST /api/v1/bean/request
 Content-Type: application/json
+Lang-Context: ru
+Site-Context: my-site
+Authorization: Bearer <token>
 ```
+
+Заголовки `Lang-Context` и `Site-Context` необходимо передавать в каждом запросе. Для защищённых методов передавайте JWT в заголовке `Authorization` в формате `Bearer <token>`.
 
 **Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
 

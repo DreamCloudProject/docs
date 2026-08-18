@@ -3,5 +3,370 @@ title: "Примеры"
 description: "Типовые паттерны (SSR + API + web-компоненты)"
 ---
 
-Здесь будут собраны практические примеры использования SSR-тегов, WebSocket API и web-компонентов.
+Ниже собраны практические сценарии для браузерного клиента, `msm-components`, WebSocket API, REST API и web-компонентов. Примеры рассчитаны на приложение, в котором уже подключён `msm-framework-js` и доступен глобальный `MSM2`.
 
+## 1. Минимальная HTML-страница
+
+Подключите библиотеку до своего кода и создайте один экземпляр клиента:
+
+```html
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/msm-framework-js@0.0.7/index.js"></script>
+  </head>
+  <body>
+    <main id="app"></main>
+    <script>
+      const MSM2App = new MSM2.App("wss://example.com");
+      MSM2App.renderPage();
+    </script>
+  </body>
+</html>
+```
+
+Замените `wss://example.com` на WebSocket-адрес своего приложения. Если клиент подключается без аргумента, он определяет адрес по текущему origin.
+
+## 2. Вызов backend-сервиса и получение JSON
+
+`invokeAndGetJson$` возвращает RxJS `Observable`, поэтому ответ читается через `subscribe`:
+
+```js
+const MSM2App = new MSM2.App("wss://example.com");
+
+const subscription = MSM2App
+  .invokeAndGetJson$(
+    "searchManagerServiceImpl",
+    "PROTOTYPE",
+    "search",
+    [{
+      query: { isPublishedForSale: true },
+      ignoreRegexWrap: ["isPublishedForSale"],
+      offset: 0,
+      limit: 10,
+      sortName: "createdDate",
+      sortDirection: "DESC",
+    }],
+    null,
+    "USER"
+  )
+  .subscribe({
+    next: ({ result }) => console.log(result.data.content),
+    error: (error) => console.error("Request failed", error),
+  });
+
+// В компоненте или при размонтировании страницы:
+subscription.unsubscribe();
+```
+
+## 3. Тот же вызов через `msm-components`
+
+Сервисные helper-ы превращают Observable в Promise и возвращают полный ответ клиента:
+
+```js
+import { callService } from "msm-components/dist/services.js";
+
+const response = await callService(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  "getLoggedProfile",
+  []
+);
+
+if (response.result) {
+  console.log(`Текущий пользователь: ${response.result.emailAddress}`);
+}
+```
+
+Аргументы backend-метода всегда передаются массивом. Если метод ожидает JSON-строку, используйте `JSON.stringify(payload)`:
+
+```js
+const query = { query: { status: "ACTIVE" }, offset: 0, limit: 20 };
+
+const response = await callService(
+  "contentContainerServiceImpl",
+  "PROTOTYPE",
+  "searchContainersResults",
+  [JSON.stringify(query)]
+);
+```
+
+## 4. Вызов репозитория
+
+```js
+import { callRepository } from "msm-components/dist/services.js";
+
+const response = await callRepository("blogCategoryRepository", {
+  query: { _id: categoryId },
+  sortName: "_id",
+  sortDirection: "ASC",
+  skip: 0,
+  limit: 1,
+});
+
+const category = response.result?.[0] ?? null;
+```
+
+## 5. Обновление bean
+
+```js
+import { updateBean } from "msm-components/dist/services.js";
+
+const response = await updateBean(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  {
+    id: sellerId,
+    companyName: "Example company",
+    companyWebSite: "https://example.com",
+  }
+);
+
+console.log("Updated seller", response.result);
+```
+
+## 6. React-компонент с загрузкой данных
+
+Пример паттерна из React-приложения: подписка создаётся в `useEffect`, а при размонтировании отменяется.
+
+```jsx
+import { useEffect, useState } from "react";
+
+const MSM2App = new MSM2.App("wss://example.com");
+
+export function ProductList() {
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const subscription = MSM2App
+      .invokeAndGetJson$(
+        "searchManagerServiceImpl",
+        "PROTOTYPE",
+        "search",
+        [{ type: "SellerSKU", query: {}, offset: 0, limit: 10 }],
+        null,
+        "USER"
+      )
+      .subscribe({
+        next: (response) => setItems(response.result?.data?.content ?? []),
+        error: setError,
+      });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  if (error) return <p>Не удалось загрузить каталог.</p>;
+  return <ul>{items.map((item) => <li key={item.id}>{item.name}</li>)}</ul>;
+}
+```
+
+## 7. SSR-перерисовка страницы
+
+После изменения состояния или данных можно запросить повторный SSR-рендер:
+
+```js
+MSM2App.renderPage();
+```
+
+Для частичного обновления элемента используйте `renderElement`:
+
+```js
+MSM2App.renderElement(
+  [{
+    elementId: "cart-container",
+    path: "/components/cart",
+    payload: {},
+  }],
+  { userId }
+);
+```
+
+## 8. Подписка на пользовательское событие
+
+Backend может публиковать события в собственный destination внутри `/topic/**`:
+
+```js
+const subscription = MSM2App.registerJsonWebSocket("jobs", (event) => {
+  console.log("Новое событие задания", event);
+});
+
+// Когда страница больше не нужна:
+subscription?.unsubscribe?.();
+```
+
+## 9. Переводы через `TranslationManager`
+
+```js
+import {
+  setLocalesPath,
+  translate,
+  loadManyTranslations,
+} from "msm-components/dist/services.js";
+
+setLocalesPath("/assets/locales/{{lng}}.json");
+
+const title = await translate("DashboardTitle");
+const texts = await loadManyTranslations(
+  "SaveButton",
+  "CancelButton",
+  "DeleteButton"
+);
+
+document.title = title;
+saveButton.textContent = texts.SaveButton;
+```
+
+## 10. Клиентская маршрутизация
+
+```js
+import { routeManager } from "msm-components/dist/services.js";
+
+routeManager.init("My application");
+routeManager.addRoute("/", "home", "HomeTitle");
+routeManager.addRoute("/products/:id.html", "product", "ProductTitle");
+routeManager.loadRouteByCurrentUrl();
+
+routeManager.navigate("product", "42.html");
+console.log(routeManager.getActiveRoute());
+```
+
+## 11. Web Components в HTML
+
+Компоненты должны быть зарегистрированы библиотекой до использования в DOM:
+
+```html
+<header>
+  <msc-header></msc-header>
+</header>
+
+<main>
+  <msm-button type="OUTLINE" variant="emphasis" href="/catalog">
+    Перейти в каталог
+  </msm-button>
+
+  <msm-login-form></msm-login-form>
+</main>
+```
+
+## 12. Работа с событиями и формой
+
+Для DOM-формы можно получить объект payload и отправить его в сервис:
+
+```js
+import {
+  getPayloadOfForm,
+  callService,
+} from "msm-components/dist/services.js";
+
+const form = document.querySelector("form[data-profile]");
+const payload = getPayloadOfForm(form);
+
+await callService(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  "updateProfile",
+  [payload]
+);
+```
+
+## 13. Авторизация и выход
+
+`AuthHelper` возвращает Observable для HTTP-операций авторизации:
+
+```js
+const loginSubscription = MSM2.App.AuthHelper.authenticate$(
+  "/api/v1/authenticate",
+  "username=user@example.com&password=secret"
+).subscribe({
+  next: (response) => console.log("Login response", response),
+  error: (error) => console.error("Login failed", error),
+});
+
+const logoutSubscription = MSM2.App.AuthHelper.logout$(
+  "/api/v1/logout",
+  "role=user"
+).subscribe(() => {
+  window.location.href = "/user/login.html";
+});
+```
+
+Для production-приложения не храните пароль в JavaScript и используйте HTTPS.
+
+## 14. REST-вызов универсального сервиса
+
+WebSocket не требуется для простого HTTP-запроса:
+
+```js
+const response = await fetch("/api/v1/bean/request", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Site-Context": "my-site",
+    "Lang-Context": "ru",
+  },
+  body: JSON.stringify({
+    beanId: "frameworkOperationServiceImpl",
+    scope: "PROTOTYPE",
+    functionName: "getLangCode",
+    args: [],
+  }),
+});
+
+if (!response.ok) throw new Error(`HTTP ${response.status}`);
+const data = await response.json();
+console.log(data.result);
+```
+
+## 15. Загрузка изображения
+
+Файлы отправляются как `multipart/form-data`:
+
+```js
+async function uploadImage(file, sellerId) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append(
+    "payload",
+    JSON.stringify({ destination: `${sellerId}/images` })
+  );
+  formData.append("command", "UPLOAD_IMAGE");
+
+  const response = await fetch("/api/v1/uploadImage", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
+  return response.json();
+}
+```
+
+## 16. Обработка ошибок и повтор запроса
+
+Оберните Promise-вызов в `try/catch`, а сетевые повторы ограничьте несколькими попытками:
+
+```js
+async function callWithRetry(task, attempts = 3) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await task();
+    } catch (error) {
+      lastError = error;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+    }
+  }
+
+  throw lastError;
+}
+
+const response = await callWithRetry(() => callService(
+  "frameworkOperationServiceImpl",
+  "PROTOTYPE",
+  "getLangCode",
+  []
+));
+```

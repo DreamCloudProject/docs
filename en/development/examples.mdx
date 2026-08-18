@@ -25,9 +25,214 @@ description: "Common MastermindCMS patterns (SSR + API + web components)"
 </html>
 ```
 
+For client-side calls, initialize one shared instance after the library has loaded:
+
+```js
+const app = new MSM2.App("wss://example.com");
+```
+
 ## WebSocket JSON endpoints (overview)
 
 - `/request/json/bean/{INVOKE|UPDATE}`
 - `/request/json/repository/{INVOKE|UPDATE}`
 - `/request/json/database`
 
+## Backend service call
+
+```js
+import { callService } from "msm-components/dist/services.js";
+
+const response = await callService(
+  "searchManagerServiceImpl", "PROTOTYPE", "search",
+  [{ query: { isPublishedForSale: true }, offset: 0, limit: 10 }]
+);
+const items = response.result?.data?.content ?? [];
+```
+
+If the backend method expects a JSON string, pass `JSON.stringify(request)` as its argument.
+
+## Repository and bean operations
+
+```js
+import { callRepository, updateBean } from "msm-components/dist/services.js";
+
+const categoryResponse = await callRepository("blogCategoryRepository", {
+  query: { _id: categoryId }, skip: 0, limit: 1,
+});
+
+await updateBean(
+  "sellerRegistrationServiceImpl", "PROTOTYPE",
+  { id: sellerId, companyName: "Example company" }
+);
+```
+
+## React data loading
+
+```jsx
+import { useEffect, useState } from "react";
+
+const app = new MSM2.App("wss://example.com");
+
+export function ProductList() {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const subscription = app.invokeAndGetJson$(
+      "searchManagerServiceImpl", "PROTOTYPE", "search",
+      [{ type: "SellerSKU", query: {}, offset: 0, limit: 10 }], null, "USER"
+    ).subscribe((response) => setItems(response.result?.data?.content ?? []));
+    return () => subscription.unsubscribe();
+  }, []);
+  return <ul>{items.map((item) => <li key={item.id}>{item.name}</li>)}</ul>;
+}
+```
+
+## SSR and custom events
+
+```js
+app.renderPage();
+app.renderElement(
+  [{ elementId: "cart-container", path: "/components/cart", payload: {} }],
+  { userId }
+);
+
+const subscription = app.registerJsonWebSocket("jobs", (event) => {
+  console.log("Job event", event);
+});
+```
+
+## Translations and routing
+
+```js
+import { setLocalesPath, translate, loadManyTranslations } from "msm-components/dist/services.js";
+import { routeManager } from "msm-components/dist/services.js";
+
+setLocalesPath("/assets/locales/{{lng}}.json");
+document.title = await translate("DashboardTitle");
+const texts = await loadManyTranslations("SaveButton", "CancelButton");
+
+routeManager.init("My application");
+routeManager.addRoute("/", "home", "HomeTitle");
+routeManager.addRoute("/products/:id.html", "product", "ProductTitle");
+routeManager.loadRouteByCurrentUrl();
+routeManager.navigate("product", "42.html");
+```
+
+## Web components
+
+```html
+<msc-header></msc-header>
+<msm-button type="OUTLINE" variant="emphasis" href="/catalog">
+  Open catalog
+</msm-button>
+<msm-login-form></msm-login-form>
+```
+
+## Authentication
+
+```js
+MSM2.App.AuthHelper.authenticate$(
+  "/api/v1/authenticate", "username=user@example.com&password=secret"
+).subscribe({
+  next: (response) => console.log(response),
+  error: (error) => console.error("Login failed", error),
+});
+
+MSM2.App.AuthHelper.logout$("/api/v1/logout", "role=user")
+  .subscribe(() => { window.location.href = "/user/login.html"; });
+```
+
+## REST request and file upload
+
+```js
+const response = await fetch("/api/v1/bean/request", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Site-Context": "my-site",
+    "Lang-Context": "en",
+  },
+  body: JSON.stringify({
+    beanId: "frameworkOperationServiceImpl",
+    scope: "PROTOTYPE", functionName: "getLangCode", args: [],
+  }),
+});
+if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+const formData = new FormData();
+formData.append("file", file);
+formData.append("payload", JSON.stringify({ destination: `${sellerId}/images` }));
+formData.append("command", "UPLOAD_IMAGE");
+await fetch("/api/v1/uploadImage", { method: "POST", body: formData });
+```
+
+## Form payload helper
+
+```js
+import { getPayloadOfForm } from "msm-components/dist/services.js";
+
+const payload = getPayloadOfForm(document.querySelector("form[data-profile]"));
+console.log(payload);
+```
+
+## Cookie and language-aware URL helpers
+
+```js
+import {
+  setCookie, getCookie, languageAwareUrl,
+} from "msm-components/dist/services.js";
+
+setCookie("promo", "spring", null, null, "/");
+console.log(getCookie("i18next"));
+console.log(await languageAwareUrl("/catalog"));
+```
+
+## Custom topic subscription
+
+```js
+const subscription = app.registerJsonWebSocket("orders", (event) => {
+  console.log("Order event", event);
+});
+subscription.unsubscribe();
+```
+
+## Partial HTML render
+
+```js
+app.renderElement(
+  [{ elementId: "profile", path: "/components/profile", payload: {} }],
+  { userId }
+);
+```
+
+## Retry a failed service call
+
+```js
+async function callWithRetry(task, attempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try { return await task(); }
+    catch (error) {
+      lastError = error;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+    }
+  }
+  throw lastError;
+}
+
+const response = await callWithRetry(() => callService(
+  "frameworkOperationServiceImpl", "PROTOTYPE", "getLangCode", []
+));
+```
+
+## JSON response handling
+
+```js
+const response = await callService(
+  "frameworkOperationServiceImpl", "PROTOTYPE", "getLangCode", []
+);
+
+if (response.result == null) {
+  throw new Error("The service returned an empty result");
+}
+```
+```

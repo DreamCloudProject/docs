@@ -224,7 +224,8 @@
                   {
                     "group": "Examples",
                     "pages": [
-                      "en/development/examples"
+                      "en/development/examples",
+                      "en/development/video-tutorials"
                     ]
                   },
                   {
@@ -506,7 +507,8 @@
                   {
                     "group": "Beispiele",
                     "pages": [
-                      "de/development/examples"
+                      "de/development/examples",
+                      "de/development/video-tutorials"
                     ]
                   },
                   {
@@ -787,7 +789,8 @@
                   {
                     "group": "Примеры",
                     "pages": [
-                      "ru/development/examples"
+                      "ru/development/examples",
+                      "ru/development/video-tutorials"
                     ]
                   },
                   {

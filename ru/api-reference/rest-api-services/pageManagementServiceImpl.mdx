@@ -54,6 +54,24 @@ Content-Type: application/json
 
 ### createPage
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "imageUrl":  null,
+    "pageUrl":  null,
+    "containerType":  null,
+    "categoriesId":  null,
+    "content":  null,
+    "releaseDate":  null,
+    "published":  false,
+    "imageUrlRemove":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "pageManagementServiceImpl",
@@ -123,6 +141,24 @@ Content-Type: application/json
 
 ### updatePage
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "imageUrl":  null,
+    "pageUrl":  null,
+    "containerType":  null,
+    "categoriesId":  null,
+    "content":  null,
+    "releaseDate":  null,
+    "published":  false,
+    "imageUrlRemove":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "pageManagementServiceImpl",
@@ -146,6 +182,20 @@ Content-Type: application/json
 
 ### duplicatePage
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "fromId":  null,
+    "toId":  null,
+    "translate":  false,
+    "emailTemplate":  false,
+    "pageUrl":  null,
+    "request":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "pageManagementServiceImpl",
@@ -169,6 +219,20 @@ Content-Type: application/json
 
 ### copyPage
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "fromId":  null,
+    "toId":  null,
+    "translate":  false,
+    "emailTemplate":  false,
+    "pageUrl":  null,
+    "request":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "pageManagementServiceImpl",
@@ -192,6 +256,19 @@ Content-Type: application/json
 
 ### publishToUrl
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "pageName":  null,
+    "pageRoot":  null,
+    "containerId":  null,
+    "containerType":  null,
+    "copyTo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "pageManagementServiceImpl",

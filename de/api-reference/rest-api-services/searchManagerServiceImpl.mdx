@@ -54,6 +54,32 @@ Content-Type: application/json
 
 ### search
 
+Beispiel für das JSON-Anfrageobjekt:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "searchManagerServiceImpl",
@@ -77,6 +103,32 @@ Content-Type: application/json
 
 ### countAll
 
+Beispiel für das JSON-Anfrageobjekt:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "searchManagerServiceImpl",
@@ -287,6 +339,32 @@ Content-Type: application/json
 
 ### fieldFilterValues
 
+Beispiel für das JSON-Anfrageobjekt:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "searchManagerServiceImpl",

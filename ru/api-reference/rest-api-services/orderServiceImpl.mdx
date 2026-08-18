@@ -218,6 +218,32 @@ Content-Type: application/json
 
 ### createOrder
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "contactProfileId":  null,
+    "embeddedVendor":  null,
+    "embeddedBuyer":  null,
+    "orderTimeLines":  null,
+    "commerceItems":  null,
+    "tax":  null,
+    "currencySymbol":  null,
+    "currencyCode":  null,
+    "packageItem":  null,
+    "paymentMethodId":  null,
+    "paymentIntentId":  null,
+    "parcelId":  null,
+    "payoutId":  null,
+    "shippingAddress":  null,
+    "sellerTaxRate":  null,
+    "buyerTaxRate":  null,
+    "serviceTaxRate":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "orderServiceImpl",
@@ -241,6 +267,32 @@ Content-Type: application/json
 
 ### saveOrder
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "contactProfileId":  null,
+    "embeddedVendor":  null,
+    "embeddedBuyer":  null,
+    "orderTimeLines":  null,
+    "commerceItems":  null,
+    "tax":  null,
+    "currencySymbol":  null,
+    "currencyCode":  null,
+    "packageItem":  null,
+    "paymentMethodId":  null,
+    "paymentIntentId":  null,
+    "parcelId":  null,
+    "payoutId":  null,
+    "shippingAddress":  null,
+    "sellerTaxRate":  null,
+    "buyerTaxRate":  null,
+    "serviceTaxRate":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "orderServiceImpl",
@@ -283,6 +335,26 @@ Content-Type: application/json
 
 ### digitalOrderCheckout
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "orderId":  null,
+    "paymentMethodId":  null,
+    "paymentIntentId":  null,
+    "toAccountId":  null,
+    "description":  null,
+    "quantity":  0,
+    "amount":  0,
+    "currencyCode":  null,
+    "email":  null,
+    "commerceItems":  null,
+    "metadata":  null,
+    "confirm":  false
+}
+```
+
+Request:
 ```json
 {
   "beanId": "orderServiceImpl",

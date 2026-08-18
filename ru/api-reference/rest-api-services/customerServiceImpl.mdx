@@ -142,6 +142,22 @@ Content-Type: application/json
 
 ### sendVerificationEmail
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "username":  null,
+    "password":  null,
+    "savedPassword":  null,
+    "fallIntoObjects":  null,
+    "active":  false,
+    "roles":  null,
+    "permissions":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -165,6 +181,32 @@ Content-Type: application/json
 
 ### searchCustomers
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -188,6 +230,32 @@ Content-Type: application/json
 
 ### searchCustomersLightweight
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -234,6 +302,42 @@ Content-Type: application/json
 
 ### registerCustomerFull
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "stripeCustomerId":  null,
+    "stripeConnectId":  null,
+    "address":  null,
+    "shippingAddresses":  null,
+    "companyName":  null,
+    "vatNumber":  null,
+    "numberOfEmployees":  null,
+    "sellerType":  null,
+    "sellerTariff":  null,
+    "subscription":  null,
+    "companyEmailAddress":  null,
+    "companyPhone":  null,
+    "companyWebSite":  null,
+    "imageURLs":  null,
+    "documentURLs":  null,
+    "description":  null,
+    "profiles":  null,
+    "certificates":  null,
+    "sellerSKUs":  null,
+    "ordersBuyer":  null,
+    "ordersVendor":  null,
+    "favoriteSellersIds":  null,
+    "favoriteSellerSkuIds":  null,
+    "sellerCategoriesIds":  null,
+    "sellerProductsIds":  null,
+    "emailNotifications":  false,
+    "onlineActive":  false
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -303,6 +407,28 @@ Content-Type: application/json
 
 ### registerCustomerSimplified
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "user":  null,
+    "firstName":  null,
+    "lastName":  null,
+    "website":  null,
+    "phone":  null,
+    "mobilePhone":  null,
+    "birthday":  null,
+    "emailAddress":  null,
+    "gender":  null,
+    "salutation":  null,
+    "embeddedParent":  null,
+    "emailNotifications":  false,
+    "imageURLs":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -326,6 +452,49 @@ Content-Type: application/json
 
 ### updateCustomer
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "stripeCustomerId":  null,
+    "stripeConnectId":  null,
+    "address":  null,
+    "companyName":  null,
+    "vatNumber":  null,
+    "numberOfEmployees":  null,
+    "sellerType":  null,
+    "sellerTariff":  null,
+    "subscription":  null,
+    "companyEmailAddress":  null,
+    "companyPhone":  null,
+    "companyWebSite":  null,
+    "description":  null,
+    "imageURLs":  null,
+    "shippingAddresses":  null,
+    "documentURLs":  null,
+    "profileIds":  null,
+    "certificateIds":  null,
+    "sellerSkuIds":  null,
+    "ordersAsBuyerIds":  null,
+    "ordersAsVendorIds":  null,
+    "favoriteSellersIds":  null,
+    "favoriteSellerSkuIds":  null,
+    "sellerCategoriesIds":  null,
+    "sellerProductsIds":  null,
+    "emailNotifications":  false,
+    "onlineActive":  false,
+    "imageUrlRemove":  false,
+    "metaInfo":  null,
+    "createdBy":  null,
+    "createdDate":  null,
+    "lastModifiedBy":  null,
+    "lastModifiedDate":  null,
+    "alias":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -349,6 +518,28 @@ Content-Type: application/json
 
 ### updateCustomerProfile
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "user":  null,
+    "firstName":  null,
+    "lastName":  null,
+    "website":  null,
+    "phone":  null,
+    "mobilePhone":  null,
+    "birthday":  null,
+    "emailAddress":  null,
+    "gender":  null,
+    "salutation":  null,
+    "embeddedParent":  null,
+    "emailNotifications":  false,
+    "imageURLs":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",
@@ -372,6 +563,42 @@ Content-Type: application/json
 
 ### mapSellerToDto
 
+Пример JSON объекта запроса:
+
+```json
+{
+    "id":  null,
+    "stripeCustomerId":  null,
+    "stripeConnectId":  null,
+    "address":  null,
+    "shippingAddresses":  null,
+    "companyName":  null,
+    "vatNumber":  null,
+    "numberOfEmployees":  null,
+    "sellerType":  null,
+    "sellerTariff":  null,
+    "subscription":  null,
+    "companyEmailAddress":  null,
+    "companyPhone":  null,
+    "companyWebSite":  null,
+    "imageURLs":  null,
+    "documentURLs":  null,
+    "description":  null,
+    "profiles":  null,
+    "certificates":  null,
+    "sellerSKUs":  null,
+    "ordersBuyer":  null,
+    "ordersVendor":  null,
+    "favoriteSellersIds":  null,
+    "favoriteSellerSkuIds":  null,
+    "sellerCategoriesIds":  null,
+    "sellerProductsIds":  null,
+    "emailNotifications":  false,
+    "onlineActive":  false
+}
+```
+
+Request:
 ```json
 {
   "beanId": "customerServiceImpl",

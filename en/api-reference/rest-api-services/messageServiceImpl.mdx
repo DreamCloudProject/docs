@@ -123,6 +123,32 @@ Content-Type: application/json
 
 ### searchChats
 
+Example JSON request object:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "messageServiceImpl",
@@ -146,6 +172,32 @@ Content-Type: application/json
 
 ### searchMessages
 
+Example JSON request object:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "messageServiceImpl",
@@ -169,6 +221,32 @@ Content-Type: application/json
 
 ### searchChats
 
+Example JSON request object:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "messageServiceImpl",
@@ -284,6 +362,22 @@ Content-Type: application/json
 
 ### createMessage
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "messageText":  null,
+    "from":  null,
+    "to":  null,
+    "messageState":  null,
+    "embeddedChat":  null,
+    "attachedFile":  null,
+    "score":  0
+}
+```
+
+Request:
 ```json
 {
   "beanId": "messageServiceImpl",

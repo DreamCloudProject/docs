@@ -54,6 +54,29 @@ Content-Type: application/json
 
 ### createCategory
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "keywords":  null,
+    "searchTerms":  null,
+    "parent":  null,
+    "imageUrlRemove":  false,
+    "parentIds":  null,
+    "childrenIds":  null,
+    "productsIds":  null,
+    "imageURLs":  null,
+    "translations":  null,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -77,6 +100,28 @@ Content-Type: application/json
 
 ### createProduct
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "keywords":  null,
+    "searchTerms":  null,
+    "imageUrlRemove":  false,
+    "parentCategories":  null,
+    "attributesIds":  null,
+    "skuIds":  null,
+    "imageURLs":  null,
+    "translations":  null,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -100,6 +145,31 @@ Content-Type: application/json
 
 ### createSKU
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "translation":  null,
+    "seoUrl":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "keywords":  null,
+    "searchTerms":  null,
+    "parentProducts":  null,
+    "attributesIds":  null,
+    "sellerSkuIds":  null,
+    "imageURLs":  null,
+    "documentURLs":  null,
+    "translations":  null,
+    "imageUrlRemove":  false,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -123,6 +193,32 @@ Content-Type: application/json
 
 ### createAttribute
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "type":  null,
+    "areaUsageType":  null,
+    "translation":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "searchTerms":  null,
+    "min":  0,
+    "max":  0,
+    "step":  0,
+    "parentProducts":  null,
+    "parentSkus":  null,
+    "optionsIds":  null,
+    "measurement":  null,
+    "translations":  null,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -146,6 +242,22 @@ Content-Type: application/json
 
 ### createOption
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "text":  null,
+    "name":  null,
+    "searchTerms":  null,
+    "parentAttributes":  null,
+    "imageURLs":  null,
+    "imageUrlRemove":  false,
+    "translations":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -169,6 +281,18 @@ Content-Type: application/json
 
 ### createMeasurement
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "value":  null,
+    "parentAttributes":  null,
+    "alias":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -192,6 +316,25 @@ Content-Type: application/json
 
 ### createUnit
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "type":  null,
+    "text":  null,
+    "name":  null,
+    "countPerUnitSuffix":  null,
+    "minOrderSuffix":  null,
+    "quantitySuffix":  null,
+    "searchTerms":  null,
+    "localizations":  null,
+    "parentSellerSkus":  null,
+    "translations":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -215,6 +358,49 @@ Content-Type: application/json
 
 ### createSeller
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "stripeCustomerId":  null,
+    "stripeConnectId":  null,
+    "address":  null,
+    "companyName":  null,
+    "vatNumber":  null,
+    "numberOfEmployees":  null,
+    "sellerType":  null,
+    "sellerTariff":  null,
+    "subscription":  null,
+    "companyEmailAddress":  null,
+    "companyPhone":  null,
+    "companyWebSite":  null,
+    "description":  null,
+    "imageURLs":  null,
+    "shippingAddresses":  null,
+    "documentURLs":  null,
+    "profileIds":  null,
+    "certificateIds":  null,
+    "sellerSkuIds":  null,
+    "ordersAsBuyerIds":  null,
+    "ordersAsVendorIds":  null,
+    "favoriteSellersIds":  null,
+    "favoriteSellerSkuIds":  null,
+    "sellerCategoriesIds":  null,
+    "sellerProductsIds":  null,
+    "emailNotifications":  false,
+    "onlineActive":  false,
+    "imageUrlRemove":  false,
+    "metaInfo":  null,
+    "createdBy":  null,
+    "createdDate":  null,
+    "lastModifiedBy":  null,
+    "lastModifiedDate":  null,
+    "alias":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -238,6 +424,28 @@ Content-Type: application/json
 
 ### createProfile
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "user":  null,
+    "firstName":  null,
+    "lastName":  null,
+    "website":  null,
+    "phone":  null,
+    "mobilePhone":  null,
+    "birthday":  null,
+    "emailAddress":  null,
+    "gender":  null,
+    "salutation":  null,
+    "embeddedParent":  null,
+    "emailNotifications":  false,
+    "imageURLs":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -261,6 +469,22 @@ Content-Type: application/json
 
 ### createUser
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "username":  null,
+    "password":  null,
+    "savedPassword":  null,
+    "fallIntoObjects":  null,
+    "active":  false,
+    "roles":  null,
+    "permissions":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -284,6 +508,18 @@ Content-Type: application/json
 
 ### createTranslation
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "text":  null,
+    "lang":  null,
+    "fallIntoObjects":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -307,6 +543,32 @@ Content-Type: application/json
 
 ### createOrder
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "contactProfileId":  null,
+    "embeddedVendor":  null,
+    "embeddedBuyer":  null,
+    "orderTimeLines":  null,
+    "commerceItems":  null,
+    "tax":  null,
+    "currencySymbol":  null,
+    "currencyCode":  null,
+    "packageItem":  null,
+    "paymentMethodId":  null,
+    "paymentIntentId":  null,
+    "parcelId":  null,
+    "payoutId":  null,
+    "shippingAddress":  null,
+    "sellerTaxRate":  null,
+    "buyerTaxRate":  null,
+    "serviceTaxRate":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -928,6 +1190,29 @@ Content-Type: application/json
 
 ### updateCategory
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "keywords":  null,
+    "searchTerms":  null,
+    "parent":  null,
+    "imageUrlRemove":  false,
+    "parentIds":  null,
+    "childrenIds":  null,
+    "productsIds":  null,
+    "imageURLs":  null,
+    "translations":  null,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -951,6 +1236,28 @@ Content-Type: application/json
 
 ### updateProduct
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "keywords":  null,
+    "searchTerms":  null,
+    "imageUrlRemove":  false,
+    "parentCategories":  null,
+    "attributesIds":  null,
+    "skuIds":  null,
+    "imageURLs":  null,
+    "translations":  null,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -974,6 +1281,31 @@ Content-Type: application/json
 
 ### updateSKU
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "translation":  null,
+    "seoUrl":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "keywords":  null,
+    "searchTerms":  null,
+    "parentProducts":  null,
+    "attributesIds":  null,
+    "sellerSkuIds":  null,
+    "imageURLs":  null,
+    "documentURLs":  null,
+    "translations":  null,
+    "imageUrlRemove":  false,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -997,6 +1329,32 @@ Content-Type: application/json
 
 ### updateAttribute
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "type":  null,
+    "areaUsageType":  null,
+    "translation":  null,
+    "name":  null,
+    "description":  null,
+    "text":  null,
+    "searchTerms":  null,
+    "min":  0,
+    "max":  0,
+    "step":  0,
+    "parentProducts":  null,
+    "parentSkus":  null,
+    "optionsIds":  null,
+    "measurement":  null,
+    "translations":  null,
+    "active":  false,
+    "metaInfo":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1020,6 +1378,22 @@ Content-Type: application/json
 
 ### updateOption
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "text":  null,
+    "name":  null,
+    "searchTerms":  null,
+    "parentAttributes":  null,
+    "imageURLs":  null,
+    "imageUrlRemove":  false,
+    "translations":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1043,6 +1417,18 @@ Content-Type: application/json
 
 ### updateMeasurement
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "value":  null,
+    "parentAttributes":  null,
+    "alias":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1066,6 +1452,25 @@ Content-Type: application/json
 
 ### updateUnit
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "type":  null,
+    "text":  null,
+    "name":  null,
+    "countPerUnitSuffix":  null,
+    "minOrderSuffix":  null,
+    "quantitySuffix":  null,
+    "searchTerms":  null,
+    "localizations":  null,
+    "parentSellerSkus":  null,
+    "translations":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1089,6 +1494,49 @@ Content-Type: application/json
 
 ### updateSeller
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "stripeCustomerId":  null,
+    "stripeConnectId":  null,
+    "address":  null,
+    "companyName":  null,
+    "vatNumber":  null,
+    "numberOfEmployees":  null,
+    "sellerType":  null,
+    "sellerTariff":  null,
+    "subscription":  null,
+    "companyEmailAddress":  null,
+    "companyPhone":  null,
+    "companyWebSite":  null,
+    "description":  null,
+    "imageURLs":  null,
+    "shippingAddresses":  null,
+    "documentURLs":  null,
+    "profileIds":  null,
+    "certificateIds":  null,
+    "sellerSkuIds":  null,
+    "ordersAsBuyerIds":  null,
+    "ordersAsVendorIds":  null,
+    "favoriteSellersIds":  null,
+    "favoriteSellerSkuIds":  null,
+    "sellerCategoriesIds":  null,
+    "sellerProductsIds":  null,
+    "emailNotifications":  false,
+    "onlineActive":  false,
+    "imageUrlRemove":  false,
+    "metaInfo":  null,
+    "createdBy":  null,
+    "createdDate":  null,
+    "lastModifiedBy":  null,
+    "lastModifiedDate":  null,
+    "alias":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1112,6 +1560,28 @@ Content-Type: application/json
 
 ### updateProfile
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "user":  null,
+    "firstName":  null,
+    "lastName":  null,
+    "website":  null,
+    "phone":  null,
+    "mobilePhone":  null,
+    "birthday":  null,
+    "emailAddress":  null,
+    "gender":  null,
+    "salutation":  null,
+    "embeddedParent":  null,
+    "emailNotifications":  false,
+    "imageURLs":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1135,6 +1605,22 @@ Content-Type: application/json
 
 ### updateUser
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "username":  null,
+    "password":  null,
+    "savedPassword":  null,
+    "fallIntoObjects":  null,
+    "active":  false,
+    "roles":  null,
+    "permissions":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1158,6 +1644,18 @@ Content-Type: application/json
 
 ### updateTranslation
 
+Example JSON request object:
+
+```json
+{
+    "id":  null,
+    "text":  null,
+    "lang":  null,
+    "fallIntoObjects":  null
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",
@@ -1181,6 +1679,15 @@ Content-Type: application/json
 
 ### updateOrder
 
+Example JSON request object:
+
+```json
+{
+
+}
+```
+
+Request:
 ```json
 {
   "beanId": "dataManagerServiceImpl",

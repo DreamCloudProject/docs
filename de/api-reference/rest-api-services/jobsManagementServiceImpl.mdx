@@ -92,6 +92,32 @@ Content-Type: application/json
 
 ### searchJobs
 
+Beispiel für das JSON-Anfrageobjekt:
+
+```json
+{
+    "type":  "SellerSKU",
+    "searchTerm":  "",
+    "query":  {
+                  "isPublishedForSale":  true
+              },
+    "ignoreRegexWrap":  [
+                            "id",
+                            "name",
+                            "embeddedSku",
+                            "productsRef",
+                            "isPublishedForSale"
+                        ],
+    "offset":  0,
+    "limit":  10,
+    "visiblePages":  10,
+    "page":  1,
+    "sortName":  "createdDate",
+    "sortDirection":  "DESC"
+}
+```
+
+Request:
 ```json
 {
   "beanId": "jobsManagementServiceImpl",
@@ -115,6 +141,21 @@ Content-Type: application/json
 
 ### createJob
 
+Beispiel für das JSON-Anfrageobjekt:
+
+```json
+{
+    "id":  null,
+    "status":  null,
+    "type":  null,
+    "description":  null,
+    "current":  0,
+    "total":  0,
+    "progress":  0
+}
+```
+
+Request:
 ```json
 {
   "beanId": "jobsManagementServiceImpl",
@@ -138,6 +179,21 @@ Content-Type: application/json
 
 ### saveJob
 
+Beispiel für das JSON-Anfrageobjekt:
+
+```json
+{
+    "id":  null,
+    "status":  null,
+    "type":  null,
+    "description":  null,
+    "current":  0,
+    "total":  0,
+    "progress":  0
+}
+```
+
+Request:
 ```json
 {
   "beanId": "jobsManagementServiceImpl",

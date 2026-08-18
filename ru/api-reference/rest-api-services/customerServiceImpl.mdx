@@ -1,0 +1,413 @@
+---
+title: 'customerServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: customerServiceImpl'
+---
+
+# customerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+customerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST. **Bearer Token:** не требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="SellerRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationCustomers" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationCustomers
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationCustomers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="validateVerificationToken" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `verificationToken` | `String` | Передаётся через `args[0].0`. |
+
+### validateVerificationToken
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "validateVerificationToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="validatePasswordResetToken" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `passwordResetToken` | `String` | Передаётся через `args[0].0`. |
+
+### validatePasswordResetToken
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "validatePasswordResetToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendVerificationEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### sendVerificationEmail
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendVerificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCustomers" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchCustomers
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCustomers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCustomersLightweight" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchCustomersLightweight
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCustomersLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomersPaged" type="Page<Seller>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getCustomersPaged
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomersPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="registerCustomerFull" type="Seller">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `customerAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### registerCustomerFull
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "registerCustomerFull",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchEmployees" type="LinkedHashSet<Profile>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchEmployees
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchEmployees",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchEmployeesPaged" type="Page<Profile>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchEmployeesPaged
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchEmployeesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="registerCustomerSimplified" type="Profile">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userProfileAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### registerCustomerSimplified
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "registerCustomerSimplified",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCustomer" type="Seller">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### updateCustomer
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCustomer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCustomerProfile" type="Profile">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userProfileAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### updateCustomerProfile
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCustomerProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapSellerToDto" type="SellerDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `customerAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### mapSellerToDto
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapSellerToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapSellerToDto" type="SellerDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `seller` | `Seller` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapSellerToDto
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapSellerToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

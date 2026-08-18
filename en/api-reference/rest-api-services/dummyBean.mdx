@@ -1,0 +1,300 @@
+---
+title: 'dummyBean'
+description: 'Calling public service methods through the REST API: dummyBean'
+---
+
+# dummyBean
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+dummyBean
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getUsers" type="List<Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getUsers
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getUsers",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setUsers" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `users` | `List<Object>` | Passed through `args[0].0`. |
+
+### setUsers
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDummyUser" type="DummyUser">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getDummyUser
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getDummyUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setDummyUser" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `dummyUser` | `DummyUser` | Passed through `args[0].0`. |
+
+### setDummyUser
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setDummyUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAddress" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getAddress
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getAddress",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setAddress" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `address` | `Map<String, Object>` | Passed through `args[0].0`. |
+
+### setAddress
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDescription" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getDescription
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getDescription",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setDescription" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `description` | `String` | Passed through `args[0].0`. |
+
+### setDescription
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setDescription",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getToDos" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getToDos
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getToDos",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setToDos" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `toDos` | `List<Map<String, Object>>` | Passed through `args[0].0`. |
+
+### setToDos
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setToDos",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clear" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### clear
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "clear",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addToDo" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `name` | `String` | Passed through `args[0].0`. |
+
+### addToDo
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "addToDo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

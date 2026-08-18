@@ -1,0 +1,302 @@
+---
+title: 'blogCategoryServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: blogCategoryServiceImpl'
+---
+
+# blogCategoryServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+blogCategoryServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="BlogCategoryRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="List<BlogCategory>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `from` | `String` | Передаётся через `args[1].1`. |
+| `to` | `String` | Передаётся через `args[2].2`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCategory" type="Optional<BlogCategory>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addChildCategory" type="BlogCategory">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `parentId` | `String` | Передаётся через `args[0].0`. |
+| `childId` | `String` | Передаётся через `args[1].1`. |
+
+### addChildCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="BlogCategory">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="BlogCategory">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `category` | `BlogCategory` | Передаётся через `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryFromTranslation" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+| `translationId` | `String` | Передаётся через `args[1].1`. |
+
+### removeCategoryFromTranslation
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryWithDescendants" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `itemId` | `String` | Передаётся через `args[0].0`. |
+
+### removeCategoryWithDescendants
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryWithDescendants",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeContainerFromBlogCategory" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `containerId` | `String` | Передаётся через `args[0].0`. |
+| `categoryId` | `String` | Передаётся через `args[1].1`. |
+
+### removeContainerFromBlogCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeContainerFromBlogCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoriesByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoriesIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeCategoriesByIds
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoriesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rebuildAllCategories" type="List<BlogCategory>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categories` | `ArrayList<Object>` | Передаётся через `args[0].0`. |
+
+### rebuildAllCategories
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "rebuildAllCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,274 @@
+---
+title: 'settingsManagementServiceImpl'
+description: 'Calling public service methods through the REST API: settingsManagementServiceImpl'
+---
+
+# settingsManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+settingsManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="WebSiteSettingsRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSettingsResultsPaged" type="Page<WebSiteSettings>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchSettingsResultsPaged
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSettingsResultsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSettingsResults" type="List<WebSiteSettings>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchSettingsResults
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSettingsResults",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSettings" type="WebSiteSettings">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `settingsAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSettings" type="WebSiteSettings">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `settings` | `WebSiteSettings` | Passed through `args[0].0`. |
+
+### createSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSettings" type="WebSiteSettings">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `settingsAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSettings" type="WebSiteSettings">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `settings` | `WebSiteSettings` | Passed through `args[0].0`. |
+
+### saveSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSettingsByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `settingsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeSettingsByIds
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSettingsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSettingsAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `settingsId` | `String` | Passed through `args[0].0`. |
+
+### removeSettingsAndClean
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSettingsAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSettingsPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getSettingsPaginationFilter
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSettingsPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

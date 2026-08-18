@@ -1,0 +1,800 @@
+---
+title: 'frameworkOperationServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: frameworkOperationServiceImpl'
+---
+
+# frameworkOperationServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+frameworkOperationServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** GUEST. **Bearer Token:** nicht erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="isValueEquals" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `val` | `String` | Übergeben über `args[0].0`. |
+| `equalsToVal` | `String` | Übergeben über `args[1].1`. |
+
+### isValueEquals
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isValueEquals",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isNotBlank" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `value` | `String` | Übergeben über `args[0].0`. |
+
+### isNotBlank
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isNotBlank",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isBlank" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `value` | `String` | Übergeben über `args[0].0`. |
+
+### isBlank
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isBlank",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isNotTrue" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `value` | `String` | Übergeben über `args[0].0`. |
+
+### isNotTrue
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isNotTrue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTrue" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `value` | `String` | Übergeben über `args[0].0`. |
+
+### isTrue
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTrue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFileExists" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### isFileExists
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFileExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFileExistsFromSystemRoot" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### isFileExistsFromSystemRoot
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFileExistsFromSystemRoot",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFileExistsFromUploadRoot" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### isFileExistsFromUploadRoot
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFileExistsFromUploadRoot",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLanguageDetection" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### isLanguageDetection
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLanguageDetection",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getActiveLanguages" type="List<String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getActiveLanguages
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getActiveLanguages",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTimeFromDate" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `date` | `String` | Übergeben über `args[0].0`. |
+
+### getTimeFromDate
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTimeFromDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrentDate" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pattern` | `String` | Übergeben über `args[0].0`. |
+
+### getCurrentDate
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrentDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFormattedDate" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `date` | `String` | Übergeben über `args[0].0`. |
+| `pattern` | `String` | Übergeben über `args[1].1`. |
+
+### getFormattedDate
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFormattedDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFormattedDateFromTimestamp" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `timestamp` | `String` | Übergeben über `args[0].0`. |
+| `pattern` | `String` | Übergeben über `args[1].1`. |
+
+### getFormattedDateFromTimestamp
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFormattedDateFromTimestamp",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDaysTillEndDate" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `date` | `String` | Übergeben über `args[0].0`. |
+
+### getDaysTillEndDate
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDaysTillEndDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDatePlusYears" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `years` | `String` | Übergeben über `args[0].0`. |
+| `pattern` | `String` | Übergeben über `args[1].1`. |
+
+### getDatePlusYears
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDatePlusYears",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDaysTillEndDateFromTimestamp" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `timestamp` | `String` | Übergeben über `args[0].0`. |
+
+### getDaysTillEndDateFromTimestamp
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDaysTillEndDateFromTimestamp",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="multiplyValueTo" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `val` | `String` | Übergeben über `args[0].0`. |
+| `to` | `String` | Übergeben über `args[1].1`. |
+
+### multiplyValueTo
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "multiplyValueTo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="divideValueTo" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `val` | `String` | Übergeben über `args[0].0`. |
+| `to` | `String` | Übergeben über `args[1].1`. |
+
+### divideValueTo
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "divideValueTo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="plusTwoValues" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `val1` | `String` | Übergeben über `args[0].0`. |
+| `val2` | `String` | Übergeben über `args[1].1`. |
+
+### plusTwoValues
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "plusTwoValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFileSize" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `url` | `String` | Übergeben über `args[0].0`. |
+| `dim` | `String` | Übergeben über `args[1].1`. |
+
+### getFileSize
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFileSize",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFileExtension" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `filePath` | `String` | Übergeben über `args[0].0`. |
+
+### getFileExtension
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFileExtension",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFirstLetter" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `text` | `String` | Übergeben über `args[0].0`. |
+
+### getFirstLetter
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFirstLetter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrentSequence" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `seqName` | `String` | Übergeben über `args[0].0`. |
+
+### getCurrentSequence
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrentSequence",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="transformJsonArrayToList" type="List<Map<String,Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `jsonArray` | `String` | Übergeben über `args[0].0`. |
+
+### transformJsonArrayToList
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "transformJsonArrayToList",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLangCode" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getLangCode
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLangCode",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toLowerCase" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `str` | `String` | Übergeben über `args[0].0`. |
+
+### toLowerCase
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toLowerCase",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toUpperCase" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `str` | `String` | Übergeben über `args[0].0`. |
+
+### toUpperCase
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toUpperCase",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="restClientCall" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `endpoint` | `String` | Übergeben über `args[0].0`. |
+| `method` | `String` | Übergeben über `args[1].1`. |
+| `jsonAsString` | `String` | Übergeben über `args[2].2`. |
+
+### restClientCall
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "restClientCall",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="parseNestedDatabaseDocs" type="HashMap<Object, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `itemName` | `String` | Übergeben über `args[0].0`. |
+| `nestedKey` | `String` | Übergeben über `args[1].1`. |
+| `database` | `String` | Übergeben über `args[2].2`. |
+| `jsonObjString` | `String` | Übergeben über `args[3].3`. |
+
+### parseNestedDatabaseDocs
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "parseNestedDatabaseDocs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="languageAwareUrl" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `url` | `String` | Übergeben über `args[0].0`. |
+
+### languageAwareUrl
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "languageAwareUrl",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrentWebSiteSettings" type="WebSiteSettings">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getCurrentWebSiteSettings
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrentWebSiteSettings",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrentBrandingSiteSettings" type="LinkedHashMap<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getCurrentBrandingSiteSettings
+
+```json
+{
+  "beanId": "frameworkOperationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrentBrandingSiteSettings",
+  "args": []
+}
+```
+
+</ResponseField>

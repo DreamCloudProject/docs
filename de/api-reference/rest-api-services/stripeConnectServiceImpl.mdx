@@ -1,0 +1,335 @@
+---
+title: 'stripeConnectServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: stripeConnectServiceImpl'
+---
+
+# stripeConnectServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+stripeConnectServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** bedingt für USER/ADMIN.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="checkConnectAccountStatus" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### checkConnectAccountStatus
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkConnectAccountStatus",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAccount" type="Account">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `accountDTO` | `StripeAccountDTO` | Übergeben über `args[0].0`. |
+
+### createAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAccount" type="StripeAccountDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateAccount" type="Account">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `accountId` | `String` | Übergeben über `args[0].0`. |
+| `stripeAccountDTO` | `StripeAccountDTO` | Übergeben über `args[1].1`. |
+
+### updateAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteAccount" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sellerId` | `String` | Übergeben über `args[0].0`. |
+
+### deleteAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInitialPerson" type="StripePersonDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getInitialPerson
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getInitialPerson",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createExternalBankAccount" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `bankData` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createExternalBankAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createExternalBankAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createExternalCardAccount" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `cardData` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createExternalCardAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createExternalCardAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBusinessTypes" type="List<String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getBusinessTypes
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getBusinessTypes",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBusinessStructures" type="List<String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `businessType` | `String` | Übergeben über `args[0].0`. |
+
+### getBusinessStructures
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getBusinessStructures",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMCCs" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getMCCs
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMCCs",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="verifyAccount" type="StripeAccountDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `refreshUrl` | `String` | Übergeben über `args[0].0`. |
+| `returnUrl` | `String` | Übergeben über `args[1].1`. |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Übergeben über `args[2].2`. |
+
+### verifyAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "verifyAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainConnectOnboardingLink" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `refreshUrl` | `String` | Übergeben über `args[0].0`. |
+| `returnUrl` | `String` | Übergeben über `args[1].1`. |
+
+### obtainConnectOnboardingLink
+
+```json
+{
+  "beanId": "stripeConnectServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainConnectOnboardingLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

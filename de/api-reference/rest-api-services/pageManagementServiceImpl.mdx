@@ -1,0 +1,347 @@
+---
+title: 'pageManagementServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: pageManagementServiceImpl'
+---
+
+# pageManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+pageManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="createPage" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pageRequest` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createPage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPage" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pageRequest` | `CreatePageRequest` | Übergeben über `args[0].0`. |
+
+### createPage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deletePage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pageId` | `String` | Übergeben über `args[0].0`. |
+
+### deletePage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deletePage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deletePages" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pageIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### deletePages
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deletePages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updatePage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pageRequest` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### updatePage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updatePage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updatePage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `pageRequest` | `CreatePageRequest` | Übergeben über `args[0].0`. |
+
+### updatePage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updatePage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="duplicatePage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `copyRequest` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### duplicatePage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "duplicatePage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="duplicatePage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `copyRequest` | `CopyPageRequest` | Übergeben über `args[0].0`. |
+
+### duplicatePage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "duplicatePage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="copyPage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `copyRequest` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### copyPage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "copyPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="copyPage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `copyRequest` | `CopyPageRequest` | Übergeben über `args[0].0`. |
+
+### copyPage
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "copyPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="publishToUrl" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `routeRequest` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### publishToUrl
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "publishToUrl",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="publishToUrl" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `routeRequest` | `CreateRouteRequest` | Übergeben über `args[0].0`. |
+
+### publishToUrl
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "publishToUrl",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="askAiAssistant" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `prompt` | `LinkedHashMap<String,Object>` | Übergeben über `args[0].0`. |
+
+### askAiAssistant
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "askAiAssistant",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

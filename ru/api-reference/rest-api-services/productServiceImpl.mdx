@@ -1,0 +1,652 @@
+---
+title: 'productServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: productServiceImpl'
+---
+
+# productServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+productServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="ProductRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProducts" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchProducts
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProductsLightweight" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchProductsLightweight
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProductsLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProducts" type="LinkedHashSet<ProductDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchProducts
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProductsPaged" type="Page<Product>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchProductsPaged
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProductsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProducts" type="List<Product>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `offset` | `String` | Передаётся через `args[1].1`. |
+| `limit` | `String` | Передаётся через `args[2].2`. |
+
+### searchProducts
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProduct" type="Optional<Product>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProduct" type="Optional<Product>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `product` | `Product` | Передаётся через `args[0].0`. |
+
+### createProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addProductToCategory" type="Product">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+| `productAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### addProductToCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addProductToCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addProductToCategory" type="Product">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+| `productId` | `String` | Передаётся через `args[1].1`. |
+
+### addProductToCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addProductToCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveProduct" type="Product">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveProduct" type="Product">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `product` | `Product` | Передаётся через `args[0].0`. |
+
+### saveProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSortedProductsByCategory" type="List<Map<String, String>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+
+### getSortedProductsByCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSortedProductsByCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProductsByCategoryAndFirstLetter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+| `firstLetter` | `String` | Передаётся через `args[1].1`. |
+
+### getProductsByCategoryAndFirstLetter
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProductsByCategoryAndFirstLetter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromCategory" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `categoryId` | `String` | Передаётся через `args[1].1`. |
+
+### removeProductFromCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromSKU" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `skuId` | `String` | Передаётся через `args[1].1`. |
+
+### removeProductFromSKU
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromAttribute" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `attrId` | `String` | Передаётся через `args[1].1`. |
+
+### removeProductFromAttribute
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromTranslation" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `tranId` | `String` | Передаётся через `args[1].1`. |
+
+### removeProductFromTranslation
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromCategories" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+
+### removeProductFromCategories
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromSKUs" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+
+### removeProductFromSKUs
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromAttributes" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+
+### removeProductFromAttributes
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromTranslations" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+
+### removeProductFromTranslations
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+
+### removeProductAndClean
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeProductsByIds
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapProductToDto" type="ProductDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `product` | `Product` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapProductToDto
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapProductToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

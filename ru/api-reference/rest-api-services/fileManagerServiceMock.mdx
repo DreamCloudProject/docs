@@ -1,0 +1,428 @@
+---
+title: 'fileManagerServiceMock'
+description: 'Вызов публичных методов сервиса через REST API: fileManagerServiceMock'
+---
+
+# fileManagerServiceMock
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+fileManagerServiceMock
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="createDirectory" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+
+### createDirectory
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createDirectory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findByPath" type="List<File>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+
+### findByPath
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findByPath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findByPath" type="List<File>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+| `filter` | `FileFilter` | Передаётся через `args[1].1`. |
+
+### findByPath
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findByPath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findFiles" type="List<File>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+
+### findFiles
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findFiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findFiles" type="List<File>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+| `fileExtension` | `String` | Передаётся через `args[1].1`. |
+
+### findFiles
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findFiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findRootFolders" type="List<File>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `rootPath` | `Path` | Передаётся через `args[0].0`. |
+
+### findRootFolders
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findRootFolders",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadFile" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `destination` | `Path` | Передаётся через `args[0].0`. |
+| `fis` | `InputStream` | Передаётся через `args[1].1`. |
+
+### uploadFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="downloadFile" type="byte[]">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+
+### downloadFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "downloadFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="move" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `source` | `Path` | Передаётся через `args[0].0`. |
+| `destination` | `Path` | Передаётся через `args[1].1`. |
+
+### move
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "move",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="copy" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `source` | `Path` | Передаётся через `args[0].0`. |
+| `destination` | `Path` | Передаётся через `args[1].1`. |
+
+### copy
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "copy",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rename" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `file` | `Path` | Передаётся через `args[0].0`. |
+| `newName` | `String` | Передаётся через `args[1].1`. |
+
+### rename
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "rename",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="delete" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+
+### delete
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "delete",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractZipFile" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `file` | `Path` | Передаётся через `args[0].0`. |
+| `destination` | `Path` | Передаётся через `args[1].1`. |
+
+### extractZipFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "extractZipFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveContentToFile" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `name` | `String` | Передаётся через `args[0].0`. |
+| `path` | `String` | Передаётся через `args[1].1`. |
+| `content` | `String` | Передаётся через `args[2].2`. |
+
+### saveContentToFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "saveContentToFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createFile" type="File">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+| `bytes` | `byte[]` | Передаётся через `args[1].1`. |
+
+### createFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setAttributeToFile" type="Path">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `path` | `Path` | Передаётся через `args[0].0`. |
+| `name` | `String` | Передаётся через `args[1].1`. |
+| `val` | `byte[]` | Передаётся через `args[2].2`. |
+
+### setAttributeToFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "setAttributeToFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,477 @@
+---
+title: 'jobsManagementServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: jobsManagementServiceImpl'
+---
+
+# jobsManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+jobsManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="JobRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="init" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### init
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchJobs" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchJobs
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchJobs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchJobs" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### searchJobs
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchJobs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `job` | `Job` | Передаётся через `args[0].0`. |
+
+### createJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `job` | `Job` | Передаётся через `args[0].0`. |
+
+### saveJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="startJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `type` | `String` | Передаётся через `args[0].0`. |
+| `total` | `int` | Передаётся через `args[1].1`. |
+
+### startJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "startJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelJob" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+
+### cancelJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toCanceled" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+
+### toCanceled
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toCanceled",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toDone" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+
+### toDone
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toDone",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateProgress" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+| `progress` | `int` | Передаётся через `args[1].1`. |
+
+### updateProgress
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateProgress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="incrementJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+| `step` | `int` | Передаётся через `args[1].1`. |
+
+### incrementJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "incrementJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="decrementJob" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+| `step` | `int` | Передаётся через `args[1].1`. |
+
+### decrementJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "decrementJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toFailed" type="Job">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+
+### toFailed
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toFailed",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setUnfinishedJobsToFailed" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### setUnfinishedJobsToFailed
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "setUnfinishedJobsToFailed",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeJobsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeJobsByIds
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeJobsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeJobAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `jobId` | `String` | Передаётся через `args[0].0`. |
+
+### removeJobAndClean
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeJobAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

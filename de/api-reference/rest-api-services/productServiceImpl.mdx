@@ -1,0 +1,652 @@
+---
+title: 'productServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: productServiceImpl'
+---
+
+# productServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+productServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** bedingt für USER/ADMIN.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getRepository" type="ProductRepository">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRepository
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProducts" type="SearchResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### searchProducts
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProductsLightweight" type="SearchResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### searchProductsLightweight
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProductsLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProducts" type="LinkedHashSet<ProductDTO>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchProducts
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProductsPaged" type="Page<Product>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchProductsPaged
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProductsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProducts" type="List<Product>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `query` | `String` | Übergeben über `args[0].0`. |
+| `offset` | `String` | Übergeben über `args[1].1`. |
+| `limit` | `String` | Übergeben über `args[2].2`. |
+
+### searchProducts
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProduct" type="Optional<Product>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProduct" type="Optional<Product>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `product` | `Product` | Übergeben über `args[0].0`. |
+
+### createProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addProductToCategory" type="Product">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `categoryId` | `String` | Übergeben über `args[0].0`. |
+| `productAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[1].1`. |
+
+### addProductToCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addProductToCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addProductToCategory" type="Product">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `categoryId` | `String` | Übergeben über `args[0].0`. |
+| `productId` | `String` | Übergeben über `args[1].1`. |
+
+### addProductToCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addProductToCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveProduct" type="Product">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### saveProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveProduct" type="Product">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `product` | `Product` | Übergeben über `args[0].0`. |
+
+### saveProduct
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSortedProductsByCategory" type="List<Map<String, String>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `categoryId` | `String` | Übergeben über `args[0].0`. |
+
+### getSortedProductsByCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSortedProductsByCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProductsByCategoryAndFirstLetter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `categoryId` | `String` | Übergeben über `args[0].0`. |
+| `firstLetter` | `String` | Übergeben über `args[1].1`. |
+
+### getProductsByCategoryAndFirstLetter
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProductsByCategoryAndFirstLetter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromCategory" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+| `categoryId` | `String` | Übergeben über `args[1].1`. |
+
+### removeProductFromCategory
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromSKU" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+| `skuId` | `String` | Übergeben über `args[1].1`. |
+
+### removeProductFromSKU
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromAttribute" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+| `attrId` | `String` | Übergeben über `args[1].1`. |
+
+### removeProductFromAttribute
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromTranslation" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+| `tranId` | `String` | Übergeben über `args[1].1`. |
+
+### removeProductFromTranslation
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromCategories" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+
+### removeProductFromCategories
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromSKUs" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+
+### removeProductFromSKUs
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromAttributes" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+
+### removeProductFromAttributes
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromTranslations" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+
+### removeProductFromTranslations
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductAndClean" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+
+### removeProductAndClean
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductsByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productsIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeProductsByIds
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapProductToDto" type="ProductDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `product` | `Product` | Übergeben über `args[0].0`. |
+| `optimal` | `boolean` | Übergeben über `args[1].1`. |
+
+### mapProductToDto
+
+```json
+{
+  "beanId": "productServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapProductToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

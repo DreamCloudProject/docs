@@ -1,0 +1,488 @@
+---
+title: 'categoryServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: categoryServiceImpl'
+---
+
+# categoryServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+categoryServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="CategoryRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategoriesLightweight" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchCategoriesLightweight
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategoriesLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="LinkedHashSet<CategoryDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategoriesPaged" type="Page<Category>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchCategoriesPaged
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategoriesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="List<Category>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `from` | `String` | Передаётся через `args[1].1`. |
+| `to` | `String` | Передаётся через `args[2].2`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCategory" type="Optional<Category>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCategory" type="Optional<Category>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `category` | `Category` | Передаётся через `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addChildCategory" type="Category">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `parentId` | `String` | Передаётся через `args[0].0`. |
+| `childId` | `String` | Передаётся через `args[1].1`. |
+
+### addChildCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeChildCategory" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `parentId` | `String` | Передаётся через `args[0].0`. |
+| `childId` | `String` | Передаётся через `args[1].1`. |
+
+### removeChildCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="Category">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="Category">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `category` | `Category` | Передаётся через `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryFromTranslation" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+| `translationId` | `String` | Передаётся через `args[1].1`. |
+
+### removeCategoryFromTranslation
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryWithDescendants" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `itemId` | `String` | Передаётся через `args[0].0`. |
+
+### removeCategoryWithDescendants
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryWithDescendants",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoriesByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoriesIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeCategoriesByIds
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoriesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rebuildAllCategories" type="List<Category>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categories` | `ArrayList<Object>` | Передаётся через `args[0].0`. |
+
+### rebuildAllCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "rebuildAllCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapCategoryToDto" type="CategoryDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `category` | `Category` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapCategoryToDto
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapCategoryToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="lookupToParents" type="List<String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `categoryId` | `String` | Передаётся через `args[0].0`. |
+| `result` | `List<String>` | Передаётся через `args[1].1`. |
+
+### lookupToParents
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "lookupToParents",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

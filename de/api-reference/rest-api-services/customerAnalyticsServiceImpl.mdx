@@ -1,0 +1,221 @@
+---
+title: 'customerAnalyticsServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: customerAnalyticsServiceImpl'
+---
+
+# customerAnalyticsServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+customerAnalyticsServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="searchCustomerActivityEvents" type="Page<ActivityDataItem>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `LinkedHashMap<String,Object>` | Übergeben über `args[0].0`. |
+
+### searchCustomerActivityEvents
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCustomerActivityEvents",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCustomerActivityEvents" type="Page<ActivityDataItem>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sr` | `SearchRequest` | Übergeben über `args[0].0`. |
+| `seller` | `Seller` | Übergeben über `args[1].1`. |
+
+### searchCustomerActivityEvents
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCustomerActivityEvents",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomerActivity" type="Page<CustomerActivity>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### getCustomerActivity
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomerActivity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomerActivity" type="Page<CustomerActivity>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Übergeben über `args[0].0`. |
+
+### getCustomerActivity
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomerActivity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomersActivityChart" type="ChartData">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `LinkedHashMap<String,Object>` | Übergeben über `args[0].0`. |
+
+### getCustomersActivityChart
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomersActivityChart",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRegisteredCustomersChart" type="ChartData">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRegisteredCustomersChart
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRegisteredCustomersChart",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRegisteredCompaniesByCountry" type="Map<String, Integer>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRegisteredCompaniesByCountry
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRegisteredCompaniesByCountry",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRegisteredCompaniesByType" type="Map<String, Integer>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRegisteredCompaniesByType
+
+```json
+{
+  "beanId": "customerAnalyticsServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRegisteredCompaniesByType",
+  "args": []
+}
+```
+
+</ResponseField>

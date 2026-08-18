@@ -1,0 +1,327 @@
+---
+title: 'cdekServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: cdekServiceImpl'
+---
+
+# cdekServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+cdekServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="init" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### init
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isCdekKeysDefined" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### isCdekKeysDefined
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isCdekKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTestCdekKeysDefined" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### isTestCdekKeysDefined
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTestCdekKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="authenticate" type="AuthResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### authenticate
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "authenticate",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="authenticateTest" type="AuthResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### authenticateTest
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "authenticateTest",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculate" type="Calculator">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `CalculatorRequest` | Übergeben über `args[0].0`. |
+
+### calculate
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="orderRegistration" type="OrderResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `OrderRequest` | Übergeben über `args[0].0`. |
+
+### orderRegistration
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "orderRegistration",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCourierRequest" type="CourierResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `CourierRequest` | Übergeben über `args[0].0`. |
+
+### createCourierRequest
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCourierRequest",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDeliveryPoints" type="List<DeliveryPointResponse>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `DeliveryPointRequest` | Übergeben über `args[0].0`. |
+
+### getDeliveryPoints
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDeliveryPoints",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTariffs" type="Tariffs">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `calcReq` | `CalculatorRequest` | Übergeben über `args[0].0`. |
+
+### getTariffs
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTariffs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTariffCode" type="TariffCode">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `order` | `Order` | Übergeben über `args[0].0`. |
+
+### getTariffCode
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTariffCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateDeliveryPrice" type="BigDecimal">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `order` | `Order` | Übergeben über `args[0].0`. |
+
+### calculateDeliveryPrice
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateDeliveryPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ship" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `order` | `Order` | Übergeben über `args[0].0`. |
+
+### ship
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ship",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

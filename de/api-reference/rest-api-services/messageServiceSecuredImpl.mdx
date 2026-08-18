@@ -1,0 +1,232 @@
+---
+title: 'messageServiceSecuredImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: messageServiceSecuredImpl'
+---
+
+# messageServiceSecuredImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+messageServiceSecuredImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** GUEST. **Bearer Token:** nicht erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="createChatAndNotify" type="Optional<Chat>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chat` | `Chat` | Übergeben über `args[0].0`. |
+
+### createChatAndNotify
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChatAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChatAndNotify" type="Optional<Chat>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chatAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createChatAndNotify
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChatAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChat" type="Optional<Chat>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chat` | `Chat` | Übergeben über `args[0].0`. |
+
+### createChat
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChat" type="Optional<Chat>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chatAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createChat
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessageAndNotify" type="Optional<Message>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `message` | `Message` | Übergeben über `args[0].0`. |
+
+### createMessageAndNotify
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessageAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessageAndNotify" type="Optional<Message>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `messageAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createMessageAndNotify
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessageAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessage" type="Optional<Message>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `message` | `Message` | Übergeben über `args[0].0`. |
+
+### createMessage
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessage" type="Optional<Message>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `messageAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createMessage
+
+```json
+{
+  "beanId": "messageServiceSecuredImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

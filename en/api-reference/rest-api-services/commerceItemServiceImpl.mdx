@@ -1,0 +1,275 @@
+---
+title: 'commerceItemServiceImpl'
+description: 'Calling public service methods through the REST API: commerceItemServiceImpl'
+---
+
+# commerceItemServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+commerceItemServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="CommerceItemRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTotalPrice" type="BigDecimal">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `items` | `Collection<CommerceItem>` | Passed through `args[0].0`. |
+
+### calculateTotalPrice
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTotalPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapItems" type="List<CommerceItemDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `items` | `Collection<CommerceItem>` | Passed through `args[0].0`. |
+
+### mapItems
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractSpecs" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### extractSpecs
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractSpecs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItem" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `id` | `String` | Passed through `args[0].0`. |
+
+### removeCommerceItem
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItems" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `ids` | `List<String>` | Passed through `args[0].0`. |
+
+### removeCommerceItems
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundCommerceItems" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### refundCommerceItems
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateInventoriesLockedQuantity" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `map` | `Map<CommerceItem, Inventory>` | Passed through `args[0].0`. |
+| `increase` | `boolean` | Passed through `args[1].1`. |
+
+### updateInventoriesLockedQuantity
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateInventoriesLockedQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainItemToInventoryMap" type="Map<CommerceItem, Inventory>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `items` | `List<CommerceItem>` | Passed through `args[0].0`. |
+
+### obtainItemToInventoryMap
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainItemToInventoryMap",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractAttributeValues" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### extractAttributeValues
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractAttributeValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

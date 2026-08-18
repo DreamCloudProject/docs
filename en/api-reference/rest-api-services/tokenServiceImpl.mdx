@@ -1,0 +1,282 @@
+---
+title: 'tokenServiceImpl'
+description: 'Calling public service methods through the REST API: tokenServiceImpl'
+---
+
+# tokenServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+tokenServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="generateToken" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `tokenType` | `TokenType` | Passed through `args[0].0`. |
+
+### generateToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createVerificationTokenForUser" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `user` | `User` | Passed through `args[0].0`. |
+| `token` | `String` | Passed through `args[1].1`. |
+
+### createVerificationTokenForUser
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createVerificationTokenForUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPasswordResetTokenForUser" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `user` | `User` | Passed through `args[0].0`. |
+| `token` | `String` | Passed through `args[1].1`. |
+
+### createPasswordResetTokenForUser
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPasswordResetTokenForUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getVerificationToken" type="Optional<VerificationToken>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `verificationToken` | `String` | Passed through `args[0].0`. |
+
+### getVerificationToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getVerificationToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getVerificationToken" type="Optional<VerificationToken>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `verificationToken` | `String` | Passed through `args[0].0`. |
+| `username` | `String` | Passed through `args[1].1`. |
+
+### getVerificationToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getVerificationToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPasswordResetToken" type="Optional<PasswordResetToken>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `passwordResetToken` | `String` | Passed through `args[0].0`. |
+
+### getPasswordResetToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPasswordResetToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPasswordResetToken" type="Optional<PasswordResetToken>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `passwordResetToken` | `String` | Passed through `args[0].0`. |
+| `username` | `String` | Passed through `args[1].1`. |
+
+### getPasswordResetToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPasswordResetToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findByUser" type="Optional<PasswordResetToken>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `user` | `User` | Passed through `args[0].0`. |
+
+### findByUser
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findByUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteVerificationToken" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `verificationToken` | `VerificationToken` | Passed through `args[0].0`. |
+
+### deleteVerificationToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteVerificationToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deletePasswordResetToken" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `passwordResetToken` | `PasswordResetToken` | Passed through `args[0].0`. |
+
+### deletePasswordResetToken
+
+```json
+{
+  "beanId": "tokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deletePasswordResetToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

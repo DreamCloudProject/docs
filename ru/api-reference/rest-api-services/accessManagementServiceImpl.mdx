@@ -1,0 +1,258 @@
+---
+title: 'accessManagementServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: accessManagementServiceImpl'
+---
+
+# accessManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+accessManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="isLogged" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isLogged
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAdmin" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isAdmin
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAdmin",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedProfile" type="Profile">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getLoggedProfile
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedProfile",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedSeller" type="Seller">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getLoggedSeller
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedSeller",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedUser" type="User">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getLoggedUser
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSellerSkuBelongsToLoggedUser" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### isSellerSkuBelongsToLoggedUser
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSellerSkuBelongsToLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSellerSkuAllowsToProcess" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### isSellerSkuAllowsToProcess
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSellerSkuAllowsToProcess",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAllSellerSkusBelongsToLoggedUser" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuIds` | `List<String>` | Передаётся через `args[0].0`. |
+
+### isAllSellerSkusBelongsToLoggedUser
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAllSellerSkusBelongsToLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAllSellerSkusAllowsToProcess" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuIds` | `List<String>` | Передаётся через `args[0].0`. |
+
+### isAllSellerSkusAllowsToProcess
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAllSellerSkusAllowsToProcess",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="hasAccessToOrder" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### hasAccessToOrder
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "hasAccessToOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

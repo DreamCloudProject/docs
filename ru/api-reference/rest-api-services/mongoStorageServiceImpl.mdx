@@ -1,0 +1,388 @@
+---
+title: 'mongoStorageServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: mongoStorageServiceImpl'
+---
+
+# mongoStorageServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+mongoStorageServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getDocument" type="Document">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+| `id` | `Object` | Передаётся через `args[2].2`. |
+
+### getDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCollection" type="MongoCollection<Document>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+
+### getCollection
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCollection",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCollections" type="List<Map<String, String>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+
+### getCollections
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCollections",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDatabase" type="MongoDatabase">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+
+### getDatabase
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDatabase",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="insertDocument" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+| `mapObject` | `Map<String, Object>` | Передаётся через `args[2].2`. |
+
+### insertDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "insertDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveDocument" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+| `id` | `String` | Передаётся через `args[2].2`. |
+| `mapObject` | `Map<String, Object>` | Передаётся через `args[3].3`. |
+
+### saveDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeDocument" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+| `id` | `String` | Передаётся через `args[2].2`. |
+
+### removeDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findDocuments" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+| `filter` | `Map<String, Object>` | Передаётся через `args[2].2`. |
+
+### findDocuments
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findDocuments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="downloadBinary" type="byte[]">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collectionName` | `String` | Передаётся через `args[1].1`. |
+| `doc` | `Object` | Передаётся через `args[2].2`. |
+
+### downloadBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "downloadBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="downloadBinary" type="byte[]">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+
+### downloadBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "downloadBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBinaryStorage" type="GridFSBucket">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `binaryCollection` | `String` | Передаётся через `args[1].1`. |
+
+### getBinaryStorage
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getBinaryStorage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadBinary" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `metadata` | `Map<String,Object>` | Передаётся через `args[0].0`. |
+| `file` | `MultipartFile` | Передаётся через `args[1].1`. |
+
+### uploadBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeBinary" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `binStorageName` | `String` | Передаётся через `args[1].1`. |
+| `json` | `String` | Передаётся через `args[2].2`. |
+
+### removeBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeBinary" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+
+### removeBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

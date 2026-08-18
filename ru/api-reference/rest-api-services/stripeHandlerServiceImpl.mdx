@@ -1,0 +1,330 @@
+---
+title: 'stripeHandlerServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: stripeHandlerServiceImpl'
+---
+
+# stripeHandlerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+stripeHandlerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="handlePayoutPaidEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+| `httpSession` | `HttpSession` | Передаётся через `args[1].1`. |
+
+### handlePayoutPaidEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePayoutPaidEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleChargeRefundedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+
+### handleChargeRefundedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleChargeRefundedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentIntentFailedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+
+### handlePaymentIntentFailedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentIntentFailedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentIntentCanceledEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+
+### handlePaymentIntentCanceledEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentIntentCanceledEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentIntentSucceededEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+| `httpSession` | `HttpSession` | Передаётся через `args[1].1`. |
+
+### handlePaymentIntentSucceededEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentIntentSucceededEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentIntentCreatedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+
+### handlePaymentIntentCreatedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentIntentCreatedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleSubscriptionCanceledEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `event` | `Event` | Передаётся через `args[0].0`. |
+| `stripeObject` | `StripeObject` | Передаётся через `args[1].1`. |
+
+### handleSubscriptionCanceledEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleSubscriptionCanceledEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleSubscriptionDeletedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `event` | `Event` | Передаётся через `args[0].0`. |
+| `stripeObject` | `StripeObject` | Передаётся через `args[1].1`. |
+
+### handleSubscriptionDeletedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleSubscriptionDeletedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleCustomerDeletedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `event` | `Event` | Передаётся через `args[0].0`. |
+| `stripeObject` | `StripeObject` | Передаётся через `args[1].1`. |
+
+### handleCustomerDeletedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleCustomerDeletedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleCustomerCreatedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+
+### handleCustomerCreatedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleCustomerCreatedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleAccountUpdatedEvent" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeObject` | `StripeObject` | Передаётся через `args[0].0`. |
+
+### handleAccountUpdatedEvent
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleAccountUpdatedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleLexofficeContactChanged" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `payload` | `WebhookCallback` | Передаётся через `args[0].0`. |
+| `httpSession` | `HttpSession` | Передаётся через `args[1].1`. |
+
+### handleLexofficeContactChanged
+
+```json
+{
+  "beanId": "stripeHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleLexofficeContactChanged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

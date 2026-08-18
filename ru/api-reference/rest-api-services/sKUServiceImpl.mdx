@@ -1,0 +1,814 @@
+---
+title: 'sKUServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: sKUServiceImpl'
+---
+
+# sKUServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+sKUServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="SKURepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSKUs" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSkusLightweight" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchSkusLightweight
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSkusLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSKUs" type="LinkedHashSet<SkuDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSkusPaged" type="Page<SKU>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchSkusPaged
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSkusPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findById" type="SKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### findById
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSKUs" type="List<SkuDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `offset` | `String` | Передаётся через `args[1].1`. |
+| `limit` | `String` | Передаётся через `args[2].2`. |
+
+### searchSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchWithProductFilter" type="List<SkuDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `productId` | `String` | Передаётся через `args[1].1`. |
+| `offset` | `String` | Передаётся через `args[2].2`. |
+| `limit` | `String` | Передаётся через `args[3].3`. |
+
+### searchWithProductFilter
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchWithProductFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findSKUs" type="List<SKU>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### findSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findSKUs",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCategoriesBySkuId" type="List<Category>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### getCategoriesBySkuId
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCategoriesBySkuId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSKU" type="Optional<SKU>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSKU" type="Optional<SKU>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sku` | `SKU` | Передаётся через `args[0].0`. |
+
+### createSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addSKUToProduct" type="SKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `skuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### addSKUToProduct
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addSKUToProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSKU" type="SKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSKU" type="SKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sku` | `SKU` | Передаётся через `args[0].0`. |
+
+### saveSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromAttribute" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `attributeId` | `String` | Передаётся через `args[1].1`. |
+
+### removeSKUFromAttribute
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromAttributes" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSKUFromAttributes
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromSellerSKU" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `sellerSkuId` | `String` | Передаётся через `args[1].1`. |
+
+### removeSKUFromSellerSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromSellerSKUs" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSKUFromSellerSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromSellerSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromProduct" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `productId` | `String` | Передаётся через `args[1].1`. |
+
+### removeSKUFromProduct
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromProducts" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSKUFromProducts
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromTranslation" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `translationId` | `String` | Передаётся через `args[1].1`. |
+
+### removeSKUFromTranslation
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromTranslations" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSKUFromTranslations
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSKUAndClean
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSkusByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skusIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeSkusByIds
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSkusByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSKUExists" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `name` | `String` | Передаётся через `args[0].0`. |
+
+### isSKUExists
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSKUExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSortedProductSkus" type="List<Map<String, String>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+
+### getSortedProductSkus
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSortedProductSkus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSkusByProductAndFirstLetter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `firstLetter` | `String` | Передаётся через `args[1].1`. |
+
+### getSkusByProductAndFirstLetter
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSkusByProductAndFirstLetter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapSkuToDto" type="SkuDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sku` | `SKU` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapSkuToDto
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapSkuToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadSKU" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `file` | `File` | Передаётся через `args[0].0`. |
+| `lang` | `String` | Передаётся через `args[1].1`. |
+| `username` | `String` | Передаётся через `args[2].2`. |
+
+### uploadSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateMetaInfo" type="SKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### updateMetaInfo
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateMetaInfo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFallIntoProducts" type="LinkedHashSet<EmbeddedBean>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productIds` | `String[]` | Передаётся через `args[0].0`. |
+
+### getFallIntoProducts
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFallIntoProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

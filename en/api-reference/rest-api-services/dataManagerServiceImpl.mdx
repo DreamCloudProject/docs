@@ -1,0 +1,1388 @@
+---
+title: 'dataManagerServiceImpl'
+description: 'Calling public service methods through the REST API: dataManagerServiceImpl'
+---
+
+# dataManagerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+dataManagerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="createCategory" type="Category">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProduct" type="Product">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createProduct
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSKU" type="SKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createSKU
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAttribute" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createAttribute
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOption" type="Option">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createOption
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMeasurement" type="Measurement">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createMeasurement
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUnit" type="Unit">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createUnit
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createSeller
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProfile" type="Profile">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createProfile
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUser" type="User">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createUser
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createTranslation" type="LocalizedText">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createTranslation
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOrder" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createOrder
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteCategory" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+
+### deleteCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteCategories" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteCategories
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteProduct" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `productId` | `String` | Passed through `args[0].0`. |
+
+### deleteProduct
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteProducts" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `productIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteProducts
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteSKU" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `skuId` | `String` | Passed through `args[0].0`. |
+
+### deleteSKU
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteSKUs" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `skuIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteSKUs
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteListing" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `listingId` | `String` | Passed through `args[0].0`. |
+
+### deleteListing
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteListing",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteListings" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `listingIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteListings
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteListings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteAttribute" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeId` | `String` | Passed through `args[0].0`. |
+
+### deleteAttribute
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteAttributes" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteAttributes
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteOption" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionId` | `String` | Passed through `args[0].0`. |
+
+### deleteOption
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteOptions" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteOptions
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteMeasurement" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measurementId` | `String` | Passed through `args[0].0`. |
+
+### deleteMeasurement
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteMeasurements" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measurementIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteMeasurements
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteUnit" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitId` | `String` | Passed through `args[0].0`. |
+
+### deleteUnit
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteUnits" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteUnits
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteUnits",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteSeller" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### deleteSeller
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteSellers" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteSellers
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteSellers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteProfile" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileId` | `String` | Passed through `args[0].0`. |
+
+### deleteProfile
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteProfiles" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteProfiles
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteProfiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteUser" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userId` | `String` | Passed through `args[0].0`. |
+
+### deleteUser
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteUsers" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteUsers
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteTranslation" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `translationId` | `String` | Passed through `args[0].0`. |
+
+### deleteTranslation
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteTranslations" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `translationIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteTranslations
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteOrder" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### deleteOrder
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteOrders" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `ordersIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteOrders
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteOrders",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="Category">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateProduct" type="Product">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateProduct
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateSKU" type="SKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateSKU
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateAttribute" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateAttribute
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateOption" type="Option">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateOption
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateMeasurement" type="Measurement">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateMeasurement
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateUnit" type="Unit">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateUnit
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateSeller
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateProfile" type="Profile">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateProfile
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateUser" type="User">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateUser
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateTranslation" type="LocalizedText">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateTranslation
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateOrder" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateOrder
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addProductToCategory" type="Product">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+| `productId` | `String` | Passed through `args[1].1`. |
+
+### addProductToCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addProductToCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addChildCategory" type="Category">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `parentId` | `String` | Passed through `args[0].0`. |
+| `childId` | `String` | Passed through `args[1].1`. |
+
+### addChildCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProductFromCategory" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+| `productId` | `String` | Passed through `args[1].1`. |
+
+### removeProductFromCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProductFromCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeChildCategory" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `parentId` | `String` | Passed through `args[0].0`. |
+| `childId` | `String` | Passed through `args[1].1`. |
+
+### removeChildCategory
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToAllProducts" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeId` | `String` | Passed through `args[0].0`. |
+| `username` | `String` | Passed through `args[1].1`. |
+
+### addAttributeToAllProducts
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToAllProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToAllSkus" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeId` | `String` | Passed through `args[0].0`. |
+| `username` | `String` | Passed through `args[1].1`. |
+
+### addAttributeToAllSkus
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToAllSkus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslation" type="Map<String, String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `id` | `String` | Passed through `args[0].0`. |
+
+### getTranslation
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="jobDryRun" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `username` | `String` | Passed through `args[0].0`. |
+
+### jobDryRun
+
+```json
+{
+  "beanId": "dataManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "jobDryRun",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

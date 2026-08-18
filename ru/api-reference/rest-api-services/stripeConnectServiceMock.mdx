@@ -1,0 +1,335 @@
+---
+title: 'stripeConnectServiceMock'
+description: 'Вызов публичных методов сервиса через REST API: stripeConnectServiceMock'
+---
+
+# stripeConnectServiceMock
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+stripeConnectServiceMock
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="checkConnectAccountStatus" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### checkConnectAccountStatus
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "checkConnectAccountStatus",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAccount" type="Account">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `stripeAccountDTO` | `StripeAccountDTO` | Передаётся через `args[0].0`. |
+
+### createAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAccount" type="StripeAccountDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `metaInfo` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
+
+### createAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateAccount" type="Account">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `accountId` | `String` | Передаётся через `args[0].0`. |
+| `accountDTO` | `StripeAccountDTO` | Передаётся через `args[1].1`. |
+
+### updateAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "updateAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteAccount" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### deleteAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInitialPerson" type="StripePersonDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getInitialPerson
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getInitialPerson",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createExternalBankAccount" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `bankData` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createExternalBankAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createExternalBankAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createExternalCardAccount" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `cardData` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createExternalCardAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createExternalCardAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBusinessTypes" type="List<String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getBusinessTypes
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getBusinessTypes",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBusinessStructures" type="List<String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `businessType` | `String` | Передаётся через `args[0].0`. |
+
+### getBusinessStructures
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getBusinessStructures",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMCCs" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getMCCs
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getMCCs",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainConnectOnboardingLink" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `refreshUrl` | `String` | Передаётся через `args[0].0`. |
+| `returnUrl` | `String` | Передаётся через `args[1].1`. |
+
+### obtainConnectOnboardingLink
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainConnectOnboardingLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="verifyAccount" type="StripeAccountDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `refreshUrl` | `String` | Передаётся через `args[0].0`. |
+| `returnUrl` | `String` | Передаётся через `args[1].1`. |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Передаётся через `args[2].2`. |
+
+### verifyAccount
+
+```json
+{
+  "beanId": "stripeConnectServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "verifyAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

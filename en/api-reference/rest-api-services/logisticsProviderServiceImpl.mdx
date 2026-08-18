@@ -1,0 +1,113 @@
+---
+title: 'logisticsProviderServiceImpl'
+description: 'Calling public service methods through the REST API: logisticsProviderServiceImpl'
+---
+
+# logisticsProviderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+logisticsProviderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="isActive" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isActive
+
+```json
+{
+  "beanId": "logisticsProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isActive",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateDeliveryPrice" type="BigDecimal">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### calculateDeliveryPrice
+
+```json
+{
+  "beanId": "logisticsProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateDeliveryPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ship" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### ship
+
+```json
+{
+  "beanId": "logisticsProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ship",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

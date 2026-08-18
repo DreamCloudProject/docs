@@ -1,0 +1,210 @@
+---
+title: 'beanHandlerServiceImpl'
+description: 'Calling public service methods through the REST API: beanHandlerServiceImpl'
+---
+
+# beanHandlerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+beanHandlerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="Object">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `repositoryId` | `String` | Passed through `args[0].0`. |
+
+### getRepository
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBean" type="Object">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `beanId` | `String` | Passed through `args[0].0`. |
+
+### getBean
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSessionBean" type="Object">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `beanId` | `String` | Passed through `args[0].0`. |
+
+### getSessionBean
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSessionBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateSessionBean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `beanId` | `String` | Passed through `args[0].0`. |
+| `bean` | `Object` | Passed through `args[1].1`. |
+
+### updateSessionBean
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateSessionBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleUpdate" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `BeanRequestMessage` | Passed through `args[0].0`. |
+
+### handleUpdate
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleUpdate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleInvoke" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `BeanRequestMessage` | Passed through `args[0].0`. |
+
+### handleInvoke
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleInvoke",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleRepositoryCall" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `RepositoryRequestMessage` | Passed through `args[0].0`. |
+
+### handleRepositoryCall
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleRepositoryCall",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

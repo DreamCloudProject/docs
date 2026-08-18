@@ -1,0 +1,805 @@
+---
+title: 'salesCatalogServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: salesCatalogServiceImpl'
+---
+
+# salesCatalogServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+salesCatalogServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getPaginationUnits" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationUnits
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationUnits",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUnits" type="LinkedHashSet<UnitDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchUnits
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUnits",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUnitsPaged" type="Page<Unit>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchUnitsPaged
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUnitsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAllCurrencies" type="List<CurrencyItem>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getAllCurrencies
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAllCurrencies",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrencyByCode" type="CurrencyItem">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `code` | `String` | Передаётся через `args[0].0`. |
+
+### getCurrencyByCode
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrencyByCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerSkuFromChatTopic" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `topic` | `String` | Передаётся через `args[0].0`. |
+
+### getSellerSkuFromChatTopic
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerSkuFromChatTopic",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountOfSellerSkusBySeller" type="Map<String,String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### getCountOfSellerSkusBySeller
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountOfSellerSkusBySeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountOfSellerSkus" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getCountOfSellerSkus
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountOfSellerSkus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUnit" type="Optional<Unit>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unitAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUnit" type="Optional<Unit>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unit` | `Unit` | Передаётся через `args[0].0`. |
+
+### createUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addPackageItemToSellerSku" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+| `packageAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### addPackageItemToSellerSku
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addPackageItemToSellerSku",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removePackageItemFromSellerSku" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+| `packageId` | `String` | Передаётся через `args[1].1`. |
+
+### removePackageItemFromSellerSku
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removePackageItemFromSellerSku",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeFileResources" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeFileResources
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeFileResources",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSkuAsDraft" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveSellerSkuAsDraft
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSkuAsDraft",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSkuAsDraft" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### saveSellerSkuAsDraft
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSkuAsDraft",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSKU" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveSellerSKU
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSKU" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### saveSellerSKU
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUnit" type="Unit">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unitAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUnit" type="Unit">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unit` | `Unit` | Передаётся через `args[0].0`. |
+
+### saveUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAllSellerTariff" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getAllSellerTariff
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAllSellerTariff",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellerSkuAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSellerSkuAndClean
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerSkuAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellerSkusByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkusIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeSellerSkusByIds
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerSkusByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSellerSKU" type="Optional<SellerSKU>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createSellerSKU
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUnitAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unitId` | `String` | Передаётся через `args[0].0`. |
+
+### removeUnitAndClean
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUnitAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUnitsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unitsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeUnitsByIds
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUnitsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="publishForSale" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### publishForSale
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "publishForSale",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="withdrawFromSale" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### withdrawFromSale
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "withdrawFromSale",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changeType" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+| `type` | `String` | Передаётся через `args[1].1`. |
+
+### changeType
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changeType",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="duplicate" type="SellerSKU">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### duplicate
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "duplicate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapUnitToDto" type="UnitDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `unit` | `Unit` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapUnitToDto
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapUnitToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="exportListings" type="List<SellerSkuExcelModel>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### exportListings
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "exportListings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadListings" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `file` | `File` | Передаётся через `args[0].0`. |
+| `lang` | `String` | Передаётся через `args[1].1`. |
+| `username` | `String` | Передаётся через `args[2].2`. |
+
+### uploadListings
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadListings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerSkuDocumentUrls" type="List<Attachment>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### getSellerSkuDocumentUrls
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerSkuDocumentUrls",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

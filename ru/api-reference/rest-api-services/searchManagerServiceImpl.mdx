@@ -1,0 +1,485 @@
+---
+title: 'searchManagerServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: searchManagerServiceImpl'
+---
+
+# searchManagerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+searchManagerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="search" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### search
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "search",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="search" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### search
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "search",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="countAll" type="long">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### countAll
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "countAll",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="countAll" type="long">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### countAll
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "countAll",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="logicalFilters" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### logicalFilters
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "logicalFilters",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rangeFilters" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### rangeFilters
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "rangeFilters",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="simpleFilters" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### simpleFilters
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "simpleFilters",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="numericFilters" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### numericFilters
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "numericFilters",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="listFilters" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### listFilters
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "listFilters",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rangeFilterValues" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `filterId` | `String` | Передаётся через `args[0].0`. |
+
+### rangeFilterValues
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "rangeFilterValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="listFilterValues" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `filterId` | `String` | Передаётся через `args[0].0`. |
+
+### listFilterValues
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "listFilterValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="simpleFilterValues" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `filterId` | `String` | Передаётся через `args[0].0`. |
+
+### simpleFilterValues
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "simpleFilterValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="numericFilterValues" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `filterId` | `String` | Передаётся через `args[0].0`. |
+
+### numericFilterValues
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "numericFilterValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="fieldFilterValues" type="List<GroupFilter>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### fieldFilterValues
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "fieldFilterValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="listingFeatureFromAttribute" type="GroupFilter">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `filterId` | `String` | Передаётся через `args[0].0`. |
+| `sellerSkuId` | `String` | Передаётся через `args[1].1`. |
+
+### listingFeatureFromAttribute
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "listingFeatureFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="doProcessSearchTerms" type="String[]">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `searchTerms` | `String` | Передаётся через `args[0].0`. |
+
+### doProcessSearchTerms
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "doProcessSearchTerms",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="aiSearchKeywords" type="List<String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+
+### aiSearchKeywords
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "aiSearchKeywords",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="aiSearchIsActive" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### aiSearchIsActive
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "aiSearchIsActive",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="parseSearchQuery" type="List<String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+
+### parseSearchQuery
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "parseSearchQuery",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="applyFilters" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### applyFilters
+
+```json
+{
+  "beanId": "searchManagerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "applyFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

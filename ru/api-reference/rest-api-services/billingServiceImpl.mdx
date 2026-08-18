@@ -1,0 +1,300 @@
+---
+title: 'billingServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: billingServiceImpl'
+---
+
+# billingServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+billingServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getServiceFee" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getServiceFee
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getServiceFee",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateServiceFee" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `amount` | `BigDecimal` | Передаётся через `args[0].0`. |
+
+### calculateServiceFee
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateServiceFee",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateServiceFeeNettoAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### calculateServiceFeeNettoAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateServiceFeeNettoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateServiceFeeBruttoAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### calculateServiceFeeBruttoAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateServiceFeeBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculatePayoutAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### calculatePayoutAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculatePayoutAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateItemsTotalAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `Collection<CommerceItem>` | Передаётся через `args[0].0`. |
+
+### calculateItemsTotalAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateItemsTotalAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateItemsTotalBruttoAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `amount` | `BigDecimal` | Передаётся через `args[0].0`. |
+| `taxAmount` | `BigDecimal` | Передаётся через `args[1].1`. |
+
+### calculateItemsTotalBruttoAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateItemsTotalBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTaxAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `amount` | `BigDecimal` | Передаётся через `args[0].0`. |
+| `taxRate` | `BigDecimal` | Передаётся через `args[1].1`. |
+
+### calculateTaxAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTaxAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateDeliveryAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### calculateDeliveryAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateDeliveryAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateBruttoAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `List<CommerceItem>` | Передаётся через `args[0].0`. |
+| `tax` | `Order.Tax` | Передаётся через `args[1].1`. |
+
+### calculateBruttoAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateNettoAmount" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `List<CommerceItem>` | Передаётся через `args[0].0`. |
+
+### calculateNettoAmount
+
+```json
+{
+  "beanId": "billingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateNettoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

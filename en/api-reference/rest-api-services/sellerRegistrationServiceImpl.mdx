@@ -1,0 +1,818 @@
+---
+title: 'sellerRegistrationServiceImpl'
+description: 'Calling public service methods through the REST API: sellerRegistrationServiceImpl'
+---
+
+# sellerRegistrationServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+sellerRegistrationServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="SellerRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLogged" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isLogged
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isNotLogged" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isNotLogged
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isNotLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getLoggedSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedSeller",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedProfile" type="Profile">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getLoggedProfile
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedProfile",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getChatsByLoggedProfile" type="List<Chat>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getChatsByLoggedProfile
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getChatsByLoggedProfile",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCertificates" type="List<Certificate>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getCertificates
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCertificates",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="registerSeller" type="Optional<Seller>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### registerSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "registerSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendContactSupplierEmail" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+| `messageText` | `String` | Passed through `args[1].1`. |
+| `topic` | `String` | Passed through `args[2].2`. |
+
+### sendContactSupplierEmail
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendContactSupplierEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `seller` | `Seller` | Passed through `args[0].0`. |
+
+### saveSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+| `verifyRequired` | `Boolean` | Passed through `args[1].1`. |
+
+### updateSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellerAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### removeSellerAndClean
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellersByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellersIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeSellersByIds
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerSellerSkus" type="List<SellerSKU>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### getSellerSellerSkus
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerSellerSkus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryBySellerId" type="Country">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### getCountryBySellerId
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryBySellerId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTariffPaid" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### isTariffPaid
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTariffPaid",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTariffNotPaid" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### isTariffNotPaid
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTariffNotPaid",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFavoriteSellerNotExists" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### isFavoriteSellerNotExists
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFavoriteSellerNotExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFavoriteSellerExists" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### isFavoriteSellerExists
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFavoriteSellerExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFavoriteSellerSkuNotExists" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### isFavoriteSellerSkuNotExists
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFavoriteSellerSkuNotExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isFavoriteSellerSkuExists" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### isFavoriteSellerSkuExists
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isFavoriteSellerSkuExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isEmailNotificationEnabled" type="Map<String, Boolean>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### isEmailNotificationEnabled
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isEmailNotificationEnabled",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerDocumentUrls" type="List<Attachment>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+| `type` | `String` | Passed through `args[1].1`. |
+
+### getSellerDocumentUrls
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerDocumentUrls",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFavoriteSellers" type="HashSet<Seller>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getFavoriteSellers
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFavoriteSellers",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addFavoriteSeller" type="HashSet<String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### addFavoriteSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addFavoriteSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeFavoriteSeller" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### removeFavoriteSeller
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeFavoriteSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFavoriteSellerSKUs" type="LinkedHashSet<SellerSKU>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getFavoriteSellerSKUs
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFavoriteSellerSKUs",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addFavoriteSellerSKU" type="LinkedHashSet<String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### addFavoriteSellerSKU
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addFavoriteSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeFavoriteSellerSKU" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### removeFavoriteSellerSKU
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeFavoriteSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellers" type="List<Map<String, String>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getSellers
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellers",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changeProfileEmbeddedParent" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileId` | `String` | Passed through `args[0].0`. |
+| `sellerId` | `String` | Passed through `args[1].1`. |
+
+### changeProfileEmbeddedParent
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changeProfileEmbeddedParent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isEmailTaken" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `email` | `String` | Passed through `args[0].0`. |
+
+### isEmailTaken
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isEmailTaken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserActive" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `email` | `String` | Passed through `args[0].0`. |
+
+### isUserActive
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserActive",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteSellerAccount" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### deleteSellerAccount
+
+```json
+{
+  "beanId": "sellerRegistrationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteSellerAccount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

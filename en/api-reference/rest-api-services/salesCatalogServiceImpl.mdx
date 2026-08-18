@@ -1,0 +1,805 @@
+---
+title: 'salesCatalogServiceImpl'
+description: 'Calling public service methods through the REST API: salesCatalogServiceImpl'
+---
+
+# salesCatalogServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+salesCatalogServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getPaginationUnits" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationUnits
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationUnits",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUnits" type="LinkedHashSet<UnitDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchUnits
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUnits",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUnitsPaged" type="Page<Unit>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchUnitsPaged
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUnitsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAllCurrencies" type="List<CurrencyItem>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getAllCurrencies
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAllCurrencies",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrencyByCode" type="CurrencyItem">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `code` | `String` | Passed through `args[0].0`. |
+
+### getCurrencyByCode
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrencyByCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerSkuFromChatTopic" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `topic` | `String` | Passed through `args[0].0`. |
+
+### getSellerSkuFromChatTopic
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerSkuFromChatTopic",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountOfSellerSkusBySeller" type="Map<String,String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### getCountOfSellerSkusBySeller
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountOfSellerSkusBySeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountOfSellerSkus" type="Map<String, String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getCountOfSellerSkus
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountOfSellerSkus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUnit" type="Optional<Unit>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUnit" type="Optional<Unit>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unit` | `Unit` | Passed through `args[0].0`. |
+
+### createUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addPackageItemToSellerSku" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+| `packageAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### addPackageItemToSellerSku
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addPackageItemToSellerSku",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removePackageItemFromSellerSku" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+| `packageId` | `String` | Passed through `args[1].1`. |
+
+### removePackageItemFromSellerSku
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removePackageItemFromSellerSku",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeFileResources" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### removeFileResources
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeFileResources",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSkuAsDraft" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveSellerSkuAsDraft
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSkuAsDraft",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSkuAsDraft" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### saveSellerSkuAsDraft
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSkuAsDraft",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSKU" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveSellerSKU
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSellerSKU" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### saveSellerSKU
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUnit" type="Unit">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUnit" type="Unit">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unit` | `Unit` | Passed through `args[0].0`. |
+
+### saveUnit
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUnit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAllSellerTariff" type="Map<String, String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getAllSellerTariff
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAllSellerTariff",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellerSkuAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### removeSellerSkuAndClean
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerSkuAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellerSkusByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkusIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeSellerSkusByIds
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerSkusByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSellerSKU" type="Optional<SellerSKU>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createSellerSKU
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUnitAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitId` | `String` | Passed through `args[0].0`. |
+
+### removeUnitAndClean
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUnitAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUnitsByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeUnitsByIds
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUnitsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="publishForSale" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### publishForSale
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "publishForSale",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="withdrawFromSale" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### withdrawFromSale
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "withdrawFromSale",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changeType" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+| `type` | `String` | Passed through `args[1].1`. |
+
+### changeType
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changeType",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="duplicate" type="SellerSKU">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### duplicate
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "duplicate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapUnitToDto" type="UnitDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unit` | `Unit` | Passed through `args[0].0`. |
+| `optimal` | `boolean` | Passed through `args[1].1`. |
+
+### mapUnitToDto
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapUnitToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="exportListings" type="List<SellerSkuExcelModel>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Passed through `args[0].0`. |
+
+### exportListings
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "exportListings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadListings" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `file` | `File` | Passed through `args[0].0`. |
+| `lang` | `String` | Passed through `args[1].1`. |
+| `username` | `String` | Passed through `args[2].2`. |
+
+### uploadListings
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadListings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerSkuDocumentUrls" type="List<Attachment>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### getSellerSkuDocumentUrls
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerSkuDocumentUrls",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

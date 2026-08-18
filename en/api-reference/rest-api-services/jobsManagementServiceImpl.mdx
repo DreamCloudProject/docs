@@ -1,0 +1,477 @@
+---
+title: 'jobsManagementServiceImpl'
+description: 'Calling public service methods through the REST API: jobsManagementServiceImpl'
+---
+
+# jobsManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+jobsManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="JobRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="init" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### init
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchJobs" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchJobs
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchJobs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchJobs" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Passed through `args[0].0`. |
+
+### searchJobs
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchJobs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `job` | `Job` | Passed through `args[0].0`. |
+
+### createJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `job` | `Job` | Passed through `args[0].0`. |
+
+### saveJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="startJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `type` | `String` | Passed through `args[0].0`. |
+| `total` | `int` | Passed through `args[1].1`. |
+
+### startJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "startJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelJob" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+
+### cancelJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toCanceled" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+
+### toCanceled
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toCanceled",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toDone" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+
+### toDone
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toDone",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateProgress" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+| `progress` | `int` | Passed through `args[1].1`. |
+
+### updateProgress
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateProgress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="incrementJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+| `step` | `int` | Passed through `args[1].1`. |
+
+### incrementJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "incrementJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="decrementJob" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+| `step` | `int` | Passed through `args[1].1`. |
+
+### decrementJob
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "decrementJob",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="toFailed" type="Job">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+
+### toFailed
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "toFailed",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setUnfinishedJobsToFailed" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### setUnfinishedJobsToFailed
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "setUnfinishedJobsToFailed",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeJobsByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeJobsByIds
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeJobsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeJobAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `jobId` | `String` | Passed through `args[0].0`. |
+
+### removeJobAndClean
+
+```json
+{
+  "beanId": "jobsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeJobAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

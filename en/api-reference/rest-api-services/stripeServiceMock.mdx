@@ -1,0 +1,837 @@
+---
+title: 'stripeServiceMock'
+description: 'Calling public service methods through the REST API: stripeServiceMock'
+---
+
+# stripeServiceMock
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+stripeServiceMock
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="isStripeKeysDefined" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isStripeKeysDefined
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "isStripeKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrency" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getCurrency
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrency",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelIntent" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Passed through `args[0].0`. |
+
+### cancelIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundIntent" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Passed through `args[0].0`. |
+
+### refundIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "refundIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `stripeConnectId` | `String` | Passed through `args[1].1`. |
+| `paymentMethodId` | `String` | Passed through `args[2].2`. |
+| `nettoAmount` | `BigDecimal` | Passed through `args[3].3`. |
+| `tax` | `Order.Tax` | Passed through `args[4].4`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentRequest` | `PaymentRequest` | Passed through `args[0].0`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="retrieveIntent" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Passed through `args[0].0`. |
+
+### retrieveIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "retrieveIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Passed through `args[0].0`. |
+| `paymentMethodId` | `String` | Passed through `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeIntent" type="PaymentStatus">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Passed through `args[0].0`. |
+
+### chargeIntent
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtain3DSecureLink" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Passed through `args[0].0`. |
+
+### obtain3DSecureLink
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "obtain3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payoutToVendor" type="Payout">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `vendor` | `Seller` | Passed through `args[0].0`. |
+| `orderId` | `String` | Passed through `args[1].1`. |
+| `amount` | `long` | Passed through `args[2].2`. |
+
+### payoutToVendor
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "payoutToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeSepa" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### chargeSepa
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeSepa",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeCreditCard" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### chargeCreditCard
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeCreditCard",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeTariffSepa" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### chargeTariffSepa
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeTariffSepa",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeTariffCreditCard" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### chargeTariffCreditCard
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeTariffCreditCard",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAmountByTariff" type="Map<String, String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `tariff` | `String` | Passed through `args[0].0`. |
+
+### getAmountByTariff
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getAmountByTariff",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoice" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### createInvoice
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInvoices" type="List<Invoice>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getInvoices
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getInvoices",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProducts" type="List<Product>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getProducts
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getProducts",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPaymentMethod" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentMethod` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createPaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCustomer" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### createCustomer
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createCustomer",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteCustomer" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### deleteCustomer
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteCustomer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removePaymentMethod" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentMethodId` | `String` | Passed through `args[0].0`. |
+
+### removePaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "removePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethods" type="List<PaymentMethod>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `type` | `String` | Passed through `args[0].0`. |
+
+### getPaymentMethods
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethods",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethod" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentMethodId` | `String` | Passed through `args[0].0`. |
+
+### getPaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSubscription" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getSubscription
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getSubscription",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTaxRate" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `amount` | `String` | Passed through `args[0].0`. |
+| `countryIsoCode` | `String` | Passed through `args[1].1`. |
+
+### calculateTaxRate
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTaxRate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainAllTaxRates" type="Map<String, TaxRate>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### obtainAllTaxRates
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainAllTaxRates",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelSubscriptionAfterActivePeriod" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### cancelSubscriptionAfterActivePeriod
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelSubscriptionAfterActivePeriod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelSubscriptionImmediately" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### cancelSubscriptionImmediately
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelSubscriptionImmediately",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContractEndDate" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `createdDate` | `String` | Passed through `args[0].0`. |
+| `pattern` | `String` | Passed through `args[1].1`. |
+
+### getContractEndDate
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getContractEndDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContractEndDateFromTimestamp" type="Map<String, Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `created` | `String` | Passed through `args[0].0`. |
+| `pattern` | `String` | Passed through `args[1].1`. |
+
+### getContractEndDateFromTimestamp
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "getContractEndDateFromTimestamp",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTariffEquals" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `tariff` | `String` | Passed through `args[0].0`. |
+
+### isTariffEquals
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "isTariffEquals",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTax" type="Order.Tax">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `buyer` | `Seller` | Passed through `args[0].0`. |
+| `seller` | `Seller` | Passed through `args[1].1`. |
+| `taxRates` | `Map<String, TaxRate>` | Passed through `args[2].2`. |
+
+### calculateTax
+
+```json
+{
+  "beanId": "stripeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTax",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

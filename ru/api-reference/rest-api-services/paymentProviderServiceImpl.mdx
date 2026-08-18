@@ -1,0 +1,460 @@
+---
+title: 'paymentProviderServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: paymentProviderServiceImpl'
+---
+
+# paymentProviderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+paymentProviderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="isActive" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isActive
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isActive",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="pay" type="PaymentStatus">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### pay
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "pay",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payoutToVendor" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+| `vendor` | `Seller` | Передаётся через `args[1].1`. |
+
+### payoutToVendor
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payoutToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPayment" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+| `buyer` | `Seller` | Передаётся через `args[1].1`. |
+| `vendor` | `Seller` | Передаётся через `args[2].2`. |
+
+### createPayment
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoice" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### createInvoice
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelPayment" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentId` | `String` | Передаётся через `args[0].0`. |
+
+### cancelPayment
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundPayment" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentId` | `String` | Передаётся через `args[0].0`. |
+
+### refundPayment
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethod" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `buyer` | `Seller` | Передаётся через `args[0].0`. |
+| `paymentMethod` | `LinkedHashMap<String,Object>` | Передаётся через `args[1].1`. |
+
+### getPaymentMethod
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentId` | `String` | Передаётся через `args[0].0`. |
+| `paymentMethodId` | `String` | Передаётся через `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="get3DSecureLink" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentId` | `String` | Передаётся через `args[0].0`. |
+
+### get3DSecureLink
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "get3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkConnectAccountStatus" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### checkConnectAccountStatus
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkConnectAccountStatus",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTotalPrice" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### calculateTotalPrice
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTotalPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTaxAmountPrice" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### calculateTaxAmountPrice
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTaxAmountPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateItemsTotalBruttoAmount" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### calculateItemsTotalBruttoAmount
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateItemsTotalBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateServiceFeeBruttoAmount" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### calculateServiceFeeBruttoAmount
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateServiceFeeBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculatePayoutAmount" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### calculatePayoutAmount
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculatePayoutAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateOrder" type="OrderDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### calculateOrder
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTax" type="Order.Tax">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `buyer` | `Seller` | Передаётся через `args[0].0`. |
+| `seller` | `Seller` | Передаётся через `args[1].1`. |
+
+### calculateTax
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTax",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,139 @@
+---
+title: 'sitemapGeneratorServiceImpl'
+description: 'Calling public service methods through the REST API: sitemapGeneratorServiceImpl'
+---
+
+# sitemapGeneratorServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+sitemapGeneratorServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="generateSiteMap" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `siteMapRequest` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### generateSiteMap
+
+```json
+{
+  "beanId": "sitemapGeneratorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateSiteMap",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPageLinks" type="HashSet<String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `baseURL` | `String` | Passed through `args[0].0`. |
+| `URL` | `String` | Passed through `args[1].1`. |
+| `links` | `HashSet<String>` | Passed through `args[2].2`. |
+| `urlsToIgnore` | `List<String>` | Passed through `args[3].3`. |
+
+### getPageLinks
+
+```json
+{
+  "beanId": "sitemapGeneratorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPageLinks",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isWorkInProgress" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isWorkInProgress
+
+```json
+{
+  "beanId": "sitemapGeneratorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isWorkInProgress",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changeStatus" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `status` | `ServiceState` | Passed through `args[0].0`. |
+
+### changeStatus
+
+```json
+{
+  "beanId": "sitemapGeneratorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changeStatus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

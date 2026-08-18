@@ -1,0 +1,1003 @@
+---
+title: 'tagProcessorServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: tagProcessorServiceImpl'
+---
+
+# tagProcessorServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+tagProcessorServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="compileTemplate" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `html` | `String` | Передаётся через `args[0].0`. |
+
+### compileTemplate
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `html` | `String` | Передаётся через `args[0].0`. |
+| `requestElement` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### compileElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileTemplateAsHtml" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `html` | `String` | Передаётся через `args[0].0`. |
+
+### compileTemplateAsHtml
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileTemplateAsHtml",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="completeCompile" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `html` | `String` | Передаётся через `args[0].0`. |
+
+### completeCompile
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "completeCompile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="recursiveCompile" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `html` | `String` | Передаётся через `args[0].0`. |
+| `map` | `Map<String, Object>` | Передаётся через `args[1].1`. |
+| `itemPrefix` | `String` | Передаётся через `args[2].2`. |
+
+### recursiveCompile
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "recursiveCompile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildForeachElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `foreachElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildForeachElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildForeachElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="foreachElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### foreachElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "foreachElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="foreachElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### foreachElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "foreachElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileForeachElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileForeachElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileForeachElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildRestElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `restElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildRestElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildRestElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="restElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### restElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "restElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="restElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### restElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "restElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileRestElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileRestElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileRestElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildFragmentElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `fragmentElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildFragmentElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildFragmentElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="fragmentElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### fragmentElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "fragmentElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="fragmentElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### fragmentElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "fragmentElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileFragmentElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileFragmentElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileFragmentElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildBlockElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `blockElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildBlockElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildBlockElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="blockElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### blockElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "blockElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="blockElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### blockElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "blockElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileBlockElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileBlockElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileBlockElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildTextElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `textElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildTextElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildTextElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="textElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### textElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "textElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="textElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### textElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "textElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileTextElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileTextElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileTextElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildTreeElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `treeElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildTreeElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildTreeElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="treeElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### treeElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "treeElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="treeElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### treeElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "treeElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileTreeElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileTreeElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileTreeElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildIfElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `ifElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildIfElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildIfElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ifElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### ifElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ifElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ifElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### ifElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ifElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileIfElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileIfElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileIfElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildSelectElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `selectElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildSelectElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildSelectElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="selectElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### selectElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "selectElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="selectElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### selectElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "selectElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileSelectElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileSelectElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileSelectElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="buildResourceElements" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `resourceElements` | `Elements` | Передаётся через `args[0].0`. |
+
+### buildResourceElements
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "buildResourceElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="resourceElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `item` | `Element` | Передаётся через `args[0].0`. |
+
+### resourceElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "resourceElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="resourceElement" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msmElement` | `Element` | Передаётся через `args[0].0`. |
+| `request` | `RequestElement` | Передаётся через `args[1].1`. |
+
+### resourceElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "resourceElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="compileResourceElement" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `element` | `Element` | Передаётся через `args[0].0`. |
+
+### compileResourceElement
+
+```json
+{
+  "beanId": "tagProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "compileResourceElement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

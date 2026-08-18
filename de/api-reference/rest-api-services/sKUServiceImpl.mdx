@@ -1,0 +1,814 @@
+---
+title: 'sKUServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: sKUServiceImpl'
+---
+
+# sKUServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+sKUServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** bedingt für USER/ADMIN.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getRepository" type="SKURepository">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRepository
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSKUs" type="SearchResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### searchSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSkusLightweight" type="SearchResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### searchSkusLightweight
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSkusLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSKUs" type="LinkedHashSet<SkuDTO>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSkusPaged" type="Page<SKU>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchSkusPaged
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSkusPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findById" type="SKU">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### findById
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSKUs" type="List<SkuDTO>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `query` | `String` | Übergeben über `args[0].0`. |
+| `offset` | `String` | Übergeben über `args[1].1`. |
+| `limit` | `String` | Übergeben über `args[2].2`. |
+
+### searchSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchWithProductFilter" type="List<SkuDTO>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `query` | `String` | Übergeben über `args[0].0`. |
+| `productId` | `String` | Übergeben über `args[1].1`. |
+| `offset` | `String` | Übergeben über `args[2].2`. |
+| `limit` | `String` | Übergeben über `args[3].3`. |
+
+### searchWithProductFilter
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchWithProductFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findSKUs" type="List<SKU>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### findSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findSKUs",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCategoriesBySkuId" type="List<Category>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### getCategoriesBySkuId
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCategoriesBySkuId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSKU" type="Optional<SKU>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSKU" type="Optional<SKU>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sku` | `SKU` | Übergeben über `args[0].0`. |
+
+### createSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addSKUToProduct" type="SKU">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+| `skuAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[1].1`. |
+
+### addSKUToProduct
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addSKUToProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSKU" type="SKU">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### saveSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSKU" type="SKU">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sku` | `SKU` | Übergeben über `args[0].0`. |
+
+### saveSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromAttribute" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `attributeId` | `String` | Übergeben über `args[1].1`. |
+
+### removeSKUFromAttribute
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromAttributes" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### removeSKUFromAttributes
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromSellerSKU" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `sellerSkuId` | `String` | Übergeben über `args[1].1`. |
+
+### removeSKUFromSellerSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromSellerSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromSellerSKUs" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### removeSKUFromSellerSKUs
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromSellerSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromProduct" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `productId` | `String` | Übergeben über `args[1].1`. |
+
+### removeSKUFromProduct
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromProducts" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### removeSKUFromProducts
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromTranslation" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `translationId` | `String` | Übergeben über `args[1].1`. |
+
+### removeSKUFromTranslation
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUFromTranslations" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### removeSKUFromTranslations
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSKUAndClean" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### removeSKUAndClean
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSKUAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSkusByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skusIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeSkusByIds
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSkusByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSKUExists" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `name` | `String` | Übergeben über `args[0].0`. |
+
+### isSKUExists
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSKUExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSortedProductSkus" type="List<Map<String, String>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+
+### getSortedProductSkus
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSortedProductSkus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSkusByProductAndFirstLetter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productId` | `String` | Übergeben über `args[0].0`. |
+| `firstLetter` | `String` | Übergeben über `args[1].1`. |
+
+### getSkusByProductAndFirstLetter
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSkusByProductAndFirstLetter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapSkuToDto" type="SkuDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sku` | `SKU` | Übergeben über `args[0].0`. |
+| `optimal` | `boolean` | Übergeben über `args[1].1`. |
+
+### mapSkuToDto
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapSkuToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadSKU" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `file` | `File` | Übergeben über `args[0].0`. |
+| `lang` | `String` | Übergeben über `args[1].1`. |
+| `username` | `String` | Übergeben über `args[2].2`. |
+
+### uploadSKU
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateMetaInfo" type="SKU">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Übergeben über `args[1].1`. |
+
+### updateMetaInfo
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateMetaInfo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFallIntoProducts" type="LinkedHashSet<EmbeddedBean>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `productIds` | `String[]` | Übergeben über `args[0].0`. |
+
+### getFallIntoProducts
+
+```json
+{
+  "beanId": "sKUServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFallIntoProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

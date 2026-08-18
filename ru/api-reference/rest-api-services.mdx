@@ -1,0 +1,1595 @@
+## Endpoint и авторизация
+
+Все вызовы выполняются через:
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+- **GUEST** — без логина, только whitelist, Bearer Token не нужен.
+- **USER** — логин и Bearer Token; доступны GUEST-сервисы и методы с внутренним разрешением USER.
+- **ADMIN** — полный доступ к public-методам всех сервисов, нужен Bearer Token.
+
+Если whitelist-сервис дополнительно проверяет роль внутри метода, GUEST может получить null. Пометка **GUEST* / USER или ADMIN** означает такую внутреннюю проверку; классификация является эвристикой по исходному коду.
+
+### Whitelist GUEST
+
+`certificateServiceImpl`, `orderServiceImpl`, `shoppingCartServiceImpl`, `salesCatalogServiceImpl`, `sellerRegistrationServiceImpl`, `ecomRemainsSearchEngineServiceImpl`, `ecomSearchEngineServiceImpl`, `stripeServiceImpl`, `translationServiceImpl`, `messageServiceImpl`, `messageServiceSecuredImpl`, `searchHolder`, `sellerFormHolder`, `sellerSkuFormHolder`, `categoryServiceImpl`, `productServiceImpl`, `SKUServiceImpl`, `frameworkOperationServiceImpl`, `blogViewerServiceImpl`, `FCMTokenProvider`, `contentContainerRepository`, `marketingServiceImpl`, `stripeConnectServiceImpl`, `geoLocationServiceImpl`, `lexOfficeManagerServiceImpl`, `customerServiceImpl`, `profileSearchServiceImpl`, `accessManagementServiceImpl`, `pageProcessorServiceImpl`, `searchManagerServiceImpl`, `pinataServiceImpl`, `openSeaServiceImpl`, `web3ServiceImpl`
+
+### Формат запроса
+
+В `args` каждый аргумент передаётся объектом с ключом "0", "1" и т. д. Значение должно соответствовать типу из сигнатуры.
+
+В каталоге `null` используется как безопасный placeholder для значения аргумента: замените его на объект DTO, строку, число или массив согласно сигнатуре конкретного метода. Для методов без параметров используется `args: []`.
+
+```json
+{"beanId":"searchManagerServiceImpl","scope":"PROTOTYPE","functionName":"search","args":[{"0":{"type":"SellerSKU","searchTerm":"","query":{"isPublishedForSale":true},"offset":0,"limit":10,"page":1,"sortName":"createdDate","sortDirection":"DESC"}}]}
+```
+
+
+Для USER/ADMIN добавьте заголовок:
+
+```http
+Authorization: Bearer <token>
+```
+
+## Каталог сервисов
+
+### `accessManagementServiceImpl`
+
+Класс: `AccessManagementServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`isLogged`** — `boolean isLogged()`. args: `[]`.
+- **`isAdmin`** — `boolean isAdmin()`. args: `[]`.
+- **`getLoggedProfile`** — `Profile getLoggedProfile()`. args: `[]`.
+- **`getLoggedSeller`** — `Seller getLoggedSeller()`. args: `[]`.
+- **`getLoggedUser`** — `User getLoggedUser()`. args: `[]`.
+- **`isSellerSkuBelongsToLoggedUser`** — `boolean isSellerSkuBelongsToLoggedUser(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`isSellerSkuAllowsToProcess`** — `boolean isSellerSkuAllowsToProcess(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`isAllSellerSkusBelongsToLoggedUser`** — `boolean isAllSellerSkusBelongsToLoggedUser(List<String> sellerSkuIds)`. args: `[{"0":null}]`.
+- **`isAllSellerSkusAllowsToProcess`** — `boolean isAllSellerSkusAllowsToProcess(List<String> sellerSkuIds)`. args: `[{"0":null}]`.
+- **`hasAccessToOrder`** — `boolean hasAccessToOrder(Order order)`. args: `[{"0":null}]`.
+
+### `attributeServiceImpl`
+
+Класс: `AttributeServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `AttributeRepository getRepository()`. args: `[]`.
+- **`getMeasurementRepository`** — `MeasurementRepository getMeasurementRepository()`. args: `[]`.
+- **`getOptionsRepository`** — `OptionRepository getOptionsRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchAttributesLightweight`** — `SearchResponse searchAttributesLightweight(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchAttributes`** — `SearchResponse searchAttributes(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchAttributes`** — `LinkedHashSet<AttributeDTO> searchAttributes(String requestJson)`. args: `[{"0":null}]`.
+- **`searchAttributesPaged`** — `Page<Attribute> searchAttributesPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getPaginationMeasurements`** — `Deque<Map<String, Object>> getPaginationMeasurements(String requestJson)`. args: `[{"0":null}]`.
+- **`searchMeasurements`** — `SearchResponse searchMeasurements(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchMeasurements`** — `LinkedHashSet<MeasurementDTO> searchMeasurements(String requestJson)`. args: `[{"0":null}]`.
+- **`searchMeasurementsPaged`** — `Page<Measurement> searchMeasurementsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getPaginationOptions`** — `Deque<Map<String, Object>> getPaginationOptions(String requestJson)`. args: `[{"0":null}]`.
+- **`searchOptions`** — `SearchResponse searchOptions(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchOptions`** — `LinkedHashSet<OptionDTO> searchOptions(String requestJson)`. args: `[{"0":null}]`.
+- **`searchOptionsPaged`** — `Page<Option> searchOptionsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchAttributes`** — `List<Attribute> searchAttributes(String query, String offset, String limit)`. args: `[{"0":null}]`.
+- **`findAttributes`** — `List<Attribute> findAttributes()`. args: `[]`.
+- **`searchMeasurements`** — `List<Measurement> searchMeasurements(String query, String offset, String limit)`. args: `[{"0":null}]`.
+- **`findMeasurements`** — `List<Measurement> findMeasurements()`. args: `[]`.
+- **`searchOptions`** — `List<Option> searchOptions(String query, String offset, String limit)`. args: `[{"0":null}]`.
+- **`findOptions`** — `List<Option> findOptions()`. args: `[]`.
+- **`getOptionsFromAttribute`** — `List<Option> getOptionsFromAttribute(String attrId)`. args: `[{"0":null}]`.
+- **`getMeasurementValueFromAttribute`** — `String getMeasurementValueFromAttribute(String attrId)`. args: `[{"0":null}]`.
+- **`getAttributeValue`** — `String getAttributeValue(String attributeValueId)`. args: `[{"0":null}]`.
+- **`createMeasurement`** — `Optional<Measurement> createMeasurement(LinkedHashMap<String, Object> measureAsMap)`. args: `[{"0":null}]`.
+- **`createOption`** — `Optional<Option> createOption(LinkedHashMap<String, Object> optionAsMap)`. args: `[{"0":null}]`.
+- **`createAttribute`** — `Optional<Attribute> createAttribute(LinkedHashMap<String, Object> attrAsMap)`. args: `[{"0":null}]`.
+- **`createMeasurement`** — `Optional<Measurement> createMeasurement(Measurement measurement)`. args: `[{"0":null}]`.
+- **`createOption`** — `Optional<Option> createOption(Option option)`. args: `[{"0":null}]`.
+- **`createAttribute`** — `Optional<Attribute> createAttribute(Attribute attribute)`. args: `[{"0":null}]`.
+- **`addAttributeToProduct`** — `Attribute addAttributeToProduct(String productId, LinkedHashMap<String, Object> attrAsMap)`. args: `[{"0":null}]`.
+- **`addAttributeToProduct`** — `Attribute addAttributeToProduct(String productId, String attributeId)`. args: `[{"0":null}]`.
+- **`addAttributeToSKU`** — `Attribute addAttributeToSKU(String skuId, LinkedHashMap<String, Object> attrAsMap)`. args: `[{"0":null}]`.
+- **`addAttributeToSKU`** — `Attribute addAttributeToSKU(String skuId, String attributeId)`. args: `[{"0":null}]`.
+- **`saveAttribute`** — `Attribute saveAttribute(LinkedHashMap<String, Object> attrAsMap)`. args: `[{"0":null}]`.
+- **`saveAttribute`** — `Attribute saveAttribute(Attribute attribute)`. args: `[{"0":null}]`.
+- **`saveMeasurement`** — `Measurement saveMeasurement(LinkedHashMap<String, Object> msrAsMap)`. args: `[{"0":null}]`.
+- **`saveMeasurement`** — `Measurement saveMeasurement(Measurement msr)`. args: `[{"0":null}]`.
+- **`saveOption`** — `Option saveOption(LinkedHashMap<String, Object> optAsMap)`. args: `[{"0":null}]`.
+- **`saveOption`** — `Option saveOption(Option option)`. args: `[{"0":null}]`.
+- **`removeAttributeFromProduct`** — `void removeAttributeFromProduct(String attrId, String productId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromProducts`** — `void removeAttributeFromProducts(String attrId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromSKU`** — `void removeAttributeFromSKU(String attrId, String skuId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromSKUs`** — `void removeAttributeFromSKUs(String attrId)`. args: `[{"0":null}]`.
+- **`removeAttributeValue`** — `void removeAttributeValue(String avId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromTranslation`** — `void removeAttributeFromTranslation(String attrId, String tranId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromTranslations`** — `void removeAttributeFromTranslations(String attrId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromOption`** — `void removeAttributeFromOption(String attrId, String optionId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromOptions`** — `void removeAttributeFromOptions(String attrId)`. args: `[{"0":null}]`.
+- **`removeAttributeFromMeasurement`** — `void removeAttributeFromMeasurement(String attrId)`. args: `[{"0":null}]`.
+- **`removeAttributeAndClean`** — `void removeAttributeAndClean(String attrId)`. args: `[{"0":null}]`.
+- **`removeMeasurementFromAttribute`** — `void removeMeasurementFromAttribute(String measureId, String attrId)`. args: `[{"0":null}]`.
+- **`removeMeasurementFromAttributes`** — `void removeMeasurementFromAttributes(String measureId)`. args: `[{"0":null}]`.
+- **`removeMeasurementAndClean`** — `void removeMeasurementAndClean(String measureId)`. args: `[{"0":null}]`.
+- **`removeOptionFromAttribute`** — `void removeOptionFromAttribute(String optionId, String attrId)`. args: `[{"0":null}]`.
+- **`removeOptionFromAttributes`** — `void removeOptionFromAttributes(String optionId)`. args: `[{"0":null}]`.
+- **`removeOptionFromTranslation`** — `void removeOptionFromTranslation(String optionId, String tranId)`. args: `[{"0":null}]`.
+- **`removeOptionFromTranslations`** — `void removeOptionFromTranslations(String optionId)`. args: `[{"0":null}]`.
+- **`removeOptionAndClean`** — `void removeOptionAndClean(String optionId)`. args: `[{"0":null}]`.
+- **`removeAttributeValuesByAttributeId`** — `void removeAttributeValuesByAttributeId(String attributeId)`. args: `[{"0":null}]`.
+- **`removeAttributesByIds`** — `void removeAttributesByIds(ArrayList<String> attributeIds)`. args: `[{"0":null}]`.
+- **`removeMeasurementsByIds`** — `void removeMeasurementsByIds(ArrayList<String> measurementsIds)`. args: `[{"0":null}]`.
+- **`removeOptionsByIds`** — `void removeOptionsByIds(ArrayList<String> optionsIds)`. args: `[{"0":null}]`.
+- **`mapAttributeToDto`** — `AttributeDTO mapAttributeToDto(Attribute attr,boolean optimal)`. args: `[{"0":null}]`.
+- **`mapOptionToDto`** — `OptionDTO mapOptionToDto(Option opt,boolean optimal)`. args: `[{"0":null}]`.
+- **`mapMeasurementToDto`** — `MeasurementDTO mapMeasurementToDto(Measurement msr,boolean optimal)`. args: `[{"0":null}]`.
+
+### `beanHandlerServiceImpl`
+
+Класс: `BeanHandlerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `Object getRepository(String repositoryId)`. args: `[{"0":null}]`.
+- **`getBean`** — `Object getBean(String beanId)`. args: `[{"0":null}]`.
+- **`getSessionBean`** — `Object getSessionBean(String beanId)`. args: `[{"0":null}]`.
+- **`updateSessionBean`** — `void updateSessionBean(String beanId, Object bean)`. args: `[{"0":null}]`.
+- **`handleUpdate`** — `void handleUpdate(BeanRequestMessage request)`. args: `[{"0":null}]`.
+- **`handleInvoke`** — `void handleInvoke(BeanRequestMessage request)`. args: `[{"0":null}]`.
+- **`handleRepositoryCall`** — `void handleRepositoryCall(RepositoryRequestMessage request)`. args: `[{"0":null}]`.
+
+### `billingServiceImpl`
+
+Класс: `BillingServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getServiceFee`** — `BigDecimal getServiceFee()`. args: `[]`.
+- **`calculateServiceFee`** — `BigDecimal calculateServiceFee(BigDecimal amount)`. args: `[{"0":null}]`.
+- **`calculateServiceFeeNettoAmount`** — `BigDecimal calculateServiceFeeNettoAmount(Order order)`. args: `[{"0":null}]`.
+- **`calculateServiceFeeBruttoAmount`** — `BigDecimal calculateServiceFeeBruttoAmount(Order order)`. args: `[{"0":null}]`.
+- **`calculatePayoutAmount`** — `BigDecimal calculatePayoutAmount(Order order)`. args: `[{"0":null}]`.
+- **`calculateItemsTotalAmount`** — `BigDecimal calculateItemsTotalAmount(Collection<CommerceItem> items)`. args: `[{"0":null}]`.
+- **`calculateItemsTotalBruttoAmount`** — `BigDecimal calculateItemsTotalBruttoAmount(BigDecimal amount, BigDecimal taxAmount)`. args: `[{"0":null}]`.
+- **`calculateTaxAmount`** — `BigDecimal calculateTaxAmount(BigDecimal amount, BigDecimal taxRate)`. args: `[{"0":null}]`.
+- **`calculateDeliveryAmount`** — `BigDecimal calculateDeliveryAmount(Order order)`. args: `[{"0":null}]`.
+- **`calculateBruttoAmount`** — `BigDecimal calculateBruttoAmount(List<CommerceItem> items, Order.Tax tax)`. args: `[{"0":null}]`.
+- **`calculateNettoAmount`** — `BigDecimal calculateNettoAmount(List<CommerceItem> items)`. args: `[{"0":null}]`.
+
+### `blogCategoryServiceImpl`
+
+Класс: `BlogCategoryServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `BlogCategoryRepository getRepository()`. args: `[]`.
+- **`searchCategories`** — `List<BlogCategory> searchCategories(String query, String from, String to)`. args: `[{"0":null}]`.
+- **`createCategory`** — `Optional<BlogCategory> createCategory(LinkedHashMap<String, Object> categoryAsMap)`. args: `[{"0":null}]`.
+- **`addChildCategory`** — `BlogCategory addChildCategory(String parentId, String childId)`. args: `[{"0":null}]`.
+- **`updateCategory`** — `BlogCategory updateCategory(LinkedHashMap<String, Object> categoryAsMap)`. args: `[{"0":null}]`.
+- **`updateCategory`** — `BlogCategory updateCategory(BlogCategory category)`. args: `[{"0":null}]`.
+- **`removeCategoryFromTranslation`** — `void removeCategoryFromTranslation(String categoryId, String translationId)`. args: `[{"0":null}]`.
+- **`removeCategoryWithDescendants`** — `void removeCategoryWithDescendants(String itemId)`. args: `[{"0":null}]`.
+- **`removeContainerFromBlogCategory`** — `void removeContainerFromBlogCategory(String containerId, String categoryId)`. args: `[{"0":null}]`.
+- **`removeCategoriesByIds`** — `void removeCategoriesByIds(ArrayList<String> categoriesIds)`. args: `[{"0":null}]`.
+- **`rebuildAllCategories`** — `List<BlogCategory> rebuildAllCategories(ArrayList<Object> categories)`. args: `[{"0":null}]`.
+
+### `blogViewerServiceImpl`
+
+Класс: `BlogViewerServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`getArticles`** — `List<Map<String, Object>> getArticles(String regexFilter)`. args: `[{"0":null}]`.
+- **`getContainerArticles`** — `List<Map<String, String>> getContainerArticles(String blogId)`. args: `[{"0":null}]`.
+- **`getRelatedBlogs`** — `List<Map<String, Object>> getRelatedBlogs(String blogId, String size)`. args: `[{"0":null}]`.
+- **`isContainerTypeEqualsTo`** — `boolean isContainerTypeEqualsTo(String containerId, String type)`. args: `[{"0":null}]`.
+
+### `categoryServiceImpl`
+
+Класс: `CategoryServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`getRepository`** — `CategoryRepository getRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchCategories`** — `SearchResponse searchCategories(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchCategoriesLightweight`** — `SearchResponse searchCategoriesLightweight(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchCategories`** — `LinkedHashSet<CategoryDTO> searchCategories(String requestJson)`. args: `[{"0":null}]`.
+- **`searchCategoriesPaged`** — `Page<Category> searchCategoriesPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchCategories`** — `List<Category> searchCategories(String query, String from, String to)`. args: `[{"0":null}]`.
+- **`createCategory`** — `Optional<Category> createCategory(LinkedHashMap<String, Object> categoryAsMap)`. args: `[{"0":null}]`.
+- **`createCategory`** — `Optional<Category> createCategory(Category category)`. args: `[{"0":null}]`.
+- **`addChildCategory`** — `Category addChildCategory(String parentId, String childId)`. args: `[{"0":null}]`.
+- **`removeChildCategory`** — `void removeChildCategory(String parentId, String childId)`. args: `[{"0":null}]`.
+- **`updateCategory`** — `Category updateCategory(LinkedHashMap<String, Object> categoryAsMap)`. args: `[{"0":null}]`.
+- **`updateCategory`** — `Category updateCategory(Category category)`. args: `[{"0":null}]`.
+- **`removeCategoryFromTranslation`** — `void removeCategoryFromTranslation(String categoryId, String translationId)`. args: `[{"0":null}]`.
+- **`removeCategoryWithDescendants`** — `void removeCategoryWithDescendants(String itemId)`. args: `[{"0":null}]`.
+- **`removeCategoriesByIds`** — `void removeCategoriesByIds(ArrayList<String> categoriesIds)`. args: `[{"0":null}]`.
+- **`rebuildAllCategories`** — `List<Category> rebuildAllCategories(ArrayList<Object> categories)`. args: `[{"0":null}]`.
+- **`mapCategoryToDto`** — `CategoryDTO mapCategoryToDto(Category category, boolean optimal)`. args: `[{"0":null}]`.
+- **`lookupToParents`** — `List<String> lookupToParents(String categoryId, List<String> result)`. args: `[{"0":null}]`.
+
+### `cdekHandlerServiceImpl`
+
+Класс: `CdekHandlerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`handleDeliveryPoints`** — `Object handleDeliveryPoints(Map<String,Object> request)`. args: `[{"0":null}]`.
+- **`handleCalculateDelivery`** — `Object handleCalculateDelivery(Map<String, Object> request)`. args: `[{"0":null}]`.
+- **`handleTariffs`** — `Object handleTariffs(Map<String, Object> request)`. args: `[{"0":null}]`.
+- **`handleWebhook`** — `Object handleWebhook(Map<String, Object> request)`. args: `[{"0":null}]`.
+
+### `cdekServiceImpl`
+
+Класс: `CdekServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`init`** — `void init()`. args: `[]`.
+- **`isCdekKeysDefined`** — `boolean isCdekKeysDefined()`. args: `[]`.
+- **`isTestCdekKeysDefined`** — `boolean isTestCdekKeysDefined()`. args: `[]`.
+- **`authenticate`** — `AuthResponse authenticate()`. args: `[]`.
+- **`authenticateTest`** — `AuthResponse authenticateTest()`. args: `[]`.
+- **`calculate`** — `Calculator calculate(CalculatorRequest request)`. args: `[{"0":null}]`.
+- **`orderRegistration`** — `OrderResponse orderRegistration(OrderRequest request)`. args: `[{"0":null}]`.
+- **`createCourierRequest`** — `CourierResponse createCourierRequest(CourierRequest request)`. args: `[{"0":null}]`.
+- **`getDeliveryPoints`** — `List<DeliveryPointResponse> getDeliveryPoints(DeliveryPointRequest request)`. args: `[{"0":null}]`.
+- **`getTariffs`** — `Tariffs getTariffs(CalculatorRequest calcReq)`. args: `[{"0":null}]`.
+- **`getTariffCode`** — `TariffCode getTariffCode(Order order)`. args: `[{"0":null}]`.
+- **`calculateDeliveryPrice`** — `BigDecimal calculateDeliveryPrice(Order order)`. args: `[{"0":null}]`.
+- **`ship`** — `boolean ship(Order order)`. args: `[{"0":null}]`.
+
+### `certificateServiceImpl`
+
+Класс: `CertificateServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`searchResults`** — `List<Certificate> searchResults(String requestJson)`. args: `[{"0":null}]`.
+- **`getRepository`** — `CertificateRepository getRepository()`. args: `[]`.
+- **`searchResultsPaged`** — `Page<Certificate> searchResultsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`isCertificateExists`** — `boolean isCertificateExists(String certificateId)`. args: `[{"0":null}]`.
+- **`isCertificateNotExists`** — `boolean isCertificateNotExists(String certificateId)`. args: `[{"0":null}]`.
+- **`addCertificateToLoggedSeller`** — `void addCertificateToLoggedSeller(String certificateId)`. args: `[{"0":null}]`.
+- **`removeCertificateFromLoggedSeller`** — `void removeCertificateFromLoggedSeller(String certificateId)`. args: `[{"0":null}]`.
+- **`createCertificate`** — `Certificate createCertificate(LinkedHashMap<String, Object> certificateAsMap)`. args: `[{"0":null}]`.
+- **`createCertificate`** — `Certificate createCertificate(Certificate certificate)`. args: `[{"0":null}]`.
+- **`saveCertificate`** — `Certificate saveCertificate(LinkedHashMap<String, Object> certificateAsMap)`. args: `[{"0":null}]`.
+- **`addCertificateToSeller`** — `void addCertificateToSeller(String certificateId, String sellerId)`. args: `[{"0":null}]`.
+- **`removeCertificateFromSeller`** — `void removeCertificateFromSeller(String certificateId, String sellerId)`. args: `[{"0":null}]`.
+- **`removeCertificateAndClean`** — `void removeCertificateAndClean(String certificateId)`. args: `[{"0":null}]`.
+- **`removeCertificates`** — `void removeCertificates(ArrayList<String> certificateIds)`. args: `[{"0":null}]`.
+- **`addCertificatesByIds`** — `void addCertificatesByIds(ArrayList<String> certificatesIds, String sellerId)`. args: `[{"0":null}]`.
+- **`getSellerCertificates`** — `List<Certificate> getSellerCertificates(String sellerId)`. args: `[{"0":null}]`.
+
+### `commerceItemServiceImpl`
+
+Класс: `CommerceItemServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `CommerceItemRepository getRepository()`. args: `[]`.
+- **`calculateTotalPrice`** — `BigDecimal calculateTotalPrice(Collection<CommerceItem> items)`. args: `[{"0":null}]`.
+- **`mapItems`** — `List<CommerceItemDTO> mapItems(Collection<CommerceItem> items)`. args: `[{"0":null}]`.
+- **`extractSpecs`** — `Map<String, Object> extractSpecs(SellerSKU sku)`. args: `[{"0":null}]`.
+- **`removeCommerceItem`** — `void removeCommerceItem(String id)`. args: `[{"0":null}]`.
+- **`removeCommerceItems`** — `void removeCommerceItems(List<String> ids)`. args: `[{"0":null}]`.
+- **`refundCommerceItems`** — `void refundCommerceItems(Order order)`. args: `[{"0":null}]`.
+- **`updateInventoriesLockedQuantity`** — `boolean updateInventoriesLockedQuantity(Map<CommerceItem, Inventory> map, boolean increase)`. args: `[{"0":null}]`.
+- **`obtainItemToInventoryMap`** — `Map<CommerceItem, Inventory> obtainItemToInventoryMap(List<CommerceItem> items)`. args: `[{"0":null}]`.
+- **`extractAttributeValues`** — `List<Map<String, Object>> extractAttributeValues(SellerSKU sku)`. args: `[{"0":null}]`.
+
+### `contentContainerServiceImpl`
+
+Класс: `ContentContainerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `ContentContainerRepository getRepository()`. args: `[]`.
+- **`createContainer`** — `void createContainer(LinkedHashMap<String, Object> blogAsMap)`. args: `[{"0":null}]`.
+- **`createContainer`** — `void createContainer(ContentContainer contentContainer)`. args: `[{"0":null}]`.
+- **`saveContainer`** — `ContentContainer saveContainer(LinkedHashMap<String, Object> blogAsMap, String blogId)`. args: `[{"0":null}]`.
+- **`saveContainer`** — `ContentContainer saveContainer(ContentContainer container)`. args: `[{"0":null}]`.
+- **`removeArticles`** — `void removeArticles(String blogId, ArrayList<String> articleIds)`. args: `[{"0":null}]`.
+- **`getContainerArticles`** — `List<Map<String, String>> getContainerArticles(String blogId)`. args: `[{"0":null}]`.
+- **`getArticles`** — `List<Map<String, Object>> getArticles(String regex)`. args: `[{"0":null}]`.
+- **`removeContainersByIds`** — `void removeContainersByIds(ArrayList<String> blogsIds)`. args: `[{"0":null}]`.
+- **`removeContainerAndClean`** — `void removeContainerAndClean(String blogId)`. args: `[{"0":null}]`.
+- **`getContainerPaginationFilter`** — `Deque<Map<String, Object>> getContainerPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchContainerResultsPaged`** — `Page<ContentContainer> searchContainerResultsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchContainersResults`** — `List<ContentContainer> searchContainersResults(String requestJson)`. args: `[{"0":null}]`.
+- **`getContainerTypes`** — `List<Map<String,Object>> getContainerTypes()`. args: `[]`.
+
+### `customerAnalyticsServiceImpl`
+
+Класс: `CustomerAnalyticsServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`searchCustomerActivityEvents`** — `Page<ActivityDataItem> searchCustomerActivityEvents(LinkedHashMap<String,Object> request)`. args: `[{"0":null}]`.
+- **`searchCustomerActivityEvents`** — `Page<ActivityDataItem> searchCustomerActivityEvents(SearchRequest sr, Seller seller)`. args: `[{"0":null}]`.
+- **`getCustomerActivity`** — `Page<CustomerActivity> getCustomerActivity(LinkedHashMap<String, Object> request)`. args: `[{"0":null}]`.
+- **`getCustomerActivity`** — `Page<CustomerActivity> getCustomerActivity(SearchRequest request)`. args: `[{"0":null}]`.
+- **`getCustomersActivityChart`** — `ChartData getCustomersActivityChart(LinkedHashMap<String,Object> request)`. args: `[{"0":null}]`.
+- **`getRegisteredCustomersChart`** — `ChartData getRegisteredCustomersChart()`. args: `[]`.
+- **`getRegisteredCompaniesByCountry`** — `Map<String, Integer> getRegisteredCompaniesByCountry()`. args: `[]`.
+- **`getRegisteredCompaniesByType`** — `Map<String, Integer> getRegisteredCompaniesByType()`. args: `[]`.
+
+### `customerServiceImpl`
+
+Класс: `CustomerServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`getRepository`** — `SellerRepository getRepository()`. args: `[]`.
+- **`getPaginationCustomers`** — `Deque<Map<String, Object>> getPaginationCustomers(String requestJson)`. args: `[{"0":null}]`.
+- **`validateVerificationToken`** — `boolean validateVerificationToken(String verificationToken)`. args: `[{"0":null}]`.
+- **`validatePasswordResetToken`** — `boolean validatePasswordResetToken(String passwordResetToken)`. args: `[{"0":null}]`.
+- **`sendVerificationEmail`** — `void sendVerificationEmail(LinkedHashMap<String, Object> userAsMap)`. args: `[{"0":null}]`.
+- **`searchCustomers`** — `SearchResponse searchCustomers(LinkedHashMap<String, Object> requestAsMap)`. args: `[{"0":null}]`.
+- **`searchCustomersLightweight`** — `SearchResponse searchCustomersLightweight(LinkedHashMap<String, Object> requestAsMap)`. args: `[{"0":null}]`.
+- **`getCustomersPaged`** — `Page<Seller> getCustomersPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`registerCustomerFull`** — `Seller registerCustomerFull(LinkedHashMap<String, Object> customerAsMap)`. args: `[{"0":null}]`.
+- **`searchEmployees`** — `LinkedHashSet<Profile> searchEmployees(String requestJson)`. args: `[{"0":null}]`.
+- **`searchEmployeesPaged`** — `Page<Profile> searchEmployeesPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`registerCustomerSimplified`** — `Profile registerCustomerSimplified(LinkedHashMap<String, Object> userProfileAsMap)`. args: `[{"0":null}]`.
+- **`updateCustomer`** — `Seller updateCustomer(LinkedHashMap<String, Object> sellerAsMap)`. args: `[{"0":null}]`.
+- **`updateCustomerProfile`** — `Profile updateCustomerProfile(LinkedHashMap<String, Object> userProfileAsMap)`. args: `[{"0":null}]`.
+- **`mapSellerToDto`** — `SellerDTO mapSellerToDto(LinkedHashMap<String, Object> customerAsMap)`. args: `[{"0":null}]`.
+- **`mapSellerToDto`** — `SellerDTO mapSellerToDto(Seller seller, boolean optimal)`. args: `[{"0":null}]`.
+
+### `dataManagerServiceImpl`
+
+Класс: `DataManagerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`createCategory`** — `Category createCategory(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createProduct`** — `Product createProduct(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createSKU`** — `SKU createSKU(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createAttribute`** — `Attribute createAttribute(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createOption`** — `Option createOption(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createMeasurement`** — `Measurement createMeasurement(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createUnit`** — `Unit createUnit(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createSeller`** — `Seller createSeller(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createProfile`** — `Profile createProfile(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createUser`** — `User createUser(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createTranslation`** — `LocalizedText createTranslation(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`createOrder`** — `Order createOrder(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`deleteCategory`** — `void deleteCategory(String categoryId)`. args: `[{"0":null}]`.
+- **`deleteCategories`** — `void deleteCategories(ArrayList<String> categoryIds)`. args: `[{"0":null}]`.
+- **`deleteProduct`** — `void deleteProduct(String productId)`. args: `[{"0":null}]`.
+- **`deleteProducts`** — `void deleteProducts(ArrayList<String> productIds)`. args: `[{"0":null}]`.
+- **`deleteSKU`** — `void deleteSKU(String skuId)`. args: `[{"0":null}]`.
+- **`deleteSKUs`** — `void deleteSKUs(ArrayList<String> skuIds)`. args: `[{"0":null}]`.
+- **`deleteListing`** — `void deleteListing(String listingId)`. args: `[{"0":null}]`.
+- **`deleteListings`** — `void deleteListings(ArrayList<String> listingIds)`. args: `[{"0":null}]`.
+- **`deleteAttribute`** — `void deleteAttribute(String attributeId)`. args: `[{"0":null}]`.
+- **`deleteAttributes`** — `void deleteAttributes(ArrayList<String> attributeIds)`. args: `[{"0":null}]`.
+- **`deleteOption`** — `void deleteOption(String optionId)`. args: `[{"0":null}]`.
+- **`deleteOptions`** — `void deleteOptions(ArrayList<String> optionsIds)`. args: `[{"0":null}]`.
+- **`deleteMeasurement`** — `void deleteMeasurement(String measurementId)`. args: `[{"0":null}]`.
+- **`deleteMeasurements`** — `void deleteMeasurements(ArrayList<String> measurementIds)`. args: `[{"0":null}]`.
+- **`deleteUnit`** — `void deleteUnit(String unitId)`. args: `[{"0":null}]`.
+- **`deleteUnits`** — `void deleteUnits(ArrayList<String> unitsIds)`. args: `[{"0":null}]`.
+- **`deleteSeller`** — `void deleteSeller(String sellerId)`. args: `[{"0":null}]`.
+- **`deleteSellers`** — `void deleteSellers(ArrayList<String> sellerIds)`. args: `[{"0":null}]`.
+- **`deleteProfile`** — `void deleteProfile(String profileId)`. args: `[{"0":null}]`.
+- **`deleteProfiles`** — `void deleteProfiles(ArrayList<String> profileIds)`. args: `[{"0":null}]`.
+- **`deleteUser`** — `void deleteUser(String userId)`. args: `[{"0":null}]`.
+- **`deleteUsers`** — `void deleteUsers(ArrayList<String> userIds)`. args: `[{"0":null}]`.
+- **`deleteTranslation`** — `void deleteTranslation(String translationId)`. args: `[{"0":null}]`.
+- **`deleteTranslations`** — `void deleteTranslations(ArrayList<String> translationIds)`. args: `[{"0":null}]`.
+- **`deleteOrder`** — `void deleteOrder(String orderId)`. args: `[{"0":null}]`.
+- **`deleteOrders`** — `void deleteOrders(ArrayList<String> ordersIds)`. args: `[{"0":null}]`.
+- **`updateCategory`** — `Category updateCategory(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateProduct`** — `Product updateProduct(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateSKU`** — `SKU updateSKU(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateAttribute`** — `Attribute updateAttribute(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateOption`** — `Option updateOption(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateMeasurement`** — `Measurement updateMeasurement(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateUnit`** — `Unit updateUnit(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateSeller`** — `Seller updateSeller(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateProfile`** — `Profile updateProfile(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateUser`** — `User updateUser(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateTranslation`** — `LocalizedText updateTranslation(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`updateOrder`** — `Order updateOrder(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`addProductToCategory`** — `Product addProductToCategory(String categoryId, String productId)`. args: `[{"0":null}]`.
+- **`addChildCategory`** — `Category addChildCategory(String parentId, String childId)`. args: `[{"0":null}]`.
+- **`removeProductFromCategory`** — `void removeProductFromCategory(String categoryId, String productId)`. args: `[{"0":null}]`.
+- **`removeChildCategory`** — `void removeChildCategory(String parentId, String childId)`. args: `[{"0":null}]`.
+- **`addAttributeToAllProducts`** — `void addAttributeToAllProducts(String attributeId,String username)`. args: `[{"0":null}]`.
+- **`addAttributeToAllSkus`** — `void addAttributeToAllSkus(String attributeId,String username)`. args: `[{"0":null}]`.
+- **`getTranslation`** — `Map<String, String> getTranslation(String id)`. args: `[{"0":null}]`.
+- **`jobDryRun`** — `void jobDryRun(String username)`. args: `[{"0":null}]`.
+
+### `documentHandlerServiceImpl`
+
+Класс: `DocumentHandlerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`handleAddDocument`** — `void handleAddDocument(DocumentRequestMessage request)`. args: `[{"0":null}]`.
+- **`handleRemoveDocument`** — `void handleRemoveDocument(DocumentRequestMessage request)`. args: `[{"0":null}]`.
+- **`handleFindDocumentResponse`** — `Map<String, Object> handleFindDocumentResponse(DocumentRequestMessage request)`. args: `[{"0":null}]`.
+- **`handleAddDocumentResponse`** — `Map<String, Object> handleAddDocumentResponse(DocumentRequestMessage request)`. args: `[{"0":null}]`.
+- **`handleRemoveDocumentResponse`** — `Map<String, Object> handleRemoveDocumentResponse(DocumentRequestMessage request)`. args: `[{"0":null}]`.
+
+### `dummyBean`
+
+Класс: `DummyBean`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getUsers`** — `List<Object> getUsers()`. args: `[]`.
+- **`setUsers`** — `void setUsers(List<Object> users)`. args: `[{"0":null}]`.
+- **`getDummyUser`** — `DummyUser getDummyUser()`. args: `[]`.
+- **`setDummyUser`** — `void setDummyUser(DummyUser dummyUser)`. args: `[{"0":null}]`.
+- **`getAddress`** — `Map<String, Object> getAddress()`. args: `[]`.
+- **`setAddress`** — `void setAddress(Map<String, Object> address)`. args: `[{"0":null}]`.
+- **`getDescription`** — `String getDescription()`. args: `[]`.
+- **`setDescription`** — `void setDescription(String description)`. args: `[{"0":null}]`.
+- **`getToDos`** — `List<Map<String, Object>> getToDos()`. args: `[]`.
+- **`setToDos`** — `void setToDos(List<Map<String, Object>> toDos)`. args: `[{"0":null}]`.
+- **`clear`** — `void clear()`. args: `[]`.
+- **`addToDo`** — `void addToDo(String name)`. args: `[{"0":null}]`.
+
+### `dummyRepository`
+
+Класс: `DummyRepository`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getUsers`** — `List<Object> getUsers()`. args: `[]`.
+- **`setUsers`** — `void setUsers(List<Object> users)`. args: `[{"0":null}]`.
+
+### `dummyTree`
+
+Класс: `DummyTree`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getElements`** — `List<Map<String, Object>> getElements()`. args: `[]`.
+- **`setElements`** — `void setElements(List<Map<String, Object>> elements)`. args: `[{"0":null}]`.
+
+### `ecomRemainsSearchEngineServiceImpl`
+
+Класс: `EcomRemainsSearchEngineServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`getLoggedSellerSkusFilter`** — `List<Map<String, Object>> getLoggedSellerSkusFilter()`. args: `[]`.
+- **`getCountriesOfOriginFilter`** — `List<Map<String,Object>> getCountriesOfOriginFilter(String skuId)`. args: `[{"0":null}]`.
+- **`getCountriesOfSellersFilter`** — `List<Map<String, Object>> getCountriesOfSellersFilter(String skuId)`. args: `[{"0":null}]`.
+- **`getGeneticTypeFilter`** — `List<Map<String, Object>> getGeneticTypeFilter(String skuId)`. args: `[{"0":null}]`.
+- **`getDynamicFilters`** — `List<Map<String, Object>> getDynamicFilters(String skuId, String filterType)`. args: `[{"0":null}]`.
+- **`getDynamicOptionFilters`** — `List<Map<String, Object>> getDynamicOptionFilters(String skuId,String attributeId)`. args: `[{"0":null}]`.
+- **`getDynamicValueFilters`** — `List<Map<String, Object>> getDynamicValueFilters(String skuId,String attributeId)`. args: `[{"0":null}]`.
+- **`getProductsListFilter`** — `List<Map<String, Object>> getProductsListFilter()`. args: `[]`.
+- **`getProductsListByRequestFilter`** — `List<Map<String, Object>> getProductsListByRequestFilter(String searchTerm)`. args: `[{"0":null}]`.
+
+### `ecomSearchEngineServiceImpl`
+
+Класс: `EcomSearchEngineServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`searchResults`** — `List<SellerSKU> searchResults(String requestJson)`. args: `[{"0":null}]`.
+- **`searchResultsPaged`** — `Page<SellerSKU> searchResultsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getCdnFolderName`** — `String getCdnFolderName()`. args: `[]`.
+- **`getUploadListingsExcel`** — `String getUploadListingsExcel()`. args: `[]`.
+- **`getSortedProductsByCategory`** — `List<Map<String, String>> getSortedProductsByCategory(String categoryId)`. args: `[{"0":null}]`.
+- **`getAllCurrencies`** — `List<CurrencyItem> getAllCurrencies()`. args: `[]`.
+- **`getCurrencyByCode`** — `CurrencyItem getCurrencyByCode(String code)`. args: `[{"0":null}]`.
+- **`searchCountries`** — `LinkedHashSet<Country> searchCountries(String requestJson)`. args: `[{"0":null}]`.
+- **`getCountries`** — `List<Country> getCountries()`. args: `[]`.
+- **`getCountryByCode`** — `Country getCountryByCode(String code)`. args: `[{"0":null}]`.
+- **`getSelectedUnit`** — `Unit getSelectedUnit(String unitId)`. args: `[{"0":null}]`.
+- **`getTranslatedUnit`** — `Map<String, Object> getTranslatedUnit(String unitId)`. args: `[{"0":null}]`.
+- **`getUnits`** — `List<Map<String, Object>> getUnits()`. args: `[]`.
+- **`getSellerImageUrls`** — `List<Map<String, String>> getSellerImageUrls(String sellerId)`. args: `[{"0":null}]`.
+- **`getCategoryImageUrls`** — `List<Map<String, String>> getCategoryImageUrls(String categoryId)`. args: `[{"0":null}]`.
+- **`getProductImageUrls`** — `List<Map<String, String>> getProductImageUrls(String productId)`. args: `[{"0":null}]`.
+- **`getSellerSkuImageUrls`** — `List<Map<String, String>> getSellerSkuImageUrls(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`getCertificateImageUrls`** — `List<Map<String, String>> getCertificateImageUrls(String certificateId)`. args: `[{"0":null}]`.
+- **`getContainerImageUrls`** — `List<Map<String, String>> getContainerImageUrls(String containerId)`. args: `[{"0":null}]`.
+- **`getSkuImageUrls`** — `List<Map<String, String>> getSkuImageUrls(String skuId)`. args: `[{"0":null}]`.
+- **`getGeneticTypes`** — `List<Map<String,Object>> getGeneticTypes()`. args: `[]`.
+- **`getSellerTypes`** — `List<Map<String, Object>> getSellerTypes()`. args: `[]`.
+- **`getSellerSkuTypes`** — `List<Map<String, Object>> getSellerSkuTypes()`. args: `[]`.
+- **`getSalutations`** — `List<Map<String, Object>> getSalutations()`. args: `[]`.
+- **`getIncoTerms`** — `List<Map<String, Object>> getIncoTerms()`. args: `[]`.
+- **`getDeliveryTypes`** — `List<Map<String, Object>> getDeliveryTypes()`. args: `[]`.
+- **`getTradingUnits`** — `List<Map<String, Object>> getTradingUnits()`. args: `[]`.
+- **`getAttributeTypes`** — `List<Map<String, Object>> getAttributeTypes()`. args: `[]`.
+- **`getAreaUsageTypes`** — `List<Map<String, Object>> getAreaUsageTypes()`. args: `[]`.
+- **`getOptionsFromAttribute`** — `List<Map<String, Object>> getOptionsFromAttribute(String attributeId)`. args: `[{"0":null}]`.
+- **`getSellerSkus`** — `List<SellerSKU> getSellerSkus(String skuId)`. args: `[{"0":null}]`.
+- **`getLoggedSellerSkus`** — `List<SellerSKU> getLoggedSellerSkus()`. args: `[]`.
+- **`getLoggedSellerSkusFilter`** — `List<Map<String, Object>> getLoggedSellerSkusFilter()`. args: `[]`.
+- **`getLoggedSellerSkusCountriesOfOriginFilter`** — `List<Map<String, Object>> getLoggedSellerSkusCountriesOfOriginFilter()`. args: `[]`.
+- **`getLoggedSellerSkusGeneticTypeFilter`** — `List<Map<String, Object>> getLoggedSellerSkusGeneticTypeFilter()`. args: `[]`.
+- **`getLoggedSellerSkusDynamicFilters`** — `List<Map<String, Object>> getLoggedSellerSkusDynamicFilters(String filterType)`. args: `[{"0":null}]`.
+- **`getLoggedSellerSkusDynamicOptions`** — `List<Map<String, Object>> getLoggedSellerSkusDynamicOptions(String attributeId)`. args: `[{"0":null}]`.
+- **`getLoggedSellerSkusDynamicValues`** — `List<Map<String, Object>> getLoggedSellerSkusDynamicValues(String attributeId)`. args: `[{"0":null}]`.
+- **`getAttributesFromSKU`** — `List<Attribute> getAttributesFromSKU(String skuId)`. args: `[{"0":null}]`.
+- **`getAttributeValuesFromSellerSKU`** — `List<AttributeValue> getAttributeValuesFromSellerSKU(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`getAttributeValuesByAreaUsageType`** — `List<AttributeValue> getAttributeValuesByAreaUsageType(String sellerSkuId, String areaUsageType)`. args: `[{"0":null}]`.
+- **`getActiveAttributeValuesFromSellerSKU`** — `List<AttributeValue> getActiveAttributeValuesFromSellerSKU(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`getCountriesOfOriginFilter`** — `List<Map<String,Object>> getCountriesOfOriginFilter(String skuId)`. args: `[{"0":null}]`.
+- **`getCountriesOfOriginByRequestFilter`** — `List<Map<String, Object>> getCountriesOfOriginByRequestFilter(String productId, String searchTerm)`. args: `[{"0":null}]`.
+- **`getCountriesOfSellersFilter`** — `List<Map<String, Object>> getCountriesOfSellersFilter(String skuId)`. args: `[{"0":null}]`.
+- **`getCountriesOfSellersByRequestFilter`** — `List<Map<String, Object>> getCountriesOfSellersByRequestFilter(String productId, String searchTerm)`. args: `[{"0":null}]`.
+- **`getGeneticTypeFilter`** — `List<Map<String, Object>> getGeneticTypeFilter(String skuId)`. args: `[{"0":null}]`.
+- **`getGeneticTypeByRequestFilter`** — `List<Map<String, Object>> getGeneticTypeByRequestFilter(String productId, String searchTerm)`. args: `[{"0":null}]`.
+- **`getDynamicFilters`** — `List<Map<String, Object>> getDynamicFilters(String parentId, String filterType)`. args: `[{"0":null}]`.
+- **`getDynamicByRequestFilters`** — `List<Map<String, Object>> getDynamicByRequestFilters(String productId, String searchTerm, String filterType)`. args: `[{"0":null}]`.
+- **`getDynamicOptionFilters`** — `List<Map<String, Object>> getDynamicOptionFilters(String parentId,String attributeId)`. args: `[{"0":null}]`.
+- **`getDynamicOptionByRequestFilters`** — `List<Map<String, Object>> getDynamicOptionByRequestFilters(String productId, String searchTerm, String attributeId)`. args: `[{"0":null}]`.
+- **`getDynamicValueFilters`** — `List<Map<String, Object>> getDynamicValueFilters(String parentId,String attributeId)`. args: `[{"0":null}]`.
+- **`getDynamicValueByRequestFilters`** — `List<Map<String, Object>> getDynamicValueByRequestFilters(String productId, String searchTerm, String attributeId)`. args: `[{"0":null}]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`getProductsListFilter`** — `List<Map<String, Object>> getProductsListFilter()`. args: `[]`.
+- **`getProductsListByRequestFilter`** — `List<Map<String, Object>> getProductsListByRequestFilter(String searchTerm)`. args: `[{"0":null}]`.
+- **`showButtonsPermanentSKU`** — `boolean showButtonsPermanentSKU(String type)`. args: `[{"0":null}]`.
+- **`showButtonsRemainedSKU`** — `boolean showButtonsRemainedSKU(String type)`. args: `[{"0":null}]`.
+- **`showSellerSkuPrice`** — `boolean showSellerSkuPrice(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`isPermanentSellerSKU`** — `boolean isPermanentSellerSKU(String type)`. args: `[{"0":null}]`.
+- **`isRemainedSellerSKU`** — `boolean isRemainedSellerSKU(String type)`. args: `[{"0":null}]`.
+- **`isListAttribute`** — `boolean isListAttribute(String type)`. args: `[{"0":null}]`.
+- **`isRangeAttribute`** — `boolean isRangeAttribute(String type)`. args: `[{"0":null}]`.
+- **`isSimpleAttribute`** — `boolean isSimpleAttribute(String type)`. args: `[{"0":null}]`.
+- **`isLogicalAttribute`** — `boolean isLogicalAttribute(String type)`. args: `[{"0":null}]`.
+- **`isNumericAttribute`** — `boolean isNumericAttribute(String type)`. args: `[{"0":null}]`.
+- **`isProductRelatedAttribute`** — `boolean isProductRelatedAttribute(String type)`. args: `[{"0":null}]`.
+- **`isCommercialInfoAttribute`** — `boolean isCommercialInfoAttribute(String type)`. args: `[{"0":null}]`.
+- **`isSpecialFeaturesAttribute`** — `boolean isSpecialFeaturesAttribute(String type)`. args: `[{"0":null}]`.
+- **`parseSearchQuery`** — `List<String> parseSearchQuery(String query)`. args: `[{"0":null}]`.
+- **`getSortedProductSkus`** — `List<Map<String, String>> getSortedProductSkus(String productId)`. args: `[{"0":null}]`.
+- **`getProductsByCategoryAndFirstLetter`** — `List<Map<String, Object>> getProductsByCategoryAndFirstLetter(String categoryId, String firstLetter)`. args: `[{"0":null}]`.
+- **`getSkusByProductAndFirstLetter`** — `List<Map<String, Object>> getSkusByProductAndFirstLetter(String productId, String firstLetter)`. args: `[{"0":null}]`.
+- **`getCategoriesBySkuId`** — `List<Category> getCategoriesBySkuId(String skuId)`. args: `[{"0":null}]`.
+- **`getAutoSuggestResults`** — `List<SkuDTO> getAutoSuggestResults(String searchTerm, String lang, String offset, String limit)`. args: `[{"0":null}]`.
+- **`aiSearchIsActive`** — `boolean aiSearchIsActive()`. args: `[]`.
+
+### `ecomSearchIndexServiceImpl`
+
+Класс: `EcomSearchIndexServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`generateKeywordsForSKUs`** — `void generateKeywordsForSKUs(ArrayList<String> ids)`. args: `[{"0":null}]`.
+- **`removeKeywordsForSKUs`** — `void removeKeywordsForSKUs(ArrayList<String> ids)`. args: `[{"0":null}]`.
+- **`generateSellerSkuForSeller`** — `void generateSellerSkuForSeller(String sellerId)`. args: `[{"0":null}]`.
+- **`removeSellerSkuForSeller`** — `void removeSellerSkuForSeller(String sellerId)`. args: `[{"0":null}]`.
+
+### `emailSenderServiceImpl`
+
+Класс: `EmailSenderServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getVerificationEmailTemplate`** — `String getVerificationEmailTemplate(String fullName, String token)`. args: `[{"0":null}]`.
+- **`getWelcomeEmailTemplate`** — `String getWelcomeEmailTemplate(String fullName)`. args: `[{"0":null}]`.
+- **`getResetPasswordTemplate`** — `String getResetPasswordTemplate(String fullName, String token)`. args: `[{"0":null}]`.
+- **`getMessageNotificationEmailTemplate`** — `String getMessageNotificationEmailTemplate(String messageText)`. args: `[{"0":null}]`.
+- **`getContactSupplierTemplate`** — `String getContactSupplierTemplate(String messageText, String fullName, String mailTo)`. args: `[{"0":null}]`.
+- **`getTariffBookingEmailTemplate`** — `String getTariffBookingEmailTemplate(String fullName)`. args: `[{"0":null}]`.
+- **`getUploadRequestEmailTemplate`** — `String getUploadRequestEmailTemplate(EmailMessage emailMessage)`. args: `[{"0":null}]`.
+- **`getOrderConfirmationEmail`** — `String getOrderConfirmationEmail(EmailMessage emailMessage)`. args: `[{"0":null}]`.
+- **`sendSimpleEmail`** — `void sendSimpleEmail(String to, String subject, String text)`. args: `[{"0":null}]`.
+- **`sendEmailWithAttachments`** — `void sendEmailWithAttachments(String to, String subject, String text, ArrayList<String> attachments)`. args: `[{"0":null}]`.
+- **`sendMimeMessage`** — `void sendMimeMessage(String to, String subject, String message)`. args: `[{"0":null}]`.
+- **`sendVerificationEmail`** — `void sendVerificationEmail(User user)`. args: `[{"0":null}]`.
+- **`sendWelcomeEmail`** — `void sendWelcomeEmail(User user)`. args: `[{"0":null}]`.
+- **`sendResetPasswordEmail`** — `void sendResetPasswordEmail(User user)`. args: `[{"0":null}]`.
+- **`sendOrderConfirmationEmail`** — `void sendOrderConfirmationEmail(EmailMessage emailMessage)`. args: `[{"0":null}]`.
+- **`sendMessageNotificationEmail`** — `void sendMessageNotificationEmail(EmailMessage emailMessage)`. args: `[{"0":null}]`.
+
+### `emailSenderServiceSecuredImpl`
+
+Класс: `EmailSenderServiceSecuredImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`sendSimpleEmail`** — `void sendSimpleEmail(String to, String subject, String text)`. args: `[{"0":null}]`.
+
+### `fileManagerServiceMock`
+
+Класс: `FileManagerServiceMock`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`createDirectory`** — `void createDirectory(Path path)`. args: `[{"0":null}]`.
+- **`findByPath`** — `List<File> findByPath(Path path)`. args: `[{"0":null}]`.
+- **`findByPath`** — `List<File> findByPath(Path path, FileFilter filter)`. args: `[{"0":null}]`.
+- **`findFiles`** — `List<File> findFiles(Path path)`. args: `[{"0":null}]`.
+- **`findFiles`** — `List<File> findFiles(Path path, String fileExtension)`. args: `[{"0":null}]`.
+- **`findRootFolders`** — `List<File> findRootFolders(Path rootPath)`. args: `[{"0":null}]`.
+- **`uploadFile`** — `void uploadFile(Path destination, InputStream fis)`. args: `[{"0":null}]`.
+- **`downloadFile`** — `byte[] downloadFile(Path path)`. args: `[{"0":null}]`.
+- **`move`** — `void move(Path source, Path destination)`. args: `[{"0":null}]`.
+- **`copy`** — `void copy(Path source, Path destination)`. args: `[{"0":null}]`.
+- **`rename`** — `void rename(Path file, String newName)`. args: `[{"0":null}]`.
+- **`delete`** — `void delete(Path path)`. args: `[{"0":null}]`.
+- **`extractZipFile`** — `void extractZipFile(Path file, Path destination)`. args: `[{"0":null}]`.
+- **`saveContentToFile`** — `void saveContentToFile(String name, String path, String content)`. args: `[{"0":null}]`.
+- **`createFile`** — `File createFile(Path path, byte[] bytes)`. args: `[{"0":null}]`.
+- **`setAttributeToFile`** — `Path setAttributeToFile(Path path, String name, byte[] val)`. args: `[{"0":null}]`.
+
+### `frameworkOperationServiceImpl`
+
+Класс: `FrameworkOperationServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`isValueEquals`** — `boolean isValueEquals(String val, String equalsToVal)`. args: `[{"0":null}]`.
+- **`isNotBlank`** — `boolean isNotBlank(String value)`. args: `[{"0":null}]`.
+- **`isBlank`** — `boolean isBlank(String value)`. args: `[{"0":null}]`.
+- **`isNotTrue`** — `boolean isNotTrue(String value)`. args: `[{"0":null}]`.
+- **`isTrue`** — `boolean isTrue(String value)`. args: `[{"0":null}]`.
+- **`isFileExists`** — `boolean isFileExists(String path)`. args: `[{"0":null}]`.
+- **`isFileExistsFromSystemRoot`** — `boolean isFileExistsFromSystemRoot(String path)`. args: `[{"0":null}]`.
+- **`isFileExistsFromUploadRoot`** — `boolean isFileExistsFromUploadRoot(String path)`. args: `[{"0":null}]`.
+- **`isLanguageDetection`** — `boolean isLanguageDetection()`. args: `[]`.
+- **`getActiveLanguages`** — `List<String> getActiveLanguages()`. args: `[]`.
+- **`getTimeFromDate`** — `Map<String, String> getTimeFromDate(String date)`. args: `[{"0":null}]`.
+- **`getCurrentDate`** — `Map<String, String> getCurrentDate(String pattern)`. args: `[{"0":null}]`.
+- **`getFormattedDate`** — `Map<String, String> getFormattedDate(String date,String pattern)`. args: `[{"0":null}]`.
+- **`getFormattedDateFromTimestamp`** — `Map<String, String> getFormattedDateFromTimestamp(String timestamp, String pattern)`. args: `[{"0":null}]`.
+- **`getDaysTillEndDate`** — `Map<String, Object> getDaysTillEndDate(String date)`. args: `[{"0":null}]`.
+- **`getDatePlusYears`** — `Map<String, Object> getDatePlusYears(String years, String pattern)`. args: `[{"0":null}]`.
+- **`getDaysTillEndDateFromTimestamp`** — `Map<String, Object> getDaysTillEndDateFromTimestamp(String timestamp)`. args: `[{"0":null}]`.
+- **`multiplyValueTo`** — `Map<String, Object> multiplyValueTo(String val, String to)`. args: `[{"0":null}]`.
+- **`divideValueTo`** — `Map<String, Object> divideValueTo(String val, String to)`. args: `[{"0":null}]`.
+- **`plusTwoValues`** — `Map<String, Object> plusTwoValues(String val1, String val2)`. args: `[{"0":null}]`.
+- **`getFileSize`** — `Map<String, String> getFileSize(String url, String dim)`. args: `[{"0":null}]`.
+- **`getFileExtension`** — `Map<String, String> getFileExtension(String filePath)`. args: `[{"0":null}]`.
+- **`getFirstLetter`** — `Map<String, String> getFirstLetter(String text)`. args: `[{"0":null}]`.
+- **`getCurrentSequence`** — `Map<String, String> getCurrentSequence(String seqName)`. args: `[{"0":null}]`.
+- **`transformJsonArrayToList`** — `List<Map<String,Object>> transformJsonArrayToList(String jsonArray)`. args: `[{"0":null}]`.
+- **`getLangCode`** — `String getLangCode()`. args: `[]`.
+- **`toLowerCase`** — `Map<String, String> toLowerCase(String str)`. args: `[{"0":null}]`.
+- **`toUpperCase`** — `Map<String, String> toUpperCase(String str)`. args: `[{"0":null}]`.
+- **`restClientCall`** — `Object restClientCall(String endpoint,String method,String jsonAsString)`. args: `[{"0":null}]`.
+- **`parseNestedDatabaseDocs`** — `HashMap<Object, Object> parseNestedDatabaseDocs(String itemName, String nestedKey, String database, String jsonObjString)`. args: `[{"0":null}]`.
+- **`languageAwareUrl`** — `String languageAwareUrl(String url)`. args: `[{"0":null}]`.
+- **`getCurrentWebSiteSettings`** — `WebSiteSettings getCurrentWebSiteSettings()`. args: `[]`.
+- **`getCurrentBrandingSiteSettings`** — `LinkedHashMap<String, Object> getCurrentBrandingSiteSettings()`. args: `[]`.
+
+### `geoLocationServiceImpl`
+
+Класс: `GeoLocationServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`getAddressRepository`** — `AddressRepository getAddressRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchCountries`** — `LinkedHashSet<Country> searchCountries(String requestJson)`. args: `[{"0":null}]`.
+- **`searchCountriesPaged`** — `Page<Country> searchCountriesPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchAddresses`** — `List<Address> searchAddresses(String query, String from, String to)`. args: `[{"0":null}]`.
+- **`findCompanyAddress`** — `Address findCompanyAddress(Address address)`. args: `[{"0":null}]`.
+- **`getAddressById`** — `Address getAddressById(String addressId)`. args: `[{"0":null}]`.
+- **`getCountries`** — `List<Country> getCountries()`. args: `[]`.
+- **`getCountryByCode`** — `Country getCountryByCode(String code)`. args: `[{"0":null}]`.
+- **`getCountryCodeValue`** — `String getCountryCodeValue(String code)`. args: `[{"0":null}]`.
+- **`getCountryBySellerId`** — `Country getCountryBySellerId(String sellerId)`. args: `[{"0":null}]`.
+- **`getCountryNameBySellerId`** — `String getCountryNameBySellerId(String sellerId)`. args: `[{"0":null}]`.
+- **`getSellersByCountryCode`** — `List<Seller> getSellersByCountryCode(String countryCode)`. args: `[{"0":null}]`.
+- **`createAddress`** — `Address createAddress(LinkedHashMap<String, Object> addressAsMap)`. args: `[{"0":null}]`.
+- **`createAddress`** — `Optional<Address> createAddress(Address address)`. args: `[{"0":null}]`.
+- **`saveAddress`** — `Address saveAddress(LinkedHashMap<String, Object> addressAsMap)`. args: `[{"0":null}]`.
+- **`saveAddress`** — `Optional<Address> saveAddress(Address address)`. args: `[{"0":null}]`.
+- **`removeAddressAndClean`** — `void removeAddressAndClean(String addressId)`. args: `[{"0":null}]`.
+- **`removeAddressesByIds`** — `void removeAddressesByIds(ArrayList<String> addressesIds)`. args: `[{"0":null}]`.
+- **`addShippingAddress`** — `Address addShippingAddress(String sellerId, LinkedHashMap<String, Object> addressAsMap)`. args: `[{"0":null}]`.
+- **`removeShippingAddress`** — `void removeShippingAddress(String sellerId, String addressId)`. args: `[{"0":null}]`.
+- **`removeAddressFromSeller`** — `void removeAddressFromSeller(String sellerId, String addressId)`. args: `[{"0":null}]`.
+- **`getShippingAddresses`** — `Set<Address> getShippingAddresses(String sellerId)`. args: `[{"0":null}]`.
+
+### `gitProvider`
+
+Класс: `GitProvider`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`update`** — `void update()`. args: `[]`.
+- **`addAllFiles`** — `void addAllFiles()`. args: `[]`.
+- **`commit`** — `void commit(String message)`. args: `[{"0":null}]`.
+- **`push`** — `void push()`. args: `[]`.
+- **`init`** — `void init()`. args: `[]`.
+- **`cloneRepository`** — `void cloneRepository()`. args: `[]`.
+
+### `gitService`
+
+Класс: `GitService`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`init`** — `void init()`. args: `[]`.
+- **`save`** — `void save()`. args: `[]`.
+
+### `jobsManagementServiceImpl`
+
+Класс: `JobsManagementServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `JobRepository getRepository()`. args: `[]`.
+- **`init`** — `void init()`. args: `[]`.
+- **`searchJobs`** — `SearchResponse searchJobs(LinkedHashMap<String, Object> requestMap)`. args: `[{"0":null}]`.
+- **`searchJobs`** — `SearchResponse searchJobs(SearchRequest request)`. args: `[{"0":null}]`.
+- **`createJob`** — `Job createJob(LinkedHashMap<String, Object> jobAsMap)`. args: `[{"0":null}]`.
+- **`createJob`** — `Job createJob(Job job)`. args: `[{"0":null}]`.
+- **`saveJob`** — `Job saveJob(LinkedHashMap<String, Object> jobAsMap)`. args: `[{"0":null}]`.
+- **`saveJob`** — `Job saveJob(Job job)`. args: `[{"0":null}]`.
+- **`startJob`** — `Job startJob(String type, int total)`. args: `[{"0":null}]`.
+- **`cancelJob`** — `void cancelJob(String jobId)`. args: `[{"0":null}]`.
+- **`toCanceled`** — `Job toCanceled(String jobId)`. args: `[{"0":null}]`.
+- **`toDone`** — `Job toDone(String jobId)`. args: `[{"0":null}]`.
+- **`updateProgress`** — `Job updateProgress(String jobId, int progress)`. args: `[{"0":null}]`.
+- **`incrementJob`** — `Job incrementJob(String jobId, int step)`. args: `[{"0":null}]`.
+- **`decrementJob`** — `Job decrementJob(String jobId, int step)`. args: `[{"0":null}]`.
+- **`toFailed`** — `Job toFailed(String jobId)`. args: `[{"0":null}]`.
+- **`setUnfinishedJobsToFailed`** — `void setUnfinishedJobsToFailed()`. args: `[]`.
+- **`removeJobsByIds`** — `void removeJobsByIds(ArrayList<String> jobsIds)`. args: `[{"0":null}]`.
+- **`removeJobAndClean`** — `void removeJobAndClean(String jobId)`. args: `[{"0":null}]`.
+
+### `jWTServiceImpl`
+
+Класс: `JWTServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`extractUsername`** — `String extractUsername(String token)`. args: `[{"0":null}]`.
+- **`generateToken`** — `String generateToken(UserDetails userDetails)`. args: `[{"0":null}]`.
+- **`generateToken`** — `String generateToken(Map<String, Object> extraClaims, UserDetails userDetails)`. args: `[{"0":null}]`.
+- **`getExpirationTime`** — `long getExpirationTime()`. args: `[]`.
+- **`isTokenValid`** — `boolean isTokenValid(String token, UserDetails userDetails)`. args: `[{"0":null}]`.
+- **`isTokenExpired`** — `boolean isTokenExpired(String token)`. args: `[{"0":null}]`.
+- **`extractExpiration`** — `Date extractExpiration(String token)`. args: `[{"0":null}]`.
+- **`extractAllClaims`** — `Claims extractAllClaims(String token)`. args: `[{"0":null}]`.
+- **`getSignInKey`** — `Key getSignInKey()`. args: `[]`.
+
+### `lexOfficeManagerServiceImpl`
+
+Класс: `LexOfficeManagerServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`updateContact`** — `Contact updateContact()`. args: `[]`.
+
+### `lexOfficeServiceImpl`
+
+Класс: `LexOfficeServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`init`** — `void init()`. args: `[]`.
+- **`isLexOfficeKeyDefined`** — `boolean isLexOfficeKeyDefined()`. args: `[]`.
+- **`createPayoutInvoice`** — `Attachment createPayoutInvoice(String orderId, String profileId)`. args: `[{"0":null}]`.
+- **`createCommissionInvoice`** — `Attachment createCommissionInvoice(String orderId, String profileId)`. args: `[{"0":null}]`.
+- **`createContact`** — `Contact createContact(Contact contact)`. args: `[{"0":null}]`.
+- **`retrieveContact`** — `Contact retrieveContact(String id)`. args: `[{"0":null}]`.
+- **`updateContact`** — `Contact updateContact(Contact contact)`. args: `[{"0":null}]`.
+
+### `lexOfficeServiceMock`
+
+Класс: `LexOfficeServiceMock`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`createPayoutInvoice`** — `Attachment createPayoutInvoice(String orderId, String profileId)`. args: `[{"0":null}]`.
+- **`createCommissionInvoice`** — `Attachment createCommissionInvoice(String orderId, String profileId)`. args: `[{"0":null}]`.
+- **`createContact`** — `Contact createContact(Contact contact)`. args: `[{"0":null}]`.
+- **`retrieveContact`** — `Contact retrieveContact(String id)`. args: `[{"0":null}]`.
+- **`updateContact`** — `Contact updateContact(Contact contact)`. args: `[{"0":null}]`.
+- **`isLexOfficeKeyDefined`** — `boolean isLexOfficeKeyDefined()`. args: `[]`.
+
+### `logisticsProviderServiceImpl`
+
+Класс: `LogisticsProviderServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`isActive`** — `boolean isActive()`. args: `[]`.
+- **`calculateDeliveryPrice`** — `BigDecimal calculateDeliveryPrice(Order order)`. args: `[{"0":null}]`.
+- **`ship`** — `boolean ship(Order order)`. args: `[{"0":null}]`.
+
+### `machineLearningServiceImpl`
+
+Класс: `MachineLearningServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`recognizeAttributesForSellerSku`** — `Map<String,Object> recognizeAttributesForSellerSku(ArrayList<String> urls, String sellerSkuType, Boolean isAbsolutePath)`. args: `[{"0":null}]`.
+- **`generateDatasetForAwsComprehend`** — `void generateDatasetForAwsComprehend(String filePath, String langCode, String targetDb, String targetCollection, Boolean isAbsolutePath)`. args: `[{"0":null}]`.
+- **`generateTranslationsForLanguage`** — `void generateTranslationsForLanguage(String fromLangIsoCode, String toLangIsoCode)`. args: `[{"0":null}]`.
+- **`translateDatabaseForLanguage`** — `void translateDatabaseForLanguage(String fromLangIsoCode, String toLangIsoCode, String targetDb, String targetCollection, ArrayList<String> fieldNames)`. args: `[{"0":null}]`.
+
+### `marketingServiceImpl`
+
+Класс: `MarketingServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`searchUserAnalytics`** — `LinkedHashSet<UserAuditSettings> searchUserAnalytics(String requestJson)`. args: `[{"0":null}]`.
+- **`searchUserAnalyticsPaged`** — `Page<UserAuditSettings> searchUserAnalyticsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getPaginationAnalyticsData`** — `Deque<Map<String, Object>> getPaginationAnalyticsData(String requestJson)`. args: `[{"0":null}]`.
+- **`getCustomersReport`** — `List<CustomerReport> getCustomersReport(SearchRequest request)`. args: `[{"0":null}]`.
+- **`getContactsReport`** — `List<ContactsReport> getContactsReport(SearchRequest request)`. args: `[{"0":null}]`.
+- **`getSeoMetaDataReport`** — `List<SEOMetaDataReport> getSeoMetaDataReport(SearchRequest request)`. args: `[{"0":null}]`.
+- **`generateDashlyHash`** — `String generateDashlyHash()`. args: `[]`.
+- **`getSeoMetaData`** — `Map<String,Object> getSeoMetaData(String seoUrl, String repositoryName)`. args: `[{"0":null}]`.
+- **`getSeoUrl`** — `String getSeoUrl(String id, String repositoryName)`. args: `[{"0":null}]`.
+- **`getSeoUrlAsValue`** — `Map<String, Object> getSeoUrlAsValue(String id, String repositoryName)`. args: `[{"0":null}]`.
+- **`getSeoUrlByLang`** — `String getSeoUrlByLang(String id, String lang, String repositoryName)`. args: `[{"0":null}]`.
+- **`saveSearchRequest`** — `boolean saveSearchRequest(String searchTerm)`. args: `[{"0":null}]`.
+- **`uploadSEO`** — `void uploadSEO(File file, String lang, String username)`. args: `[{"0":null}]`.
+
+### `messageServiceImpl`
+
+Класс: `MessageServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`getPaginationChats`** — `Deque<Map<String, Object>> getPaginationChats(String requestJson)`. args: `[{"0":null}]`.
+- **`searchAllChats`** — `LinkedHashSet<ChatDTO> searchAllChats(String requestJson)`. args: `[{"0":null}]`.
+- **`searchAllChatsPaged`** — `Page<Chat> searchAllChatsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchChats`** — `SearchResponse searchChats(LinkedHashMap<String, Object> searchRequest)`. args: `[{"0":null}]`.
+- **`searchChats`** — `SearchResponse searchChats(SearchRequest request)`. args: `[{"0":null}]`.
+- **`searchMessages`** — `SearchResponse searchMessages(LinkedHashMap<String, Object> searchRequest)`. args: `[{"0":null}]`.
+- **`searchMessages`** — `SearchResponse searchMessages(SearchRequest request)`. args: `[{"0":null}]`.
+- **`searchChats`** — `List<ChatDTO> searchChats(String requestJson)`. args: `[{"0":null}]`.
+- **`searchMessages`** — `List<Map<String,Object>> searchMessages(String requestJson)`. args: `[{"0":null}]`.
+- **`createChatAndNotify`** — `Optional<Chat> createChatAndNotify(Chat chat)`. args: `[{"0":null}]`.
+- **`createChatAndNotify`** — `Optional<Chat> createChatAndNotify(LinkedHashMap<String, Object> chatAsMap)`. args: `[{"0":null}]`.
+- **`createChat`** — `Optional<Chat> createChat(Chat chatItem)`. args: `[{"0":null}]`.
+- **`createChat`** — `Optional<Chat> createChat(LinkedHashMap<String, Object> chatAsMap)`. args: `[{"0":null}]`.
+- **`createMessageAndNotify`** — `Optional<Message> createMessageAndNotify(Message message)`. args: `[{"0":null}]`.
+- **`createMessageAndNotify`** — `Optional<Message> createMessageAndNotify(LinkedHashMap<String, Object> messageAsMap)`. args: `[{"0":null}]`.
+- **`createMessage`** — `Optional<Message> createMessage(LinkedHashMap<String, Object> messageAsMap)`. args: `[{"0":null}]`.
+- **`createMessage`** — `Optional<Message> createMessage(Message messageItem)`. args: `[{"0":null}]`.
+- **`readChat`** — `Optional<Chat> readChat(String chatId)`. args: `[{"0":null}]`.
+- **`readMessage`** — `Optional<Message> readMessage(String messageId)`. args: `[{"0":null}]`.
+- **`closeChat`** — `Optional<Chat> closeChat(String chatId)`. args: `[{"0":null}]`.
+- **`clearActiveUsers`** — `Optional<Chat> clearActiveUsers(String chatId)`. args: `[{"0":null}]`.
+- **`getConversationByChatId`** — `List<Message> getConversationByChatId(String chatId)`. args: `[{"0":null}]`.
+- **`getActiveContacts`** — `List<Profile> getActiveContacts(String dbName, String collection, String propertyName, String filter)`. args: `[{"0":null}]`.
+- **`getConversationPartner`** — `Map<String,Object> getConversationPartner(String chatId)`. args: `[{"0":null}]`.
+- **`getMessagesTimeline`** — `List<Map<String,Object>> getMessagesTimeline(String queryExpression, String searchTerm, String sortName, Integer offset, Integer limit)`. args: `[{"0":null}]`.
+- **`getLastMessageInChat`** — `Message getLastMessageInChat(String chatId)`. args: `[{"0":null}]`.
+- **`isSentMessage`** — `boolean isSentMessage(String loginFromMessage)`. args: `[{"0":null}]`.
+- **`isReplyMessage`** — `boolean isReplyMessage(String loginFromMessage)`. args: `[{"0":null}]`.
+- **`isAttachmentExist`** — `boolean isAttachmentExist(String messageId)`. args: `[{"0":null}]`.
+- **`removeChatAndClean`** — `void removeChatAndClean(String chatId)`. args: `[{"0":null}]`.
+- **`removeAttachmentFromMessage`** — `void removeAttachmentFromMessage(String messageId)`. args: `[{"0":null}]`.
+- **`removeMessagesFromChat`** — `void removeMessagesFromChat(String chatId)`. args: `[{"0":null}]`.
+- **`removeMessageFromChatById`** — `void removeMessageFromChatById(String messageId)`. args: `[{"0":null}]`.
+- **`removeMessageAndClean`** — `void removeMessageAndClean(String messageId)`. args: `[{"0":null}]`.
+- **`sendNotificationEmail`** — `void sendNotificationEmail(Profile profile, String chatTopic, String messageText)`. args: `[{"0":null}]`.
+- **`isRightSidedMessageAdmin`** — `boolean isRightSidedMessageAdmin(String messageId)`. args: `[{"0":null}]`.
+- **`isContainsUnreadMessages`** — `boolean isContainsUnreadMessages(String chatId)`. args: `[{"0":null}]`.
+- **`isContainsInboxUnreadMessages`** — `boolean isContainsInboxUnreadMessages(String chatId)`. args: `[{"0":null}]`.
+- **`isContactOnline`** — `boolean isContactOnline(String dbName, String collection, String propertyName, String filter)`. args: `[{"0":null}]`.
+- **`isNotContactOnline`** — `boolean isNotContactOnline(String dbName, String collection, String propertyName, String filter)`. args: `[{"0":null}]`.
+- **`getUnreadMessagesCount`** — `Map<String, String> getUnreadMessagesCount(String chatId)`. args: `[{"0":null}]`.
+- **`getUnreadMessagesCountForUser`** — `Map<String, String> getUnreadMessagesCountForUser(String chatId, String profileId)`. args: `[{"0":null}]`.
+- **`getUnreadMessagesCountForLoggedUser`** — `Map<String, String> getUnreadMessagesCountForLoggedUser()`. args: `[]`.
+- **`getMessagesCountByChat`** — `Map<String, Object> getMessagesCountByChat(String chatId)`. args: `[{"0":null}]`.
+- **`mapChatToDto`** — `ChatDTO mapChatToDto(Chat chat, boolean optimal)`. args: `[{"0":null}]`.
+- **`addAttachmentToMessageByLoggedUser`** — `boolean addAttachmentToMessageByLoggedUser(String messageId, Attachment attachment)`. args: `[{"0":null}]`.
+- **`removeAttachmentFromMessageByLoggedUser`** — `boolean removeAttachmentFromMessageByLoggedUser(String messageId)`. args: `[{"0":null}]`.
+- **`getChatDocumentUrls`** — `List<Attachment> getChatDocumentUrls(String chatId, String sellerId)`. args: `[{"0":null}]`.
+
+### `messageServiceSecuredImpl`
+
+Класс: `MessageServiceSecuredImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`createChatAndNotify`** — `Optional<Chat> createChatAndNotify(Chat chat)`. args: `[{"0":null}]`.
+- **`createChatAndNotify`** — `Optional<Chat> createChatAndNotify(LinkedHashMap<String, Object> chatAsMap)`. args: `[{"0":null}]`.
+- **`createChat`** — `Optional<Chat> createChat(Chat chat)`. args: `[{"0":null}]`.
+- **`createChat`** — `Optional<Chat> createChat(LinkedHashMap<String, Object> chatAsMap)`. args: `[{"0":null}]`.
+- **`createMessageAndNotify`** — `Optional<Message> createMessageAndNotify(Message message)`. args: `[{"0":null}]`.
+- **`createMessageAndNotify`** — `Optional<Message> createMessageAndNotify(LinkedHashMap<String, Object> messageAsMap)`. args: `[{"0":null}]`.
+- **`createMessage`** — `Optional<Message> createMessage(Message message)`. args: `[{"0":null}]`.
+- **`createMessage`** — `Optional<Message> createMessage(LinkedHashMap<String, Object> messageAsMap)`. args: `[{"0":null}]`.
+
+### `mongoStorageServiceImpl`
+
+Класс: `MongoStorageServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getDocument`** — `Document getDocument(String dbName, String collectionName, Object id)`. args: `[{"0":null}]`.
+- **`getCollection`** — `MongoCollection<Document> getCollection(String dbName, String collectionName)`. args: `[{"0":null}]`.
+- **`getCollections`** — `List<Map<String, String>> getCollections(String dbName)`. args: `[{"0":null}]`.
+- **`getDatabase`** — `MongoDatabase getDatabase(String dbName)`. args: `[{"0":null}]`.
+- **`insertDocument`** — `Object insertDocument(String dbName, String collectionName, Map<String, Object> mapObject)`. args: `[{"0":null}]`.
+- **`saveDocument`** — `Object saveDocument(String dbName, String collectionName, String id, Map<String, Object> mapObject)`. args: `[{"0":null}]`.
+- **`removeDocument`** — `void removeDocument(String dbName, String collectionName, String id)`. args: `[{"0":null}]`.
+- **`findDocuments`** — `Map<String, Object> findDocuments(String dbName, String collectionName, Map<String, Object> filter)`. args: `[{"0":null}]`.
+- **`downloadBinary`** — `byte[] downloadBinary(String dbName, String collectionName, Object doc)`. args: `[{"0":null}]`.
+- **`downloadBinary`** — `byte[] downloadBinary(String id)`. args: `[{"0":null}]`.
+- **`getBinaryStorage`** — `GridFSBucket getBinaryStorage(String dbName, String binaryCollection)`. args: `[{"0":null}]`.
+- **`uploadBinary`** — `String uploadBinary(Map<String,Object> metadata, MultipartFile file)`. args: `[{"0":null}]`.
+- **`removeBinary`** — `void removeBinary(String dbName, String binStorageName, String json)`. args: `[{"0":null}]`.
+- **`removeBinary`** — `void removeBinary(String id)`. args: `[{"0":null}]`.
+
+### `orderServiceImpl`
+
+Класс: `OrderServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`handleNotify`** — `void handleNotify()`. args: `[]`.
+- **`getRepository`** — `OrderRepository getRepository()`. args: `[]`.
+- **`activeLogisticsProvider`** — `String activeLogisticsProvider()`. args: `[]`.
+- **`activePaymentProvider`** — `String activePaymentProvider()`. args: `[]`.
+- **`getCommerceItemRepository`** — `CommerceItemRepository getCommerceItemRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`getOrders`** — `LinkedHashSet<OrderDTO> getOrders(String requestJson)`. args: `[{"0":null}]`.
+- **`getOrdersPaged`** — `Page<Order> getOrdersPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`createOrder`** — `Optional<Order> createOrder(LinkedHashMap<String, Object> orderAsMap)`. args: `[{"0":null}]`.
+- **`createOrder`** — `Optional<Order> createOrder(Order order)`. args: `[{"0":null}]`.
+- **`saveOrder`** — `Order saveOrder(LinkedHashMap<String, Object> orderAsMap)`. args: `[{"0":null}]`.
+- **`saveOrder`** — `Order saveOrder(Order order)`. args: `[{"0":null}]`.
+- **`orderCheckout`** — `List<OrderDTO> orderCheckout()`. args: `[]`.
+- **`digitalOrderCheckout`** — `Order digitalOrderCheckout(LinkedHashMap<String, Object> paymentRequestAsMap)`. args: `[{"0":null}]`.
+- **`digitalOrderCheckout`** — `Order digitalOrderCheckout(PaymentRequest paymentRequest)`. args: `[{"0":null}]`.
+- **`sendOrderConfirmationEmail`** — `void sendOrderConfirmationEmail(LinkedHashMap<String,Object> emailData)`. args: `[{"0":null}]`.
+- **`createInvoiceBuyerToVendor`** — `Attachment createInvoiceBuyerToVendor(String orderId)`. args: `[{"0":null}]`.
+- **`removeOrder`** — `void removeOrder(String orderId)`. args: `[{"0":null}]`.
+- **`removeOrdersByIds`** — `void removeOrdersByIds(ArrayList<String> orderIds)`. args: `[{"0":null}]`.
+- **`removeCommerceItemFromOrder`** — `boolean removeCommerceItemFromOrder(String orderId, String commerceItemId)`. args: `[{"0":null}]`.
+- **`getOrdersFromLoggedUser`** — `List<OrderDTO> getOrdersFromLoggedUser()`. args: `[]`.
+- **`getOrdersFromLoggedUserByIds`** — `LinkedHashSet<OrderDTO> getOrdersFromLoggedUserByIds(ArrayList<String> orderIds)`. args: `[{"0":null}]`.
+- **`getOrder`** — `OrderDTO getOrder(String orderId)`. args: `[{"0":null}]`.
+- **`approve`** — `boolean approve(String orderId)`. args: `[{"0":null}]`.
+- **`pay`** — `PaymentStatus pay(String orderId)`. args: `[{"0":null}]`.
+- **`obtain3DSecureLink`** — `String obtain3DSecureLink(String orderId)`. args: `[{"0":null}]`.
+- **`ship`** — `boolean ship(String orderId)`. args: `[{"0":null}]`.
+- **`deliver`** — `boolean deliver(String orderId)`. args: `[{"0":null}]`.
+- **`payout`** — `String payout(String orderId)`. args: `[{"0":null}]`.
+- **`complete`** — `boolean complete(String orderId)`. args: `[{"0":null}]`.
+- **`completeDigitalOrder`** — `boolean completeDigitalOrder(String orderId, Boolean createInvoice)`. args: `[{"0":null}]`.
+- **`prepareForShipment`** — `boolean prepareForShipment(String orderId)`. args: `[{"0":null}]`.
+- **`cancel`** — `boolean cancel(String orderId)`. args: `[{"0":null}]`.
+- **`refund`** — `boolean refund(String orderId)`. args: `[{"0":null}]`.
+- **`getOrderTimeLine`** — `List<OrderTimeLineBean> getOrderTimeLine(String orderId)`. args: `[{"0":null}]`.
+- **`isUserParticipatesInOrder`** — `boolean isUserParticipatesInOrder(String orderId, boolean asVendor)`. args: `[{"0":null}]`.
+- **`getLastOrderTimelineBean`** — `OrderTimeLineBean getLastOrderTimelineBean(String orderId)`. args: `[{"0":null}]`.
+- **`addAttachment`** — `boolean addAttachment(String orderId, Attachment attachment)`. args: `[{"0":null}]`.
+- **`removeAttachment`** — `boolean removeAttachment(String orderId, String attachmentName)`. args: `[{"0":null}]`.
+- **`addAttachment`** — `boolean addAttachment(String orderId, String orderTimelineStep, Attachment attachment)`. args: `[{"0":null}]`.
+- **`removeAttachment`** — `boolean removeAttachment(String orderId, String orderTimelineStep, String attachmentName)`. args: `[{"0":null}]`.
+- **`getShippingAddresses`** — `Set<Address> getShippingAddresses()`. args: `[]`.
+- **`canCancel`** — `boolean canCancel(String orderId)`. args: `[{"0":null}]`.
+- **`canAddAttachment`** — `boolean canAddAttachment(String orderId)`. args: `[{"0":null}]`.
+- **`changeAddress`** — `boolean changeAddress(String orderId, LinkedHashMap<String, Object> params)`. args: `[{"0":null}]`.
+- **`changePaymentMethod`** — `boolean changePaymentMethod(String orderId, LinkedHashMap<String, Object> paymentMethod)`. args: `[{"0":null}]`.
+- **`canChangeStatus`** — `boolean canChangeStatus(String orderId)`. args: `[{"0":null}]`.
+- **`mustAddAttachments`** — `boolean mustAddAttachments(String orderId)`. args: `[{"0":null}]`.
+- **`prepareItemsToShipment`** — `boolean prepareItemsToShipment(List<CommerceItem> items)`. args: `[{"0":null}]`.
+- **`getInvoiceTemplate`** — `String getInvoiceTemplate(String orderId)`. args: `[{"0":null}]`.
+- **`calculateDelivery`** — `BigDecimal calculateDelivery(String orderId)`. args: `[{"0":null}]`.
+- **`clearPaymentInfo`** — `Order clearPaymentInfo(String orderId)`. args: `[{"0":null}]`.
+- **`updateCommerceItemMetaInfo`** — `CommerceItem updateCommerceItemMetaInfo(String commerceItemId, LinkedHashMap<String, Object> metaInfo)`. args: `[{"0":null}]`.
+
+### `pageManagementServiceImpl`
+
+Класс: `PageManagementServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`createPage`** — `String createPage(LinkedHashMap<String, Object> pageRequest)`. args: `[{"0":null}]`.
+- **`createPage`** — `String createPage(CreatePageRequest pageRequest)`. args: `[{"0":null}]`.
+- **`deletePage`** — `void deletePage(String pageId)`. args: `[{"0":null}]`.
+- **`deletePages`** — `void deletePages(ArrayList<String> pageIds)`. args: `[{"0":null}]`.
+- **`updatePage`** — `void updatePage(LinkedHashMap<String, Object> pageRequest)`. args: `[{"0":null}]`.
+- **`updatePage`** — `void updatePage(CreatePageRequest pageRequest)`. args: `[{"0":null}]`.
+- **`duplicatePage`** — `void duplicatePage(LinkedHashMap<String, Object> copyRequest)`. args: `[{"0":null}]`.
+- **`duplicatePage`** — `void duplicatePage(CopyPageRequest copyRequest)`. args: `[{"0":null}]`.
+- **`copyPage`** — `void copyPage(LinkedHashMap<String, Object> copyRequest)`. args: `[{"0":null}]`.
+- **`copyPage`** — `void copyPage(CopyPageRequest copyRequest)`. args: `[{"0":null}]`.
+- **`publishToUrl`** — `void publishToUrl(LinkedHashMap<String, Object> routeRequest)`. args: `[{"0":null}]`.
+- **`publishToUrl`** — `void publishToUrl(CreateRouteRequest routeRequest)`. args: `[{"0":null}]`.
+- **`askAiAssistant`** — `String askAiAssistant(LinkedHashMap<String,Object> prompt)`. args: `[{"0":null}]`.
+
+### `pageProcessorServiceImpl`
+
+Класс: `PageProcessorServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`processPage`** — `Map<String,Object> processPage(String pageRoot,String html)`. args: `[{"0":null}]`.
+- **`processPageTitle`** — `Map<String, Object> processPageTitle(String entityId,String repositoryName)`. args: `[{"0":null}]`.
+- **`processTranslation`** — `Map<String, Object> processTranslation(String pageRoot, String articleId, String repository)`. args: `[{"0":null}]`.
+- **`processMetaData`** — `Map<String, Object> processMetaData(String pageUrl, String containerId, String repositoryName)`. args: `[{"0":null}]`.
+- **`processThemeCss`** — `String processThemeCss(String pageUrl)`. args: `[{"0":null}]`.
+
+### `pageRenderServiceImpl`
+
+Класс: `PageRenderServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`renderTemplate`** — `Map<String,Object> renderTemplate(String htmlTemplate)`. args: `[{"0":null}]`.
+- **`renderElements`** — `Map<String,Object> renderElements(List<RequestElement> requestElements)`. args: `[{"0":null}]`.
+- **`renderTemplateAsHtml`** — `String renderTemplateAsHtml(String htmlTemplate)`. args: `[{"0":null}]`.
+
+### `paymentProviderServiceImpl`
+
+Класс: `PaymentProviderServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`isActive`** — `boolean isActive()`. args: `[]`.
+- **`pay`** — `PaymentStatus pay(Order order)`. args: `[{"0":null}]`.
+- **`payoutToVendor`** — `String payoutToVendor(Order order, Seller vendor)`. args: `[{"0":null}]`.
+- **`createPayment`** — `String createPayment(Order order, Seller buyer, Seller vendor)`. args: `[{"0":null}]`.
+- **`createInvoice`** — `String createInvoice(String orderId)`. args: `[{"0":null}]`.
+- **`cancelPayment`** — `String cancelPayment(String paymentId)`. args: `[{"0":null}]`.
+- **`refundPayment`** — `String refundPayment(String paymentId)`. args: `[{"0":null}]`.
+- **`getPaymentMethod`** — `String getPaymentMethod(Seller buyer, LinkedHashMap<String,Object> paymentMethod)`. args: `[{"0":null}]`.
+- **`changePaymentMethod`** — `boolean changePaymentMethod(String paymentId, String paymentMethodId)`. args: `[{"0":null}]`.
+- **`get3DSecureLink`** — `String get3DSecureLink(String paymentId)`. args: `[{"0":null}]`.
+- **`checkConnectAccountStatus`** — `String checkConnectAccountStatus()`. args: `[]`.
+- **`calculateTotalPrice`** — `Map<String,Object> calculateTotalPrice(String orderId)`. args: `[{"0":null}]`.
+- **`calculateTaxAmountPrice`** — `Map<String,Object> calculateTaxAmountPrice(String orderId)`. args: `[{"0":null}]`.
+- **`calculateItemsTotalBruttoAmount`** — `Map<String,Object> calculateItemsTotalBruttoAmount(String orderId)`. args: `[{"0":null}]`.
+- **`calculateServiceFeeBruttoAmount`** — `Map<String,Object> calculateServiceFeeBruttoAmount(String orderId)`. args: `[{"0":null}]`.
+- **`calculatePayoutAmount`** — `Map<String,Object> calculatePayoutAmount(String orderId)`. args: `[{"0":null}]`.
+- **`calculateOrder`** — `OrderDTO calculateOrder(Order order)`. args: `[{"0":null}]`.
+- **`calculateTax`** — `Order.Tax calculateTax(Seller buyer, Seller seller)`. args: `[{"0":null}]`.
+
+### `pDFServiceImpl`
+
+Класс: `PDFServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`createPdf`** — `byte[] createPdf(String html)`. args: `[{"0":null}]`.
+- **`createPdf`** — `byte[] createPdf(String headerHtml, String bodyHtml, String footerHtml)`. args: `[{"0":null}]`.
+
+### `persistentTokenServiceImpl`
+
+Класс: `PersistentTokenServiceImpl`. Доступ: **USER или ADMIN**. Bearer Token: **да**.
+
+- **`createNewToken`** — `void createNewToken(PersistentRememberMeToken token)`. args: `[{"0":null}]`.
+- **`updateToken`** — `void updateToken(String series, String tokenValue, Date lastUsed)`. args: `[{"0":null}]`.
+- **`getTokenForSeries`** — `PersistentRememberMeToken getTokenForSeries(String seriesId)`. args: `[{"0":null}]`.
+- **`removeUserTokens`** — `void removeUserTokens(String username)`. args: `[{"0":null}]`.
+
+### `productServiceImpl`
+
+Класс: `ProductServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`getRepository`** — `ProductRepository getRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProducts`** — `SearchResponse searchProducts(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchProductsLightweight`** — `SearchResponse searchProductsLightweight(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchProducts`** — `LinkedHashSet<ProductDTO> searchProducts(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProductsPaged`** — `Page<Product> searchProductsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProducts`** — `List<Product> searchProducts(String query,String offset,String limit)`. args: `[{"0":null}]`.
+- **`createProduct`** — `Optional<Product> createProduct(LinkedHashMap<String, Object> productAsMap)`. args: `[{"0":null}]`.
+- **`createProduct`** — `Optional<Product> createProduct(Product product)`. args: `[{"0":null}]`.
+- **`addProductToCategory`** — `Product addProductToCategory(String categoryId, LinkedHashMap<String, Object> productAsMap)`. args: `[{"0":null}]`.
+- **`addProductToCategory`** — `Product addProductToCategory(String categoryId, String productId)`. args: `[{"0":null}]`.
+- **`saveProduct`** — `Product saveProduct(LinkedHashMap<String, Object> productAsMap)`. args: `[{"0":null}]`.
+- **`saveProduct`** — `Product saveProduct(Product product)`. args: `[{"0":null}]`.
+- **`getSortedProductsByCategory`** — `List<Map<String, String>> getSortedProductsByCategory(String categoryId)`. args: `[{"0":null}]`.
+- **`getProductsByCategoryAndFirstLetter`** — `List<Map<String, Object>> getProductsByCategoryAndFirstLetter(String categoryId, String firstLetter)`. args: `[{"0":null}]`.
+- **`removeProductFromCategory`** — `void removeProductFromCategory(String productId, String categoryId)`. args: `[{"0":null}]`.
+- **`removeProductFromSKU`** — `void removeProductFromSKU(String productId, String skuId)`. args: `[{"0":null}]`.
+- **`removeProductFromAttribute`** — `void removeProductFromAttribute(String productId, String attrId)`. args: `[{"0":null}]`.
+- **`removeProductFromTranslation`** — `void removeProductFromTranslation(String productId, String tranId)`. args: `[{"0":null}]`.
+- **`removeProductFromCategories`** — `void removeProductFromCategories(String productId)`. args: `[{"0":null}]`.
+- **`removeProductFromSKUs`** — `void removeProductFromSKUs(String productId)`. args: `[{"0":null}]`.
+- **`removeProductFromAttributes`** — `void removeProductFromAttributes(String productId)`. args: `[{"0":null}]`.
+- **`removeProductFromTranslations`** — `void removeProductFromTranslations(String productId)`. args: `[{"0":null}]`.
+- **`removeProductAndClean`** — `void removeProductAndClean(String productId)`. args: `[{"0":null}]`.
+- **`removeProductsByIds`** — `void removeProductsByIds(ArrayList<String> productsIds)`. args: `[{"0":null}]`.
+- **`mapProductToDto`** — `ProductDTO mapProductToDto(Product product,boolean optimal)`. args: `[{"0":null}]`.
+
+### `profileManagementServiceImpl`
+
+Класс: `ProfileManagementServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `ProfileRepository getRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProfiles`** — `LinkedHashSet<Profile> searchProfiles(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProfilesPaged`** — `Page<Profile> searchProfilesPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProfiles`** — `List<Profile> searchProfiles(String query, int from, int to)`. args: `[{"0":null}]`.
+- **`createProfile`** — `Optional<Profile> createProfile(LinkedHashMap<String, Object> profileAsMap)`. args: `[{"0":null}]`.
+- **`createProfile`** — `Optional<Profile> createProfile(Profile profile)`. args: `[{"0":null}]`.
+- **`saveProfile`** — `Optional<Profile> saveProfile(LinkedHashMap<String, Object> profileAsMap)`. args: `[{"0":null}]`.
+- **`saveProfile`** — `Optional<Profile> saveProfile(Profile profile)`. args: `[{"0":null}]`.
+- **`removeProfileAndClean`** — `void removeProfileAndClean(String profileId)`. args: `[{"0":null}]`.
+- **`removeProfilesByIds`** — `void removeProfilesByIds(ArrayList<String> profilesIds)`. args: `[{"0":null}]`.
+- **`getGenders`** — `List<Map<String, Object>> getGenders()`. args: `[]`.
+- **`deactivateProfile`** — `void deactivateProfile(String profileId)`. args: `[{"0":null}]`.
+- **`isProfileBelongsToLoggedUser`** — `boolean isProfileBelongsToLoggedUser(String profileId)`. args: `[{"0":null}]`.
+
+### `profileSearchServiceImpl`
+
+Класс: `ProfileSearchServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`getRepository`** — `ProfileRepository getRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProfiles`** — `LinkedHashSet<Profile> searchProfiles(String requestJson)`. args: `[{"0":null}]`.
+- **`searchProfilesPaged`** — `Page<Profile> searchProfilesPaged(String requestJson)`. args: `[{"0":null}]`.
+
+### `routerServiceImpl`
+
+Класс: `RouterServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`routeAsSinglePageApplication`** — `SPARoute routeAsSinglePageApplication(String site, String requestURI)`. args: `[{"0":null}]`.
+- **`getLoginPage`** — `String getLoginPage(String site)`. args: `[{"0":null}]`.
+- **`getPage404`** — `String getPage404(String site)`. args: `[{"0":null}]`.
+
+### `salesCatalogServiceImpl`
+
+Класс: `SalesCatalogServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`getPaginationUnits`** — `Deque<Map<String, Object>> getPaginationUnits(String requestJson)`. args: `[{"0":null}]`.
+- **`searchUnits`** — `LinkedHashSet<UnitDTO> searchUnits(String requestJson)`. args: `[{"0":null}]`.
+- **`searchUnitsPaged`** — `Page<Unit> searchUnitsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getAllCurrencies`** — `List<CurrencyItem> getAllCurrencies()`. args: `[]`.
+- **`getCurrencyByCode`** — `CurrencyItem getCurrencyByCode(String code)`. args: `[{"0":null}]`.
+- **`getSellerSkuFromChatTopic`** — `SellerSKU getSellerSkuFromChatTopic(String topic)`. args: `[{"0":null}]`.
+- **`getCountOfSellerSkusBySeller`** — `Map<String,String> getCountOfSellerSkusBySeller(String sellerId)`. args: `[{"0":null}]`.
+- **`getCountOfSellerSkus`** — `Map<String, String> getCountOfSellerSkus(String requestJson)`. args: `[{"0":null}]`.
+- **`createUnit`** — `Optional<Unit> createUnit(LinkedHashMap<String, Object> unitAsMap)`. args: `[{"0":null}]`.
+- **`createUnit`** — `Optional<Unit> createUnit(Unit unit)`. args: `[{"0":null}]`.
+- **`addPackageItemToSellerSku`** — `SellerSKU addPackageItemToSellerSku(String sellerSkuId, LinkedHashMap<String, Object> packageAsMap)`. args: `[{"0":null}]`.
+- **`removePackageItemFromSellerSku`** — `void removePackageItemFromSellerSku(String sellerSkuId, String packageId)`. args: `[{"0":null}]`.
+- **`removeFileResources`** — `void removeFileResources(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`saveSellerSkuAsDraft`** — `SellerSKU saveSellerSkuAsDraft(LinkedHashMap<String, Object> sellerSkuAsMap)`. args: `[{"0":null}]`.
+- **`saveSellerSkuAsDraft`** — `SellerSKU saveSellerSkuAsDraft(SellerSKU sellerSku)`. args: `[{"0":null}]`.
+- **`saveSellerSKU`** — `SellerSKU saveSellerSKU(LinkedHashMap<String, Object> sellerSkuAsMap)`. args: `[{"0":null}]`.
+- **`saveSellerSKU`** — `SellerSKU saveSellerSKU(SellerSKU sSku)`. args: `[{"0":null}]`.
+- **`saveUnit`** — `Unit saveUnit(LinkedHashMap<String, Object> unitAsMap)`. args: `[{"0":null}]`.
+- **`saveUnit`** — `Unit saveUnit(Unit unit)`. args: `[{"0":null}]`.
+- **`getAllSellerTariff`** — `Map<String, String> getAllSellerTariff()`. args: `[]`.
+- **`removeSellerSkuAndClean`** — `void removeSellerSkuAndClean(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`removeSellerSkusByIds`** — `void removeSellerSkusByIds(ArrayList<String> sellerSkusIds)`. args: `[{"0":null}]`.
+- **`createSellerSKU`** — `Optional<SellerSKU> createSellerSKU(LinkedHashMap<String, Object> sellerSkuAsMap)`. args: `[{"0":null}]`.
+- **`removeUnitAndClean`** — `void removeUnitAndClean(String unitId)`. args: `[{"0":null}]`.
+- **`removeUnitsByIds`** — `void removeUnitsByIds(ArrayList<String> unitsIds)`. args: `[{"0":null}]`.
+- **`publishForSale`** — `SellerSKU publishForSale(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`withdrawFromSale`** — `SellerSKU withdrawFromSale(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`changeType`** — `SellerSKU changeType(String sellerSkuId, String type)`. args: `[{"0":null}]`.
+- **`duplicate`** — `SellerSKU duplicate(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`mapUnitToDto`** — `UnitDTO mapUnitToDto(Unit unit, boolean optimal)`. args: `[{"0":null}]`.
+- **`exportListings`** — `List<SellerSkuExcelModel> exportListings(SearchRequest request)`. args: `[{"0":null}]`.
+- **`uploadListings`** — `void uploadListings(File file, String lang, String username)`. args: `[{"0":null}]`.
+- **`getSellerSkuDocumentUrls`** — `List<Attachment> getSellerSkuDocumentUrls(String sellerSkuId)`. args: `[{"0":null}]`.
+
+### `searchManagerServiceImpl`
+
+Класс: `SearchManagerServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`search`** — `SearchResponse search(LinkedHashMap<String, Object> requestAsMap)`. args: `[{"0":null}]`.
+- **`search`** — `SearchResponse search(SearchRequest request)`. args: `[{"0":null}]`.
+- **`countAll`** — `long countAll(LinkedHashMap<String, Object> requestAsMap)`. args: `[{"0":null}]`.
+- **`countAll`** — `long countAll(SearchRequest request)`. args: `[{"0":null}]`.
+- **`logicalFilters`** — `List<GroupFilter> logicalFilters()`. args: `[]`.
+- **`rangeFilters`** — `List<GroupFilter> rangeFilters()`. args: `[]`.
+- **`simpleFilters`** — `List<GroupFilter> simpleFilters()`. args: `[]`.
+- **`numericFilters`** — `List<GroupFilter> numericFilters()`. args: `[]`.
+- **`listFilters`** — `List<GroupFilter> listFilters()`. args: `[]`.
+- **`rangeFilterValues`** — `List<GroupFilter> rangeFilterValues(String filterId)`. args: `[{"0":null}]`.
+- **`listFilterValues`** — `List<GroupFilter> listFilterValues(String filterId)`. args: `[{"0":null}]`.
+- **`simpleFilterValues`** — `List<GroupFilter> simpleFilterValues(String filterId)`. args: `[{"0":null}]`.
+- **`numericFilterValues`** — `List<GroupFilter> numericFilterValues(String filterId)`. args: `[{"0":null}]`.
+- **`fieldFilterValues`** — `List<GroupFilter> fieldFilterValues(LinkedHashMap<String, Object> requestAsMap)`. args: `[{"0":null}]`.
+- **`listingFeatureFromAttribute`** — `GroupFilter listingFeatureFromAttribute(String filterId, String sellerSkuId)`. args: `[{"0":null}]`.
+- **`doProcessSearchTerms`** — `String[] doProcessSearchTerms(String searchTerms)`. args: `[{"0":null}]`.
+- **`aiSearchKeywords`** — `List<String> aiSearchKeywords(String query)`. args: `[{"0":null}]`.
+- **`aiSearchIsActive`** — `boolean aiSearchIsActive()`. args: `[]`.
+- **`parseSearchQuery`** — `List<String> parseSearchQuery(String query)`. args: `[{"0":null}]`.
+- **`applyFilters`** — `String applyFilters(SearchRequest request)`. args: `[{"0":null}]`.
+
+### `sellerRegistrationServiceImpl`
+
+Класс: `SellerRegistrationServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`getRepository`** — `SellerRepository getRepository()`. args: `[]`.
+- **`isLogged`** — `boolean isLogged()`. args: `[]`.
+- **`isNotLogged`** — `boolean isNotLogged()`. args: `[]`.
+- **`getLoggedSeller`** — `Seller getLoggedSeller()`. args: `[]`.
+- **`getLoggedProfile`** — `Profile getLoggedProfile()`. args: `[]`.
+- **`getChatsByLoggedProfile`** — `List<Chat> getChatsByLoggedProfile()`. args: `[]`.
+- **`getCertificates`** — `List<Certificate> getCertificates()`. args: `[]`.
+- **`registerSeller`** — `Optional<Seller> registerSeller(LinkedHashMap<String, Object> sellerAsMap)`. args: `[{"0":null}]`.
+- **`sendContactSupplierEmail`** — `void sendContactSupplierEmail(String sellerId, String messageText, String topic)`. args: `[{"0":null}]`.
+- **`saveSeller`** — `Seller saveSeller(LinkedHashMap<String, Object> sellerAsMap)`. args: `[{"0":null}]`.
+- **`saveSeller`** — `Seller saveSeller(Seller seller)`. args: `[{"0":null}]`.
+- **`updateSeller`** — `Seller updateSeller(LinkedHashMap<String, Object> sellerAsMap, Boolean verifyRequired)`. args: `[{"0":null}]`.
+- **`removeSellerAndClean`** — `void removeSellerAndClean(String sellerId)`. args: `[{"0":null}]`.
+- **`removeSellersByIds`** — `void removeSellersByIds(ArrayList<String> sellersIds)`. args: `[{"0":null}]`.
+- **`getSellerSellerSkus`** — `List<SellerSKU> getSellerSellerSkus(String sellerId)`. args: `[{"0":null}]`.
+- **`getCountryBySellerId`** — `Country getCountryBySellerId(String sellerId)`. args: `[{"0":null}]`.
+- **`isTariffPaid`** — `boolean isTariffPaid(String sellerId)`. args: `[{"0":null}]`.
+- **`isTariffNotPaid`** — `boolean isTariffNotPaid(String sellerId)`. args: `[{"0":null}]`.
+- **`isFavoriteSellerNotExists`** — `boolean isFavoriteSellerNotExists(String sellerId)`. args: `[{"0":null}]`.
+- **`isFavoriteSellerExists`** — `boolean isFavoriteSellerExists(String sellerId)`. args: `[{"0":null}]`.
+- **`isFavoriteSellerSkuNotExists`** — `boolean isFavoriteSellerSkuNotExists(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`isFavoriteSellerSkuExists`** — `boolean isFavoriteSellerSkuExists(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`isEmailNotificationEnabled`** — `Map<String, Boolean> isEmailNotificationEnabled(String sellerId)`. args: `[{"0":null}]`.
+- **`getSellerDocumentUrls`** — `List<Attachment> getSellerDocumentUrls(String sellerId,String type)`. args: `[{"0":null}]`.
+- **`getFavoriteSellers`** — `HashSet<Seller> getFavoriteSellers()`. args: `[]`.
+- **`addFavoriteSeller`** — `HashSet<String> addFavoriteSeller(String sellerId)`. args: `[{"0":null}]`.
+- **`removeFavoriteSeller`** — `void removeFavoriteSeller(String sellerId)`. args: `[{"0":null}]`.
+- **`getFavoriteSellerSKUs`** — `LinkedHashSet<SellerSKU> getFavoriteSellerSKUs()`. args: `[]`.
+- **`addFavoriteSellerSKU`** — `LinkedHashSet<String> addFavoriteSellerSKU(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`removeFavoriteSellerSKU`** — `void removeFavoriteSellerSKU(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`getSellers`** — `List<Map<String, String>> getSellers()`. args: `[]`.
+- **`changeProfileEmbeddedParent`** — `void changeProfileEmbeddedParent(String profileId, String sellerId)`. args: `[{"0":null}]`.
+- **`isEmailTaken`** — `boolean isEmailTaken(String email)`. args: `[{"0":null}]`.
+- **`isUserActive`** — `boolean isUserActive(String email)`. args: `[{"0":null}]`.
+- **`deleteSellerAccount`** — `void deleteSellerAccount(String sellerId)`. args: `[{"0":null}]`.
+
+### `sellersProxyImpl`
+
+Класс: `SellersProxyImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`findSellerById`** — `Optional<Seller> findSellerById(String id)`. args: `[{"0":null}]`.
+
+### `sequenceGeneratorServiceImpl`
+
+Класс: `SequenceGeneratorServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`generateSequence`** — `long generateSequence(String seqName)`. args: `[{"0":null}]`.
+- **`removeSequences`** — `void removeSequences()`. args: `[]`.
+
+### `settingsManagementServiceImpl`
+
+Класс: `SettingsManagementServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `WebSiteSettingsRepository getRepository()`. args: `[]`.
+- **`searchSettingsResultsPaged`** — `Page<WebSiteSettings> searchSettingsResultsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchSettingsResults`** — `List<WebSiteSettings> searchSettingsResults(String requestJson)`. args: `[{"0":null}]`.
+- **`createSettings`** — `WebSiteSettings createSettings(LinkedHashMap<String, Object> settingsAsMap)`. args: `[{"0":null}]`.
+- **`createSettings`** — `WebSiteSettings createSettings(WebSiteSettings settings)`. args: `[{"0":null}]`.
+- **`saveSettings`** — `WebSiteSettings saveSettings(LinkedHashMap<String, Object> settingsAsMap)`. args: `[{"0":null}]`.
+- **`saveSettings`** — `WebSiteSettings saveSettings(WebSiteSettings settings)`. args: `[{"0":null}]`.
+- **`removeSettingsByIds`** — `void removeSettingsByIds(ArrayList<String> settingsIds)`. args: `[{"0":null}]`.
+- **`removeSettingsAndClean`** — `void removeSettingsAndClean(String settingsId)`. args: `[{"0":null}]`.
+- **`getSettingsPaginationFilter`** — `Deque<Map<String, Object>> getSettingsPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+
+### `shoppingCartServiceImpl`
+
+Класс: `ShoppingCartServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`getCartDTO`** — `ShoppingCartDTO getCartDTO()`. args: `[]`.
+- **`getCartDTO`** — `ShoppingCartDTO getCartDTO(String buyerId)`. args: `[{"0":null}]`.
+- **`addCommerceItem`** — `ShoppingCartDTO addCommerceItem(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`addCommerceItems`** — `ShoppingCartDTO addCommerceItems(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`addCommerceItems`** — `ShoppingCartDTO addCommerceItems(MultipleAddToCartRequest request)`. args: `[{"0":null}]`.
+- **`addCommerceItem`** — `ShoppingCartDTO addCommerceItem(LinkedHashMap<String, Object> data)`. args: `[{"0":null}]`.
+- **`addCommerceItem`** — `ShoppingCartDTO addCommerceItem(AddToCartRequest request)`. args: `[{"0":null}]`.
+- **`removeCommerceItem`** — `ShoppingCartDTO removeCommerceItem(String itemId)`. args: `[{"0":null}]`.
+- **`clearCart`** — `void clearCart()`. args: `[]`.
+- **`decreaseQuantity`** — `ShoppingCartDTO decreaseQuantity(String itemId)`. args: `[{"0":null}]`.
+- **`updateQuantity`** — `ShoppingCartDTO updateQuantity(String itemId, String quantity)`. args: `[{"0":null}]`.
+- **`increaseQuantity`** — `ShoppingCartDTO increaseQuantity(String itemId)`. args: `[{"0":null}]`.
+- **`canAddItem`** — `boolean canAddItem(String sellerSkuId)`. args: `[{"0":null}]`.
+- **`checkPrice`** — `boolean checkPrice(SellerSKU sellerSku)`. args: `[{"0":null}]`.
+- **`checkInventory`** — `boolean checkInventory(SellerSKU sellerSku)`. args: `[{"0":null}]`.
+- **`checkRestQuantity`** — `boolean checkRestQuantity(SellerSKU sellerSku)`. args: `[{"0":null}]`.
+- **`checkCurrencyForCart`** — `boolean checkCurrencyForCart(SellerSKU sellerSku)`. args: `[{"0":null}]`.
+- **`checkStripeConnect`** — `boolean checkStripeConnect(SellerSKU sellerSku)`. args: `[{"0":null}]`.
+
+### `siteManagementServiceImpl`
+
+Класс: `SiteManagementServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`findSites`** — `List<SiteItem> findSites()`. args: `[]`.
+- **`findPages`** — `List<SiteItem> findPages(String route)`. args: `[{"0":null}]`.
+- **`deleteRoute`** — `void deleteRoute(String route)`. args: `[{"0":null}]`.
+- **`deleteRoutes`** — `void deleteRoutes(ArrayList<String> routes)`. args: `[{"0":null}]`.
+
+### `sitemapGeneratorServiceImpl`
+
+Класс: `SitemapGeneratorServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`generateSiteMap`** — `void generateSiteMap(LinkedHashMap<String, Object> siteMapRequest)`. args: `[{"0":null}]`.
+- **`getPageLinks`** — `HashSet<String> getPageLinks(String baseURL, String URL, HashSet<String> links, List<String> urlsToIgnore)`. args: `[{"0":null}]`.
+- **`isWorkInProgress`** — `boolean isWorkInProgress()`. args: `[]`.
+- **`changeStatus`** — `void changeStatus(ServiceState status)`. args: `[{"0":null}]`.
+
+### `sKUServiceImpl`
+
+Класс: `SKUServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`getRepository`** — `SKURepository getRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchSKUs`** — `SearchResponse searchSKUs(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchSkusLightweight`** — `SearchResponse searchSkusLightweight(LinkedHashMap<String, Object> requestJson)`. args: `[{"0":null}]`.
+- **`searchSKUs`** — `LinkedHashSet<SkuDTO> searchSKUs(String requestJson)`. args: `[{"0":null}]`.
+- **`searchSkusPaged`** — `Page<SKU> searchSkusPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`findById`** — `SKU findById(String skuId)`. args: `[{"0":null}]`.
+- **`searchSKUs`** — `List<SkuDTO> searchSKUs(String query, String offset, String limit)`. args: `[{"0":null}]`.
+- **`searchWithProductFilter`** — `List<SkuDTO> searchWithProductFilter(String query, String productId, String offset, String limit)`. args: `[{"0":null}]`.
+- **`findSKUs`** — `List<SKU> findSKUs()`. args: `[]`.
+- **`getCategoriesBySkuId`** — `List<Category> getCategoriesBySkuId(String skuId)`. args: `[{"0":null}]`.
+- **`createSKU`** — `Optional<SKU> createSKU(LinkedHashMap<String, Object> skuAsMap)`. args: `[{"0":null}]`.
+- **`createSKU`** — `Optional<SKU> createSKU(SKU sku)`. args: `[{"0":null}]`.
+- **`addSKUToProduct`** — `SKU addSKUToProduct(String productId, LinkedHashMap<String, Object> skuAsMap)`. args: `[{"0":null}]`.
+- **`saveSKU`** — `SKU saveSKU(LinkedHashMap<String, Object> skuAsMap)`. args: `[{"0":null}]`.
+- **`saveSKU`** — `SKU saveSKU(SKU sku)`. args: `[{"0":null}]`.
+- **`removeSKUFromAttribute`** — `void removeSKUFromAttribute(String skuId, String attributeId)`. args: `[{"0":null}]`.
+- **`removeSKUFromAttributes`** — `void removeSKUFromAttributes(String skuId)`. args: `[{"0":null}]`.
+- **`removeSKUFromSellerSKU`** — `void removeSKUFromSellerSKU(String skuId, String sellerSkuId)`. args: `[{"0":null}]`.
+- **`removeSKUFromSellerSKUs`** — `void removeSKUFromSellerSKUs(String skuId)`. args: `[{"0":null}]`.
+- **`removeSKUFromProduct`** — `void removeSKUFromProduct(String skuId, String productId)`. args: `[{"0":null}]`.
+- **`removeSKUFromProducts`** — `void removeSKUFromProducts(String skuId)`. args: `[{"0":null}]`.
+- **`removeSKUFromTranslation`** — `void removeSKUFromTranslation(String skuId, String translationId)`. args: `[{"0":null}]`.
+- **`removeSKUFromTranslations`** — `void removeSKUFromTranslations(String skuId)`. args: `[{"0":null}]`.
+- **`removeSKUAndClean`** — `void removeSKUAndClean(String skuId)`. args: `[{"0":null}]`.
+- **`removeSkusByIds`** — `void removeSkusByIds(ArrayList<String> skusIds)`. args: `[{"0":null}]`.
+- **`isSKUExists`** — `boolean isSKUExists(String name)`. args: `[{"0":null}]`.
+- **`getSortedProductSkus`** — `List<Map<String, String>> getSortedProductSkus(String productId)`. args: `[{"0":null}]`.
+- **`getSkusByProductAndFirstLetter`** — `List<Map<String, Object>> getSkusByProductAndFirstLetter(String productId, String firstLetter)`. args: `[{"0":null}]`.
+- **`mapSkuToDto`** — `SkuDTO mapSkuToDto(SKU sku, boolean optimal)`. args: `[{"0":null}]`.
+- **`uploadSKU`** — `void uploadSKU(File file, String lang, String username)`. args: `[{"0":null}]`.
+- **`updateMetaInfo`** — `SKU updateMetaInfo(String skuId, LinkedHashMap<String, Object> metaInfo)`. args: `[{"0":null}]`.
+- **`getFallIntoProducts`** — `LinkedHashSet<EmbeddedBean> getFallIntoProducts(String[] productIds)`. args: `[{"0":null}]`.
+
+### `stripeConnectServiceImpl`
+
+Класс: `StripeConnectServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`checkConnectAccountStatus`** — `String checkConnectAccountStatus()`. args: `[]`.
+- **`createAccount`** — `Account createAccount(StripeAccountDTO accountDTO)`. args: `[{"0":null}]`.
+- **`createAccount`** — `StripeAccountDTO createAccount(LinkedHashMap<String, Object> metaInfo)`. args: `[{"0":null}]`.
+- **`updateAccount`** — `Account updateAccount(String accountId, StripeAccountDTO stripeAccountDTO)`. args: `[{"0":null}]`.
+- **`deleteAccount`** — `void deleteAccount(String sellerId)`. args: `[{"0":null}]`.
+- **`getInitialPerson`** — `StripePersonDTO getInitialPerson()`. args: `[]`.
+- **`createExternalBankAccount`** — `boolean createExternalBankAccount(LinkedHashMap<String, Object> bankData)`. args: `[{"0":null}]`.
+- **`createExternalCardAccount`** — `boolean createExternalCardAccount(LinkedHashMap<String, Object> cardData)`. args: `[{"0":null}]`.
+- **`getBusinessTypes`** — `List<String> getBusinessTypes()`. args: `[]`.
+- **`getBusinessStructures`** — `List<String> getBusinessStructures(String businessType)`. args: `[{"0":null}]`.
+- **`getMCCs`** — `Map<String, String> getMCCs()`. args: `[]`.
+- **`verifyAccount`** — `StripeAccountDTO verifyAccount(String refreshUrl, String returnUrl, LinkedHashMap<String, Object> metaInfo)`. args: `[{"0":null}]`.
+- **`obtainConnectOnboardingLink`** — `String obtainConnectOnboardingLink(String refreshUrl, String returnUrl)`. args: `[{"0":null}]`.
+
+### `stripeConnectServiceMock`
+
+Класс: `StripeConnectServiceMock`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`checkConnectAccountStatus`** — `String checkConnectAccountStatus()`. args: `[]`.
+- **`createAccount`** — `Account createAccount(StripeAccountDTO stripeAccountDTO)`. args: `[{"0":null}]`.
+- **`createAccount`** — `StripeAccountDTO createAccount(LinkedHashMap<String,Object> metaInfo)`. args: `[{"0":null}]`.
+- **`updateAccount`** — `Account updateAccount(String accountId, StripeAccountDTO accountDTO)`. args: `[{"0":null}]`.
+- **`deleteAccount`** — `void deleteAccount(String sellerId)`. args: `[{"0":null}]`.
+- **`getInitialPerson`** — `StripePersonDTO getInitialPerson()`. args: `[]`.
+- **`createExternalBankAccount`** — `boolean createExternalBankAccount(LinkedHashMap<String, Object> bankData)`. args: `[{"0":null}]`.
+- **`createExternalCardAccount`** — `boolean createExternalCardAccount(LinkedHashMap<String, Object> cardData)`. args: `[{"0":null}]`.
+- **`getBusinessTypes`** — `List<String> getBusinessTypes()`. args: `[]`.
+- **`getBusinessStructures`** — `List<String> getBusinessStructures(String businessType)`. args: `[{"0":null}]`.
+- **`getMCCs`** — `Map<String, String> getMCCs()`. args: `[]`.
+- **`obtainConnectOnboardingLink`** — `String obtainConnectOnboardingLink(String refreshUrl, String returnUrl)`. args: `[{"0":null}]`.
+- **`verifyAccount`** — `StripeAccountDTO verifyAccount(String refreshUrl, String returnUrl, LinkedHashMap<String, Object> metaInfo)`. args: `[{"0":null}]`.
+
+### `stripeHandlerServiceImpl`
+
+Класс: `StripeHandlerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`handlePayoutPaidEvent`** — `Object handlePayoutPaidEvent(StripeObject stripeObject, HttpSession httpSession)`. args: `[{"0":null}]`.
+- **`handleChargeRefundedEvent`** — `Object handleChargeRefundedEvent(StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handlePaymentIntentFailedEvent`** — `Object handlePaymentIntentFailedEvent(StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handlePaymentIntentCanceledEvent`** — `Object handlePaymentIntentCanceledEvent(StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handlePaymentIntentSucceededEvent`** — `Object handlePaymentIntentSucceededEvent(StripeObject stripeObject, HttpSession httpSession)`. args: `[{"0":null}]`.
+- **`handlePaymentIntentCreatedEvent`** — `Object handlePaymentIntentCreatedEvent(StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handleSubscriptionCanceledEvent`** — `Object handleSubscriptionCanceledEvent(Event event, StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handleSubscriptionDeletedEvent`** — `Object handleSubscriptionDeletedEvent(Event event, StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handleCustomerDeletedEvent`** — `Object handleCustomerDeletedEvent(Event event, StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handleCustomerCreatedEvent`** — `Object handleCustomerCreatedEvent(StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handleAccountUpdatedEvent`** — `Object handleAccountUpdatedEvent(StripeObject stripeObject)`. args: `[{"0":null}]`.
+- **`handleLexofficeContactChanged`** — `Object handleLexofficeContactChanged(WebhookCallback payload, HttpSession httpSession)`. args: `[{"0":null}]`.
+
+### `stripeServiceImpl`
+
+Класс: `StripeServiceImpl`. Доступ: **GUEST* / USER или ADMIN**. Bearer Token: **условно**.
+
+- **`init`** — `void init()`. args: `[]`.
+- **`isStripeKeysDefined`** — `boolean isStripeKeysDefined()`. args: `[]`.
+- **`getCurrency`** — `String getCurrency()`. args: `[]`.
+- **`createIntent`** — `String createIntent(String orderId, String stripeConnectId, String paymentMethodId, BigDecimal nettoAmount, Order.Tax tax)`. args: `[{"0":null}]`.
+- **`createIntent`** — `String createIntent(LinkedHashMap<String, Object> paymentRequestAsMap)`. args: `[{"0":null}]`.
+- **`createIntent`** — `String createIntent(PaymentRequest paymentRequest)`. args: `[{"0":null}]`.
+- **`retrieveIntent`** — `Map<String,Object> retrieveIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`cancelIntent`** — `String cancelIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`refundIntent`** — `String refundIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`chargeIntent`** — `PaymentStatus chargeIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`obtain3DSecureLink`** — `String obtain3DSecureLink(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`changePaymentMethod`** — `boolean changePaymentMethod(String paymentIntentId, String paymentMethodId)`. args: `[{"0":null}]`.
+- **`payoutToVendor`** — `Payout payoutToVendor(Seller vendor, String orderId, long amount)`. args: `[{"0":null}]`.
+- **`chargeSepa`** — `String chargeSepa(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`chargeCreditCard`** — `String chargeCreditCard(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`chargeTariffSepa`** — `void chargeTariffSepa(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`chargeTariffCreditCard`** — `void chargeTariffCreditCard(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`cancelSubscriptionAfterActivePeriod`** — `String cancelSubscriptionAfterActivePeriod(String sellerId)`. args: `[{"0":null}]`.
+- **`cancelSubscriptionImmediately`** — `String cancelSubscriptionImmediately(String sellerId)`. args: `[{"0":null}]`.
+- **`getContractEndDate`** — `Map<String, Object> getContractEndDate(String createdDate, String pattern)`. args: `[{"0":null}]`.
+- **`getContractEndDateFromTimestamp`** — `Map<String, Object> getContractEndDateFromTimestamp(String created, String pattern)`. args: `[{"0":null}]`.
+- **`isTariffEquals`** — `boolean isTariffEquals(String tariff)`. args: `[{"0":null}]`.
+- **`getAmountByTariff`** — `Map<String, String> getAmountByTariff(String tariff)`. args: `[{"0":null}]`.
+- **`createInvoice`** — `Map<String,Object> createInvoice(String orderId)`. args: `[{"0":null}]`.
+- **`getInvoices`** — `List<Invoice> getInvoices()`. args: `[]`.
+- **`getProducts`** — `List<Product> getProducts()`. args: `[]`.
+- **`createPaymentMethod`** — `Map<String,Object> createPaymentMethod(LinkedHashMap<String,Object> paymentMethodMap)`. args: `[{"0":null}]`.
+- **`createCustomer`** — `String createCustomer()`. args: `[]`.
+- **`deleteCustomer`** — `void deleteCustomer(String sellerId)`. args: `[{"0":null}]`.
+- **`removePaymentMethod`** — `void removePaymentMethod(String paymentMethodId)`. args: `[{"0":null}]`.
+- **`getPaymentMethods`** — `List<PaymentMethod> getPaymentMethods(String type)`. args: `[{"0":null}]`.
+- **`getPaymentMethod`** — `Map<String, Object> getPaymentMethod(String paymentMethodId)`. args: `[{"0":null}]`.
+- **`getSubscription`** — `Map<String,Object> getSubscription()`. args: `[]`.
+- **`calculateTaxRate`** — `Map<String, Object> calculateTaxRate(String amount, String countryIsoCode)`. args: `[{"0":null}]`.
+- **`obtainAllTaxRates`** — `Map<String, TaxRate> obtainAllTaxRates()`. args: `[]`.
+- **`calculateTax`** — `Order.Tax calculateTax(Seller buyer, Seller seller, Map<String, TaxRate> taxRates)`. args: `[{"0":null}]`.
+
+### `stripeServiceMock`
+
+Класс: `StripeServiceMock`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`isStripeKeysDefined`** — `boolean isStripeKeysDefined()`. args: `[]`.
+- **`getCurrency`** — `String getCurrency()`. args: `[]`.
+- **`cancelIntent`** — `String cancelIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`refundIntent`** — `String refundIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`createIntent`** — `String createIntent(String orderId, String stripeConnectId, String paymentMethodId, BigDecimal nettoAmount, Order.Tax tax)`. args: `[{"0":null}]`.
+- **`createIntent`** — `String createIntent(LinkedHashMap<String, Object> paymentRequestAsMap)`. args: `[{"0":null}]`.
+- **`createIntent`** — `String createIntent(PaymentRequest paymentRequest)`. args: `[{"0":null}]`.
+- **`retrieveIntent`** — `Map<String,Object> retrieveIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`changePaymentMethod`** — `boolean changePaymentMethod(String paymentIntentId, String paymentMethodId)`. args: `[{"0":null}]`.
+- **`chargeIntent`** — `PaymentStatus chargeIntent(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`obtain3DSecureLink`** — `String obtain3DSecureLink(String paymentIntentId)`. args: `[{"0":null}]`.
+- **`payoutToVendor`** — `Payout payoutToVendor(Seller vendor, String orderId, long amount)`. args: `[{"0":null}]`.
+- **`chargeSepa`** — `String chargeSepa(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`chargeCreditCard`** — `String chargeCreditCard(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`chargeTariffSepa`** — `void chargeTariffSepa(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`chargeTariffCreditCard`** — `void chargeTariffCreditCard(LinkedHashMap<String, Object> chargeRequestAsMap)`. args: `[{"0":null}]`.
+- **`getAmountByTariff`** — `Map<String, String> getAmountByTariff(String tariff)`. args: `[{"0":null}]`.
+- **`createInvoice`** — `Map<String,Object> createInvoice(String orderId)`. args: `[{"0":null}]`.
+- **`getInvoices`** — `List<Invoice> getInvoices()`. args: `[]`.
+- **`getProducts`** — `List<Product> getProducts()`. args: `[]`.
+- **`createPaymentMethod`** — `Map<String, Object> createPaymentMethod(LinkedHashMap<String, Object> paymentMethod)`. args: `[{"0":null}]`.
+- **`createCustomer`** — `String createCustomer()`. args: `[]`.
+- **`deleteCustomer`** — `void deleteCustomer(String sellerId)`. args: `[{"0":null}]`.
+- **`removePaymentMethod`** — `void removePaymentMethod(String paymentMethodId)`. args: `[{"0":null}]`.
+- **`getPaymentMethods`** — `List<PaymentMethod> getPaymentMethods(String type)`. args: `[{"0":null}]`.
+- **`getPaymentMethod`** — `Map<String, Object> getPaymentMethod(String paymentMethodId)`. args: `[{"0":null}]`.
+- **`getSubscription`** — `Map<String, Object> getSubscription()`. args: `[]`.
+- **`calculateTaxRate`** — `Map<String, Object> calculateTaxRate(String amount, String countryIsoCode)`. args: `[{"0":null}]`.
+- **`obtainAllTaxRates`** — `Map<String, TaxRate> obtainAllTaxRates()`. args: `[]`.
+- **`cancelSubscriptionAfterActivePeriod`** — `String cancelSubscriptionAfterActivePeriod(String sellerId)`. args: `[{"0":null}]`.
+- **`cancelSubscriptionImmediately`** — `String cancelSubscriptionImmediately(String sellerId)`. args: `[{"0":null}]`.
+- **`getContractEndDate`** — `Map<String, Object> getContractEndDate(String createdDate, String pattern)`. args: `[{"0":null}]`.
+- **`getContractEndDateFromTimestamp`** — `Map<String, Object> getContractEndDateFromTimestamp(String created, String pattern)`. args: `[{"0":null}]`.
+- **`isTariffEquals`** — `boolean isTariffEquals(String tariff)`. args: `[{"0":null}]`.
+- **`calculateTax`** — `Order.Tax calculateTax(Seller buyer, Seller seller, Map<String, TaxRate> taxRates)`. args: `[{"0":null}]`.
+
+### `tagProcessorServiceImpl`
+
+Класс: `TagProcessorServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`compileTemplate`** — `List<Object> compileTemplate(String html)`. args: `[{"0":null}]`.
+- **`compileElement`** — `Map<String, Object> compileElement(String html, RequestElement requestElement)`. args: `[{"0":null}]`.
+- **`compileTemplateAsHtml`** — `String compileTemplateAsHtml(String html)`. args: `[{"0":null}]`.
+- **`completeCompile`** — `String completeCompile(String html)`. args: `[{"0":null}]`.
+- **`recursiveCompile`** — `String recursiveCompile(String html, Map<String, Object> map, String itemPrefix)`. args: `[{"0":null}]`.
+- **`buildForeachElements`** — `List<Object> buildForeachElements(Elements foreachElements)`. args: `[{"0":null}]`.
+- **`foreachElement`** — `Map<String, Object> foreachElement(Element item)`. args: `[{"0":null}]`.
+- **`foreachElement`** — `Map<String, Object> foreachElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileForeachElement`** — `String compileForeachElement(Element element)`. args: `[{"0":null}]`.
+- **`buildRestElements`** — `List<Object> buildRestElements(Elements restElements)`. args: `[{"0":null}]`.
+- **`restElement`** — `Map<String, Object> restElement(Element item)`. args: `[{"0":null}]`.
+- **`restElement`** — `Map<String, Object> restElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileRestElement`** — `String compileRestElement(Element element)`. args: `[{"0":null}]`.
+- **`buildFragmentElements`** — `List<Object> buildFragmentElements(Elements fragmentElements)`. args: `[{"0":null}]`.
+- **`fragmentElement`** — `Map<String, Object> fragmentElement(Element item)`. args: `[{"0":null}]`.
+- **`fragmentElement`** — `Map<String, Object> fragmentElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileFragmentElement`** — `String compileFragmentElement(Element element)`. args: `[{"0":null}]`.
+- **`buildBlockElements`** — `List<Object> buildBlockElements(Elements blockElements)`. args: `[{"0":null}]`.
+- **`blockElement`** — `Map<String, Object> blockElement(Element item)`. args: `[{"0":null}]`.
+- **`blockElement`** — `Map<String, Object> blockElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileBlockElement`** — `String compileBlockElement(Element element)`. args: `[{"0":null}]`.
+- **`buildTextElements`** — `List<Object> buildTextElements(Elements textElements)`. args: `[{"0":null}]`.
+- **`textElement`** — `Map<String, Object> textElement(Element item)`. args: `[{"0":null}]`.
+- **`textElement`** — `Map<String, Object> textElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileTextElement`** — `String compileTextElement(Element element)`. args: `[{"0":null}]`.
+- **`buildTreeElements`** — `List<Object> buildTreeElements(Elements treeElements)`. args: `[{"0":null}]`.
+- **`treeElement`** — `Map<String, Object> treeElement(Element item)`. args: `[{"0":null}]`.
+- **`treeElement`** — `Map<String, Object> treeElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileTreeElement`** — `String compileTreeElement(Element element)`. args: `[{"0":null}]`.
+- **`buildIfElements`** — `List<Object> buildIfElements(Elements ifElements)`. args: `[{"0":null}]`.
+- **`ifElement`** — `Map<String, Object> ifElement(Element item)`. args: `[{"0":null}]`.
+- **`ifElement`** — `Map<String, Object> ifElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileIfElement`** — `String compileIfElement(Element element)`. args: `[{"0":null}]`.
+- **`buildSelectElements`** — `List<Object> buildSelectElements(Elements selectElements)`. args: `[{"0":null}]`.
+- **`selectElement`** — `Map<String, Object> selectElement(Element item)`. args: `[{"0":null}]`.
+- **`selectElement`** — `Map<String, Object> selectElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileSelectElement`** — `String compileSelectElement(Element element)`. args: `[{"0":null}]`.
+- **`buildResourceElements`** — `List<Object> buildResourceElements(Elements resourceElements)`. args: `[{"0":null}]`.
+- **`resourceElement`** — `Map<String, Object> resourceElement(Element item)`. args: `[{"0":null}]`.
+- **`resourceElement`** — `Map<String, Object> resourceElement(Element msmElement, RequestElement request)`. args: `[{"0":null}]`.
+- **`compileResourceElement`** — `String compileResourceElement(Element element)`. args: `[{"0":null}]`.
+
+### `templateLocatorServiceImpl`
+
+Класс: `TemplateLocatorServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`getSiteFromContext`** — `String getSiteFromContext()`. args: `[]`.
+- **`findTemplate`** — `String findTemplate(String site,String requestURI)`. args: `[{"0":null}]`.
+- **`findTemplateByPath`** — `String findTemplateByPath(String path)`. args: `[{"0":null}]`.
+- **`getPagePath`** — `String getPagePath(String path)`. args: `[{"0":null}]`.
+- **`getFragmentPath`** — `String getFragmentPath(String path)`. args: `[{"0":null}]`.
+- **`getPageHtml`** — `String getPageHtml(String path)`. args: `[{"0":null}]`.
+- **`getFragmentHtml`** — `String getFragmentHtml(String path)`. args: `[{"0":null}]`.
+
+### `tokenServiceImpl`
+
+Класс: `TokenServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`generateToken`** — `String generateToken(TokenType tokenType)`. args: `[{"0":null}]`.
+- **`createVerificationTokenForUser`** — `void createVerificationTokenForUser(User user, String token)`. args: `[{"0":null}]`.
+- **`createPasswordResetTokenForUser`** — `void createPasswordResetTokenForUser(User user, String token)`. args: `[{"0":null}]`.
+- **`getVerificationToken`** — `Optional<VerificationToken> getVerificationToken(String verificationToken)`. args: `[{"0":null}]`.
+- **`getVerificationToken`** — `Optional<VerificationToken> getVerificationToken(String verificationToken, String username)`. args: `[{"0":null}]`.
+- **`getPasswordResetToken`** — `Optional<PasswordResetToken> getPasswordResetToken(String passwordResetToken)`. args: `[{"0":null}]`.
+- **`getPasswordResetToken`** — `Optional<PasswordResetToken> getPasswordResetToken(String passwordResetToken, String username)`. args: `[{"0":null}]`.
+- **`findByUser`** — `Optional<PasswordResetToken> findByUser(User user)`. args: `[{"0":null}]`.
+- **`deleteVerificationToken`** — `void deleteVerificationToken(VerificationToken verificationToken)`. args: `[{"0":null}]`.
+- **`deletePasswordResetToken`** — `void deletePasswordResetToken(PasswordResetToken passwordResetToken)`. args: `[{"0":null}]`.
+
+### `translationServiceImpl`
+
+Класс: `TranslationServiceImpl`. Доступ: **GUEST**. Bearer Token: **нет**.
+
+- **`init`** — `void init()`. args: `[]`.
+- **`getRepository`** — `TranslationsRepository getRepository()`. args: `[]`.
+- **`getLanguageRepository`** — `LanguageRepository getLanguageRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchTranslations`** — `LinkedHashSet<LocalizedText> searchTranslations(String requestJson)`. args: `[{"0":null}]`.
+- **`searchTranslationsPaged`** — `Page<LocalizedText> searchTranslationsPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`searchTranslations`** — `List<LocalizedText> searchTranslations(String query,String offset,String limit)`. args: `[{"0":null}]`.
+- **`searchTranslationsById`** — `List<LocalizedText> searchTranslationsById(String regex)`. args: `[{"0":null}]`.
+- **`findTranslations`** — `List<LocalizedText> findTranslations()`. args: `[]`.
+- **`findTranslationsByLangCode`** — `List<LocalizedText> findTranslationsByLangCode(String lang)`. args: `[{"0":null}]`.
+- **`getTranslationsByLangCode`** — `Map<String, String> getTranslationsByLangCode(String lang)`. args: `[{"0":null}]`.
+- **`getLangFromContext`** — `String getLangFromContext()`. args: `[]`.
+- **`getTranslatedTimeDuration`** — `Map<String, String> getTranslatedTimeDuration(String date)`. args: `[{"0":null}]`.
+- **`getTranslationById`** — `LocalizedText getTranslationById(String id)`. args: `[{"0":null}]`.
+- **`getTranslation`** — `Map<String,String> getTranslation(String id, String repositoryName)`. args: `[{"0":null}]`.
+- **`getTranslation`** — `Map<String, String> getTranslation(String id, String lang, String repositoryName)`. args: `[{"0":null}]`.
+- **`getTranslationValue`** — `String getTranslationValue(String id, String repositoryName)`. args: `[{"0":null}]`.
+- **`getTranslationValue`** — `String getTranslationValue(String id, String lang, String repositoryName)`. args: `[{"0":null}]`.
+- **`searchLanguages`** — `List<Language> searchLanguages(String query,String offset,String limit)`. args: `[{"0":null}]`.
+- **`findLanguages`** — `List<Language> findLanguages()`. args: `[]`.
+- **`createTranslation`** — `Optional<LocalizedText> createTranslation(LinkedHashMap<String, Object> translationAsMap)`. args: `[{"0":null}]`.
+- **`createTranslation`** — `LocalizedText createTranslation(LocalizedText translation)`. args: `[{"0":null}]`.
+- **`createLanguage`** — `Optional<Language> createLanguage(LinkedHashMap<String, Object> langAsMap)`. args: `[{"0":null}]`.
+- **`createLanguage`** — `Language createLanguage(Language language)`. args: `[{"0":null}]`.
+- **`saveTranslation`** — `Optional<LocalizedText> saveTranslation(LinkedHashMap<String, Object> translationAsMap)`. args: `[{"0":null}]`.
+- **`saveArticle`** — `Optional<LocalizedText> saveArticle(String text,String articleId)`. args: `[{"0":null}]`.
+- **`saveTranslation`** — `Optional<LocalizedText> saveTranslation(LocalizedText translation)`. args: `[{"0":null}]`.
+- **`saveLanguage`** — `Optional<Language> saveLanguage(LinkedHashMap<String, Object> langAsMap)`. args: `[{"0":null}]`.
+- **`saveLanguage`** — `Optional<Language> saveLanguage(Language language)`. args: `[{"0":null}]`.
+- **`removeTranslationAndClean`** — `void removeTranslationAndClean(String translationId)`. args: `[{"0":null}]`.
+- **`removeTranslationsByIds`** — `void removeTranslationsByIds(ArrayList<String> translationIds)`. args: `[{"0":null}]`.
+- **`removeTranslationsByLanguage`** — `void removeTranslationsByLanguage(String langId)`. args: `[{"0":null}]`.
+- **`removeLanguageAndClean`** — `void removeLanguageAndClean(String langId)`. args: `[{"0":null}]`.
+- **`removeLanguagesByIds`** — `void removeLanguagesByIds(ArrayList<String> languageIds)`. args: `[{"0":null}]`.
+- **`getTranslations`** — `HashSet<LocalizedText> getTranslations(String langEn, String langDe)`. args: `[{"0":null}]`.
+- **`addTranslation`** — `void addTranslation(String lang, HashSet<LocalizedText> translations, Optional<Language> languageOptional)`. args: `[{"0":null}]`.
+- **`getAlphabetForActiveLanguage`** — `List<Map<String, Object>> getAlphabetForActiveLanguage(String isUpp)`. args: `[{"0":null}]`.
+- **`getAlphabetForLanguage`** — `List<Map<String, Object>> getAlphabetForLanguage(String isUpp, String language)`. args: `[{"0":null}]`.
+- **`getDefaultLanguage`** — `String getDefaultLanguage()`. args: `[]`.
+- **`findOrCreateTranslation`** — `LocalizedText findOrCreateTranslation(LocalizedText tr)`. args: `[{"0":null}]`.
+- **`exportTranslations`** — `List<TranslationExport> exportTranslations(SearchRequest request)`. args: `[{"0":null}]`.
+- **`uploadTranslations`** — `void uploadTranslations(File file, String username)`. args: `[{"0":null}]`.
+
+### `translationsProxyImpl`
+
+Класс: `TranslationsProxyImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`findTranslationById`** — `Object findTranslationById(String id, Class<?> entityClass)`. args: `[{"0":null}]`.
+
+### `userManagementServiceImpl`
+
+Класс: `UserManagementServiceImpl`. Доступ: **USER или ADMIN**. Bearer Token: **да**.
+
+- **`getRepository`** — `UserRepository getRepository()`. args: `[]`.
+- **`getPaginationFilter`** — `Deque<Map<String, Object>> getPaginationFilter(String requestJson)`. args: `[{"0":null}]`.
+- **`searchUsers`** — `LinkedHashSet<User> searchUsers(String requestJson)`. args: `[{"0":null}]`.
+- **`searchUsersPaged`** — `Page<User> searchUsersPaged(String requestJson)`. args: `[{"0":null}]`.
+- **`getPrincipal`** — `UserPrincipal getPrincipal()`. args: `[]`.
+- **`getLoggedUser`** — `User getLoggedUser()`. args: `[]`.
+- **`isSuperUser`** — `boolean isSuperUser()`. args: `[]`.
+- **`isLogged`** — `boolean isLogged()`. args: `[]`.
+- **`isNotLogged`** — `boolean isNotLogged()`. args: `[]`.
+- **`searchUsers`** — `List<User> searchUsers(String query,int from, int to)`. args: `[{"0":null}]`.
+- **`createUser`** — `Optional<User> createUser(LinkedHashMap<String, Object> userAsMap)`. args: `[{"0":null}]`.
+- **`createUser`** — `Optional<User> createUser(User user)`. args: `[{"0":null}]`.
+- **`saveUser`** — `Optional<User> saveUser(LinkedHashMap<String, Object> userAsMap)`. args: `[{"0":null}]`.
+- **`saveUser`** — `Optional<User> saveUser(User user)`. args: `[{"0":null}]`.
+- **`removeUserAndClean`** — `void removeUserAndClean(String userId)`. args: `[{"0":null}]`.
+- **`removeUsersByIds`** — `void removeUsersByIds(ArrayList<String> userIds)`. args: `[{"0":null}]`.
+- **`changePassword`** — `void changePassword(User user, String password)`. args: `[{"0":null}]`.
+- **`revertPasswordToSaved`** — `Optional<User> revertPasswordToSaved(String userId)`. args: `[{"0":null}]`.
+- **`saveSavedPassword`** — `void saveSavedPassword(String userId)`. args: `[{"0":null}]`.
+- **`isUserPermissionAll`** — `boolean isUserPermissionAll()`. args: `[]`.
+- **`isUserPermissionApplication`** — `boolean isUserPermissionApplication()`. args: `[]`.
+
+### `userPrincipalDetailsService`
+
+Класс: `UserPrincipalDetailsService`. Доступ: **USER или ADMIN**. Bearer Token: **да**.
+
+- **`loadUserByUsername`** — `UserDetails loadUserByUsername(String s)`. args: `[{"0":null}]`.
+- **`saveAuditSettings`** — `UserAuditSettings saveAuditSettings(UserAuditSettings auditSettings)`. args: `[{"0":null}]`.
+- **`loadAuditSettings`** — `Optional<UserAuditSettings> loadAuditSettings(String id)`. args: `[{"0":null}]`.
+- **`deleteAuditSettings`** — `void deleteAuditSettings(String id)`. args: `[{"0":null}]`.
+- **`userHasAccessToPage`** — `boolean userHasAccessToPage(String site, String login, String requestURI)`. args: `[{"0":null}]`.
+- **`loadRememberMeToken`** — `AuthenticationToken loadRememberMeToken(String username)`. args: `[{"0":null}]`.
+
+### `vcsService`
+
+Класс: `VcsService`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`startIfNeeded`** — `void startIfNeeded()`. args: `[]`.
+- **`save`** — `void save()`. args: `[]`.
+- **`load`** — `void load()`. args: `[]`.
+
+### `webSocketServiceImpl`
+
+Класс: `WebSocketServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`generateActionId`** — `String generateActionId()`. args: `[]`.
+- **`sendSharedResponse`** — `void sendSharedResponse(String destination, Map<String, Object> result)`. args: `[{"0":null}]`.
+- **`sendGlobalResponse`** — `void sendGlobalResponse(String destination, SimpMessageHeaderAccessor headerAccessor, Map<String, Object> result)`. args: `[{"0":null}]`.
+- **`sendUserResponse`** — `void sendUserResponse(String destination, String sessionId, SimpMessageHeaderAccessor headerAccessor, Map<String, Object> result)`. args: `[{"0":null}]`.
+- **`getSubscribers`** — `List<String> getSubscribers(String destination)`. args: `[{"0":null}]`.
+
+### `yookassaHandlerServiceImpl`
+
+Класс: `YookassaHandlerServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`handlePayoutPaidEvent`** — `Object handlePayoutPaidEvent(JSONObject request, HttpSession httpSession)`. args: `[{"0":null}]`.
+- **`handlePaymentFailedEvent`** — `Object handlePaymentFailedEvent(JSONObject request)`. args: `[{"0":null}]`.
+- **`handlePaymentSucceededEvent`** — `Object handlePaymentSucceededEvent(JSONObject request, HttpSession httpSession)`. args: `[{"0":null}]`.
+- **`handlePaymentCreatedEvent`** — `Object handlePaymentCreatedEvent(JSONObject request)`. args: `[{"0":null}]`.
+- **`handleSubscriptionCanceledEvent`** — `Object handleSubscriptionCanceledEvent(JSONObject request)`. args: `[{"0":null}]`.
+- **`handleSubscriptionDeletedEvent`** — `Object handleSubscriptionDeletedEvent(JSONObject request)`. args: `[{"0":null}]`.
+- **`handleCustomerDeletedEvent`** — `Object handleCustomerDeletedEvent(JSONObject request)`. args: `[{"0":null}]`.
+
+### `yooKassaServiceImpl`
+
+Класс: `YooKassaServiceImpl`. Доступ: **ADMIN**. Bearer Token: **да**.
+
+- **`init`** — `void init()`. args: `[]`.
+- **`isYooKassaKeysDefined`** — `boolean isYooKassaKeysDefined()`. args: `[]`.
+- **`createPayment`** — `Payment createPayment(OrderDTO order)`. args: `[{"0":null}]`.
+- **`chargePayment`** — `PaymentStatus chargePayment(String paymentId)`. args: `[{"0":null}]`.
+- **`cancelPayment`** — `PaymentStatus cancelPayment(String paymentId)`. args: `[{"0":null}]`.
+- **`refundPayment`** — `PaymentStatus refundPayment(OrderDTO order)`. args: `[{"0":null}]`.
+- **`payoutToVendor`** — `Payout payoutToVendor(Seller vendor, String orderId, long amount)`. args: `[{"0":null}]`.

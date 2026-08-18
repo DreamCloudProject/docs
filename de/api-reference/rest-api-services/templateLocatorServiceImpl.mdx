@@ -1,0 +1,206 @@
+---
+title: 'templateLocatorServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: templateLocatorServiceImpl'
+---
+
+# templateLocatorServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+templateLocatorServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getSiteFromContext" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getSiteFromContext
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSiteFromContext",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `site` | `String` | Übergeben über `args[0].0`. |
+| `requestURI` | `String` | Übergeben über `args[1].1`. |
+
+### findTemplate
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findTemplateByPath" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### findTemplateByPath
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findTemplateByPath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPagePath" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### getPagePath
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPagePath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFragmentPath" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### getFragmentPath
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFragmentPath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPageHtml" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### getPageHtml
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPageHtml",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getFragmentHtml" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `path` | `String` | Übergeben über `args[0].0`. |
+
+### getFragmentHtml
+
+```json
+{
+  "beanId": "templateLocatorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getFragmentHtml",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

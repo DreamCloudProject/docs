@@ -1,0 +1,1585 @@
+---
+title: 'attributeServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: attributeServiceImpl'
+---
+
+# attributeServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+attributeServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="AttributeRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMeasurementRepository" type="MeasurementRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getMeasurementRepository
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMeasurementRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOptionsRepository" type="OptionRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getOptionsRepository
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOptionsRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributesLightweight" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchAttributesLightweight
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributesLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributes" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributes" type="LinkedHashSet<AttributeDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributesPaged" type="Page<Attribute>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchAttributesPaged
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationMeasurements" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurements" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurements" type="LinkedHashSet<MeasurementDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurementsPaged" type="Page<Measurement>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchMeasurementsPaged
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurementsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationOptions" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptions" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptions" type="LinkedHashSet<OptionDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptionsPaged" type="Page<Option>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchOptionsPaged
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptionsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributes" type="List<Attribute>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `offset` | `String` | Передаётся через `args[1].1`. |
+| `limit` | `String` | Передаётся через `args[2].2`. |
+
+### searchAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findAttributes" type="List<Attribute>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### findAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findAttributes",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurements" type="List<Measurement>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `offset` | `String` | Передаётся через `args[1].1`. |
+| `limit` | `String` | Передаётся через `args[2].2`. |
+
+### searchMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findMeasurements" type="List<Measurement>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### findMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findMeasurements",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptions" type="List<Option>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `offset` | `String` | Передаётся через `args[1].1`. |
+| `limit` | `String` | Передаётся через `args[2].2`. |
+
+### searchOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findOptions" type="List<Option>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### findOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findOptions",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOptionsFromAttribute" type="List<Option>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### getOptionsFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOptionsFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMeasurementValueFromAttribute" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### getMeasurementValueFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMeasurementValueFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAttributeValue" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attributeValueId` | `String` | Передаётся через `args[0].0`. |
+
+### getAttributeValue
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAttributeValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMeasurement" type="Optional<Measurement>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `measureAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOption" type="Optional<Option>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAttribute" type="Optional<Attribute>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMeasurement" type="Optional<Measurement>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `measurement` | `Measurement` | Передаётся через `args[0].0`. |
+
+### createMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOption" type="Optional<Option>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `option` | `Option` | Передаётся через `args[0].0`. |
+
+### createOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAttribute" type="Optional<Attribute>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attribute` | `Attribute` | Передаётся через `args[0].0`. |
+
+### createAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToProduct" type="Attribute">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### addAttributeToProduct
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToProduct" type="Attribute">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `productId` | `String` | Передаётся через `args[0].0`. |
+| `attributeId` | `String` | Передаётся через `args[1].1`. |
+
+### addAttributeToProduct
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToSKU" type="Attribute">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### addAttributeToSKU
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToSKU" type="Attribute">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `attributeId` | `String` | Передаётся через `args[1].1`. |
+
+### addAttributeToSKU
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAttribute" type="Attribute">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAttribute" type="Attribute">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attribute` | `Attribute` | Передаётся через `args[0].0`. |
+
+### saveAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveMeasurement" type="Measurement">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msrAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveMeasurement" type="Measurement">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msr` | `Measurement` | Передаётся через `args[0].0`. |
+
+### saveMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOption" type="Option">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOption" type="Option">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `option` | `Option` | Передаётся через `args[0].0`. |
+
+### saveOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromProduct" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+| `productId` | `String` | Передаётся через `args[1].1`. |
+
+### removeAttributeFromProduct
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromProducts" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeFromProducts
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromSKU" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+| `skuId` | `String` | Передаётся через `args[1].1`. |
+
+### removeAttributeFromSKU
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromSKUs" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeFromSKUs
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeValue" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `avId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeValue
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromTranslation" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+| `tranId` | `String` | Передаётся через `args[1].1`. |
+
+### removeAttributeFromTranslation
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromTranslations" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeFromTranslations
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromOption" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+| `optionId` | `String` | Передаётся через `args[1].1`. |
+
+### removeAttributeFromOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromOptions" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeFromOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromMeasurement" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeFromMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attrId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeAndClean
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementFromAttribute" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `measureId` | `String` | Передаётся через `args[0].0`. |
+| `attrId` | `String` | Передаётся через `args[1].1`. |
+
+### removeMeasurementFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementFromAttributes" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `measureId` | `String` | Передаётся через `args[0].0`. |
+
+### removeMeasurementFromAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `measureId` | `String` | Передаётся через `args[0].0`. |
+
+### removeMeasurementAndClean
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromAttribute" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionId` | `String` | Передаётся через `args[0].0`. |
+| `attrId` | `String` | Передаётся через `args[1].1`. |
+
+### removeOptionFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromAttributes" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionId` | `String` | Передаётся через `args[0].0`. |
+
+### removeOptionFromAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromTranslation" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionId` | `String` | Передаётся через `args[0].0`. |
+| `tranId` | `String` | Передаётся через `args[1].1`. |
+
+### removeOptionFromTranslation
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromTranslations" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionId` | `String` | Передаётся через `args[0].0`. |
+
+### removeOptionFromTranslations
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionId` | `String` | Передаётся через `args[0].0`. |
+
+### removeOptionAndClean
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeValuesByAttributeId" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attributeId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttributeValuesByAttributeId
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeValuesByAttributeId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributesByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attributeIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeAttributesByIds
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `measurementsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeMeasurementsByIds
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `optionsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeOptionsByIds
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapAttributeToDto" type="AttributeDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `attr` | `Attribute` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapAttributeToDto
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapAttributeToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapOptionToDto" type="OptionDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `opt` | `Option` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapOptionToDto
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapOptionToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapMeasurementToDto" type="MeasurementDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `msr` | `Measurement` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapMeasurementToDto
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapMeasurementToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

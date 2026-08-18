@@ -1,0 +1,574 @@
+---
+title: 'geoLocationServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: geoLocationServiceImpl'
+---
+
+# geoLocationServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+geoLocationServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST. **Bearer Token:** не требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getAddressRepository" type="AddressRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getAddressRepository
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAddressRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCountries" type="LinkedHashSet<Country>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchCountries
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCountries",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCountriesPaged" type="Page<Country>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchCountriesPaged
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCountriesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAddresses" type="List<Address>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `from` | `String` | Передаётся через `args[1].1`. |
+| `to` | `String` | Передаётся через `args[2].2`. |
+
+### searchAddresses
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAddresses",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findCompanyAddress" type="Address">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `address` | `Address` | Передаётся через `args[0].0`. |
+
+### findCompanyAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findCompanyAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAddressById" type="Address">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `addressId` | `String` | Передаётся через `args[0].0`. |
+
+### getAddressById
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAddressById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountries" type="List<Country>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getCountries
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountries",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryByCode" type="Country">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `code` | `String` | Передаётся через `args[0].0`. |
+
+### getCountryByCode
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryByCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryCodeValue" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `code` | `String` | Передаётся через `args[0].0`. |
+
+### getCountryCodeValue
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryCodeValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryBySellerId" type="Country">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### getCountryBySellerId
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryBySellerId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryNameBySellerId" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### getCountryNameBySellerId
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryNameBySellerId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellersByCountryCode" type="List<Seller>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `countryCode` | `String` | Передаётся через `args[0].0`. |
+
+### getSellersByCountryCode
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellersByCountryCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAddress" type="Address">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `addressAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAddress" type="Optional<Address>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `address` | `Address` | Передаётся через `args[0].0`. |
+
+### createAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAddress" type="Address">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `addressAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAddress" type="Optional<Address>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `address` | `Address` | Передаётся через `args[0].0`. |
+
+### saveAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAddressAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `addressId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAddressAndClean
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAddressAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAddressesByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `addressesIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeAddressesByIds
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAddressesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addShippingAddress" type="Address">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+| `addressAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### addShippingAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addShippingAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeShippingAddress" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+| `addressId` | `String` | Передаётся через `args[1].1`. |
+
+### removeShippingAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeShippingAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAddressFromSeller" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+| `addressId` | `String` | Передаётся через `args[1].1`. |
+
+### removeAddressFromSeller
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAddressFromSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getShippingAddresses" type="Set<Address>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### getShippingAddresses
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getShippingAddresses",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

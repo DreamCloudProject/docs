@@ -1,0 +1,502 @@
+---
+title: 'userManagementServiceImpl'
+description: 'Calling public service methods through the REST API: userManagementServiceImpl'
+---
+
+# userManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+userManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** USER or ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="UserRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUsers" type="LinkedHashSet<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchUsers
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUsersPaged" type="Page<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchUsersPaged
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUsersPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPrincipal" type="UserPrincipal">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getPrincipal
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPrincipal",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedUser" type="User">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getLoggedUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSuperUser" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isSuperUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSuperUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLogged" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isLogged
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isNotLogged" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isNotLogged
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isNotLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUsers" type="List<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `from` | `int` | Passed through `args[1].1`. |
+| `to` | `int` | Passed through `args[2].2`. |
+
+### searchUsers
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUser" type="Optional<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUser" type="Optional<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `user` | `User` | Passed through `args[0].0`. |
+
+### createUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUser" type="Optional<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUser" type="Optional<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `user` | `User` | Passed through `args[0].0`. |
+
+### saveUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUserAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userId` | `String` | Passed through `args[0].0`. |
+
+### removeUserAndClean
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUserAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUsersByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeUsersByIds
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUsersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePassword" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `user` | `User` | Passed through `args[0].0`. |
+| `password` | `String` | Passed through `args[1].1`. |
+
+### changePassword
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePassword",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="revertPasswordToSaved" type="Optional<User>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userId` | `String` | Passed through `args[0].0`. |
+
+### revertPasswordToSaved
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "revertPasswordToSaved",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSavedPassword" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userId` | `String` | Passed through `args[0].0`. |
+
+### saveSavedPassword
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSavedPassword",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserPermissionAll" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isUserPermissionAll
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserPermissionAll",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserPermissionApplication" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isUserPermissionApplication
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserPermissionApplication",
+  "args": []
+}
+```
+
+</ResponseField>

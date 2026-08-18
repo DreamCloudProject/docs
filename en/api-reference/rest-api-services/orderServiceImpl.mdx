@@ -1,0 +1,1247 @@
+---
+title: 'orderServiceImpl'
+description: 'Calling public service methods through the REST API: orderServiceImpl'
+---
+
+# orderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+orderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="handleNotify" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### handleNotify
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleNotify",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRepository" type="OrderRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="activeLogisticsProvider" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### activeLogisticsProvider
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "activeLogisticsProvider",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="activePaymentProvider" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### activePaymentProvider
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "activePaymentProvider",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCommerceItemRepository" type="CommerceItemRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getCommerceItemRepository
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCommerceItemRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrders" type="LinkedHashSet<OrderDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getOrders
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrders",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersPaged" type="Page<Order>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getOrdersPaged
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOrder" type="Optional<Order>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOrder" type="Optional<Order>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### createOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOrder" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOrder" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### saveOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="orderCheckout" type="List<OrderDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### orderCheckout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "orderCheckout",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="digitalOrderCheckout" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### digitalOrderCheckout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "digitalOrderCheckout",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="digitalOrderCheckout" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentRequest` | `PaymentRequest` | Passed through `args[0].0`. |
+
+### digitalOrderCheckout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "digitalOrderCheckout",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendOrderConfirmationEmail" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `emailData` | `LinkedHashMap<String,Object>` | Passed through `args[0].0`. |
+
+### sendOrderConfirmationEmail
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendOrderConfirmationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoiceBuyerToVendor" type="Attachment">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### createInvoiceBuyerToVendor
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoiceBuyerToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOrder" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### removeOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOrdersByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeOrdersByIds
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOrdersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItemFromOrder" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `commerceItemId` | `String` | Passed through `args[1].1`. |
+
+### removeCommerceItemFromOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItemFromOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersFromLoggedUser" type="List<OrderDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getOrdersFromLoggedUser
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersFromLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersFromLoggedUserByIds" type="LinkedHashSet<OrderDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### getOrdersFromLoggedUserByIds
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersFromLoggedUserByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrder" type="OrderDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### getOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="approve" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### approve
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "approve",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="pay" type="PaymentStatus">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### pay
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "pay",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtain3DSecureLink" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### obtain3DSecureLink
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtain3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ship" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### ship
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ship",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deliver" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### deliver
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deliver",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payout" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### payout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payout",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="complete" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### complete
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "complete",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="completeDigitalOrder" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `createInvoice` | `Boolean` | Passed through `args[1].1`. |
+
+### completeDigitalOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "completeDigitalOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="prepareForShipment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### prepareForShipment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "prepareForShipment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancel" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### cancel
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancel",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refund" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### refund
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refund",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrderTimeLine" type="List<OrderTimeLineBean>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### getOrderTimeLine
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrderTimeLine",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserParticipatesInOrder" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `asVendor` | `boolean` | Passed through `args[1].1`. |
+
+### isUserParticipatesInOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserParticipatesInOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLastOrderTimelineBean" type="OrderTimeLineBean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### getLastOrderTimelineBean
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLastOrderTimelineBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttachment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `attachment` | `Attachment` | Passed through `args[1].1`. |
+
+### addAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttachment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `attachmentName` | `String` | Passed through `args[1].1`. |
+
+### removeAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttachment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `orderTimelineStep` | `String` | Passed through `args[1].1`. |
+| `attachment` | `Attachment` | Passed through `args[2].2`. |
+
+### addAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttachment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `orderTimelineStep` | `String` | Passed through `args[1].1`. |
+| `attachmentName` | `String` | Passed through `args[2].2`. |
+
+### removeAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getShippingAddresses" type="Set<Address>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getShippingAddresses
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getShippingAddresses",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canCancel" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### canCancel
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canCancel",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canAddAttachment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### canAddAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canAddAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changeAddress" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `params` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### changeAddress
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changeAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `paymentMethod` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canChangeStatus" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### canChangeStatus
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canChangeStatus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mustAddAttachments" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### mustAddAttachments
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mustAddAttachments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="prepareItemsToShipment" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `items` | `List<CommerceItem>` | Passed through `args[0].0`. |
+
+### prepareItemsToShipment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "prepareItemsToShipment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInvoiceTemplate" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### getInvoiceTemplate
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getInvoiceTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateDelivery" type="BigDecimal">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### calculateDelivery
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateDelivery",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clearPaymentInfo" type="Order">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### clearPaymentInfo
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "clearPaymentInfo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCommerceItemMetaInfo" type="CommerceItem">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `commerceItemId` | `String` | Passed through `args[0].0`. |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### updateCommerceItemMetaInfo
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCommerceItemMetaInfo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

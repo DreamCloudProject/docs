@@ -1,0 +1,184 @@
+---
+title: 'lexOfficeServiceMock'
+description: 'Вызов публичных методов сервиса через REST API: lexOfficeServiceMock'
+---
+
+# lexOfficeServiceMock
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+lexOfficeServiceMock
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="createPayoutInvoice" type="Attachment">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `profileId` | `String` | Передаётся через `args[1].1`. |
+
+### createPayoutInvoice
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createPayoutInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCommissionInvoice" type="Attachment">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `profileId` | `String` | Передаётся через `args[1].1`. |
+
+### createCommissionInvoice
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createCommissionInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createContact" type="Contact">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `contact` | `Contact` | Передаётся через `args[0].0`. |
+
+### createContact
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="retrieveContact" type="Contact">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+
+### retrieveContact
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "retrieveContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateContact" type="Contact">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `contact` | `Contact` | Передаётся через `args[0].0`. |
+
+### updateContact
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "updateContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLexOfficeKeyDefined" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isLexOfficeKeyDefined
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "isLexOfficeKeyDefined",
+  "args": []
+}
+```
+
+</ResponseField>

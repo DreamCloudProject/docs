@@ -1,0 +1,327 @@
+---
+title: 'cdekServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: cdekServiceImpl'
+---
+
+# cdekServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+cdekServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="init" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### init
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isCdekKeysDefined" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isCdekKeysDefined
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isCdekKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTestCdekKeysDefined" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isTestCdekKeysDefined
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTestCdekKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="authenticate" type="AuthResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### authenticate
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "authenticate",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="authenticateTest" type="AuthResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### authenticateTest
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "authenticateTest",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculate" type="Calculator">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `CalculatorRequest` | Передаётся через `args[0].0`. |
+
+### calculate
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="orderRegistration" type="OrderResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `OrderRequest` | Передаётся через `args[0].0`. |
+
+### orderRegistration
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "orderRegistration",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCourierRequest" type="CourierResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `CourierRequest` | Передаётся через `args[0].0`. |
+
+### createCourierRequest
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCourierRequest",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDeliveryPoints" type="List<DeliveryPointResponse>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `DeliveryPointRequest` | Передаётся через `args[0].0`. |
+
+### getDeliveryPoints
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDeliveryPoints",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTariffs" type="Tariffs">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `calcReq` | `CalculatorRequest` | Передаётся через `args[0].0`. |
+
+### getTariffs
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTariffs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTariffCode" type="TariffCode">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### getTariffCode
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTariffCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateDeliveryPrice" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### calculateDeliveryPrice
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateDeliveryPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ship" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### ship
+
+```json
+{
+  "beanId": "cdekServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ship",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

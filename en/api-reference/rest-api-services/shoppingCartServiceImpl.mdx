@@ -1,0 +1,455 @@
+---
+title: 'shoppingCartServiceImpl'
+description: 'Calling public service methods through the REST API: shoppingCartServiceImpl'
+---
+
+# shoppingCartServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+shoppingCartServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getCartDTO" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getCartDTO
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCartDTO",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCartDTO" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `buyerId` | `String` | Passed through `args[0].0`. |
+
+### getCartDTO
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCartDTO",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### addCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItems" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### addCommerceItems
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItems" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `MultipleAddToCartRequest` | Passed through `args[0].0`. |
+
+### addCommerceItems
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### addCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `request` | `AddToCartRequest` | Passed through `args[0].0`. |
+
+### addCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItem" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `itemId` | `String` | Passed through `args[0].0`. |
+
+### removeCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clearCart" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### clearCart
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "clearCart",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="decreaseQuantity" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `itemId` | `String` | Passed through `args[0].0`. |
+
+### decreaseQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "decreaseQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateQuantity" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `itemId` | `String` | Passed through `args[0].0`. |
+| `quantity` | `String` | Passed through `args[1].1`. |
+
+### updateQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="increaseQuantity" type="ShoppingCartDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `itemId` | `String` | Passed through `args[0].0`. |
+
+### increaseQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "increaseQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canAddItem" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### canAddItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canAddItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkPrice" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### checkPrice
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkInventory" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### checkInventory
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkInventory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkRestQuantity" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### checkRestQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkRestQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkCurrencyForCart" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### checkCurrencyForCart
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkCurrencyForCart",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkStripeConnect" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
+
+### checkStripeConnect
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkStripeConnect",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

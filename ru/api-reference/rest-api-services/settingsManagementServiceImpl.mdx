@@ -1,0 +1,274 @@
+---
+title: 'settingsManagementServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: settingsManagementServiceImpl'
+---
+
+# settingsManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+settingsManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="WebSiteSettingsRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSettingsResultsPaged" type="Page<WebSiteSettings>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchSettingsResultsPaged
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSettingsResultsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchSettingsResults" type="List<WebSiteSettings>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchSettingsResults
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchSettingsResults",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSettings" type="WebSiteSettings">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settingsAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createSettings" type="WebSiteSettings">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settings` | `WebSiteSettings` | Передаётся через `args[0].0`. |
+
+### createSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSettings" type="WebSiteSettings">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settingsAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSettings" type="WebSiteSettings">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settings` | `WebSiteSettings` | Передаётся через `args[0].0`. |
+
+### saveSettings
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSettingsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settingsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeSettingsByIds
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSettingsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSettingsAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settingsId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSettingsAndClean
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSettingsAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSettingsPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getSettingsPaginationFilter
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSettingsPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,249 @@
+---
+title: 'jWTServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: jWTServiceImpl'
+---
+
+# jWTServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+jWTServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="extractUsername" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `token` | `String` | Передаётся через `args[0].0`. |
+
+### extractUsername
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractUsername",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateToken" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userDetails` | `UserDetails` | Передаётся через `args[0].0`. |
+
+### generateToken
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateToken" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `extraClaims` | `Map<String, Object>` | Передаётся через `args[0].0`. |
+| `userDetails` | `UserDetails` | Передаётся через `args[1].1`. |
+
+### generateToken
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getExpirationTime" type="long">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getExpirationTime
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getExpirationTime",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTokenValid" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `token` | `String` | Передаётся через `args[0].0`. |
+| `userDetails` | `UserDetails` | Передаётся через `args[1].1`. |
+
+### isTokenValid
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTokenValid",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTokenExpired" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `token` | `String` | Передаётся через `args[0].0`. |
+
+### isTokenExpired
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTokenExpired",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractExpiration" type="Date">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `token` | `String` | Передаётся через `args[0].0`. |
+
+### extractExpiration
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractExpiration",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractAllClaims" type="Claims">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `token` | `String` | Передаётся через `args[0].0`. |
+
+### extractAllClaims
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractAllClaims",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSignInKey" type="Key">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getSignInKey
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSignInKey",
+  "args": []
+}
+```
+
+</ResponseField>

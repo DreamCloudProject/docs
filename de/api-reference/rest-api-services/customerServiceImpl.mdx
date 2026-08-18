@@ -1,0 +1,413 @@
+---
+title: 'customerServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: customerServiceImpl'
+---
+
+# customerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+customerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** GUEST. **Bearer Token:** nicht erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getRepository" type="SellerRepository">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRepository
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationCustomers" type="Deque<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getPaginationCustomers
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationCustomers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="validateVerificationToken" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `verificationToken` | `String` | Übergeben über `args[0].0`. |
+
+### validateVerificationToken
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "validateVerificationToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="validatePasswordResetToken" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `passwordResetToken` | `String` | Übergeben über `args[0].0`. |
+
+### validatePasswordResetToken
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "validatePasswordResetToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendVerificationEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `userAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### sendVerificationEmail
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendVerificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCustomers" type="SearchResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### searchCustomers
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCustomers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCustomersLightweight" type="SearchResponse">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### searchCustomersLightweight
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCustomersLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomersPaged" type="Page<Seller>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getCustomersPaged
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomersPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="registerCustomerFull" type="Seller">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `customerAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### registerCustomerFull
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "registerCustomerFull",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchEmployees" type="LinkedHashSet<Profile>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchEmployees
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchEmployees",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchEmployeesPaged" type="Page<Profile>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchEmployeesPaged
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchEmployeesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="registerCustomerSimplified" type="Profile">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `userProfileAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### registerCustomerSimplified
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "registerCustomerSimplified",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCustomer" type="Seller">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sellerAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### updateCustomer
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCustomer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCustomerProfile" type="Profile">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `userProfileAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### updateCustomerProfile
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCustomerProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapSellerToDto" type="SellerDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `customerAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### mapSellerToDto
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapSellerToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapSellerToDto" type="SellerDTO">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `seller` | `Seller` | Übergeben über `args[0].0`. |
+| `optimal` | `boolean` | Übergeben über `args[1].1`. |
+
+### mapSellerToDto
+
+```json
+{
+  "beanId": "customerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapSellerToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

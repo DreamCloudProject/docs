@@ -1,0 +1,249 @@
+---
+title: 'jWTServiceImpl'
+description: 'Calling public service methods through the REST API: jWTServiceImpl'
+---
+
+# jWTServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+jWTServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="extractUsername" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `token` | `String` | Passed through `args[0].0`. |
+
+### extractUsername
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractUsername",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateToken" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `userDetails` | `UserDetails` | Passed through `args[0].0`. |
+
+### generateToken
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateToken" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `extraClaims` | `Map<String, Object>` | Passed through `args[0].0`. |
+| `userDetails` | `UserDetails` | Passed through `args[1].1`. |
+
+### generateToken
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getExpirationTime" type="long">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getExpirationTime
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getExpirationTime",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTokenValid" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `token` | `String` | Passed through `args[0].0`. |
+| `userDetails` | `UserDetails` | Passed through `args[1].1`. |
+
+### isTokenValid
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTokenValid",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTokenExpired" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `token` | `String` | Passed through `args[0].0`. |
+
+### isTokenExpired
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTokenExpired",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractExpiration" type="Date">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `token` | `String` | Passed through `args[0].0`. |
+
+### extractExpiration
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractExpiration",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractAllClaims" type="Claims">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `token` | `String` | Passed through `args[0].0`. |
+
+### extractAllClaims
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractAllClaims",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSignInKey" type="Key">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getSignInKey
+
+```json
+{
+  "beanId": "jWTServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSignInKey",
+  "args": []
+}
+```
+
+</ResponseField>

@@ -1,0 +1,105 @@
+---
+title: 'vcsService'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: vcsService'
+---
+
+# vcsService
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+vcsService
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="startIfNeeded" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### startIfNeeded
+
+```json
+{
+  "beanId": "vcsService",
+  "scope": "PROTOTYPE",
+  "functionName": "startIfNeeded",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="save" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### save
+
+```json
+{
+  "beanId": "vcsService",
+  "scope": "PROTOTYPE",
+  "functionName": "save",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="load" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### load
+
+```json
+{
+  "beanId": "vcsService",
+  "scope": "PROTOTYPE",
+  "functionName": "load",
+  "args": []
+}
+```
+
+</ResponseField>

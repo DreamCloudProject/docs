@@ -1,0 +1,502 @@
+---
+title: 'userManagementServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: userManagementServiceImpl'
+---
+
+# userManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+userManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** USER или ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="UserRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUsers" type="LinkedHashSet<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchUsers
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUsersPaged" type="Page<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchUsersPaged
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUsersPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPrincipal" type="UserPrincipal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getPrincipal
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPrincipal",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedUser" type="User">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getLoggedUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSuperUser" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isSuperUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSuperUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLogged" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isLogged
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isNotLogged" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isNotLogged
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isNotLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUsers" type="List<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `query` | `String` | Передаётся через `args[0].0`. |
+| `from` | `int` | Передаётся через `args[1].1`. |
+| `to` | `int` | Передаётся через `args[2].2`. |
+
+### searchUsers
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUser" type="Optional<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createUser" type="Optional<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `user` | `User` | Передаётся через `args[0].0`. |
+
+### createUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUser" type="Optional<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveUser" type="Optional<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `user` | `User` | Передаётся через `args[0].0`. |
+
+### saveUser
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUserAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userId` | `String` | Передаётся через `args[0].0`. |
+
+### removeUserAndClean
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUserAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUsersByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeUsersByIds
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUsersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePassword" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `user` | `User` | Передаётся через `args[0].0`. |
+| `password` | `String` | Передаётся через `args[1].1`. |
+
+### changePassword
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePassword",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="revertPasswordToSaved" type="Optional<User>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userId` | `String` | Передаётся через `args[0].0`. |
+
+### revertPasswordToSaved
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "revertPasswordToSaved",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSavedPassword" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userId` | `String` | Передаётся через `args[0].0`. |
+
+### saveSavedPassword
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSavedPassword",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserPermissionAll" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isUserPermissionAll
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserPermissionAll",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserPermissionApplication" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isUserPermissionApplication
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserPermissionApplication",
+  "args": []
+}
+```
+
+</ResponseField>

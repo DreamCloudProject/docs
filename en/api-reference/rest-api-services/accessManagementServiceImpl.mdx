@@ -1,0 +1,258 @@
+---
+title: 'accessManagementServiceImpl'
+description: 'Calling public service methods through the REST API: accessManagementServiceImpl'
+---
+
+# accessManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+accessManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="isLogged" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isLogged
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLogged",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAdmin" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isAdmin
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAdmin",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedProfile" type="Profile">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getLoggedProfile
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedProfile",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedSeller" type="Seller">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getLoggedSeller
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedSeller",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoggedUser" type="User">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getLoggedUser
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSellerSkuBelongsToLoggedUser" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### isSellerSkuBelongsToLoggedUser
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSellerSkuBelongsToLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSellerSkuAllowsToProcess" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Passed through `args[0].0`. |
+
+### isSellerSkuAllowsToProcess
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSellerSkuAllowsToProcess",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAllSellerSkusBelongsToLoggedUser" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuIds` | `List<String>` | Passed through `args[0].0`. |
+
+### isAllSellerSkusBelongsToLoggedUser
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAllSellerSkusBelongsToLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAllSellerSkusAllowsToProcess" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkuIds` | `List<String>` | Passed through `args[0].0`. |
+
+### isAllSellerSkusAllowsToProcess
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAllSellerSkusAllowsToProcess",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="hasAccessToOrder" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### hasAccessToOrder
+
+```json
+{
+  "beanId": "accessManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "hasAccessToOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,1247 @@
+---
+title: 'orderServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: orderServiceImpl'
+---
+
+# orderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+orderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="handleNotify" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### handleNotify
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleNotify",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRepository" type="OrderRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="activeLogisticsProvider" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### activeLogisticsProvider
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "activeLogisticsProvider",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="activePaymentProvider" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### activePaymentProvider
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "activePaymentProvider",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCommerceItemRepository" type="CommerceItemRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getCommerceItemRepository
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCommerceItemRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrders" type="LinkedHashSet<OrderDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getOrders
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrders",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersPaged" type="Page<Order>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getOrdersPaged
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOrder" type="Optional<Order>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOrder" type="Optional<Order>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### createOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOrder" type="Order">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### saveOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOrder" type="Order">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### saveOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="orderCheckout" type="List<OrderDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### orderCheckout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "orderCheckout",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="digitalOrderCheckout" type="Order">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### digitalOrderCheckout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "digitalOrderCheckout",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="digitalOrderCheckout" type="Order">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentRequest` | `PaymentRequest` | Передаётся через `args[0].0`. |
+
+### digitalOrderCheckout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "digitalOrderCheckout",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendOrderConfirmationEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `emailData` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
+
+### sendOrderConfirmationEmail
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendOrderConfirmationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoiceBuyerToVendor" type="Attachment">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### createInvoiceBuyerToVendor
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoiceBuyerToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOrder" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### removeOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOrdersByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeOrdersByIds
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOrdersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItemFromOrder" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `commerceItemId` | `String` | Передаётся через `args[1].1`. |
+
+### removeCommerceItemFromOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItemFromOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersFromLoggedUser" type="List<OrderDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getOrdersFromLoggedUser
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersFromLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersFromLoggedUserByIds" type="LinkedHashSet<OrderDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### getOrdersFromLoggedUserByIds
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersFromLoggedUserByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrder" type="OrderDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### getOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="approve" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### approve
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "approve",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="pay" type="PaymentStatus">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### pay
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "pay",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtain3DSecureLink" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### obtain3DSecureLink
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtain3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="ship" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### ship
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "ship",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deliver" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### deliver
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deliver",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payout" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### payout
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payout",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="complete" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### complete
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "complete",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="completeDigitalOrder" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `createInvoice` | `Boolean` | Передаётся через `args[1].1`. |
+
+### completeDigitalOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "completeDigitalOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="prepareForShipment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### prepareForShipment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "prepareForShipment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancel" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### cancel
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancel",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refund" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### refund
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refund",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrderTimeLine" type="List<OrderTimeLineBean>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### getOrderTimeLine
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrderTimeLine",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isUserParticipatesInOrder" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `asVendor` | `boolean` | Передаётся через `args[1].1`. |
+
+### isUserParticipatesInOrder
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isUserParticipatesInOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLastOrderTimelineBean" type="OrderTimeLineBean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### getLastOrderTimelineBean
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLastOrderTimelineBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttachment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `attachment` | `Attachment` | Передаётся через `args[1].1`. |
+
+### addAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttachment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `attachmentName` | `String` | Передаётся через `args[1].1`. |
+
+### removeAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttachment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `orderTimelineStep` | `String` | Передаётся через `args[1].1`. |
+| `attachment` | `Attachment` | Передаётся через `args[2].2`. |
+
+### addAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttachment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `orderTimelineStep` | `String` | Передаётся через `args[1].1`. |
+| `attachmentName` | `String` | Передаётся через `args[2].2`. |
+
+### removeAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getShippingAddresses" type="Set<Address>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getShippingAddresses
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getShippingAddresses",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canCancel" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### canCancel
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canCancel",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canAddAttachment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### canAddAttachment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canAddAttachment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changeAddress" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `params` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### changeAddress
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changeAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `paymentMethod` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canChangeStatus" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### canChangeStatus
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canChangeStatus",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mustAddAttachments" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### mustAddAttachments
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mustAddAttachments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="prepareItemsToShipment" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `List<CommerceItem>` | Передаётся через `args[0].0`. |
+
+### prepareItemsToShipment
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "prepareItemsToShipment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInvoiceTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### getInvoiceTemplate
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getInvoiceTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateDelivery" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### calculateDelivery
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateDelivery",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clearPaymentInfo" type="Order">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### clearPaymentInfo
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "clearPaymentInfo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCommerceItemMetaInfo" type="CommerceItem">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `commerceItemId` | `String` | Передаётся через `args[0].0`. |
+| `metaInfo` | `LinkedHashMap<String, Object>` | Передаётся через `args[1].1`. |
+
+### updateCommerceItemMetaInfo
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCommerceItemMetaInfo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,188 @@
+---
+title: 'userPrincipalDetailsService'
+description: 'Вызов публичных методов сервиса через REST API: userPrincipalDetailsService'
+---
+
+# userPrincipalDetailsService
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+userPrincipalDetailsService
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** USER или ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="loadUserByUsername" type="UserDetails">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `s` | `String` | Передаётся через `args[0].0`. |
+
+### loadUserByUsername
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "loadUserByUsername",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAuditSettings" type="UserAuditSettings">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `auditSettings` | `UserAuditSettings` | Передаётся через `args[0].0`. |
+
+### saveAuditSettings
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAuditSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="loadAuditSettings" type="Optional<UserAuditSettings>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+
+### loadAuditSettings
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "loadAuditSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteAuditSettings" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+
+### deleteAuditSettings
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteAuditSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="userHasAccessToPage" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `site` | `String` | Передаётся через `args[0].0`. |
+| `login` | `String` | Передаётся через `args[1].1`. |
+| `requestURI` | `String` | Передаётся через `args[2].2`. |
+
+### userHasAccessToPage
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "userHasAccessToPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="loadRememberMeToken" type="AuthenticationToken">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `username` | `String` | Передаётся через `args[0].0`. |
+
+### loadRememberMeToken
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "loadRememberMeToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

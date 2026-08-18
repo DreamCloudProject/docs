@@ -1,0 +1,388 @@
+---
+title: 'mongoStorageServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: mongoStorageServiceImpl'
+---
+
+# mongoStorageServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+mongoStorageServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getDocument" type="Document">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+| `id` | `Object` | Übergeben über `args[2].2`. |
+
+### getDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCollection" type="MongoCollection<Document>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+
+### getCollection
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCollection",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCollections" type="List<Map<String, String>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+
+### getCollections
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCollections",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDatabase" type="MongoDatabase">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+
+### getDatabase
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDatabase",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="insertDocument" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+| `mapObject` | `Map<String, Object>` | Übergeben über `args[2].2`. |
+
+### insertDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "insertDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveDocument" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+| `id` | `String` | Übergeben über `args[2].2`. |
+| `mapObject` | `Map<String, Object>` | Übergeben über `args[3].3`. |
+
+### saveDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeDocument" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+| `id` | `String` | Übergeben über `args[2].2`. |
+
+### removeDocument
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findDocuments" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+| `filter` | `Map<String, Object>` | Übergeben über `args[2].2`. |
+
+### findDocuments
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findDocuments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="downloadBinary" type="byte[]">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `collectionName` | `String` | Übergeben über `args[1].1`. |
+| `doc` | `Object` | Übergeben über `args[2].2`. |
+
+### downloadBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "downloadBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="downloadBinary" type="byte[]">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+
+### downloadBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "downloadBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBinaryStorage" type="GridFSBucket">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `binaryCollection` | `String` | Übergeben über `args[1].1`. |
+
+### getBinaryStorage
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getBinaryStorage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadBinary" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `metadata` | `Map<String,Object>` | Übergeben über `args[0].0`. |
+| `file` | `MultipartFile` | Übergeben über `args[1].1`. |
+
+### uploadBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeBinary" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `dbName` | `String` | Übergeben über `args[0].0`. |
+| `binStorageName` | `String` | Übergeben über `args[1].1`. |
+| `json` | `String` | Übergeben über `args[2].2`. |
+
+### removeBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeBinary" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+
+### removeBinary
+
+```json
+{
+  "beanId": "mongoStorageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeBinary",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

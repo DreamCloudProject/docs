@@ -1,0 +1,142 @@
+---
+title: 'blogViewerServiceImpl'
+description: 'Calling public service methods through the REST API: blogViewerServiceImpl'
+---
+
+# blogViewerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+blogViewerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** GUEST. **Bearer Token:** not required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getArticles" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `regexFilter` | `String` | Passed through `args[0].0`. |
+
+### getArticles
+
+```json
+{
+  "beanId": "blogViewerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContainerArticles" type="List<Map<String, String>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogId` | `String` | Passed through `args[0].0`. |
+
+### getContainerArticles
+
+```json
+{
+  "beanId": "blogViewerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContainerArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRelatedBlogs" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogId` | `String` | Passed through `args[0].0`. |
+| `size` | `String` | Passed through `args[1].1`. |
+
+### getRelatedBlogs
+
+```json
+{
+  "beanId": "blogViewerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRelatedBlogs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isContainerTypeEqualsTo" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `containerId` | `String` | Passed through `args[0].0`. |
+| `type` | `String` | Passed through `args[1].1`. |
+
+### isContainerTypeEqualsTo
+
+```json
+{
+  "beanId": "blogViewerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isContainerTypeEqualsTo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

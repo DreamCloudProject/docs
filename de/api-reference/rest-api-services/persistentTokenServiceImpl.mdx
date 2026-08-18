@@ -1,0 +1,142 @@
+---
+title: 'persistentTokenServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: persistentTokenServiceImpl'
+---
+
+# persistentTokenServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+persistentTokenServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** USER or ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="createNewToken" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `token` | `PersistentRememberMeToken` | Übergeben über `args[0].0`. |
+
+### createNewToken
+
+```json
+{
+  "beanId": "persistentTokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createNewToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateToken" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `series` | `String` | Übergeben über `args[0].0`. |
+| `tokenValue` | `String` | Übergeben über `args[1].1`. |
+| `lastUsed` | `Date` | Übergeben über `args[2].2`. |
+
+### updateToken
+
+```json
+{
+  "beanId": "persistentTokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTokenForSeries" type="PersistentRememberMeToken">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `seriesId` | `String` | Übergeben über `args[0].0`. |
+
+### getTokenForSeries
+
+```json
+{
+  "beanId": "persistentTokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTokenForSeries",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUserTokens" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `username` | `String` | Übergeben über `args[0].0`. |
+
+### removeUserTokens
+
+```json
+{
+  "beanId": "persistentTokenServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUserTokens",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

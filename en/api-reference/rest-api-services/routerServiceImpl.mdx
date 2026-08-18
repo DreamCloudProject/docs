@@ -1,0 +1,118 @@
+---
+title: 'routerServiceImpl'
+description: 'Calling public service methods through the REST API: routerServiceImpl'
+---
+
+# routerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+routerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="routeAsSinglePageApplication" type="SPARoute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `site` | `String` | Passed through `args[0].0`. |
+| `requestURI` | `String` | Passed through `args[1].1`. |
+
+### routeAsSinglePageApplication
+
+```json
+{
+  "beanId": "routerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "routeAsSinglePageApplication",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLoginPage" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `site` | `String` | Passed through `args[0].0`. |
+
+### getLoginPage
+
+```json
+{
+  "beanId": "routerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoginPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPage404" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `site` | `String` | Passed through `args[0].0`. |
+
+### getPage404
+
+```json
+{
+  "beanId": "routerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPage404",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

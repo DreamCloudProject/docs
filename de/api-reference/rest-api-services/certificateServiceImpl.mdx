@@ -1,0 +1,438 @@
+---
+title: 'certificateServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: certificateServiceImpl'
+---
+
+# certificateServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+certificateServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** bedingt für USER/ADMIN.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="searchResults" type="List<Certificate>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchResults
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchResults",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRepository" type="CertificateRepository">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRepository
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchResultsPaged" type="Page<Certificate>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchResultsPaged
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchResultsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isCertificateExists" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+
+### isCertificateExists
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isCertificateExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isCertificateNotExists" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+
+### isCertificateNotExists
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isCertificateNotExists",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCertificateToLoggedSeller" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+
+### addCertificateToLoggedSeller
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCertificateToLoggedSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCertificateFromLoggedSeller" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+
+### removeCertificateFromLoggedSeller
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCertificateFromLoggedSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCertificate" type="Certificate">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createCertificate
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCertificate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCertificate" type="Certificate">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificate` | `Certificate` | Übergeben über `args[0].0`. |
+
+### createCertificate
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCertificate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveCertificate" type="Certificate">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### saveCertificate
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveCertificate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCertificateToSeller" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+| `sellerId` | `String` | Übergeben über `args[1].1`. |
+
+### addCertificateToSeller
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCertificateToSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCertificateFromSeller" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+| `sellerId` | `String` | Übergeben über `args[1].1`. |
+
+### removeCertificateFromSeller
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCertificateFromSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCertificateAndClean" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateId` | `String` | Übergeben über `args[0].0`. |
+
+### removeCertificateAndClean
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCertificateAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCertificates" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificateIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeCertificates
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCertificates",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCertificatesByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `certificatesIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+| `sellerId` | `String` | Übergeben über `args[1].1`. |
+
+### addCertificatesByIds
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCertificatesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellerCertificates" type="List<Certificate>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sellerId` | `String` | Übergeben über `args[0].0`. |
+
+### getSellerCertificates
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellerCertificates",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

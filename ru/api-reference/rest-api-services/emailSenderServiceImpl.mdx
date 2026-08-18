@@ -1,0 +1,427 @@
+---
+title: 'emailSenderServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: emailSenderServiceImpl'
+---
+
+# emailSenderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+emailSenderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getVerificationEmailTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `fullName` | `String` | Передаётся через `args[0].0`. |
+| `token` | `String` | Передаётся через `args[1].1`. |
+
+### getVerificationEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getVerificationEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getWelcomeEmailTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `fullName` | `String` | Передаётся через `args[0].0`. |
+
+### getWelcomeEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getWelcomeEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getResetPasswordTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `fullName` | `String` | Передаётся через `args[0].0`. |
+| `token` | `String` | Передаётся через `args[1].1`. |
+
+### getResetPasswordTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getResetPasswordTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMessageNotificationEmailTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageText` | `String` | Передаётся через `args[0].0`. |
+
+### getMessageNotificationEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMessageNotificationEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContactSupplierTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageText` | `String` | Передаётся через `args[0].0`. |
+| `fullName` | `String` | Передаётся через `args[1].1`. |
+| `mailTo` | `String` | Передаётся через `args[2].2`. |
+
+### getContactSupplierTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContactSupplierTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTariffBookingEmailTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `fullName` | `String` | Передаётся через `args[0].0`. |
+
+### getTariffBookingEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTariffBookingEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getUploadRequestEmailTemplate" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Передаётся через `args[0].0`. |
+
+### getUploadRequestEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getUploadRequestEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrderConfirmationEmail" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Передаётся через `args[0].0`. |
+
+### getOrderConfirmationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrderConfirmationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendSimpleEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `to` | `String` | Передаётся через `args[0].0`. |
+| `subject` | `String` | Передаётся через `args[1].1`. |
+| `text` | `String` | Передаётся через `args[2].2`. |
+
+### sendSimpleEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendSimpleEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendEmailWithAttachments" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `to` | `String` | Передаётся через `args[0].0`. |
+| `subject` | `String` | Передаётся через `args[1].1`. |
+| `text` | `String` | Передаётся через `args[2].2`. |
+| `attachments` | `ArrayList<String>` | Передаётся через `args[3].3`. |
+
+### sendEmailWithAttachments
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendEmailWithAttachments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendMimeMessage" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `to` | `String` | Передаётся через `args[0].0`. |
+| `subject` | `String` | Передаётся через `args[1].1`. |
+| `message` | `String` | Передаётся через `args[2].2`. |
+
+### sendMimeMessage
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendMimeMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendVerificationEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `user` | `User` | Передаётся через `args[0].0`. |
+
+### sendVerificationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendVerificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendWelcomeEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `user` | `User` | Передаётся через `args[0].0`. |
+
+### sendWelcomeEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendWelcomeEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendResetPasswordEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `user` | `User` | Передаётся через `args[0].0`. |
+
+### sendResetPasswordEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendResetPasswordEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendOrderConfirmationEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Передаётся через `args[0].0`. |
+
+### sendOrderConfirmationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendOrderConfirmationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendMessageNotificationEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Передаётся через `args[0].0`. |
+
+### sendMessageNotificationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendMessageNotificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

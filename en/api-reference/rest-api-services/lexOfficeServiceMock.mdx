@@ -1,0 +1,184 @@
+---
+title: 'lexOfficeServiceMock'
+description: 'Calling public service methods through the REST API: lexOfficeServiceMock'
+---
+
+# lexOfficeServiceMock
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+lexOfficeServiceMock
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="createPayoutInvoice" type="Attachment">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `profileId` | `String` | Passed through `args[1].1`. |
+
+### createPayoutInvoice
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createPayoutInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCommissionInvoice" type="Attachment">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+| `profileId` | `String` | Passed through `args[1].1`. |
+
+### createCommissionInvoice
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createCommissionInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createContact" type="Contact">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `contact` | `Contact` | Passed through `args[0].0`. |
+
+### createContact
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="retrieveContact" type="Contact">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `id` | `String` | Passed through `args[0].0`. |
+
+### retrieveContact
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "retrieveContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateContact" type="Contact">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `contact` | `Contact` | Passed through `args[0].0`. |
+
+### updateContact
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "updateContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLexOfficeKeyDefined" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isLexOfficeKeyDefined
+
+```json
+{
+  "beanId": "lexOfficeServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "isLexOfficeKeyDefined",
+  "args": []
+}
+```
+
+</ResponseField>

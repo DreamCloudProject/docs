@@ -1,0 +1,364 @@
+---
+title: 'profileManagementServiceImpl'
+description: 'Calling public service methods through the REST API: profileManagementServiceImpl'
+---
+
+# profileManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+profileManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="ProfileRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProfiles" type="LinkedHashSet<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchProfiles
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProfiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProfilesPaged" type="Page<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchProfilesPaged
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProfilesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchProfiles" type="List<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `from` | `int` | Passed through `args[1].1`. |
+| `to` | `int` | Passed through `args[2].2`. |
+
+### searchProfiles
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchProfiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProfile" type="Optional<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createProfile
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createProfile" type="Optional<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profile` | `Profile` | Passed through `args[0].0`. |
+
+### createProfile
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveProfile" type="Optional<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveProfile
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveProfile" type="Optional<Profile>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profile` | `Profile` | Passed through `args[0].0`. |
+
+### saveProfile
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProfileAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileId` | `String` | Passed through `args[0].0`. |
+
+### removeProfileAndClean
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProfileAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeProfilesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profilesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeProfilesByIds
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProfilesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getGenders" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getGenders
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getGenders",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deactivateProfile" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileId` | `String` | Passed through `args[0].0`. |
+
+### deactivateProfile
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deactivateProfile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isProfileBelongsToLoggedUser" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `profileId` | `String` | Passed through `args[0].0`. |
+
+### isProfileBelongsToLoggedUser
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isProfileBelongsToLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

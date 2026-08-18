@@ -1,0 +1,302 @@
+---
+title: 'blogCategoryServiceImpl'
+description: 'Calling public service methods through the REST API: blogCategoryServiceImpl'
+---
+
+# blogCategoryServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+blogCategoryServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="BlogCategoryRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="List<BlogCategory>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `from` | `String` | Passed through `args[1].1`. |
+| `to` | `String` | Passed through `args[2].2`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCategory" type="Optional<BlogCategory>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addChildCategory" type="BlogCategory">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `parentId` | `String` | Passed through `args[0].0`. |
+| `childId` | `String` | Passed through `args[1].1`. |
+
+### addChildCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="BlogCategory">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="BlogCategory">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `category` | `BlogCategory` | Passed through `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryFromTranslation" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+| `translationId` | `String` | Passed through `args[1].1`. |
+
+### removeCategoryFromTranslation
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryWithDescendants" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `itemId` | `String` | Passed through `args[0].0`. |
+
+### removeCategoryWithDescendants
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryWithDescendants",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeContainerFromBlogCategory" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `containerId` | `String` | Passed through `args[0].0`. |
+| `categoryId` | `String` | Passed through `args[1].1`. |
+
+### removeContainerFromBlogCategory
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeContainerFromBlogCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoriesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoriesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeCategoriesByIds
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoriesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rebuildAllCategories" type="List<BlogCategory>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categories` | `ArrayList<Object>` | Passed through `args[0].0`. |
+
+### rebuildAllCategories
+
+```json
+{
+  "beanId": "blogCategoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "rebuildAllCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

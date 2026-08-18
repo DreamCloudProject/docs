@@ -1,0 +1,427 @@
+---
+title: 'emailSenderServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: emailSenderServiceImpl'
+---
+
+# emailSenderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+emailSenderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getVerificationEmailTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fullName` | `String` | Übergeben über `args[0].0`. |
+| `token` | `String` | Übergeben über `args[1].1`. |
+
+### getVerificationEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getVerificationEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getWelcomeEmailTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fullName` | `String` | Übergeben über `args[0].0`. |
+
+### getWelcomeEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getWelcomeEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getResetPasswordTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fullName` | `String` | Übergeben über `args[0].0`. |
+| `token` | `String` | Übergeben über `args[1].1`. |
+
+### getResetPasswordTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getResetPasswordTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMessageNotificationEmailTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `messageText` | `String` | Übergeben über `args[0].0`. |
+
+### getMessageNotificationEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMessageNotificationEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContactSupplierTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `messageText` | `String` | Übergeben über `args[0].0`. |
+| `fullName` | `String` | Übergeben über `args[1].1`. |
+| `mailTo` | `String` | Übergeben über `args[2].2`. |
+
+### getContactSupplierTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContactSupplierTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTariffBookingEmailTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fullName` | `String` | Übergeben über `args[0].0`. |
+
+### getTariffBookingEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTariffBookingEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getUploadRequestEmailTemplate" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Übergeben über `args[0].0`. |
+
+### getUploadRequestEmailTemplate
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getUploadRequestEmailTemplate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrderConfirmationEmail" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Übergeben über `args[0].0`. |
+
+### getOrderConfirmationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrderConfirmationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendSimpleEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `to` | `String` | Übergeben über `args[0].0`. |
+| `subject` | `String` | Übergeben über `args[1].1`. |
+| `text` | `String` | Übergeben über `args[2].2`. |
+
+### sendSimpleEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendSimpleEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendEmailWithAttachments" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `to` | `String` | Übergeben über `args[0].0`. |
+| `subject` | `String` | Übergeben über `args[1].1`. |
+| `text` | `String` | Übergeben über `args[2].2`. |
+| `attachments` | `ArrayList<String>` | Übergeben über `args[3].3`. |
+
+### sendEmailWithAttachments
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendEmailWithAttachments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendMimeMessage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `to` | `String` | Übergeben über `args[0].0`. |
+| `subject` | `String` | Übergeben über `args[1].1`. |
+| `message` | `String` | Übergeben über `args[2].2`. |
+
+### sendMimeMessage
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendMimeMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendVerificationEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `user` | `User` | Übergeben über `args[0].0`. |
+
+### sendVerificationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendVerificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendWelcomeEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `user` | `User` | Übergeben über `args[0].0`. |
+
+### sendWelcomeEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendWelcomeEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendResetPasswordEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `user` | `User` | Übergeben über `args[0].0`. |
+
+### sendResetPasswordEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendResetPasswordEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendOrderConfirmationEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Übergeben über `args[0].0`. |
+
+### sendOrderConfirmationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendOrderConfirmationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendMessageNotificationEmail" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `emailMessage` | `EmailMessage` | Übergeben über `args[0].0`. |
+
+### sendMessageNotificationEmail
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendMessageNotificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

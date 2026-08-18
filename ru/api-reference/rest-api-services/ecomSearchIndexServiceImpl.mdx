@@ -1,0 +1,140 @@
+---
+title: 'ecomSearchIndexServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: ecomSearchIndexServiceImpl'
+---
+
+# ecomSearchIndexServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+ecomSearchIndexServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="generateKeywordsForSKUs" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `ids` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### generateKeywordsForSKUs
+
+```json
+{
+  "beanId": "ecomSearchIndexServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateKeywordsForSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeKeywordsForSKUs" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `ids` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeKeywordsForSKUs
+
+```json
+{
+  "beanId": "ecomSearchIndexServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeKeywordsForSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateSellerSkuForSeller" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### generateSellerSkuForSeller
+
+```json
+{
+  "beanId": "ecomSearchIndexServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateSellerSkuForSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeSellerSkuForSeller" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### removeSellerSkuForSeller
+
+```json
+{
+  "beanId": "ecomSearchIndexServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerSkuForSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

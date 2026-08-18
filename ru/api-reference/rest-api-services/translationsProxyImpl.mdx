@@ -1,0 +1,72 @@
+---
+title: 'translationsProxyImpl'
+description: 'Вызов публичных методов сервиса через REST API: translationsProxyImpl'
+---
+
+# translationsProxyImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+translationsProxyImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="findTranslationById" type="Object">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+| `entityClass` | `Class<?>` | Передаётся через `args[1].1`. |
+
+### findTranslationById
+
+```json
+{
+  "beanId": "translationsProxyImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findTranslationById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

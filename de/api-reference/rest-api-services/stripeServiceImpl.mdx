@@ -1,0 +1,856 @@
+---
+title: 'stripeServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: stripeServiceImpl'
+---
+
+# stripeServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+stripeServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** bedingt für USER/ADMIN.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="init" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### init
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isStripeKeysDefined" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### isStripeKeysDefined
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isStripeKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrency" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getCurrency
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrency",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `orderId` | `String` | Übergeben über `args[0].0`. |
+| `stripeConnectId` | `String` | Übergeben über `args[1].1`. |
+| `paymentMethodId` | `String` | Übergeben über `args[2].2`. |
+| `nettoAmount` | `BigDecimal` | Übergeben über `args[3].3`. |
+| `tax` | `Order.Tax` | Übergeben über `args[4].4`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentRequest` | `PaymentRequest` | Übergeben über `args[0].0`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="retrieveIntent" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Übergeben über `args[0].0`. |
+
+### retrieveIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "retrieveIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelIntent" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Übergeben über `args[0].0`. |
+
+### cancelIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundIntent" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Übergeben über `args[0].0`. |
+
+### refundIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeIntent" type="PaymentStatus">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Übergeben über `args[0].0`. |
+
+### chargeIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtain3DSecureLink" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Übergeben über `args[0].0`. |
+
+### obtain3DSecureLink
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtain3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Übergeben über `args[0].0`. |
+| `paymentMethodId` | `String` | Übergeben über `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payoutToVendor" type="Payout">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `vendor` | `Seller` | Übergeben über `args[0].0`. |
+| `orderId` | `String` | Übergeben über `args[1].1`. |
+| `amount` | `long` | Übergeben über `args[2].2`. |
+
+### payoutToVendor
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payoutToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeSepa" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### chargeSepa
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeSepa",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeCreditCard" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### chargeCreditCard
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeCreditCard",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeTariffSepa" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### chargeTariffSepa
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeTariffSepa",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeTariffCreditCard" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### chargeTariffCreditCard
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeTariffCreditCard",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelSubscriptionAfterActivePeriod" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sellerId` | `String` | Übergeben über `args[0].0`. |
+
+### cancelSubscriptionAfterActivePeriod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelSubscriptionAfterActivePeriod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelSubscriptionImmediately" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sellerId` | `String` | Übergeben über `args[0].0`. |
+
+### cancelSubscriptionImmediately
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelSubscriptionImmediately",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContractEndDate" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `createdDate` | `String` | Übergeben über `args[0].0`. |
+| `pattern` | `String` | Übergeben über `args[1].1`. |
+
+### getContractEndDate
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContractEndDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContractEndDateFromTimestamp" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `created` | `String` | Übergeben über `args[0].0`. |
+| `pattern` | `String` | Übergeben über `args[1].1`. |
+
+### getContractEndDateFromTimestamp
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContractEndDateFromTimestamp",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTariffEquals" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `tariff` | `String` | Übergeben über `args[0].0`. |
+
+### isTariffEquals
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTariffEquals",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAmountByTariff" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `tariff` | `String` | Übergeben über `args[0].0`. |
+
+### getAmountByTariff
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAmountByTariff",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoice" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `orderId` | `String` | Übergeben über `args[0].0`. |
+
+### createInvoice
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInvoices" type="List<Invoice>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getInvoices
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getInvoices",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProducts" type="List<Product>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getProducts
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProducts",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPaymentMethod" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentMethodMap` | `LinkedHashMap<String,Object>` | Übergeben über `args[0].0`. |
+
+### createPaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCustomer" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### createCustomer
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCustomer",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteCustomer" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `sellerId` | `String` | Übergeben über `args[0].0`. |
+
+### deleteCustomer
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteCustomer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removePaymentMethod" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentMethodId` | `String` | Übergeben über `args[0].0`. |
+
+### removePaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethods" type="List<PaymentMethod>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `type` | `String` | Übergeben über `args[0].0`. |
+
+### getPaymentMethods
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethods",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethod" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `paymentMethodId` | `String` | Übergeben über `args[0].0`. |
+
+### getPaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSubscription" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getSubscription
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSubscription",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTaxRate" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `amount` | `String` | Übergeben über `args[0].0`. |
+| `countryIsoCode` | `String` | Übergeben über `args[1].1`. |
+
+### calculateTaxRate
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTaxRate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainAllTaxRates" type="Map<String, TaxRate>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### obtainAllTaxRates
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainAllTaxRates",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTax" type="Order.Tax">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `buyer` | `Seller` | Übergeben über `args[0].0`. |
+| `seller` | `Seller` | Übergeben über `args[1].1`. |
+| `taxRates` | `Map<String, TaxRate>` | Übergeben über `args[2].2`. |
+
+### calculateTax
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTax",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

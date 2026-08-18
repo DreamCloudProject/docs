@@ -1,0 +1,136 @@
+---
+title: 'siteManagementServiceImpl'
+description: 'Calling public service methods through the REST API: siteManagementServiceImpl'
+---
+
+# siteManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+siteManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="findSites" type="List<SiteItem>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### findSites
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findSites",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findPages" type="List<SiteItem>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `route` | `String` | Passed through `args[0].0`. |
+
+### findPages
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findPages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteRoute" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `route` | `String` | Passed through `args[0].0`. |
+
+### deleteRoute
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteRoute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteRoutes" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `routes` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### deleteRoutes
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteRoutes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,300 @@
+---
+title: 'dummyBean'
+description: 'Вызов публичных методов сервиса через REST API: dummyBean'
+---
+
+# dummyBean
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+dummyBean
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getUsers" type="List<Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getUsers
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getUsers",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setUsers" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `users` | `List<Object>` | Передаётся через `args[0].0`. |
+
+### setUsers
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDummyUser" type="DummyUser">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getDummyUser
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getDummyUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setDummyUser" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dummyUser` | `DummyUser` | Передаётся через `args[0].0`. |
+
+### setDummyUser
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setDummyUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAddress" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getAddress
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getAddress",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setAddress" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `address` | `Map<String, Object>` | Передаётся через `args[0].0`. |
+
+### setAddress
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDescription" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getDescription
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getDescription",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setDescription" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `description` | `String` | Передаётся через `args[0].0`. |
+
+### setDescription
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setDescription",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getToDos" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getToDos
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "getToDos",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setToDos" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `toDos` | `List<Map<String, Object>>` | Передаётся через `args[0].0`. |
+
+### setToDos
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "setToDos",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clear" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### clear
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "clear",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addToDo" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `name` | `String` | Передаётся через `args[0].0`. |
+
+### addToDo
+
+```json
+{
+  "beanId": "dummyBean",
+  "scope": "PROTOTYPE",
+  "functionName": "addToDo",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

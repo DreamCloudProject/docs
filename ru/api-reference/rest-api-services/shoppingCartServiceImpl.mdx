@@ -1,0 +1,455 @@
+---
+title: 'shoppingCartServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: shoppingCartServiceImpl'
+---
+
+# shoppingCartServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+shoppingCartServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getCartDTO" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getCartDTO
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCartDTO",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCartDTO" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `buyerId` | `String` | Передаётся через `args[0].0`. |
+
+### getCartDTO
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCartDTO",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### addCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItems" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### addCommerceItems
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItems" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `MultipleAddToCartRequest` | Передаётся через `args[0].0`. |
+
+### addCommerceItems
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `data` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### addCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `AddToCartRequest` | Передаётся через `args[0].0`. |
+
+### addCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItem" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `itemId` | `String` | Передаётся через `args[0].0`. |
+
+### removeCommerceItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clearCart" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### clearCart
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "clearCart",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="decreaseQuantity" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `itemId` | `String` | Передаётся через `args[0].0`. |
+
+### decreaseQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "decreaseQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateQuantity" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `itemId` | `String` | Передаётся через `args[0].0`. |
+| `quantity` | `String` | Передаётся через `args[1].1`. |
+
+### updateQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="increaseQuantity" type="ShoppingCartDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `itemId` | `String` | Передаётся через `args[0].0`. |
+
+### increaseQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "increaseQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="canAddItem" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSkuId` | `String` | Передаётся через `args[0].0`. |
+
+### canAddItem
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "canAddItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkPrice" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### checkPrice
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkInventory" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### checkInventory
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkInventory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkRestQuantity" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### checkRestQuantity
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkRestQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkCurrencyForCart" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### checkCurrencyForCart
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkCurrencyForCart",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkStripeConnect" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerSku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### checkStripeConnect
+
+```json
+{
+  "beanId": "shoppingCartServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkStripeConnect",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

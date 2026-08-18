@@ -1,0 +1,275 @@
+---
+title: 'commerceItemServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: commerceItemServiceImpl'
+---
+
+# commerceItemServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+commerceItemServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getRepository" type="CommerceItemRepository">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getRepository
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTotalPrice" type="BigDecimal">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `Collection<CommerceItem>` | Передаётся через `args[0].0`. |
+
+### calculateTotalPrice
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTotalPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapItems" type="List<CommerceItemDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `Collection<CommerceItem>` | Передаётся через `args[0].0`. |
+
+### mapItems
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractSpecs" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### extractSpecs
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractSpecs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItem" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+
+### removeCommerceItem
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItem",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCommerceItems" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `ids` | `List<String>` | Передаётся через `args[0].0`. |
+
+### removeCommerceItems
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundCommerceItems" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `Order` | Передаётся через `args[0].0`. |
+
+### refundCommerceItems
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundCommerceItems",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateInventoriesLockedQuantity" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `map` | `Map<CommerceItem, Inventory>` | Передаётся через `args[0].0`. |
+| `increase` | `boolean` | Передаётся через `args[1].1`. |
+
+### updateInventoriesLockedQuantity
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateInventoriesLockedQuantity",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainItemToInventoryMap" type="Map<CommerceItem, Inventory>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `items` | `List<CommerceItem>` | Передаётся через `args[0].0`. |
+
+### obtainItemToInventoryMap
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainItemToInventoryMap",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractAttributeValues" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sku` | `SellerSKU` | Передаётся через `args[0].0`. |
+
+### extractAttributeValues
+
+```json
+{
+  "beanId": "commerceItemServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "extractAttributeValues",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

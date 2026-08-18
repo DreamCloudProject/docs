@@ -1,0 +1,364 @@
+---
+title: 'contentContainerServiceImpl'
+description: 'Calling public service methods through the REST API: contentContainerServiceImpl'
+---
+
+# contentContainerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+contentContainerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="ContentContainerRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createContainer" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createContainer
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createContainer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createContainer" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `contentContainer` | `ContentContainer` | Passed through `args[0].0`. |
+
+### createContainer
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createContainer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveContainer" type="ContentContainer">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+| `blogId` | `String` | Passed through `args[1].1`. |
+
+### saveContainer
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveContainer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveContainer" type="ContentContainer">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `container` | `ContentContainer` | Passed through `args[0].0`. |
+
+### saveContainer
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveContainer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeArticles" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogId` | `String` | Passed through `args[0].0`. |
+| `articleIds` | `ArrayList<String>` | Passed through `args[1].1`. |
+
+### removeArticles
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContainerArticles" type="List<Map<String, String>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogId` | `String` | Passed through `args[0].0`. |
+
+### getContainerArticles
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContainerArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getArticles" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `regex` | `String` | Passed through `args[0].0`. |
+
+### getArticles
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeContainersByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeContainersByIds
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeContainersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeContainerAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogId` | `String` | Passed through `args[0].0`. |
+
+### removeContainerAndClean
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeContainerAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContainerPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getContainerPaginationFilter
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContainerPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchContainerResultsPaged" type="Page<ContentContainer>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchContainerResultsPaged
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchContainerResultsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchContainersResults" type="List<ContentContainer>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchContainersResults
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchContainersResults",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContainerTypes" type="List<Map<String,Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getContainerTypes
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContainerTypes",
+  "args": []
+}
+```
+
+</ResponseField>

@@ -1,0 +1,210 @@
+---
+title: 'beanHandlerServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: beanHandlerServiceImpl'
+---
+
+# beanHandlerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+beanHandlerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getRepository" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `repositoryId` | `String` | Übergeben über `args[0].0`. |
+
+### getRepository
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getBean" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `beanId` | `String` | Übergeben über `args[0].0`. |
+
+### getBean
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSessionBean" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `beanId` | `String` | Übergeben über `args[0].0`. |
+
+### getSessionBean
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSessionBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateSessionBean" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `beanId` | `String` | Übergeben über `args[0].0`. |
+| `bean` | `Object` | Übergeben über `args[1].1`. |
+
+### updateSessionBean
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateSessionBean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleUpdate" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `BeanRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleUpdate
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleUpdate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleInvoke" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `BeanRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleInvoke
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleInvoke",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleRepositoryCall" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `RepositoryRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleRepositoryCall
+
+```json
+{
+  "beanId": "beanHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleRepositoryCall",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

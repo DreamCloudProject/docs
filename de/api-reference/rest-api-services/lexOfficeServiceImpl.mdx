@@ -1,0 +1,203 @@
+---
+title: 'lexOfficeServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: lexOfficeServiceImpl'
+---
+
+# lexOfficeServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+lexOfficeServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="init" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### init
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isLexOfficeKeyDefined" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### isLexOfficeKeyDefined
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isLexOfficeKeyDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPayoutInvoice" type="Attachment">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `orderId` | `String` | Übergeben über `args[0].0`. |
+| `profileId` | `String` | Übergeben über `args[1].1`. |
+
+### createPayoutInvoice
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPayoutInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCommissionInvoice" type="Attachment">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `orderId` | `String` | Übergeben über `args[0].0`. |
+| `profileId` | `String` | Übergeben über `args[1].1`. |
+
+### createCommissionInvoice
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCommissionInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createContact" type="Contact">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `contact` | `Contact` | Übergeben über `args[0].0`. |
+
+### createContact
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="retrieveContact" type="Contact">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+
+### retrieveContact
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "retrieveContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateContact" type="Contact">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `contact` | `Contact` | Übergeben über `args[0].0`. |
+
+### updateContact
+
+```json
+{
+  "beanId": "lexOfficeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateContact",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

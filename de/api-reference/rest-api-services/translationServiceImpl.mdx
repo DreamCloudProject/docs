@@ -1,0 +1,1002 @@
+---
+title: 'translationServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: translationServiceImpl'
+---
+
+# translationServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+translationServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** GUEST. **Bearer Token:** nicht erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="init" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### init
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getRepository" type="TranslationsRepository">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getRepository
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLanguageRepository" type="LanguageRepository">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getLanguageRepository
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLanguageRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchTranslations" type="LinkedHashSet<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchTranslations
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchTranslationsPaged" type="Page<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchTranslationsPaged
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchTranslationsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchTranslations" type="List<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `query` | `String` | Übergeben über `args[0].0`. |
+| `offset` | `String` | Übergeben über `args[1].1`. |
+| `limit` | `String` | Übergeben über `args[2].2`. |
+
+### searchTranslations
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchTranslationsById" type="List<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `regex` | `String` | Übergeben über `args[0].0`. |
+
+### searchTranslationsById
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchTranslationsById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findTranslations" type="List<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### findTranslations
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findTranslations",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findTranslationsByLangCode" type="List<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `lang` | `String` | Übergeben über `args[0].0`. |
+
+### findTranslationsByLangCode
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findTranslationsByLangCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslationsByLangCode" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `lang` | `String` | Übergeben über `args[0].0`. |
+
+### getTranslationsByLangCode
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslationsByLangCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLangFromContext" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getLangFromContext
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLangFromContext",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslatedTimeDuration" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `date` | `String` | Übergeben über `args[0].0`. |
+
+### getTranslatedTimeDuration
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslatedTimeDuration",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslationById" type="LocalizedText">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+
+### getTranslationById
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslationById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslation" type="Map<String,String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `repositoryName` | `String` | Übergeben über `args[1].1`. |
+
+### getTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslation" type="Map<String, String>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `lang` | `String` | Übergeben über `args[1].1`. |
+| `repositoryName` | `String` | Übergeben über `args[2].2`. |
+
+### getTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslationValue" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `repositoryName` | `String` | Übergeben über `args[1].1`. |
+
+### getTranslationValue
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslationValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslationValue" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `lang` | `String` | Übergeben über `args[1].1`. |
+| `repositoryName` | `String` | Übergeben über `args[2].2`. |
+
+### getTranslationValue
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslationValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchLanguages" type="List<Language>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `query` | `String` | Übergeben über `args[0].0`. |
+| `offset` | `String` | Übergeben über `args[1].1`. |
+| `limit` | `String` | Übergeben über `args[2].2`. |
+
+### searchLanguages
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchLanguages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findLanguages" type="List<Language>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### findLanguages
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findLanguages",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createTranslation" type="Optional<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translationAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createTranslation" type="LocalizedText">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translation` | `LocalizedText` | Übergeben über `args[0].0`. |
+
+### createTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createLanguage" type="Optional<Language>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `langAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### createLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createLanguage" type="Language">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `language` | `Language` | Übergeben über `args[0].0`. |
+
+### createLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveTranslation" type="Optional<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translationAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### saveTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveArticle" type="Optional<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `text` | `String` | Übergeben über `args[0].0`. |
+| `articleId` | `String` | Übergeben über `args[1].1`. |
+
+### saveArticle
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveArticle",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveTranslation" type="Optional<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translation` | `LocalizedText` | Übergeben über `args[0].0`. |
+
+### saveTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveLanguage" type="Optional<Language>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `langAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
+
+### saveLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveLanguage" type="Optional<Language>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `language` | `Language` | Übergeben über `args[0].0`. |
+
+### saveLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeTranslationAndClean" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translationId` | `String` | Übergeben über `args[0].0`. |
+
+### removeTranslationAndClean
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeTranslationAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeTranslationsByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translationIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeTranslationsByIds
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeTranslationsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeTranslationsByLanguage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `langId` | `String` | Übergeben über `args[0].0`. |
+
+### removeTranslationsByLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeTranslationsByLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeLanguageAndClean" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `langId` | `String` | Übergeben über `args[0].0`. |
+
+### removeLanguageAndClean
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeLanguageAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeLanguagesByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `languageIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeLanguagesByIds
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeLanguagesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getTranslations" type="HashSet<LocalizedText>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `langEn` | `String` | Übergeben über `args[0].0`. |
+| `langDe` | `String` | Übergeben über `args[1].1`. |
+
+### getTranslations
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addTranslation" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `lang` | `String` | Übergeben über `args[0].0`. |
+| `translations` | `HashSet<LocalizedText>` | Übergeben über `args[1].1`. |
+| `languageOptional` | `Optional<Language>` | Übergeben über `args[2].2`. |
+
+### addTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAlphabetForActiveLanguage" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `isUpp` | `String` | Übergeben über `args[0].0`. |
+
+### getAlphabetForActiveLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAlphabetForActiveLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAlphabetForLanguage" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `isUpp` | `String` | Übergeben über `args[0].0`. |
+| `language` | `String` | Übergeben über `args[1].1`. |
+
+### getAlphabetForLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAlphabetForLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDefaultLanguage" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getDefaultLanguage
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDefaultLanguage",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findOrCreateTranslation" type="LocalizedText">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `tr` | `LocalizedText` | Übergeben über `args[0].0`. |
+
+### findOrCreateTranslation
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findOrCreateTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="exportTranslations" type="List<TranslationExport>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Übergeben über `args[0].0`. |
+
+### exportTranslations
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "exportTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadTranslations" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `file` | `File` | Übergeben über `args[0].0`. |
+| `username` | `String` | Übergeben über `args[1].1`. |
+
+### uploadTranslations
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

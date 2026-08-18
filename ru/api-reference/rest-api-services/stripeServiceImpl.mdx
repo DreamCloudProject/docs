@@ -1,0 +1,856 @@
+---
+title: 'stripeServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: stripeServiceImpl'
+---
+
+# stripeServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+stripeServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="init" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### init
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isStripeKeysDefined" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isStripeKeysDefined
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isStripeKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCurrency" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getCurrency
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCurrency",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+| `stripeConnectId` | `String` | Передаётся через `args[1].1`. |
+| `paymentMethodId` | `String` | Передаётся через `args[2].2`. |
+| `nettoAmount` | `BigDecimal` | Передаётся через `args[3].3`. |
+| `tax` | `Order.Tax` | Передаётся через `args[4].4`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createIntent" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentRequest` | `PaymentRequest` | Передаётся через `args[0].0`. |
+
+### createIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="retrieveIntent" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Передаётся через `args[0].0`. |
+
+### retrieveIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "retrieveIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelIntent" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Передаётся через `args[0].0`. |
+
+### cancelIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundIntent" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Передаётся через `args[0].0`. |
+
+### refundIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeIntent" type="PaymentStatus">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Передаётся через `args[0].0`. |
+
+### chargeIntent
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeIntent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtain3DSecureLink" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Передаётся через `args[0].0`. |
+
+### obtain3DSecureLink
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtain3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentIntentId` | `String` | Передаётся через `args[0].0`. |
+| `paymentMethodId` | `String` | Передаётся через `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payoutToVendor" type="Payout">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `vendor` | `Seller` | Передаётся через `args[0].0`. |
+| `orderId` | `String` | Передаётся через `args[1].1`. |
+| `amount` | `long` | Передаётся через `args[2].2`. |
+
+### payoutToVendor
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payoutToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeSepa" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### chargeSepa
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeSepa",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeCreditCard" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### chargeCreditCard
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeCreditCard",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeTariffSepa" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### chargeTariffSepa
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeTariffSepa",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargeTariffCreditCard" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chargeRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### chargeTariffCreditCard
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargeTariffCreditCard",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelSubscriptionAfterActivePeriod" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### cancelSubscriptionAfterActivePeriod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelSubscriptionAfterActivePeriod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelSubscriptionImmediately" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### cancelSubscriptionImmediately
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelSubscriptionImmediately",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContractEndDate" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `createdDate` | `String` | Передаётся через `args[0].0`. |
+| `pattern` | `String` | Передаётся через `args[1].1`. |
+
+### getContractEndDate
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContractEndDate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContractEndDateFromTimestamp" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `created` | `String` | Передаётся через `args[0].0`. |
+| `pattern` | `String` | Передаётся через `args[1].1`. |
+
+### getContractEndDateFromTimestamp
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContractEndDateFromTimestamp",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isTariffEquals" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `tariff` | `String` | Передаётся через `args[0].0`. |
+
+### isTariffEquals
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isTariffEquals",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAmountByTariff" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `tariff` | `String` | Передаётся через `args[0].0`. |
+
+### getAmountByTariff
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAmountByTariff",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoice" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderId` | `String` | Передаётся через `args[0].0`. |
+
+### createInvoice
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getInvoices" type="List<Invoice>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getInvoices
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getInvoices",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProducts" type="List<Product>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getProducts
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProducts",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPaymentMethod" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentMethodMap` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
+
+### createPaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCustomer" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### createCustomer
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCustomer",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteCustomer" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `sellerId` | `String` | Передаётся через `args[0].0`. |
+
+### deleteCustomer
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteCustomer",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removePaymentMethod" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentMethodId` | `String` | Передаётся через `args[0].0`. |
+
+### removePaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethods" type="List<PaymentMethod>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `type` | `String` | Передаётся через `args[0].0`. |
+
+### getPaymentMethods
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethods",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethod" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentMethodId` | `String` | Передаётся через `args[0].0`. |
+
+### getPaymentMethod
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSubscription" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getSubscription
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSubscription",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTaxRate" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `amount` | `String` | Передаётся через `args[0].0`. |
+| `countryIsoCode` | `String` | Передаётся через `args[1].1`. |
+
+### calculateTaxRate
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTaxRate",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="obtainAllTaxRates" type="Map<String, TaxRate>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### obtainAllTaxRates
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "obtainAllTaxRates",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTax" type="Order.Tax">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `buyer` | `Seller` | Передаётся через `args[0].0`. |
+| `seller` | `Seller` | Передаётся через `args[1].1`. |
+| `taxRates` | `Map<String, TaxRate>` | Передаётся через `args[2].2`. |
+
+### calculateTax
+
+```json
+{
+  "beanId": "stripeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTax",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,165 @@
+---
+title: 'webSocketServiceImpl'
+description: 'Calling public service methods through the REST API: webSocketServiceImpl'
+---
+
+# webSocketServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+webSocketServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="generateActionId" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### generateActionId
+
+```json
+{
+  "beanId": "webSocketServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateActionId",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendSharedResponse" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `destination` | `String` | Passed through `args[0].0`. |
+| `result` | `Map<String, Object>` | Passed through `args[1].1`. |
+
+### sendSharedResponse
+
+```json
+{
+  "beanId": "webSocketServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendSharedResponse",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendGlobalResponse" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `destination` | `String` | Passed through `args[0].0`. |
+| `headerAccessor` | `SimpMessageHeaderAccessor` | Passed through `args[1].1`. |
+| `result` | `Map<String, Object>` | Passed through `args[2].2`. |
+
+### sendGlobalResponse
+
+```json
+{
+  "beanId": "webSocketServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendGlobalResponse",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendUserResponse" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `destination` | `String` | Passed through `args[0].0`. |
+| `sessionId` | `String` | Passed through `args[1].1`. |
+| `headerAccessor` | `SimpMessageHeaderAccessor` | Passed through `args[2].2`. |
+| `result` | `Map<String, Object>` | Passed through `args[3].3`. |
+
+### sendUserResponse
+
+```json
+{
+  "beanId": "webSocketServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendUserResponse",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSubscribers" type="List<String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `destination` | `String` | Passed through `args[0].0`. |
+
+### getSubscribers
+
+```json
+{
+  "beanId": "webSocketServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSubscribers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

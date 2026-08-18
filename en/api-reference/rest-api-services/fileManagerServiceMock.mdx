@@ -1,0 +1,428 @@
+---
+title: 'fileManagerServiceMock'
+description: 'Calling public service methods through the REST API: fileManagerServiceMock'
+---
+
+# fileManagerServiceMock
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+fileManagerServiceMock
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="createDirectory" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+
+### createDirectory
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createDirectory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findByPath" type="List<File>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+
+### findByPath
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findByPath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findByPath" type="List<File>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+| `filter` | `FileFilter` | Passed through `args[1].1`. |
+
+### findByPath
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findByPath",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findFiles" type="List<File>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+
+### findFiles
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findFiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findFiles" type="List<File>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+| `fileExtension` | `String` | Passed through `args[1].1`. |
+
+### findFiles
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findFiles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findRootFolders" type="List<File>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `rootPath` | `Path` | Passed through `args[0].0`. |
+
+### findRootFolders
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "findRootFolders",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadFile" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `destination` | `Path` | Passed through `args[0].0`. |
+| `fis` | `InputStream` | Passed through `args[1].1`. |
+
+### uploadFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="downloadFile" type="byte[]">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+
+### downloadFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "downloadFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="move" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `source` | `Path` | Passed through `args[0].0`. |
+| `destination` | `Path` | Passed through `args[1].1`. |
+
+### move
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "move",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="copy" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `source` | `Path` | Passed through `args[0].0`. |
+| `destination` | `Path` | Passed through `args[1].1`. |
+
+### copy
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "copy",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rename" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `file` | `Path` | Passed through `args[0].0`. |
+| `newName` | `String` | Passed through `args[1].1`. |
+
+### rename
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "rename",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="delete" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+
+### delete
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "delete",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="extractZipFile" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `file` | `Path` | Passed through `args[0].0`. |
+| `destination` | `Path` | Passed through `args[1].1`. |
+
+### extractZipFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "extractZipFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveContentToFile" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `name` | `String` | Passed through `args[0].0`. |
+| `path` | `String` | Passed through `args[1].1`. |
+| `content` | `String` | Passed through `args[2].2`. |
+
+### saveContentToFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "saveContentToFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createFile" type="File">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+| `bytes` | `byte[]` | Passed through `args[1].1`. |
+
+### createFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "createFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setAttributeToFile" type="Path">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `path` | `Path` | Passed through `args[0].0`. |
+| `name` | `String` | Passed through `args[1].1`. |
+| `val` | `byte[]` | Passed through `args[2].2`. |
+
+### setAttributeToFile
+
+```json
+{
+  "beanId": "fileManagerServiceMock",
+  "scope": "PROTOTYPE",
+  "functionName": "setAttributeToFile",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

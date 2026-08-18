@@ -1,0 +1,203 @@
+---
+title: 'yooKassaServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: yooKassaServiceImpl'
+---
+
+# yooKassaServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+yooKassaServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="init" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### init
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isYooKassaKeysDefined" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### isYooKassaKeysDefined
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isYooKassaKeysDefined",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPayment" type="Payment">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `OrderDTO` | Передаётся через `args[0].0`. |
+
+### createPayment
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="chargePayment" type="PaymentStatus">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentId` | `String` | Передаётся через `args[0].0`. |
+
+### chargePayment
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "chargePayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelPayment" type="PaymentStatus">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `paymentId` | `String` | Передаётся через `args[0].0`. |
+
+### cancelPayment
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundPayment" type="PaymentStatus">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `order` | `OrderDTO` | Передаётся через `args[0].0`. |
+
+### refundPayment
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payoutToVendor" type="Payout">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `vendor` | `Seller` | Передаётся через `args[0].0`. |
+| `orderId` | `String` | Передаётся через `args[1].1`. |
+| `amount` | `long` | Передаётся через `args[2].2`. |
+
+### payoutToVendor
+
+```json
+{
+  "beanId": "yooKassaServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payoutToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

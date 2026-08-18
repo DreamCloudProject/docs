@@ -1,0 +1,488 @@
+---
+title: 'categoryServiceImpl'
+description: 'Calling public service methods through the REST API: categoryServiceImpl'
+---
+
+# categoryServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+categoryServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** conditional for USER/ADMIN.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="CategoryRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategoriesLightweight" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchCategoriesLightweight
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategoriesLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="LinkedHashSet<CategoryDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategoriesPaged" type="Page<Category>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchCategoriesPaged
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategoriesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCategories" type="List<Category>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `from` | `String` | Passed through `args[1].1`. |
+| `to` | `String` | Passed through `args[2].2`. |
+
+### searchCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCategory" type="Optional<Category>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createCategory" type="Optional<Category>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `category` | `Category` | Passed through `args[0].0`. |
+
+### createCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addChildCategory" type="Category">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `parentId` | `String` | Passed through `args[0].0`. |
+| `childId` | `String` | Passed through `args[1].1`. |
+
+### addChildCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeChildCategory" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `parentId` | `String` | Passed through `args[0].0`. |
+| `childId` | `String` | Passed through `args[1].1`. |
+
+### removeChildCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeChildCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="Category">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="updateCategory" type="Category">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `category` | `Category` | Passed through `args[0].0`. |
+
+### updateCategory
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "updateCategory",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryFromTranslation" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+| `translationId` | `String` | Passed through `args[1].1`. |
+
+### removeCategoryFromTranslation
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoryWithDescendants" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `itemId` | `String` | Passed through `args[0].0`. |
+
+### removeCategoryWithDescendants
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoryWithDescendants",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeCategoriesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoriesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeCategoriesByIds
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoriesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="rebuildAllCategories" type="List<Category>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categories` | `ArrayList<Object>` | Passed through `args[0].0`. |
+
+### rebuildAllCategories
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "rebuildAllCategories",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapCategoryToDto" type="CategoryDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `category` | `Category` | Passed through `args[0].0`. |
+| `optimal` | `boolean` | Passed through `args[1].1`. |
+
+### mapCategoryToDto
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapCategoryToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="lookupToParents" type="List<String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+| `result` | `List<String>` | Passed through `args[1].1`. |
+
+### lookupToParents
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "lookupToParents",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

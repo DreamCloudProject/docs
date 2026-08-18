@@ -1,0 +1,211 @@
+---
+title: 'yookassaHandlerServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: yookassaHandlerServiceImpl'
+---
+
+# yookassaHandlerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+yookassaHandlerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="handlePayoutPaidEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+| `httpSession` | `HttpSession` | Übergeben über `args[1].1`. |
+
+### handlePayoutPaidEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePayoutPaidEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentFailedEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+
+### handlePaymentFailedEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentFailedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentSucceededEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+| `httpSession` | `HttpSession` | Übergeben über `args[1].1`. |
+
+### handlePaymentSucceededEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentSucceededEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handlePaymentCreatedEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+
+### handlePaymentCreatedEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handlePaymentCreatedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleSubscriptionCanceledEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+
+### handleSubscriptionCanceledEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleSubscriptionCanceledEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleSubscriptionDeletedEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+
+### handleSubscriptionDeletedEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleSubscriptionDeletedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleCustomerDeletedEvent" type="Object">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `JSONObject` | Übergeben über `args[0].0`. |
+
+### handleCustomerDeletedEvent
+
+```json
+{
+  "beanId": "yookassaHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleCustomerDeletedEvent",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

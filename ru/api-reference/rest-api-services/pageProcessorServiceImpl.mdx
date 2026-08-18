@@ -1,0 +1,169 @@
+---
+title: 'pageProcessorServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: pageProcessorServiceImpl'
+---
+
+# pageProcessorServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+pageProcessorServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST. **Bearer Token:** не требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="processPage" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `pageRoot` | `String` | Передаётся через `args[0].0`. |
+| `html` | `String` | Передаётся через `args[1].1`. |
+
+### processPage
+
+```json
+{
+  "beanId": "pageProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "processPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="processPageTitle" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `entityId` | `String` | Передаётся через `args[0].0`. |
+| `repositoryName` | `String` | Передаётся через `args[1].1`. |
+
+### processPageTitle
+
+```json
+{
+  "beanId": "pageProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "processPageTitle",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="processTranslation" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `pageRoot` | `String` | Передаётся через `args[0].0`. |
+| `articleId` | `String` | Передаётся через `args[1].1`. |
+| `repository` | `String` | Передаётся через `args[2].2`. |
+
+### processTranslation
+
+```json
+{
+  "beanId": "pageProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "processTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="processMetaData" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `pageUrl` | `String` | Передаётся через `args[0].0`. |
+| `containerId` | `String` | Передаётся через `args[1].1`. |
+| `repositoryName` | `String` | Передаётся через `args[2].2`. |
+
+### processMetaData
+
+```json
+{
+  "beanId": "pageProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "processMetaData",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="processThemeCss" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `pageUrl` | `String` | Передаётся через `args[0].0`. |
+
+### processThemeCss
+
+```json
+{
+  "beanId": "pageProcessorServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "processThemeCss",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

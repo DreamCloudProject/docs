@@ -1,0 +1,96 @@
+---
+title: 'pDFServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: pDFServiceImpl'
+---
+
+# pDFServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+pDFServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="createPdf" type="byte[]">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `html` | `String` | Übergeben über `args[0].0`. |
+
+### createPdf
+
+```json
+{
+  "beanId": "pDFServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPdf",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPdf" type="byte[]">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `headerHtml` | `String` | Übergeben über `args[0].0`. |
+| `bodyHtml` | `String` | Übergeben über `args[1].1`. |
+| `footerHtml` | `String` | Übergeben über `args[2].2`. |
+
+### createPdf
+
+```json
+{
+  "beanId": "pDFServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPdf",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

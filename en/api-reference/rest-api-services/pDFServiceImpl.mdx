@@ -1,0 +1,96 @@
+---
+title: 'pDFServiceImpl'
+description: 'Calling public service methods through the REST API: pDFServiceImpl'
+---
+
+# pDFServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+pDFServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="createPdf" type="byte[]">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `html` | `String` | Passed through `args[0].0`. |
+
+### createPdf
+
+```json
+{
+  "beanId": "pDFServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPdf",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPdf" type="byte[]">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `headerHtml` | `String` | Passed through `args[0].0`. |
+| `bodyHtml` | `String` | Passed through `args[1].1`. |
+| `footerHtml` | `String` | Passed through `args[2].2`. |
+
+### createPdf
+
+```json
+{
+  "beanId": "pDFServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPdf",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

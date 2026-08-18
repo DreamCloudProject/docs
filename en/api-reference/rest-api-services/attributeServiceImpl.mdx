@@ -1,0 +1,1585 @@
+---
+title: 'attributeServiceImpl'
+description: 'Calling public service methods through the REST API: attributeServiceImpl'
+---
+
+# attributeServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+attributeServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getRepository" type="AttributeRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getRepository
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMeasurementRepository" type="MeasurementRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getMeasurementRepository
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMeasurementRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOptionsRepository" type="OptionRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getOptionsRepository
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOptionsRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributesLightweight" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchAttributesLightweight
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributesLightweight",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributes" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributes" type="LinkedHashSet<AttributeDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributesPaged" type="Page<Attribute>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchAttributesPaged
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationMeasurements" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurements" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurements" type="LinkedHashSet<MeasurementDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurementsPaged" type="Page<Measurement>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchMeasurementsPaged
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurementsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationOptions" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptions" type="SearchResponse">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### searchOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptions" type="LinkedHashSet<OptionDTO>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptionsPaged" type="Page<Option>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchOptionsPaged
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptionsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAttributes" type="List<Attribute>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `offset` | `String` | Passed through `args[1].1`. |
+| `limit` | `String` | Passed through `args[2].2`. |
+
+### searchAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findAttributes" type="List<Attribute>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### findAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findAttributes",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMeasurements" type="List<Measurement>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `offset` | `String` | Passed through `args[1].1`. |
+| `limit` | `String` | Passed through `args[2].2`. |
+
+### searchMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMeasurements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findMeasurements" type="List<Measurement>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### findMeasurements
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findMeasurements",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchOptions" type="List<Option>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `offset` | `String` | Passed through `args[1].1`. |
+| `limit` | `String` | Passed through `args[2].2`. |
+
+### searchOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findOptions" type="List<Option>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### findOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findOptions",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOptionsFromAttribute" type="List<Option>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### getOptionsFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOptionsFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMeasurementValueFromAttribute" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### getMeasurementValueFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMeasurementValueFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAttributeValue" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeValueId` | `String` | Passed through `args[0].0`. |
+
+### getAttributeValue
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAttributeValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMeasurement" type="Optional<Measurement>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measureAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOption" type="Optional<Option>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAttribute" type="Optional<Attribute>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMeasurement" type="Optional<Measurement>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measurement` | `Measurement` | Passed through `args[0].0`. |
+
+### createMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createOption" type="Optional<Option>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `option` | `Option` | Passed through `args[0].0`. |
+
+### createOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAttribute" type="Optional<Attribute>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attribute` | `Attribute` | Passed through `args[0].0`. |
+
+### createAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToProduct" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `productId` | `String` | Passed through `args[0].0`. |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### addAttributeToProduct
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToProduct" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `productId` | `String` | Passed through `args[0].0`. |
+| `attributeId` | `String` | Passed through `args[1].1`. |
+
+### addAttributeToProduct
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToSKU" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `skuId` | `String` | Passed through `args[0].0`. |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### addAttributeToSKU
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttributeToSKU" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `skuId` | `String` | Passed through `args[0].0`. |
+| `attributeId` | `String` | Passed through `args[1].1`. |
+
+### addAttributeToSKU
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttributeToSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAttribute" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAttribute" type="Attribute">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attribute` | `Attribute` | Passed through `args[0].0`. |
+
+### saveAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveMeasurement" type="Measurement">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `msrAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveMeasurement" type="Measurement">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `msr` | `Measurement` | Passed through `args[0].0`. |
+
+### saveMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOption" type="Option">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveOption" type="Option">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `option` | `Option` | Passed through `args[0].0`. |
+
+### saveOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromProduct" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+| `productId` | `String` | Passed through `args[1].1`. |
+
+### removeAttributeFromProduct
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromProduct",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromProducts" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeFromProducts
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromProducts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromSKU" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+| `skuId` | `String` | Passed through `args[1].1`. |
+
+### removeAttributeFromSKU
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromSKU",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromSKUs" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeFromSKUs
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromSKUs",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeValue" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `avId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeValue
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromTranslation" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+| `tranId` | `String` | Passed through `args[1].1`. |
+
+### removeAttributeFromTranslation
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromTranslations" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeFromTranslations
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromOption" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+| `optionId` | `String` | Passed through `args[1].1`. |
+
+### removeAttributeFromOption
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromOption",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromOptions" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeFromOptions
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromOptions",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeFromMeasurement" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeFromMeasurement
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeFromMeasurement",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attrId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeAndClean
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementFromAttribute" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measureId` | `String` | Passed through `args[0].0`. |
+| `attrId` | `String` | Passed through `args[1].1`. |
+
+### removeMeasurementFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementFromAttributes" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measureId` | `String` | Passed through `args[0].0`. |
+
+### removeMeasurementFromAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measureId` | `String` | Passed through `args[0].0`. |
+
+### removeMeasurementAndClean
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromAttribute" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionId` | `String` | Passed through `args[0].0`. |
+| `attrId` | `String` | Passed through `args[1].1`. |
+
+### removeOptionFromAttribute
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromAttribute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromAttributes" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionId` | `String` | Passed through `args[0].0`. |
+
+### removeOptionFromAttributes
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromAttributes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromTranslation" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionId` | `String` | Passed through `args[0].0`. |
+| `tranId` | `String` | Passed through `args[1].1`. |
+
+### removeOptionFromTranslation
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromTranslation",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionFromTranslations" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionId` | `String` | Passed through `args[0].0`. |
+
+### removeOptionFromTranslations
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionFromTranslations",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionId` | `String` | Passed through `args[0].0`. |
+
+### removeOptionAndClean
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributeValuesByAttributeId" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeId` | `String` | Passed through `args[0].0`. |
+
+### removeAttributeValuesByAttributeId
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributeValuesByAttributeId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttributesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attributeIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeAttributesByIds
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttributesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMeasurementsByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `measurementsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeMeasurementsByIds
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMeasurementsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeOptionsByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `optionsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeOptionsByIds
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOptionsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapAttributeToDto" type="AttributeDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `attr` | `Attribute` | Passed through `args[0].0`. |
+| `optimal` | `boolean` | Passed through `args[1].1`. |
+
+### mapAttributeToDto
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapAttributeToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapOptionToDto" type="OptionDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `opt` | `Option` | Passed through `args[0].0`. |
+| `optimal` | `boolean` | Passed through `args[1].1`. |
+
+### mapOptionToDto
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapOptionToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapMeasurementToDto" type="MeasurementDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `msr` | `Measurement` | Passed through `args[0].0`. |
+| `optimal` | `boolean` | Passed through `args[1].1`. |
+
+### mapMeasurementToDto
+
+```json
+{
+  "beanId": "attributeServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapMeasurementToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

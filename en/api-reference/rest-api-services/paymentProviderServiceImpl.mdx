@@ -1,0 +1,460 @@
+---
+title: 'paymentProviderServiceImpl'
+description: 'Calling public service methods through the REST API: paymentProviderServiceImpl'
+---
+
+# paymentProviderServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+paymentProviderServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="isActive" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### isActive
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isActive",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="pay" type="PaymentStatus">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### pay
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "pay",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="payoutToVendor" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+| `vendor` | `Seller` | Passed through `args[1].1`. |
+
+### payoutToVendor
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "payoutToVendor",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createPayment" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+| `buyer` | `Seller` | Passed through `args[1].1`. |
+| `vendor` | `Seller` | Passed through `args[2].2`. |
+
+### createPayment
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createInvoice" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### createInvoice
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createInvoice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cancelPayment" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentId` | `String` | Passed through `args[0].0`. |
+
+### cancelPayment
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "cancelPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="refundPayment" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentId` | `String` | Passed through `args[0].0`. |
+
+### refundPayment
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "refundPayment",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaymentMethod" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `buyer` | `Seller` | Passed through `args[0].0`. |
+| `paymentMethod` | `LinkedHashMap<String,Object>` | Passed through `args[1].1`. |
+
+### getPaymentMethod
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="changePaymentMethod" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentId` | `String` | Passed through `args[0].0`. |
+| `paymentMethodId` | `String` | Passed through `args[1].1`. |
+
+### changePaymentMethod
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "changePaymentMethod",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="get3DSecureLink" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `paymentId` | `String` | Passed through `args[0].0`. |
+
+### get3DSecureLink
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "get3DSecureLink",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="checkConnectAccountStatus" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### checkConnectAccountStatus
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "checkConnectAccountStatus",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTotalPrice" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### calculateTotalPrice
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTotalPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTaxAmountPrice" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### calculateTaxAmountPrice
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTaxAmountPrice",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateItemsTotalBruttoAmount" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### calculateItemsTotalBruttoAmount
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateItemsTotalBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateServiceFeeBruttoAmount" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### calculateServiceFeeBruttoAmount
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateServiceFeeBruttoAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculatePayoutAmount" type="Map<String,Object>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `orderId` | `String` | Passed through `args[0].0`. |
+
+### calculatePayoutAmount
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculatePayoutAmount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateOrder" type="OrderDTO">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `order` | `Order` | Passed through `args[0].0`. |
+
+### calculateOrder
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateOrder",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="calculateTax" type="Order.Tax">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `buyer` | `Seller` | Passed through `args[0].0`. |
+| `seller` | `Seller` | Passed through `args[1].1`. |
+
+### calculateTax
+
+```json
+{
+  "beanId": "paymentProviderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "calculateTax",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

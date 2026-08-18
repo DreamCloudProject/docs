@@ -1,0 +1,350 @@
+---
+title: 'marketingServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: marketingServiceImpl'
+---
+
+# marketingServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+marketingServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** bedingt für USER/ADMIN.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="searchUserAnalytics" type="LinkedHashSet<UserAuditSettings>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchUserAnalytics
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUserAnalytics",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUserAnalyticsPaged" type="Page<UserAuditSettings>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### searchUserAnalyticsPaged
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUserAnalyticsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationAnalyticsData" type="Deque<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `requestJson` | `String` | Übergeben über `args[0].0`. |
+
+### getPaginationAnalyticsData
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationAnalyticsData",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomersReport" type="List<CustomerReport>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Übergeben über `args[0].0`. |
+
+### getCustomersReport
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomersReport",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContactsReport" type="List<ContactsReport>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Übergeben über `args[0].0`. |
+
+### getContactsReport
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContactsReport",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoMetaDataReport" type="List<SEOMetaDataReport>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Übergeben über `args[0].0`. |
+
+### getSeoMetaDataReport
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoMetaDataReport",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateDashlyHash" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### generateDashlyHash
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateDashlyHash",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoMetaData" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `seoUrl` | `String` | Übergeben über `args[0].0`. |
+| `repositoryName` | `String` | Übergeben über `args[1].1`. |
+
+### getSeoMetaData
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoMetaData",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoUrl" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `repositoryName` | `String` | Übergeben über `args[1].1`. |
+
+### getSeoUrl
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoUrl",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoUrlAsValue" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `repositoryName` | `String` | Übergeben über `args[1].1`. |
+
+### getSeoUrlAsValue
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoUrlAsValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoUrlByLang" type="String">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `id` | `String` | Übergeben über `args[0].0`. |
+| `lang` | `String` | Übergeben über `args[1].1`. |
+| `repositoryName` | `String` | Übergeben über `args[2].2`. |
+
+### getSeoUrlByLang
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoUrlByLang",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSearchRequest" type="boolean">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `searchTerm` | `String` | Übergeben über `args[0].0`. |
+
+### saveSearchRequest
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSearchRequest",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadSEO" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `file` | `File` | Übergeben über `args[0].0`. |
+| `lang` | `String` | Übergeben über `args[1].1`. |
+| `username` | `String` | Übergeben über `args[2].2`. |
+
+### uploadSEO
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadSEO",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

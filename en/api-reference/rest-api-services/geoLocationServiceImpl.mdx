@@ -1,0 +1,574 @@
+---
+title: 'geoLocationServiceImpl'
+description: 'Calling public service methods through the REST API: geoLocationServiceImpl'
+---
+
+# geoLocationServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+geoLocationServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** GUEST. **Bearer Token:** not required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getAddressRepository" type="AddressRepository">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getAddressRepository
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAddressRepository",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationFilter" type="Deque<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### getPaginationFilter
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCountries" type="LinkedHashSet<Country>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchCountries
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCountries",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchCountriesPaged" type="Page<Country>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `requestJson` | `String` | Passed through `args[0].0`. |
+
+### searchCountriesPaged
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchCountriesPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAddresses" type="List<Address>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `query` | `String` | Passed through `args[0].0`. |
+| `from` | `String` | Passed through `args[1].1`. |
+| `to` | `String` | Passed through `args[2].2`. |
+
+### searchAddresses
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAddresses",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findCompanyAddress" type="Address">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `address` | `Address` | Passed through `args[0].0`. |
+
+### findCompanyAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findCompanyAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getAddressById" type="Address">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `addressId` | `String` | Passed through `args[0].0`. |
+
+### getAddressById
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getAddressById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountries" type="List<Country>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getCountries
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountries",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryByCode" type="Country">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `code` | `String` | Passed through `args[0].0`. |
+
+### getCountryByCode
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryByCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryCodeValue" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `code` | `String` | Passed through `args[0].0`. |
+
+### getCountryCodeValue
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryCodeValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryBySellerId" type="Country">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### getCountryBySellerId
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryBySellerId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountryNameBySellerId" type="String">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### getCountryNameBySellerId
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountryNameBySellerId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSellersByCountryCode" type="List<Seller>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `countryCode` | `String` | Passed through `args[0].0`. |
+
+### getSellersByCountryCode
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSellersByCountryCode",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAddress" type="Address">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `addressAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### createAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createAddress" type="Optional<Address>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `address` | `Address` | Passed through `args[0].0`. |
+
+### createAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAddress" type="Address">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `addressAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
+
+### saveAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAddress" type="Optional<Address>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `address` | `Address` | Passed through `args[0].0`. |
+
+### saveAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAddressAndClean" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `addressId` | `String` | Passed through `args[0].0`. |
+
+### removeAddressAndClean
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAddressAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAddressesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `addressesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeAddressesByIds
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAddressesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addShippingAddress" type="Address">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+| `addressAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[1].1`. |
+
+### addShippingAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addShippingAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeShippingAddress" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+| `addressId` | `String` | Passed through `args[1].1`. |
+
+### removeShippingAddress
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeShippingAddress",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAddressFromSeller" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+| `addressId` | `String` | Passed through `args[1].1`. |
+
+### removeAddressFromSeller
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAddressFromSeller",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getShippingAddresses" type="Set<Address>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerId` | `String` | Passed through `args[0].0`. |
+
+### getShippingAddresses
+
+```json
+{
+  "beanId": "geoLocationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getShippingAddresses",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

@@ -1,0 +1,1167 @@
+---
+title: 'messageServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: messageServiceImpl'
+---
+
+# messageServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+messageServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST. **Bearer Token:** не требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getPaginationChats" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationChats
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationChats",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAllChats" type="LinkedHashSet<ChatDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchAllChats
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAllChats",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchAllChatsPaged" type="Page<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchAllChatsPaged
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchAllChatsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchChats" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `searchRequest` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchChats
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchChats",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchChats" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### searchChats
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchChats",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMessages" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `searchRequest` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### searchMessages
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMessages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMessages" type="SearchResponse">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### searchMessages
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMessages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchChats" type="List<ChatDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchChats
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchChats",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchMessages" type="List<Map<String,Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchMessages
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchMessages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChatAndNotify" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chat` | `Chat` | Передаётся через `args[0].0`. |
+
+### createChatAndNotify
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChatAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChatAndNotify" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createChatAndNotify
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChatAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChat" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatItem` | `Chat` | Передаётся через `args[0].0`. |
+
+### createChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createChat" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessageAndNotify" type="Optional<Message>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `message` | `Message` | Передаётся через `args[0].0`. |
+
+### createMessageAndNotify
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessageAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessageAndNotify" type="Optional<Message>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createMessageAndNotify
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessageAndNotify",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessage" type="Optional<Message>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
+
+### createMessage
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="createMessage" type="Optional<Message>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageItem` | `Message` | Передаётся через `args[0].0`. |
+
+### createMessage
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "createMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="readChat" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### readChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "readChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="readMessage" type="Optional<Message>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### readMessage
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "readMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="closeChat" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### closeChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "closeChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="clearActiveUsers" type="Optional<Chat>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### clearActiveUsers
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "clearActiveUsers",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getConversationByChatId" type="List<Message>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### getConversationByChatId
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getConversationByChatId",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getActiveContacts" type="List<Profile>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collection` | `String` | Передаётся через `args[1].1`. |
+| `propertyName` | `String` | Передаётся через `args[2].2`. |
+| `filter` | `String` | Передаётся через `args[3].3`. |
+
+### getActiveContacts
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getActiveContacts",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getConversationPartner" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### getConversationPartner
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getConversationPartner",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMessagesTimeline" type="List<Map<String,Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `queryExpression` | `String` | Передаётся через `args[0].0`. |
+| `searchTerm` | `String` | Передаётся через `args[1].1`. |
+| `sortName` | `String` | Передаётся через `args[2].2`. |
+| `offset` | `Integer` | Передаётся через `args[3].3`. |
+| `limit` | `Integer` | Передаётся через `args[4].4`. |
+
+### getMessagesTimeline
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMessagesTimeline",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getLastMessageInChat" type="Message">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### getLastMessageInChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLastMessageInChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isSentMessage" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `loginFromMessage` | `String` | Передаётся через `args[0].0`. |
+
+### isSentMessage
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isSentMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isReplyMessage" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `loginFromMessage` | `String` | Передаётся через `args[0].0`. |
+
+### isReplyMessage
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isReplyMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isAttachmentExist" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### isAttachmentExist
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isAttachmentExist",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeChatAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### removeChatAndClean
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeChatAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttachmentFromMessage" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttachmentFromMessage
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttachmentFromMessage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMessagesFromChat" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### removeMessagesFromChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMessagesFromChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMessageFromChatById" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### removeMessageFromChatById
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMessageFromChatById",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeMessageAndClean" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### removeMessageAndClean
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeMessageAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="sendNotificationEmail" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `profile` | `Profile` | Передаётся через `args[0].0`. |
+| `chatTopic` | `String` | Передаётся через `args[1].1`. |
+| `messageText` | `String` | Передаётся через `args[2].2`. |
+
+### sendNotificationEmail
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendNotificationEmail",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isRightSidedMessageAdmin" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### isRightSidedMessageAdmin
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isRightSidedMessageAdmin",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isContainsUnreadMessages" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### isContainsUnreadMessages
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isContainsUnreadMessages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isContainsInboxUnreadMessages" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### isContainsInboxUnreadMessages
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isContainsInboxUnreadMessages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isContactOnline" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collection` | `String` | Передаётся через `args[1].1`. |
+| `propertyName` | `String` | Передаётся через `args[2].2`. |
+| `filter` | `String` | Передаётся через `args[3].3`. |
+
+### isContactOnline
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isContactOnline",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="isNotContactOnline" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `dbName` | `String` | Передаётся через `args[0].0`. |
+| `collection` | `String` | Передаётся через `args[1].1`. |
+| `propertyName` | `String` | Передаётся через `args[2].2`. |
+| `filter` | `String` | Передаётся через `args[3].3`. |
+
+### isNotContactOnline
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "isNotContactOnline",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getUnreadMessagesCount" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### getUnreadMessagesCount
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getUnreadMessagesCount",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getUnreadMessagesCountForUser" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+| `profileId` | `String` | Передаётся через `args[1].1`. |
+
+### getUnreadMessagesCountForUser
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getUnreadMessagesCountForUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getUnreadMessagesCountForLoggedUser" type="Map<String, String>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getUnreadMessagesCountForLoggedUser
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getUnreadMessagesCountForLoggedUser",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getMessagesCountByChat" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+
+### getMessagesCountByChat
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getMessagesCountByChat",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="mapChatToDto" type="ChatDTO">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chat` | `Chat` | Передаётся через `args[0].0`. |
+| `optimal` | `boolean` | Передаётся через `args[1].1`. |
+
+### mapChatToDto
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "mapChatToDto",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAttachmentToMessageByLoggedUser" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+| `attachment` | `Attachment` | Передаётся через `args[1].1`. |
+
+### addAttachmentToMessageByLoggedUser
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addAttachmentToMessageByLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeAttachmentFromMessageByLoggedUser" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `messageId` | `String` | Передаётся через `args[0].0`. |
+
+### removeAttachmentFromMessageByLoggedUser
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeAttachmentFromMessageByLoggedUser",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getChatDocumentUrls" type="List<Attachment>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `chatId` | `String` | Передаётся через `args[0].0`. |
+| `sellerId` | `String` | Передаётся через `args[1].1`. |
+
+### getChatDocumentUrls
+
+```json
+{
+  "beanId": "messageServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getChatDocumentUrls",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

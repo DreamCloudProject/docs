@@ -1,0 +1,188 @@
+---
+title: 'userPrincipalDetailsService'
+description: 'Calling public service methods through the REST API: userPrincipalDetailsService'
+---
+
+# userPrincipalDetailsService
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+userPrincipalDetailsService
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** USER or ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="loadUserByUsername" type="UserDetails">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `s` | `String` | Passed through `args[0].0`. |
+
+### loadUserByUsername
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "loadUserByUsername",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveAuditSettings" type="UserAuditSettings">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `auditSettings` | `UserAuditSettings` | Passed through `args[0].0`. |
+
+### saveAuditSettings
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "saveAuditSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="loadAuditSettings" type="Optional<UserAuditSettings>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `id` | `String` | Passed through `args[0].0`. |
+
+### loadAuditSettings
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "loadAuditSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteAuditSettings" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `id` | `String` | Passed through `args[0].0`. |
+
+### deleteAuditSettings
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteAuditSettings",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="userHasAccessToPage" type="boolean">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `site` | `String` | Passed through `args[0].0`. |
+| `login` | `String` | Passed through `args[1].1`. |
+| `requestURI` | `String` | Passed through `args[2].2`. |
+
+### userHasAccessToPage
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "userHasAccessToPage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="loadRememberMeToken" type="AuthenticationToken">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `username` | `String` | Passed through `args[0].0`. |
+
+### loadRememberMeToken
+
+```json
+{
+  "beanId": "userPrincipalDetailsService",
+  "scope": "PROTOTYPE",
+  "functionName": "loadRememberMeToken",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

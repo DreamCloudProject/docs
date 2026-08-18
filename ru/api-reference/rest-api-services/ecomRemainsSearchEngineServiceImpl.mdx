@@ -1,0 +1,250 @@
+---
+title: 'ecomRemainsSearchEngineServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: ecomRemainsSearchEngineServiceImpl'
+---
+
+# ecomRemainsSearchEngineServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+ecomRemainsSearchEngineServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST. **Bearer Token:** не требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="getLoggedSellerSkusFilter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getLoggedSellerSkusFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedSellerSkusFilter",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountriesOfOriginFilter" type="List<Map<String,Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### getCountriesOfOriginFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountriesOfOriginFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountriesOfSellersFilter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### getCountriesOfSellersFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountriesOfSellersFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getGeneticTypeFilter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+
+### getGeneticTypeFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getGeneticTypeFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDynamicFilters" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `filterType` | `String` | Передаётся через `args[1].1`. |
+
+### getDynamicFilters
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDynamicFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDynamicOptionFilters" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `attributeId` | `String` | Передаётся через `args[1].1`. |
+
+### getDynamicOptionFilters
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDynamicOptionFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDynamicValueFilters" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `skuId` | `String` | Передаётся через `args[0].0`. |
+| `attributeId` | `String` | Передаётся через `args[1].1`. |
+
+### getDynamicValueFilters
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDynamicValueFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProductsListFilter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### getProductsListFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProductsListFilter",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProductsListByRequestFilter" type="List<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `searchTerm` | `String` | Передаётся через `args[0].0`. |
+
+### getProductsListByRequestFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProductsListByRequestFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

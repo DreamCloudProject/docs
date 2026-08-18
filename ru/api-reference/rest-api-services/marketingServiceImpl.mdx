@@ -1,0 +1,350 @@
+---
+title: 'marketingServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: marketingServiceImpl'
+---
+
+# marketingServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+marketingServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** GUEST* / USER или ADMIN. **Bearer Token:** условно для USER/ADMIN.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="searchUserAnalytics" type="LinkedHashSet<UserAuditSettings>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchUserAnalytics
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUserAnalytics",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="searchUserAnalyticsPaged" type="Page<UserAuditSettings>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### searchUserAnalyticsPaged
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "searchUserAnalyticsPaged",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getPaginationAnalyticsData" type="Deque<Map<String, Object>>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `requestJson` | `String` | Передаётся через `args[0].0`. |
+
+### getPaginationAnalyticsData
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getPaginationAnalyticsData",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCustomersReport" type="List<CustomerReport>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### getCustomersReport
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCustomersReport",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getContactsReport" type="List<ContactsReport>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### getContactsReport
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getContactsReport",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoMetaDataReport" type="List<SEOMetaDataReport>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
+
+### getSeoMetaDataReport
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoMetaDataReport",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateDashlyHash" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### generateDashlyHash
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateDashlyHash",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoMetaData" type="Map<String,Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `seoUrl` | `String` | Передаётся через `args[0].0`. |
+| `repositoryName` | `String` | Передаётся через `args[1].1`. |
+
+### getSeoMetaData
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoMetaData",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoUrl" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+| `repositoryName` | `String` | Передаётся через `args[1].1`. |
+
+### getSeoUrl
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoUrl",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoUrlAsValue" type="Map<String, Object>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+| `repositoryName` | `String` | Передаётся через `args[1].1`. |
+
+### getSeoUrlAsValue
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoUrlAsValue",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getSeoUrlByLang" type="String">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `id` | `String` | Передаётся через `args[0].0`. |
+| `lang` | `String` | Передаётся через `args[1].1`. |
+| `repositoryName` | `String` | Передаётся через `args[2].2`. |
+
+### getSeoUrlByLang
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getSeoUrlByLang",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="saveSearchRequest" type="boolean">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `searchTerm` | `String` | Передаётся через `args[0].0`. |
+
+### saveSearchRequest
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "saveSearchRequest",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="uploadSEO" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `file` | `File` | Передаётся через `args[0].0`. |
+| `lang` | `String` | Передаётся через `args[1].1`. |
+| `username` | `String` | Передаётся через `args[2].2`. |
+
+### uploadSEO
+
+```json
+{
+  "beanId": "marketingServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "uploadSEO",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

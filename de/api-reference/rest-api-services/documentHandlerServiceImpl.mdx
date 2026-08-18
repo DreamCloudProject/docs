@@ -1,0 +1,163 @@
+---
+title: 'documentHandlerServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: documentHandlerServiceImpl'
+---
+
+# documentHandlerServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+documentHandlerServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="handleAddDocument" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `DocumentRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleAddDocument
+
+```json
+{
+  "beanId": "documentHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleAddDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleRemoveDocument" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `DocumentRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleRemoveDocument
+
+```json
+{
+  "beanId": "documentHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleRemoveDocument",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleFindDocumentResponse" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `DocumentRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleFindDocumentResponse
+
+```json
+{
+  "beanId": "documentHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleFindDocumentResponse",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleAddDocumentResponse" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `DocumentRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleAddDocumentResponse
+
+```json
+{
+  "beanId": "documentHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleAddDocumentResponse",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="handleRemoveDocumentResponse" type="Map<String, Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `request` | `DocumentRequestMessage` | Übergeben über `args[0].0`. |
+
+### handleRemoveDocumentResponse
+
+```json
+{
+  "beanId": "documentHandlerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "handleRemoveDocumentResponse",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

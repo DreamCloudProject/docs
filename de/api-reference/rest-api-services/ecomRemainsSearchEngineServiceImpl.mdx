@@ -1,0 +1,250 @@
+---
+title: 'ecomRemainsSearchEngineServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: ecomRemainsSearchEngineServiceImpl'
+---
+
+# ecomRemainsSearchEngineServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+ecomRemainsSearchEngineServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** GUEST. **Bearer Token:** nicht erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="getLoggedSellerSkusFilter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getLoggedSellerSkusFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getLoggedSellerSkusFilter",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountriesOfOriginFilter" type="List<Map<String,Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### getCountriesOfOriginFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountriesOfOriginFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getCountriesOfSellersFilter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### getCountriesOfSellersFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getCountriesOfSellersFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getGeneticTypeFilter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+
+### getGeneticTypeFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getGeneticTypeFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDynamicFilters" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `filterType` | `String` | Übergeben über `args[1].1`. |
+
+### getDynamicFilters
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDynamicFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDynamicOptionFilters" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `attributeId` | `String` | Übergeben über `args[1].1`. |
+
+### getDynamicOptionFilters
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDynamicOptionFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getDynamicValueFilters" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `skuId` | `String` | Übergeben über `args[0].0`. |
+| `attributeId` | `String` | Übergeben über `args[1].1`. |
+
+### getDynamicValueFilters
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getDynamicValueFilters",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProductsListFilter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### getProductsListFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProductsListFilter",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getProductsListByRequestFilter" type="List<Map<String, Object>>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `searchTerm` | `String` | Übergeben über `args[0].0`. |
+
+### getProductsListByRequestFilter
+
+```json
+{
+  "beanId": "ecomRemainsSearchEngineServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getProductsListByRequestFilter",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

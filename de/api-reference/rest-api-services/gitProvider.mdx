@@ -1,0 +1,166 @@
+---
+title: 'gitProvider'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: gitProvider'
+---
+
+# gitProvider
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+gitProvider
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="update" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### update
+
+```json
+{
+  "beanId": "gitProvider",
+  "scope": "PROTOTYPE",
+  "functionName": "update",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addAllFiles" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### addAllFiles
+
+```json
+{
+  "beanId": "gitProvider",
+  "scope": "PROTOTYPE",
+  "functionName": "addAllFiles",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="commit" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `message` | `String` | Übergeben über `args[0].0`. |
+
+### commit
+
+```json
+{
+  "beanId": "gitProvider",
+  "scope": "PROTOTYPE",
+  "functionName": "commit",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="push" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### push
+
+```json
+{
+  "beanId": "gitProvider",
+  "scope": "PROTOTYPE",
+  "functionName": "push",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="init" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### init
+
+```json
+{
+  "beanId": "gitProvider",
+  "scope": "PROTOTYPE",
+  "functionName": "init",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="cloneRepository" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| — | — | Diese Methode akzeptiert keine Argumente. |
+
+### cloneRepository
+
+```json
+{
+  "beanId": "gitProvider",
+  "scope": "PROTOTYPE",
+  "functionName": "cloneRepository",
+  "args": []
+}
+```
+
+</ResponseField>

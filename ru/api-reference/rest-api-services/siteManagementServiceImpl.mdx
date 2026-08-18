@@ -1,0 +1,136 @@
+---
+title: 'siteManagementServiceImpl'
+description: 'Вызов публичных методов сервиса через REST API: siteManagementServiceImpl'
+---
+
+# siteManagementServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Идентификатор Spring bean, который содержит вызываемый сервис.
+
+siteManagementServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Область действия bean. Для вызовов сервисов используется PROTOTYPE.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Имя публичного метода сервиса, указанное в сигнатуре ниже.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Массив аргументов метода. Каждый аргумент передаётся объектом с индексом 0, 1 и т. д.; значение должно соответствовать Java-типу параметра.
+
+</ResponseField>
+
+## Endpoint и авторизация
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Доступ:** ADMIN. **Bearer Token:** требуется.
+
+- GUEST — без логина; доступен только whitelist.
+- USER — требуется авторизация; доступны методы с проверкой USER.
+- ADMIN — полный доступ к public-методам всех сервисов.
+- Если метод проверяет роль внутри логики, GUEST может получить null.
+
+## Методы
+
+<ResponseField name="findSites" type="List<SiteItem>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| — | — | Метод не принимает аргументы. |
+
+### findSites
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findSites",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="findPages" type="List<SiteItem>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `route` | `String` | Передаётся через `args[0].0`. |
+
+### findPages
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "findPages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteRoute" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `route` | `String` | Передаётся через `args[0].0`. |
+
+### deleteRoute
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteRoute",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="deleteRoutes" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `routes` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### deleteRoutes
+
+```json
+{
+  "beanId": "siteManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deleteRoutes",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

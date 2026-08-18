@@ -1,0 +1,151 @@
+---
+title: 'machineLearningServiceImpl'
+description: 'Aufruf öffentlicher Servicemethoden über die REST API: machineLearningServiceImpl'
+---
+
+# machineLearningServiceImpl
+
+<ResponseField name="beanId" type="string">
+
+Die Spring-Bean-ID des aufzurufenden Services.
+
+machineLearningServiceImpl
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean-Scope. Für Serviceaufrufe wird PROTOTYPE verwendet.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+Der öffentliche Methodenname des Services, der in der Signatur angegeben ist.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+Das Argument-Array der Methode. Jedes Argument wird mit dem Index 0, 1 usw. übergeben; der Wert muss dem Java-Parametertyp entsprechen.
+
+</ResponseField>
+
+## Endpunkt und Autorisierung
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Zugriff:** ADMIN. **Bearer Token:** erforderlich.
+
+- GUEST — nicht angemeldete Benutzer; nur Whitelist-Services sind verfügbar.
+- USER — Authentifizierung erforderlich; Methoden mit USER-Prüfung sind verfügbar.
+- ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
+- Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
+
+## Methoden
+
+<ResponseField name="recognizeAttributesForSellerSku" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `urls` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+| `sellerSkuType` | `String` | Übergeben über `args[1].1`. |
+| `isAbsolutePath` | `Boolean` | Übergeben über `args[2].2`. |
+
+### recognizeAttributesForSellerSku
+
+```json
+{
+  "beanId": "machineLearningServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "recognizeAttributesForSellerSku",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateDatasetForAwsComprehend" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `filePath` | `String` | Übergeben über `args[0].0`. |
+| `langCode` | `String` | Übergeben über `args[1].1`. |
+| `targetDb` | `String` | Übergeben über `args[2].2`. |
+| `targetCollection` | `String` | Übergeben über `args[3].3`. |
+| `isAbsolutePath` | `Boolean` | Übergeben über `args[4].4`. |
+
+### generateDatasetForAwsComprehend
+
+```json
+{
+  "beanId": "machineLearningServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateDatasetForAwsComprehend",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="generateTranslationsForLanguage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fromLangIsoCode` | `String` | Übergeben über `args[0].0`. |
+| `toLangIsoCode` | `String` | Übergeben über `args[1].1`. |
+
+### generateTranslationsForLanguage
+
+```json
+{
+  "beanId": "machineLearningServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "generateTranslationsForLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="translateDatabaseForLanguage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fromLangIsoCode` | `String` | Übergeben über `args[0].0`. |
+| `toLangIsoCode` | `String` | Übergeben über `args[1].1`. |
+| `targetDb` | `String` | Übergeben über `args[2].2`. |
+| `targetCollection` | `String` | Übergeben über `args[3].3`. |
+| `fieldNames` | `ArrayList<String>` | Übergeben über `args[4].4`. |
+
+### translateDatabaseForLanguage
+
+```json
+{
+  "beanId": "machineLearningServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "translateDatabaseForLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

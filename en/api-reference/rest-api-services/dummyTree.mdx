@@ -1,0 +1,90 @@
+---
+title: 'dummyTree'
+description: 'Calling public service methods through the REST API: dummyTree'
+---
+
+# dummyTree
+
+<ResponseField name="beanId" type="string">
+
+The Spring bean identifier containing the service being called.
+
+dummyTree
+
+</ResponseField>
+
+<ResponseField name="scope" type="string" default="PROTOTYPE">
+
+Bean scope. Use PROTOTYPE for service calls.
+
+</ResponseField>
+
+<ResponseField name="functionName" type="string">
+
+The public service method name shown in the signature below.
+
+</ResponseField>
+
+<ResponseField name="args" type="object[]">
+
+The method argument array. Each argument is passed as an object with index 0, 1, and so on; the value must match the Java parameter type.
+
+</ResponseField>
+
+## Endpoint and authorization
+
+```http
+POST /api/v1/bean/request
+Content-Type: application/json
+```
+
+**Access:** ADMIN. **Bearer Token:** required.
+
+- GUEST — unauthenticated users; only whitelist services are available.
+- USER — authentication is required; methods with USER checks are available.
+- ADMIN — full access to public methods of all services.
+- If a method checks a role internally, GUEST may receive null.
+
+## Methods
+
+<ResponseField name="getElements" type="List<Map<String, Object>>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| — | — | This method does not accept arguments. |
+
+### getElements
+
+```json
+{
+  "beanId": "dummyTree",
+  "scope": "PROTOTYPE",
+  "functionName": "getElements",
+  "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="setElements" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `elements` | `List<Map<String, Object>>` | Passed through `args[0].0`. |
+
+### setElements
+
+```json
+{
+  "beanId": "dummyTree",
+  "scope": "PROTOTYPE",
+  "functionName": "setElements",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>

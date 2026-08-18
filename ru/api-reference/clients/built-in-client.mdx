@@ -28,6 +28,19 @@ export const MSM2App = new MSM2.App();
 
 `MSM2.App` автоматически открывает WebSocket‑соединение и регистрирует стандартные слушатели HTML и JSON ответов.
 
+### Инициализация через `msm-framework-js`
+
+Если библиотека подключается как отдельный браузерный скрипт, создайте клиент после её загрузки. Передайте URL WebSocket‑эндпоинта вашего приложения:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/msm-framework-js@0.0.7/index.js"></script>
+<script>
+  const MSM2App = new MSM2.App("wss://music.mastermindcms.com");
+</script>
+```
+
+Замените `wss://music.mastermindcms.com` на WebSocket‑адрес своего приложения. В сборщике этот же пакет можно подключить как зависимость `msm-framework-js`, после чего использовать тот же вызов `new MSM2.App(...)`.
+
 ## Вызовы API
 
 После инициализации `MSM2App` предоставляет удобные методы для двух стилей WebSocket запросов:

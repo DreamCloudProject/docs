@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="findSites" type="List<SiteItem>">
@@ -112,25 +113,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteRoutes" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `routes` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### deleteRoutes
-
-```json
-{
-  "beanId": "siteManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteRoutes",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="isActive" type="boolean">
@@ -61,78 +62,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "isActive",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="pay" type="PaymentStatus">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `order` | `Order` | Passed through `args[0].0`. |
-
-### pay
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "pay",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="payoutToVendor" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `order` | `Order` | Passed through `args[0].0`. |
-| `vendor` | `Seller` | Passed through `args[1].1`. |
-
-### payoutToVendor
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "payoutToVendor",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createPayment" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `order` | `Order` | Passed through `args[0].0`. |
-| `buyer` | `Seller` | Passed through `args[1].1`. |
-| `vendor` | `Seller` | Passed through `args[2].2`. |
-
-### createPayment
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -197,30 +126,6 @@ Content-Type: application/json
   "beanId": "paymentProviderServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "refundPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getPaymentMethod" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `buyer` | `Seller` | Passed through `args[0].0`. |
-| `paymentMethod` | `LinkedHashMap<String,Object>` | Passed through `args[1].1`. |
-
-### getPaymentMethod
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getPaymentMethod",
   "args": [
     {
       "0": null
@@ -412,49 +317,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="calculateOrder" type="OrderDTO">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `order` | `Order` | Passed through `args[0].0`. |
-
-### calculateOrder
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="calculateTax" type="Order.Tax">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `buyer` | `Seller` | Passed through `args[0].0`. |
-| `seller` | `Seller` | Passed through `args[1].1`. |
-
-### calculateTax
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateTax",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

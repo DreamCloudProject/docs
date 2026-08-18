@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="searchUserAnalytics" type="LinkedHashSet<UserAuditSettings>">
@@ -106,75 +107,6 @@ Content-Type: application/json
   "beanId": "marketingServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getPaginationAnalyticsData",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getCustomersReport" type="List<CustomerReport>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Passed through `args[0].0`. |
-
-### getCustomersReport
-
-```json
-{
-  "beanId": "marketingServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getCustomersReport",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getContactsReport" type="List<ContactsReport>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Passed through `args[0].0`. |
-
-### getContactsReport
-
-```json
-{
-  "beanId": "marketingServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getContactsReport",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getSeoMetaDataReport" type="List<SEOMetaDataReport>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Passed through `args[0].0`. |
-
-### getSeoMetaDataReport
-
-```json
-{
-  "beanId": "marketingServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getSeoMetaDataReport",
   "args": [
     {
       "0": null
@@ -324,27 +256,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="uploadSEO" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `file` | `File` | Passed through `args[0].0`. |
-| `lang` | `String` | Passed through `args[1].1`. |
-| `username` | `String` | Passed through `args[2].2`. |
-
-### uploadSEO
-
-```json
-{
-  "beanId": "marketingServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadSEO",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="UserRepository">
@@ -278,57 +279,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createUser" type="Optional<User>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `user` | `User` | Передаётся через `args[0].0`. |
-
-### createUser
-
-```json
-{
-  "beanId": "userManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createUser",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveUser" type="Optional<User>">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `userAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### saveUser
-
-```json
-{
-  "beanId": "userManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveUser",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveUser" type="Optional<User>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `user` | `User` | Передаётся через `args[0].0`. |
 
 ### saveUser
 
@@ -360,53 +315,6 @@ Content-Type: application/json
   "beanId": "userManagementServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeUserAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeUsersByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `userIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeUsersByIds
-
-```json
-{
-  "beanId": "userManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeUsersByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="changePassword" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `user` | `User` | Передаётся через `args[0].0`. |
-| `password` | `String` | Передаётся через `args[1].1`. |
-
-### changePassword
-
-```json
-{
-  "beanId": "userManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "changePassword",
   "args": [
     {
       "0": null
@@ -500,3 +408,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

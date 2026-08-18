@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="searchResults" type="List<SellerSKU>">
@@ -62,7 +63,7 @@ Content-Type: application/json
   "functionName": "searchResults",
   "args": [
     {
-      "0": null
+      "0": "{\"query\":{\"embeddedSeller.id\":\"<sellerId>\",\"isPublishedForSale\":true},\"ignoreRegexWrap\":[\"isPublishedForSale\",\"embeddedSeller\"],\"offset\":0,\"limit\":10,\"sort\":{\"name\":\"name\",\"direction\":\"ASC\"}}"
     }
   ]
 }
@@ -85,7 +86,7 @@ Content-Type: application/json
   "functionName": "searchResultsPaged",
   "args": [
     {
-      "0": null
+      "0": "{\"query\":{\"id\":{\"$in\":[\"<favoriteSellerSkuId>\"]},\"page\":1},\"ignoreRegexWrap\":[\"id\",\"type\",\"embeddedSeller.id\",\"isPublishedForSale\",\"page\",\"searchTerms\"],\"optimal\":true,\"offset\":0,\"limit\":10,\"sort\":{\"name\":\"createdDate\",\"direction\":\"DESC\"}}"
     }
   ]
 }
@@ -1755,3 +1756,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

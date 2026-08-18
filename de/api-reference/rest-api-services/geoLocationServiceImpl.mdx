@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getAddressRepository" type="AddressRepository">
@@ -150,29 +151,6 @@ Content-Type: application/json
   "beanId": "geoLocationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "searchAddresses",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="findCompanyAddress" type="Address">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `address` | `Address` | Übergeben über `args[0].0`. |
-
-### findCompanyAddress
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "findCompanyAddress",
   "args": [
     {
       "0": null
@@ -363,57 +341,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createAddress" type="Optional<Address>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `address` | `Address` | Übergeben über `args[0].0`. |
-
-### createAddress
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createAddress",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveAddress" type="Address">
 
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `addressAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### saveAddress
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveAddress",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveAddress" type="Optional<Address>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `address` | `Address` | Übergeben über `args[0].0`. |
 
 ### saveAddress
 
@@ -445,29 +377,6 @@ Content-Type: application/json
   "beanId": "geoLocationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeAddressAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeAddressesByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `addressesIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeAddressesByIds
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeAddressesByIds",
   "args": [
     {
       "0": null
@@ -572,3 +481,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

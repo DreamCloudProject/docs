@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="checkConnectAccountStatus" type="String">
@@ -66,29 +67,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createAccount" type="Account">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `accountDTO` | `StripeAccountDTO` | Übergeben über `args[0].0`. |
-
-### createAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="createAccount" type="StripeAccountDTO">
 
 | Argument | Typ | Beschreibung |
@@ -102,30 +80,6 @@ Content-Type: application/json
   "beanId": "stripeConnectServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "createAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="updateAccount" type="Account">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `accountId` | `String` | Übergeben über `args[0].0`. |
-| `stripeAccountDTO` | `StripeAccountDTO` | Übergeben über `args[1].1`. |
-
-### updateAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updateAccount",
   "args": [
     {
       "0": null
@@ -333,3 +287,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

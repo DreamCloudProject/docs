@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="createCategory" type="Category">
@@ -346,29 +347,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteCategories" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `categoryIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteCategories
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteCategories",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteProduct" type="void">
 
 | Аргумент | Тип | Описание |
@@ -382,29 +360,6 @@ Content-Type: application/json
   "beanId": "dataManagerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "deleteProduct",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="deleteProducts" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `productIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteProducts
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteProducts",
   "args": [
     {
       "0": null
@@ -438,29 +393,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteSKUs" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `skuIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteSKUs
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteSKUs",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteListing" type="void">
 
 | Аргумент | Тип | Описание |
@@ -474,29 +406,6 @@ Content-Type: application/json
   "beanId": "dataManagerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "deleteListing",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="deleteListings" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `listingIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteListings
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteListings",
   "args": [
     {
       "0": null
@@ -530,29 +439,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteAttributes" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `attributeIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteAttributes
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteAttributes",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteOption" type="void">
 
 | Аргумент | Тип | Описание |
@@ -566,29 +452,6 @@ Content-Type: application/json
   "beanId": "dataManagerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "deleteOption",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="deleteOptions" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `optionsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteOptions
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteOptions",
   "args": [
     {
       "0": null
@@ -622,29 +485,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteMeasurements" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `measurementIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteMeasurements
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteMeasurements",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteUnit" type="void">
 
 | Аргумент | Тип | Описание |
@@ -658,29 +498,6 @@ Content-Type: application/json
   "beanId": "dataManagerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "deleteUnit",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="deleteUnits" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `unitsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteUnits
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteUnits",
   "args": [
     {
       "0": null
@@ -714,29 +531,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteSellers" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `sellerIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteSellers
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteSellers",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteProfile" type="void">
 
 | Аргумент | Тип | Описание |
@@ -750,29 +544,6 @@ Content-Type: application/json
   "beanId": "dataManagerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "deleteProfile",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="deleteProfiles" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `profileIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteProfiles
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteProfiles",
   "args": [
     {
       "0": null
@@ -806,29 +577,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteUsers" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `userIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteUsers
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteUsers",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteTranslation" type="void">
 
 | Аргумент | Тип | Описание |
@@ -852,29 +600,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deleteTranslations" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `translationIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteTranslations
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="deleteOrder" type="void">
 
 | Аргумент | Тип | Описание |
@@ -888,29 +613,6 @@ Content-Type: application/json
   "beanId": "dataManagerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "deleteOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="deleteOrders" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `ordersIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deleteOrders
-
-```json
-{
-  "beanId": "dataManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deleteOrders",
   "args": [
     {
       "0": null
@@ -1386,3 +1088,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

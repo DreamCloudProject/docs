@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="init" type="void">
@@ -516,57 +517,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createTranslation" type="LocalizedText">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `translation` | `LocalizedText` | Übergeben über `args[0].0`. |
-
-### createTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createTranslation",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="createLanguage" type="Optional<Language>">
 
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `langAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### createLanguage
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createLanguage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createLanguage" type="Language">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `language` | `Language` | Übergeben über `args[0].0`. |
 
 ### createLanguage
 
@@ -632,57 +587,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveTranslation" type="Optional<LocalizedText>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `translation` | `LocalizedText` | Übergeben über `args[0].0`. |
-
-### saveTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveTranslation",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveLanguage" type="Optional<Language>">
 
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `langAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### saveLanguage
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveLanguage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveLanguage" type="Optional<Language>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `language` | `Language` | Übergeben über `args[0].0`. |
 
 ### saveLanguage
 
@@ -714,29 +623,6 @@ Content-Type: application/json
   "beanId": "translationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeTranslationAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeTranslationsByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `translationIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeTranslationsByIds
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeTranslationsByIds",
   "args": [
     {
       "0": null
@@ -793,29 +679,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeLanguagesByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `languageIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeLanguagesByIds
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeLanguagesByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getTranslations" type="HashSet<LocalizedText>">
 
 | Argument | Typ | Beschreibung |
@@ -830,31 +693,6 @@ Content-Type: application/json
   "beanId": "translationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="addTranslation" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `lang` | `String` | Übergeben über `args[0].0`. |
-| `translations` | `HashSet<LocalizedText>` | Übergeben über `args[1].1`. |
-| `languageOptional` | `Optional<Language>` | Übergeben über `args[2].2`. |
-
-### addTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addTranslation",
   "args": [
     {
       "0": null
@@ -931,72 +769,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="findOrCreateTranslation" type="LocalizedText">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `tr` | `LocalizedText` | Übergeben über `args[0].0`. |
-
-### findOrCreateTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "findOrCreateTranslation",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="exportTranslations" type="List<TranslationExport>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Übergeben über `args[0].0`. |
-
-### exportTranslations
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "exportTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="uploadTranslations" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `file` | `File` | Übergeben über `args[0].0`. |
-| `username` | `String` | Übergeben über `args[1].1`. |
-
-### uploadTranslations
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

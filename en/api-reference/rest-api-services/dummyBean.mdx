@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getUsers" type="List<Object>">
@@ -61,29 +62,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "getUsers",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="setUsers" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `users` | `List<Object>` | Passed through `args[0].0`. |
-
-### setUsers
-
-```json
-{
-  "beanId": "dummyBean",
-  "scope": "PROTOTYPE",
-  "functionName": "setUsers",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -108,29 +86,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="setDummyUser" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `dummyUser` | `DummyUser` | Passed through `args[0].0`. |
-
-### setDummyUser
-
-```json
-{
-  "beanId": "dummyBean",
-  "scope": "PROTOTYPE",
-  "functionName": "setDummyUser",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getAddress" type="Map<String, Object>">
 
 | Argument | Type | Description |
@@ -145,29 +100,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "getAddress",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="setAddress" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `address` | `Map<String, Object>` | Passed through `args[0].0`. |
-
-### setAddress
-
-```json
-{
-  "beanId": "dummyBean",
-  "scope": "PROTOTYPE",
-  "functionName": "setAddress",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -234,29 +166,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="setToDos" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `toDos` | `List<Map<String, Object>>` | Passed through `args[0].0`. |
-
-### setToDos
-
-```json
-{
-  "beanId": "dummyBean",
-  "scope": "PROTOTYPE",
-  "functionName": "setToDos",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="clear" type="void">
 
 | Argument | Type | Description |
@@ -298,3 +207,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

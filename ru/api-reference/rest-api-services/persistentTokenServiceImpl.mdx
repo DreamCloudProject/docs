@@ -45,55 +45,8 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
-
-<ResponseField name="createNewToken" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `token` | `PersistentRememberMeToken` | Передаётся через `args[0].0`. |
-
-### createNewToken
-
-```json
-{
-  "beanId": "persistentTokenServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createNewToken",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="updateToken" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `series` | `String` | Передаётся через `args[0].0`. |
-| `tokenValue` | `String` | Передаётся через `args[1].1`. |
-| `lastUsed` | `Date` | Передаётся через `args[2].2`. |
-
-### updateToken
-
-```json
-{
-  "beanId": "persistentTokenServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updateToken",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
 
 <ResponseField name="getTokenForSeries" type="PersistentRememberMeToken">
 
@@ -140,3 +93,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

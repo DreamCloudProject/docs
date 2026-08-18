@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="ContentContainerRepository">
@@ -89,29 +90,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createContainer" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `contentContainer` | `ContentContainer` | Передаётся через `args[0].0`. |
-
-### createContainer
-
-```json
-{
-  "beanId": "contentContainerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createContainer",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveContainer" type="ContentContainer">
 
 | Аргумент | Тип | Описание |
@@ -126,53 +104,6 @@ Content-Type: application/json
   "beanId": "contentContainerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "saveContainer",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveContainer" type="ContentContainer">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `container` | `ContentContainer` | Передаётся через `args[0].0`. |
-
-### saveContainer
-
-```json
-{
-  "beanId": "contentContainerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveContainer",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeArticles" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `blogId` | `String` | Передаётся через `args[0].0`. |
-| `articleIds` | `ArrayList<String>` | Передаётся через `args[1].1`. |
-
-### removeArticles
-
-```json
-{
-  "beanId": "contentContainerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeArticles",
   "args": [
     {
       "0": null
@@ -219,29 +150,6 @@ Content-Type: application/json
   "beanId": "contentContainerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getArticles",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeContainersByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `blogsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeContainersByIds
-
-```json
-{
-  "beanId": "contentContainerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeContainersByIds",
   "args": [
     {
       "0": null
@@ -362,3 +270,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

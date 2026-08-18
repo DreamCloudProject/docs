@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="init" type="void">
@@ -133,29 +134,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createContact" type="Contact">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `contact` | `Contact` | Passed through `args[0].0`. |
-
-### createContact
-
-```json
-{
-  "beanId": "lexOfficeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createContact",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="retrieveContact" type="Contact">
 
 | Argument | Type | Description |
@@ -179,25 +157,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="updateContact" type="Contact">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `contact` | `Contact` | Passed through `args[0].0`. |
-
-### updateContact
-
-```json
-{
-  "beanId": "lexOfficeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updateContact",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

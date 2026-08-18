@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="init" type="void">
@@ -516,57 +517,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createTranslation" type="LocalizedText">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `translation` | `LocalizedText` | Передаётся через `args[0].0`. |
-
-### createTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createTranslation",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="createLanguage" type="Optional<Language>">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `langAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### createLanguage
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createLanguage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createLanguage" type="Language">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `language` | `Language` | Передаётся через `args[0].0`. |
 
 ### createLanguage
 
@@ -632,57 +587,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveTranslation" type="Optional<LocalizedText>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `translation` | `LocalizedText` | Передаётся через `args[0].0`. |
-
-### saveTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveTranslation",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveLanguage" type="Optional<Language>">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `langAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### saveLanguage
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveLanguage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveLanguage" type="Optional<Language>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `language` | `Language` | Передаётся через `args[0].0`. |
 
 ### saveLanguage
 
@@ -714,29 +623,6 @@ Content-Type: application/json
   "beanId": "translationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeTranslationAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeTranslationsByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `translationIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeTranslationsByIds
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeTranslationsByIds",
   "args": [
     {
       "0": null
@@ -793,29 +679,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeLanguagesByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `languageIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeLanguagesByIds
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeLanguagesByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getTranslations" type="HashSet<LocalizedText>">
 
 | Аргумент | Тип | Описание |
@@ -830,31 +693,6 @@ Content-Type: application/json
   "beanId": "translationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="addTranslation" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `lang` | `String` | Передаётся через `args[0].0`. |
-| `translations` | `HashSet<LocalizedText>` | Передаётся через `args[1].1`. |
-| `languageOptional` | `Optional<Language>` | Передаётся через `args[2].2`. |
-
-### addTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addTranslation",
   "args": [
     {
       "0": null
@@ -931,72 +769,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="findOrCreateTranslation" type="LocalizedText">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `tr` | `LocalizedText` | Передаётся через `args[0].0`. |
-
-### findOrCreateTranslation
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "findOrCreateTranslation",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="exportTranslations" type="List<TranslationExport>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
-
-### exportTranslations
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "exportTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="uploadTranslations" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `file` | `File` | Передаётся через `args[0].0`. |
-| `username` | `String` | Передаётся через `args[1].1`. |
-
-### uploadTranslations
-
-```json
-{
-  "beanId": "translationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadTranslations",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

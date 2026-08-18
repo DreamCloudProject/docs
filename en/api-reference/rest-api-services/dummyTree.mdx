@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getElements" type="List<Map<String, Object>>">
@@ -66,25 +67,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="setElements" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `elements` | `List<Map<String, Object>>` | Passed through `args[0].0`. |
-
-### setElements
-
-```json
-{
-  "beanId": "dummyTree",
-  "scope": "PROTOTYPE",
-  "functionName": "setElements",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

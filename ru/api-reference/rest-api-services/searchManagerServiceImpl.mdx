@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="search" type="SearchResponse">
@@ -70,57 +71,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="search" type="SearchResponse">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
-
-### search
-
-```json
-{
-  "beanId": "searchManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "search",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="countAll" type="long">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `requestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### countAll
-
-```json
-{
-  "beanId": "searchManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "countAll",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="countAll" type="long">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
 
 ### countAll
 
@@ -461,25 +416,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="applyFilters" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
-
-### applyFilters
-
-```json
-{
-  "beanId": "searchManagerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "applyFilters",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

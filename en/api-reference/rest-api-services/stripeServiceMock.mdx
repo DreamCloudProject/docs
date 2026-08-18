@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="isStripeKeysDefined" type="boolean">
@@ -135,57 +136,7 @@ Content-Type: application/json
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `orderId` | `String` | Passed through `args[0].0`. |
-| `stripeConnectId` | `String` | Passed through `args[1].1`. |
-| `paymentMethodId` | `String` | Passed through `args[2].2`. |
-| `nettoAmount` | `BigDecimal` | Passed through `args[3].3`. |
-| `tax` | `Order.Tax` | Passed through `args[4].4`. |
-
-### createIntent
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createIntent",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createIntent" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
 | `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
-
-### createIntent
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createIntent",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createIntent" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `paymentRequest` | `PaymentRequest` | Passed through `args[0].0`. |
 
 ### createIntent
 
@@ -287,31 +238,6 @@ Content-Type: application/json
   "beanId": "stripeServiceMock",
   "scope": "PROTOTYPE",
   "functionName": "obtain3DSecureLink",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="payoutToVendor" type="Payout">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `vendor` | `Seller` | Passed through `args[0].0`. |
-| `orderId` | `String` | Passed through `args[1].1`. |
-| `amount` | `long` | Passed through `args[2].2`. |
-
-### payoutToVendor
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "payoutToVendor",
   "args": [
     {
       "0": null
@@ -811,27 +737,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="calculateTax" type="Order.Tax">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `buyer` | `Seller` | Passed through `args[0].0`. |
-| `seller` | `Seller` | Passed through `args[1].1`. |
-| `taxRates` | `Map<String, TaxRate>` | Passed through `args[2].2`. |
-
-### calculateTax
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateTax",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

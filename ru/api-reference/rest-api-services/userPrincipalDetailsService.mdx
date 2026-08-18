@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="loadUserByUsername" type="UserDetails">
@@ -60,29 +61,6 @@ Content-Type: application/json
   "beanId": "userPrincipalDetailsService",
   "scope": "PROTOTYPE",
   "functionName": "loadUserByUsername",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveAuditSettings" type="UserAuditSettings">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `auditSettings` | `UserAuditSettings` | Передаётся через `args[0].0`. |
-
-### saveAuditSettings
-
-```json
-{
-  "beanId": "userPrincipalDetailsService",
-  "scope": "PROTOTYPE",
-  "functionName": "saveAuditSettings",
   "args": [
     {
       "0": null
@@ -186,3 +164,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="BlogCategoryRepository">
@@ -161,29 +162,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="updateCategory" type="BlogCategory">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `category` | `BlogCategory` | Передаётся через `args[0].0`. |
-
-### updateCategory
-
-```json
-{
-  "beanId": "blogCategoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updateCategory",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeCategoryFromTranslation" type="void">
 
 | Аргумент | Тип | Описание |
@@ -255,48 +233,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeCategoriesByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `categoriesIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeCategoriesByIds
-
-```json
-{
-  "beanId": "blogCategoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeCategoriesByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="rebuildAllCategories" type="List<BlogCategory>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `categories` | `ArrayList<Object>` | Передаётся через `args[0].0`. |
-
-### rebuildAllCategories
-
-```json
-{
-  "beanId": "blogCategoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "rebuildAllCategories",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="extractUsername" type="String">
@@ -70,53 +71,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="generateToken" type="String">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `userDetails` | `UserDetails` | Übergeben über `args[0].0`. |
-
-### generateToken
-
-```json
-{
-  "beanId": "jWTServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "generateToken",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="generateToken" type="String">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `extraClaims` | `Map<String, Object>` | Übergeben über `args[0].0`. |
-| `userDetails` | `UserDetails` | Übergeben über `args[1].1`. |
-
-### generateToken
-
-```json
-{
-  "beanId": "jWTServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "generateToken",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getExpirationTime" type="long">
 
 | Argument | Typ | Beschreibung |
@@ -131,30 +85,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "getExpirationTime",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="isTokenValid" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `token` | `String` | Übergeben über `args[0].0`. |
-| `userDetails` | `UserDetails` | Übergeben über `args[1].1`. |
-
-### isTokenValid
-
-```json
-{
-  "beanId": "jWTServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "isTokenValid",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -247,3 +177,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

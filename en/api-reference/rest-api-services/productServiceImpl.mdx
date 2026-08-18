@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getRepository" type="ProductRepository">
@@ -229,29 +230,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createProduct" type="Optional<Product>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `product` | `Product` | Passed through `args[0].0`. |
-
-### createProduct
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createProduct",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addProductToCategory" type="Product">
 
 | Argument | Type | Description |
@@ -305,29 +283,6 @@ Content-Type: application/json
 | Argument | Type | Description |
 | --- | --- | --- |
 | `productAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
-
-### saveProduct
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveProduct",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveProduct" type="Product">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `product` | `Product` | Passed through `args[0].0`. |
 
 ### saveProduct
 
@@ -604,49 +559,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeProductsByIds" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `productsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
-
-### removeProductsByIds
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeProductsByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="mapProductToDto" type="ProductDTO">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `product` | `Product` | Passed through `args[0].0`. |
-| `optimal` | `boolean` | Passed through `args[1].1`. |
-
-### mapProductToDto
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapProductToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

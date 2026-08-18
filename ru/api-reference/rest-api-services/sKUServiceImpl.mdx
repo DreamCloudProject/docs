@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="SKURepository">
@@ -320,29 +321,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createSKU" type="Optional<SKU>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `sku` | `SKU` | Передаётся через `args[0].0`. |
-
-### createSKU
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addSKUToProduct" type="SKU">
 
 | Аргумент | Тип | Описание |
@@ -372,29 +350,6 @@ Content-Type: application/json
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `skuAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### saveSKU
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveSKU" type="SKU">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `sku` | `SKU` | Передаётся через `args[0].0`. |
 
 ### saveSKU
 
@@ -624,29 +579,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeSkusByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `skusIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeSkusByIds
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeSkusByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="isSKUExists" type="boolean">
 
 | Аргумент | Тип | Описание |
@@ -717,55 +649,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="mapSkuToDto" type="SkuDTO">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `sku` | `SKU` | Передаётся через `args[0].0`. |
-| `optimal` | `boolean` | Передаётся через `args[1].1`. |
-
-### mapSkuToDto
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapSkuToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="uploadSKU" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `file` | `File` | Передаётся через `args[0].0`. |
-| `lang` | `String` | Передаётся через `args[1].1`. |
-| `username` | `String` | Передаётся через `args[2].2`. |
-
-### uploadSKU
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="updateMetaInfo" type="SKU">
 
 | Аргумент | Тип | Описание |
@@ -790,25 +673,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="getFallIntoProducts" type="LinkedHashSet<EmbeddedBean>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `productIds` | `String[]` | Передаётся через `args[0].0`. |
-
-### getFallIntoProducts
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getFallIntoProducts",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

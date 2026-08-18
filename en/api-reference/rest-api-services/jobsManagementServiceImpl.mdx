@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getRepository" type="JobRepository">
@@ -108,29 +109,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="searchJobs" type="SearchResponse">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Passed through `args[0].0`. |
-
-### searchJobs
-
-```json
-{
-  "beanId": "jobsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchJobs",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="createJob" type="Job">
 
 | Argument | Type | Description |
@@ -154,57 +132,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createJob" type="Job">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `job` | `Job` | Passed through `args[0].0`. |
-
-### createJob
-
-```json
-{
-  "beanId": "jobsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createJob",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveJob" type="Job">
 
 | Argument | Type | Description |
 | --- | --- | --- |
 | `jobAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
-
-### saveJob
-
-```json
-{
-  "beanId": "jobsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveJob",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveJob" type="Job">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `job` | `Job` | Passed through `args[0].0`. |
 
 ### saveJob
 
@@ -430,29 +362,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeJobsByIds" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `jobsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
-
-### removeJobsByIds
-
-```json
-{
-  "beanId": "jobsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeJobsByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeJobAndClean" type="void">
 
 | Argument | Type | Description |
@@ -475,3 +384,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

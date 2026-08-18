@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="loadUserByUsername" type="UserDetails">
@@ -60,29 +61,6 @@ Content-Type: application/json
   "beanId": "userPrincipalDetailsService",
   "scope": "PROTOTYPE",
   "functionName": "loadUserByUsername",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveAuditSettings" type="UserAuditSettings">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `auditSettings` | `UserAuditSettings` | Übergeben über `args[0].0`. |
-
-### saveAuditSettings
-
-```json
-{
-  "beanId": "userPrincipalDetailsService",
-  "scope": "PROTOTYPE",
-  "functionName": "saveAuditSettings",
   "args": [
     {
       "0": null
@@ -186,3 +164,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

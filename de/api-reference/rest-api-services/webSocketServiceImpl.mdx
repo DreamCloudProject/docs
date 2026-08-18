@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="generateActionId" type="String">
@@ -61,81 +62,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "generateActionId",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendSharedResponse" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `destination` | `String` | Übergeben über `args[0].0`. |
-| `result` | `Map<String, Object>` | Übergeben über `args[1].1`. |
-
-### sendSharedResponse
-
-```json
-{
-  "beanId": "webSocketServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendSharedResponse",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendGlobalResponse" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `destination` | `String` | Übergeben über `args[0].0`. |
-| `headerAccessor` | `SimpMessageHeaderAccessor` | Übergeben über `args[1].1`. |
-| `result` | `Map<String, Object>` | Übergeben über `args[2].2`. |
-
-### sendGlobalResponse
-
-```json
-{
-  "beanId": "webSocketServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendGlobalResponse",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendUserResponse" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `destination` | `String` | Übergeben über `args[0].0`. |
-| `sessionId` | `String` | Übergeben über `args[1].1`. |
-| `headerAccessor` | `SimpMessageHeaderAccessor` | Übergeben über `args[2].2`. |
-| `result` | `Map<String, Object>` | Übergeben über `args[3].3`. |
-
-### sendUserResponse
-
-```json
-{
-  "beanId": "webSocketServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendUserResponse",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -163,3 +89,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

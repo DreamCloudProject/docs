@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="WebSiteSettingsRepository">
@@ -104,7 +105,7 @@ Content-Type: application/json
   "functionName": "searchSettingsResults",
   "args": [
     {
-      "0": null
+      "0": "{\"query\":{}}"
     }
   ]
 }
@@ -117,29 +118,6 @@ Content-Type: application/json
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `settingsAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### createSettings
-
-```json
-{
-  "beanId": "settingsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createSettings",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createSettings" type="WebSiteSettings">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `settings` | `WebSiteSettings` | Передаётся через `args[0].0`. |
 
 ### createSettings
 
@@ -171,52 +149,6 @@ Content-Type: application/json
   "beanId": "settingsManagementServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "saveSettings",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveSettings" type="WebSiteSettings">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `settings` | `WebSiteSettings` | Передаётся через `args[0].0`. |
-
-### saveSettings
-
-```json
-{
-  "beanId": "settingsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveSettings",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeSettingsByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `settingsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeSettingsByIds
-
-```json
-{
-  "beanId": "settingsManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeSettingsByIds",
   "args": [
     {
       "0": null
@@ -272,3 +204,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

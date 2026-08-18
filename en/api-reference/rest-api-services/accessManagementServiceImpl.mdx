@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="isLogged" type="boolean">
@@ -188,71 +189,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="isAllSellerSkusBelongsToLoggedUser" type="boolean">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `sellerSkuIds` | `List<String>` | Passed through `args[0].0`. |
-
-### isAllSellerSkusBelongsToLoggedUser
-
-```json
-{
-  "beanId": "accessManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "isAllSellerSkusBelongsToLoggedUser",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="isAllSellerSkusAllowsToProcess" type="boolean">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `sellerSkuIds` | `List<String>` | Passed through `args[0].0`. |
-
-### isAllSellerSkusAllowsToProcess
-
-```json
-{
-  "beanId": "accessManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "isAllSellerSkusAllowsToProcess",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="hasAccessToOrder" type="boolean">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `order` | `Order` | Passed through `args[0].0`. |
-
-### hasAccessToOrder
-
-```json
-{
-  "beanId": "accessManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "hasAccessToOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

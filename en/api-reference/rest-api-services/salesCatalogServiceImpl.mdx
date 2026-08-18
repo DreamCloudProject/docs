@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getPaginationUnits" type="Deque<Map<String, Object>>">
@@ -250,29 +251,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createUnit" type="Optional<Unit>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `unit` | `Unit` | Passed through `args[0].0`. |
-
-### createUnit
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createUnit",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addPackageItemToSellerSku" type="SellerSKU">
 
 | Argument | Type | Description |
@@ -367,29 +345,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveSellerSkuAsDraft" type="SellerSKU">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `sellerSku` | `SellerSKU` | Passed through `args[0].0`. |
-
-### saveSellerSkuAsDraft
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveSellerSkuAsDraft",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveSellerSKU" type="SellerSKU">
 
 | Argument | Type | Description |
@@ -413,57 +368,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveSellerSKU" type="SellerSKU">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `sSku` | `SellerSKU` | Passed through `args[0].0`. |
-
-### saveSellerSKU
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveSellerSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveUnit" type="Unit">
 
 | Argument | Type | Description |
 | --- | --- | --- |
 | `unitAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
-
-### saveUnit
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveUnit",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveUnit" type="Unit">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `unit` | `Unit` | Passed through `args[0].0`. |
 
 ### saveUnit
 
@@ -524,29 +433,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeSellerSkusByIds" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `sellerSkusIds` | `ArrayList<String>` | Passed through `args[0].0`. |
-
-### removeSellerSkusByIds
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeSellerSkusByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="createSellerSKU" type="Optional<SellerSKU>">
 
 | Argument | Type | Description |
@@ -583,29 +469,6 @@ Content-Type: application/json
   "beanId": "salesCatalogServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeUnitAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeUnitsByIds" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `unitsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
-
-### removeUnitsByIds
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeUnitsByIds",
   "args": [
     {
       "0": null
@@ -709,78 +572,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="mapUnitToDto" type="UnitDTO">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `unit` | `Unit` | Passed through `args[0].0`. |
-| `optimal` | `boolean` | Passed through `args[1].1`. |
-
-### mapUnitToDto
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapUnitToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="exportListings" type="List<SellerSkuExcelModel>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Passed through `args[0].0`. |
-
-### exportListings
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "exportListings",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="uploadListings" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `file` | `File` | Passed through `args[0].0`. |
-| `lang` | `String` | Passed through `args[1].1`. |
-| `username` | `String` | Passed through `args[2].2`. |
-
-### uploadListings
-
-```json
-{
-  "beanId": "salesCatalogServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadListings",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getSellerSkuDocumentUrls" type="List<Attachment>">
 
 | Argument | Type | Description |
@@ -803,3 +594,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

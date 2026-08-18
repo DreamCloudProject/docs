@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="isActive" type="boolean">
@@ -61,78 +62,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "isActive",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="pay" type="PaymentStatus">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `Order` | Передаётся через `args[0].0`. |
-
-### pay
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "pay",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="payoutToVendor" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `Order` | Передаётся через `args[0].0`. |
-| `vendor` | `Seller` | Передаётся через `args[1].1`. |
-
-### payoutToVendor
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "payoutToVendor",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createPayment" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `Order` | Передаётся через `args[0].0`. |
-| `buyer` | `Seller` | Передаётся через `args[1].1`. |
-| `vendor` | `Seller` | Передаётся через `args[2].2`. |
-
-### createPayment
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -197,30 +126,6 @@ Content-Type: application/json
   "beanId": "paymentProviderServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "refundPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getPaymentMethod" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `buyer` | `Seller` | Передаётся через `args[0].0`. |
-| `paymentMethod` | `LinkedHashMap<String,Object>` | Передаётся через `args[1].1`. |
-
-### getPaymentMethod
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getPaymentMethod",
   "args": [
     {
       "0": null
@@ -412,49 +317,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="calculateOrder" type="OrderDTO">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `Order` | Передаётся через `args[0].0`. |
-
-### calculateOrder
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="calculateTax" type="Order.Tax">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `buyer` | `Seller` | Передаётся через `args[0].0`. |
-| `seller` | `Seller` | Передаётся через `args[1].1`. |
-
-### calculateTax
-
-```json
-{
-  "beanId": "paymentProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateTax",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="checkConnectAccountStatus" type="String">
@@ -61,76 +62,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "checkConnectAccountStatus",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createAccount" type="Account">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `stripeAccountDTO` | `StripeAccountDTO` | Передаётся через `args[0].0`. |
-
-### createAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createAccount" type="StripeAccountDTO">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `metaInfo` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
-
-### createAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="updateAccount" type="Account">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `accountId` | `String` | Передаётся через `args[0].0`. |
-| `accountDTO` | `StripeAccountDTO` | Передаётся через `args[1].1`. |
-
-### updateAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "updateAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -333,3 +264,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

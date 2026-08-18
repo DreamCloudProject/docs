@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="init" type="void">
@@ -80,29 +81,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "isYooKassaKeysDefined",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createPayment" type="Payment">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `order` | `OrderDTO` | Übergeben über `args[0].0`. |
-
-### createPayment
-
-```json
-{
-  "beanId": "yooKassaServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -154,50 +132,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="refundPayment" type="PaymentStatus">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `order` | `OrderDTO` | Übergeben über `args[0].0`. |
-
-### refundPayment
-
-```json
-{
-  "beanId": "yooKassaServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "refundPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="payoutToVendor" type="Payout">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `vendor` | `Seller` | Übergeben über `args[0].0`. |
-| `orderId` | `String` | Übergeben über `args[1].1`. |
-| `amount` | `long` | Übergeben über `args[2].2`. |
-
-### payoutToVendor
-
-```json
-{
-  "beanId": "yooKassaServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "payoutToVendor",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

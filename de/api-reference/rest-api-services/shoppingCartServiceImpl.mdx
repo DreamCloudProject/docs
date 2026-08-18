@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getCartDTO" type="ShoppingCartDTO">
@@ -135,57 +136,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="addCommerceItems" type="ShoppingCartDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `request` | `MultipleAddToCartRequest` | Übergeben über `args[0].0`. |
-
-### addCommerceItems
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addCommerceItems",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addCommerceItem" type="ShoppingCartDTO">
 
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `data` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### addCommerceItem
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addCommerceItem",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="addCommerceItem" type="ShoppingCartDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `request` | `AddToCartRequest` | Übergeben über `args[0].0`. |
 
 ### addCommerceItem
 
@@ -339,117 +294,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="checkPrice" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sellerSku` | `SellerSKU` | Übergeben über `args[0].0`. |
-
-### checkPrice
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "checkPrice",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="checkInventory" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sellerSku` | `SellerSKU` | Übergeben über `args[0].0`. |
-
-### checkInventory
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "checkInventory",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="checkRestQuantity" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sellerSku` | `SellerSKU` | Übergeben über `args[0].0`. |
-
-### checkRestQuantity
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "checkRestQuantity",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="checkCurrencyForCart" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sellerSku` | `SellerSKU` | Übergeben über `args[0].0`. |
-
-### checkCurrencyForCart
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "checkCurrencyForCart",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="checkStripeConnect" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sellerSku` | `SellerSKU` | Übergeben über `args[0].0`. |
-
-### checkStripeConnect
-
-```json
-{
-  "beanId": "shoppingCartServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "checkStripeConnect",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

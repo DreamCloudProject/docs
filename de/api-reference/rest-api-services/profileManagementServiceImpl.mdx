@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getRepository" type="ProfileRepository">
@@ -183,57 +184,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createProfile" type="Optional<Profile>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `profile` | `Profile` | Übergeben über `args[0].0`. |
-
-### createProfile
-
-```json
-{
-  "beanId": "profileManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createProfile",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveProfile" type="Optional<Profile>">
 
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `profileAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### saveProfile
-
-```json
-{
-  "beanId": "profileManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveProfile",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveProfile" type="Optional<Profile>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `profile` | `Profile` | Übergeben über `args[0].0`. |
 
 ### saveProfile
 
@@ -265,29 +220,6 @@ Content-Type: application/json
   "beanId": "profileManagementServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeProfileAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeProfilesByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `profilesIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeProfilesByIds
-
-```json
-{
-  "beanId": "profileManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeProfilesByIds",
   "args": [
     {
       "0": null
@@ -362,3 +294,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

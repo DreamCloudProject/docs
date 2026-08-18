@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getRepository" type="SellerRepository">
@@ -251,29 +252,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveSeller" type="Seller">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `seller` | `Seller` | Übergeben über `args[0].0`. |
-
-### saveSeller
-
-```json
-{
-  "beanId": "sellerRegistrationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveSeller",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="updateSeller" type="Seller">
 
 | Argument | Typ | Beschreibung |
@@ -311,29 +289,6 @@ Content-Type: application/json
   "beanId": "sellerRegistrationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeSellerAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeSellersByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sellersIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeSellersByIds
-
-```json
-{
-  "beanId": "sellerRegistrationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeSellersByIds",
   "args": [
     {
       "0": null
@@ -816,3 +771,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

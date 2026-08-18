@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="createPage" type="String">
@@ -52,29 +53,6 @@ Content-Type: application/json
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `pageRequest` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### createPage
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createPage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createPage" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `pageRequest` | `CreatePageRequest` | Передаётся через `args[0].0`. |
 
 ### createPage
 
@@ -116,29 +94,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="deletePages" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `pageIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### deletePages
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "deletePages",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="updatePage" type="void">
 
 | Аргумент | Тип | Описание |
@@ -162,29 +117,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="updatePage" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `pageRequest` | `CreatePageRequest` | Передаётся через `args[0].0`. |
-
-### updatePage
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updatePage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="duplicatePage" type="void">
 
 | Аргумент | Тип | Описание |
@@ -208,57 +140,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="duplicatePage" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `copyRequest` | `CopyPageRequest` | Передаётся через `args[0].0`. |
-
-### duplicatePage
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "duplicatePage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="copyPage" type="void">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `copyRequest` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### copyPage
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "copyPage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="copyPage" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `copyRequest` | `CopyPageRequest` | Передаётся через `args[0].0`. |
 
 ### copyPage
 
@@ -300,48 +186,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="publishToUrl" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `routeRequest` | `CreateRouteRequest` | Передаётся через `args[0].0`. |
-
-### publishToUrl
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "publishToUrl",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="askAiAssistant" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `prompt` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
-
-### askAiAssistant
-
-```json
-{
-  "beanId": "pageManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "askAiAssistant",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

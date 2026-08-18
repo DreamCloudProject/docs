@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getAddressRepository" type="AddressRepository">
@@ -150,29 +151,6 @@ Content-Type: application/json
   "beanId": "geoLocationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "searchAddresses",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="findCompanyAddress" type="Address">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `address` | `Address` | Передаётся через `args[0].0`. |
-
-### findCompanyAddress
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "findCompanyAddress",
   "args": [
     {
       "0": null
@@ -363,57 +341,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createAddress" type="Optional<Address>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `address` | `Address` | Передаётся через `args[0].0`. |
-
-### createAddress
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createAddress",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveAddress" type="Address">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `addressAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### saveAddress
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveAddress",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveAddress" type="Optional<Address>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `address` | `Address` | Передаётся через `args[0].0`. |
 
 ### saveAddress
 
@@ -445,29 +377,6 @@ Content-Type: application/json
   "beanId": "geoLocationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeAddressAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeAddressesByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `addressesIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeAddressesByIds
-
-```json
-{
-  "beanId": "geoLocationServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeAddressesByIds",
   "args": [
     {
       "0": null
@@ -572,3 +481,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

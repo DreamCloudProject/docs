@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getVerificationEmailTemplate" type="String">
@@ -189,52 +190,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="getUploadRequestEmailTemplate" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `emailMessage` | `EmailMessage` | Passed through `args[0].0`. |
-
-### getUploadRequestEmailTemplate
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getUploadRequestEmailTemplate",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getOrderConfirmationEmail" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `emailMessage` | `EmailMessage` | Passed through `args[0].0`. |
-
-### getOrderConfirmationEmail
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getOrderConfirmationEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="sendSimpleEmail" type="void">
 
 | Argument | Type | Description |
@@ -250,32 +205,6 @@ Content-Type: application/json
   "beanId": "emailSenderServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "sendSimpleEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendEmailWithAttachments" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `to` | `String` | Passed through `args[0].0`. |
-| `subject` | `String` | Passed through `args[1].1`. |
-| `text` | `String` | Passed through `args[2].2`. |
-| `attachments` | `ArrayList<String>` | Passed through `args[3].3`. |
-
-### sendEmailWithAttachments
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendEmailWithAttachments",
   "args": [
     {
       "0": null
@@ -311,117 +240,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="sendVerificationEmail" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `user` | `User` | Passed through `args[0].0`. |
-
-### sendVerificationEmail
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendVerificationEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendWelcomeEmail" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `user` | `User` | Passed through `args[0].0`. |
-
-### sendWelcomeEmail
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendWelcomeEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendResetPasswordEmail" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `user` | `User` | Passed through `args[0].0`. |
-
-### sendResetPasswordEmail
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendResetPasswordEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendOrderConfirmationEmail" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `emailMessage` | `EmailMessage` | Passed through `args[0].0`. |
-
-### sendOrderConfirmationEmail
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendOrderConfirmationEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendMessageNotificationEmail" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `emailMessage` | `EmailMessage` | Passed through `args[0].0`. |
-
-### sendMessageNotificationEmail
-
-```json
-{
-  "beanId": "emailSenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendMessageNotificationEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="handleNotify" type="void">
@@ -234,57 +235,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createOrder" type="Optional<Order>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `Order` | Передаётся через `args[0].0`. |
-
-### createOrder
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveOrder" type="Order">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `orderAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### saveOrder
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveOrder" type="Order">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `Order` | Передаётся через `args[0].0`. |
 
 ### saveOrder
 
@@ -345,52 +300,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="digitalOrderCheckout" type="Order">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `paymentRequest` | `PaymentRequest` | Передаётся через `args[0].0`. |
-
-### digitalOrderCheckout
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "digitalOrderCheckout",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="sendOrderConfirmationEmail" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `emailData` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
-
-### sendOrderConfirmationEmail
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendOrderConfirmationEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="createInvoiceBuyerToVendor" type="Attachment">
 
 | Аргумент | Тип | Описание |
@@ -427,29 +336,6 @@ Content-Type: application/json
   "beanId": "orderServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeOrder",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeOrdersByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `orderIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeOrdersByIds
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeOrdersByIds",
   "args": [
     {
       "0": null
@@ -498,29 +384,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "getOrdersFromLoggedUser",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getOrdersFromLoggedUserByIds" type="LinkedHashSet<OrderDTO>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `orderIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### getOrdersFromLoggedUserByIds
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getOrdersFromLoggedUserByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -873,30 +736,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="addAttachment" type="boolean">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `orderId` | `String` | Передаётся через `args[0].0`. |
-| `attachment` | `Attachment` | Передаётся через `args[1].1`. |
-
-### addAttachment
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addAttachment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeAttachment" type="boolean">
 
 | Аргумент | Тип | Описание |
@@ -911,31 +750,6 @@ Content-Type: application/json
   "beanId": "orderServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeAttachment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="addAttachment" type="boolean">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `orderId` | `String` | Передаётся через `args[0].0`. |
-| `orderTimelineStep` | `String` | Передаётся через `args[1].1`. |
-| `attachment` | `Attachment` | Передаётся через `args[2].2`. |
-
-### addAttachment
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addAttachment",
   "args": [
     {
       "0": null
@@ -1130,29 +944,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="prepareItemsToShipment" type="boolean">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `items` | `List<CommerceItem>` | Передаётся через `args[0].0`. |
-
-### prepareItemsToShipment
-
-```json
-{
-  "beanId": "orderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "prepareItemsToShipment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getInvoiceTemplate" type="String">
 
 | Аргумент | Тип | Описание |
@@ -1245,3 +1036,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

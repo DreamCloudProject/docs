@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="checkConnectAccountStatus" type="String">
@@ -61,76 +62,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "checkConnectAccountStatus",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createAccount" type="Account">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `stripeAccountDTO` | `StripeAccountDTO` | Passed through `args[0].0`. |
-
-### createAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createAccount" type="StripeAccountDTO">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `metaInfo` | `LinkedHashMap<String,Object>` | Passed through `args[0].0`. |
-
-### createAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="updateAccount" type="Account">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `accountId` | `String` | Passed through `args[0].0`. |
-| `accountDTO` | `StripeAccountDTO` | Passed through `args[1].1`. |
-
-### updateAccount
-
-```json
-{
-  "beanId": "stripeConnectServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "updateAccount",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -333,3 +264,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

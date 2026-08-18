@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getRepository" type="CategoryRepository">
@@ -229,29 +230,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createCategory" type="Optional<Category>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `category` | `Category` | Übergeben über `args[0].0`. |
-
-### createCategory
-
-```json
-{
-  "beanId": "categoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createCategory",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addChildCategory" type="Category">
 
 | Argument | Typ | Beschreibung |
@@ -323,29 +301,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="updateCategory" type="Category">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `category` | `Category` | Übergeben über `args[0].0`. |
-
-### updateCategory
-
-```json
-{
-  "beanId": "categoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updateCategory",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeCategoryFromTranslation" type="void">
 
 | Argument | Typ | Beschreibung |
@@ -393,96 +348,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeCategoriesByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `categoriesIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeCategoriesByIds
-
-```json
-{
-  "beanId": "categoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeCategoriesByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="rebuildAllCategories" type="List<Category>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `categories` | `ArrayList<Object>` | Übergeben über `args[0].0`. |
-
-### rebuildAllCategories
-
-```json
-{
-  "beanId": "categoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "rebuildAllCategories",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="mapCategoryToDto" type="CategoryDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `category` | `Category` | Übergeben über `args[0].0`. |
-| `optimal` | `boolean` | Übergeben über `args[1].1`. |
-
-### mapCategoryToDto
-
-```json
-{
-  "beanId": "categoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapCategoryToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="lookupToParents" type="List<String>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `categoryId` | `String` | Übergeben über `args[0].0`. |
-| `result` | `List<String>` | Übergeben über `args[1].1`. |
-
-### lookupToParents
-
-```json
-{
-  "beanId": "categoryServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "lookupToParents",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

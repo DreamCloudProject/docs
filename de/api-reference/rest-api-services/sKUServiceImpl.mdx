@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getRepository" type="SKURepository">
@@ -320,29 +321,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createSKU" type="Optional<SKU>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sku` | `SKU` | Übergeben über `args[0].0`. |
-
-### createSKU
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addSKUToProduct" type="SKU">
 
 | Argument | Typ | Beschreibung |
@@ -372,29 +350,6 @@ Content-Type: application/json
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `skuAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### saveSKU
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveSKU" type="SKU">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sku` | `SKU` | Übergeben über `args[0].0`. |
 
 ### saveSKU
 
@@ -624,29 +579,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeSkusByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `skusIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeSkusByIds
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeSkusByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="isSKUExists" type="boolean">
 
 | Argument | Typ | Beschreibung |
@@ -717,55 +649,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="mapSkuToDto" type="SkuDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `sku` | `SKU` | Übergeben über `args[0].0`. |
-| `optimal` | `boolean` | Übergeben über `args[1].1`. |
-
-### mapSkuToDto
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapSkuToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="uploadSKU" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `file` | `File` | Übergeben über `args[0].0`. |
-| `lang` | `String` | Übergeben über `args[1].1`. |
-| `username` | `String` | Übergeben über `args[2].2`. |
-
-### uploadSKU
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadSKU",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="updateMetaInfo" type="SKU">
 
 | Argument | Typ | Beschreibung |
@@ -790,25 +673,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="getFallIntoProducts" type="LinkedHashSet<EmbeddedBean>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `productIds` | `String[]` | Übergeben über `args[0].0`. |
-
-### getFallIntoProducts
-
-```json
-{
-  "beanId": "sKUServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getFallIntoProducts",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="isActive" type="boolean">
@@ -66,48 +67,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="calculateDeliveryPrice" type="BigDecimal">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `order` | `Order` | Übergeben über `args[0].0`. |
-
-### calculateDeliveryPrice
-
-```json
-{
-  "beanId": "logisticsProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateDeliveryPrice",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="ship" type="boolean">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `order` | `Order` | Übergeben über `args[0].0`. |
-
-### ship
-
-```json
-{
-  "beanId": "logisticsProviderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "ship",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

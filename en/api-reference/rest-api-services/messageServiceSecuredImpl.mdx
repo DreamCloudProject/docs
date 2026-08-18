@@ -45,35 +45,13 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="createChatAndNotify" type="Optional<Chat>">
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `chat` | `Chat` | Passed through `args[0].0`. |
-
-### createChatAndNotify
-
-```json
-{
-  "beanId": "messageServiceSecuredImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createChatAndNotify",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createChatAndNotify" type="Optional<Chat>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
 | `chatAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
 
 ### createChatAndNotify
@@ -83,29 +61,6 @@ Content-Type: application/json
   "beanId": "messageServiceSecuredImpl",
   "scope": "PROTOTYPE",
   "functionName": "createChatAndNotify",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createChat" type="Optional<Chat>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `chat` | `Chat` | Passed through `args[0].0`. |
-
-### createChat
-
-```json
-{
-  "beanId": "messageServiceSecuredImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createChat",
   "args": [
     {
       "0": null
@@ -143,29 +98,6 @@ Content-Type: application/json
 
 | Argument | Type | Description |
 | --- | --- | --- |
-| `message` | `Message` | Passed through `args[0].0`. |
-
-### createMessageAndNotify
-
-```json
-{
-  "beanId": "messageServiceSecuredImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createMessageAndNotify",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createMessageAndNotify" type="Optional<Message>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
 | `messageAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
 
 ### createMessageAndNotify
@@ -175,29 +107,6 @@ Content-Type: application/json
   "beanId": "messageServiceSecuredImpl",
   "scope": "PROTOTYPE",
   "functionName": "createMessageAndNotify",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createMessage" type="Optional<Message>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `message` | `Message` | Passed through `args[0].0`. |
-
-### createMessage
-
-```json
-{
-  "beanId": "messageServiceSecuredImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createMessage",
   "args": [
     {
       "0": null
@@ -230,3 +139,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

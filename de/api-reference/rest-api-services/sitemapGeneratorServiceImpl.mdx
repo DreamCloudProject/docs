@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="generateSiteMap" type="void">
@@ -60,32 +61,6 @@ Content-Type: application/json
   "beanId": "sitemapGeneratorServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "generateSiteMap",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getPageLinks" type="HashSet<String>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `baseURL` | `String` | Übergeben über `args[0].0`. |
-| `URL` | `String` | Übergeben über `args[1].1`. |
-| `links` | `HashSet<String>` | Übergeben über `args[2].2`. |
-| `urlsToIgnore` | `List<String>` | Übergeben über `args[3].3`. |
-
-### getPageLinks
-
-```json
-{
-  "beanId": "sitemapGeneratorServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getPageLinks",
   "args": [
     {
       "0": null
@@ -115,25 +90,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="changeStatus" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `status` | `ServiceState` | Übergeben über `args[0].0`. |
-
-### changeStatus
-
-```json
-{
-  "beanId": "sitemapGeneratorServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "changeStatus",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

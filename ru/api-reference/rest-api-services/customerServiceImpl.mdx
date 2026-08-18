@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="SellerRepository">
@@ -388,26 +389,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="mapSellerToDto" type="SellerDTO">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `seller` | `Seller` | Передаётся через `args[0].0`. |
-| `optimal` | `boolean` | Передаётся через `args[1].1`. |
-
-### mapSellerToDto
-
-```json
-{
-  "beanId": "customerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapSellerToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

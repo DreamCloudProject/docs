@@ -45,54 +45,8 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
-
-<ResponseField name="searchCustomerActivityEvents" type="Page<ActivityDataItem>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
-
-### searchCustomerActivityEvents
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchCustomerActivityEvents",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="searchCustomerActivityEvents" type="Page<ActivityDataItem>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `sr` | `SearchRequest` | Передаётся через `args[0].0`. |
-| `seller` | `Seller` | Передаётся через `args[1].1`. |
-
-### searchCustomerActivityEvents
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchCustomerActivityEvents",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
 
 <ResponseField name="getCustomerActivity" type="Page<CustomerActivity>">
 
@@ -107,52 +61,6 @@ Content-Type: application/json
   "beanId": "customerAnalyticsServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getCustomerActivity",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getCustomerActivity" type="Page<CustomerActivity>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
-
-### getCustomerActivity
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getCustomerActivity",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getCustomersActivityChart" type="ChartData">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `LinkedHashMap<String,Object>` | Передаётся через `args[0].0`. |
-
-### getCustomersActivityChart
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getCustomersActivityChart",
   "args": [
     {
       "0": null
@@ -219,3 +127,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

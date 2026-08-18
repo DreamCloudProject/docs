@@ -45,32 +45,8 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
-
-<ResponseField name="getDocument" type="Document">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `dbName` | `String` | Passed through `args[0].0`. |
-| `collectionName` | `String` | Passed through `args[1].1`. |
-| `id` | `Object` | Passed through `args[2].2`. |
-
-### getDocument
-
-```json
-{
-  "beanId": "mongoStorageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getDocument",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
 
 <ResponseField name="getCollection" type="MongoCollection<Document>">
 
@@ -142,57 +118,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="insertDocument" type="Object">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `dbName` | `String` | Passed through `args[0].0`. |
-| `collectionName` | `String` | Passed through `args[1].1`. |
-| `mapObject` | `Map<String, Object>` | Passed through `args[2].2`. |
-
-### insertDocument
-
-```json
-{
-  "beanId": "mongoStorageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "insertDocument",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveDocument" type="Object">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `dbName` | `String` | Passed through `args[0].0`. |
-| `collectionName` | `String` | Passed through `args[1].1`. |
-| `id` | `String` | Passed through `args[2].2`. |
-| `mapObject` | `Map<String, Object>` | Passed through `args[3].3`. |
-
-### saveDocument
-
-```json
-{
-  "beanId": "mongoStorageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveDocument",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeDocument" type="void">
 
 | Argument | Type | Description |
@@ -208,56 +133,6 @@ Content-Type: application/json
   "beanId": "mongoStorageServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeDocument",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="findDocuments" type="Map<String, Object>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `dbName` | `String` | Passed through `args[0].0`. |
-| `collectionName` | `String` | Passed through `args[1].1`. |
-| `filter` | `Map<String, Object>` | Passed through `args[2].2`. |
-
-### findDocuments
-
-```json
-{
-  "beanId": "mongoStorageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "findDocuments",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="downloadBinary" type="byte[]">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `dbName` | `String` | Passed through `args[0].0`. |
-| `collectionName` | `String` | Passed through `args[1].1`. |
-| `doc` | `Object` | Passed through `args[2].2`. |
-
-### downloadBinary
-
-```json
-{
-  "beanId": "mongoStorageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "downloadBinary",
   "args": [
     {
       "0": null
@@ -315,30 +190,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="uploadBinary" type="String">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `metadata` | `Map<String,Object>` | Passed through `args[0].0`. |
-| `file` | `MultipartFile` | Passed through `args[1].1`. |
-
-### uploadBinary
-
-```json
-{
-  "beanId": "mongoStorageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "uploadBinary",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeBinary" type="void">
 
 | Argument | Type | Description |
@@ -386,3 +237,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

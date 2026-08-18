@@ -45,54 +45,8 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
-
-<ResponseField name="searchCustomerActivityEvents" type="Page<ActivityDataItem>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `LinkedHashMap<String,Object>` | Passed through `args[0].0`. |
-
-### searchCustomerActivityEvents
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchCustomerActivityEvents",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="searchCustomerActivityEvents" type="Page<ActivityDataItem>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `sr` | `SearchRequest` | Passed through `args[0].0`. |
-| `seller` | `Seller` | Passed through `args[1].1`. |
-
-### searchCustomerActivityEvents
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchCustomerActivityEvents",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
 
 <ResponseField name="getCustomerActivity" type="Page<CustomerActivity>">
 
@@ -107,52 +61,6 @@ Content-Type: application/json
   "beanId": "customerAnalyticsServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getCustomerActivity",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getCustomerActivity" type="Page<CustomerActivity>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Passed through `args[0].0`. |
-
-### getCustomerActivity
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getCustomerActivity",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="getCustomersActivityChart" type="ChartData">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `request` | `LinkedHashMap<String,Object>` | Passed through `args[0].0`. |
-
-### getCustomersActivityChart
-
-```json
-{
-  "beanId": "customerAnalyticsServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "getCustomersActivityChart",
   "args": [
     {
       "0": null
@@ -219,3 +127,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

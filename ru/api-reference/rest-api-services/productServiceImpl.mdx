@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getRepository" type="ProductRepository">
@@ -229,29 +230,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createProduct" type="Optional<Product>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `product` | `Product` | Передаётся через `args[0].0`. |
-
-### createProduct
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createProduct",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addProductToCategory" type="Product">
 
 | Аргумент | Тип | Описание |
@@ -305,29 +283,6 @@ Content-Type: application/json
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `productAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### saveProduct
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveProduct",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveProduct" type="Product">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `product` | `Product` | Передаётся через `args[0].0`. |
 
 ### saveProduct
 
@@ -604,49 +559,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeProductsByIds" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `productsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-
-### removeProductsByIds
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeProductsByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="mapProductToDto" type="ProductDTO">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `product` | `Product` | Передаётся через `args[0].0`. |
-| `optimal` | `boolean` | Передаётся через `args[1].1`. |
-
-### mapProductToDto
-
-```json
-{
-  "beanId": "productServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapProductToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

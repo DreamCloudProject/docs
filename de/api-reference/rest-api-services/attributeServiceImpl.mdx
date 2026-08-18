@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getRepository" type="AttributeRepository">
@@ -673,75 +674,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createMeasurement" type="Optional<Measurement>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `measurement` | `Measurement` | Übergeben über `args[0].0`. |
-
-### createMeasurement
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createMeasurement",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createOption" type="Optional<Option>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `option` | `Option` | Übergeben über `args[0].0`. |
-
-### createOption
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createOption",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createAttribute" type="Optional<Attribute>">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `attribute` | `Attribute` | Übergeben über `args[0].0`. |
-
-### createAttribute
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createAttribute",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="addAttributeToProduct" type="Attribute">
 
 | Argument | Typ | Beschreibung |
@@ -861,29 +793,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveAttribute" type="Attribute">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `attribute` | `Attribute` | Übergeben über `args[0].0`. |
-
-### saveAttribute
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveAttribute",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveMeasurement" type="Measurement">
 
 | Argument | Typ | Beschreibung |
@@ -907,57 +816,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="saveMeasurement" type="Measurement">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `msr` | `Measurement` | Übergeben über `args[0].0`. |
-
-### saveMeasurement
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveMeasurement",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveOption" type="Option">
 
 | Argument | Typ | Beschreibung |
 | --- | --- | --- |
 | `optAsMap` | `LinkedHashMap<String, Object>` | Übergeben über `args[0].0`. |
-
-### saveOption
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveOption",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveOption" type="Option">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `option` | `Option` | Übergeben über `args[0].0`. |
 
 ### saveOption
 
@@ -1443,143 +1306,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeAttributesByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `attributeIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeAttributesByIds
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeAttributesByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeMeasurementsByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `measurementsIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeMeasurementsByIds
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeMeasurementsByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeOptionsByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `optionsIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeOptionsByIds
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeOptionsByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="mapAttributeToDto" type="AttributeDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `attr` | `Attribute` | Übergeben über `args[0].0`. |
-| `optimal` | `boolean` | Übergeben über `args[1].1`. |
-
-### mapAttributeToDto
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapAttributeToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="mapOptionToDto" type="OptionDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `opt` | `Option` | Übergeben über `args[0].0`. |
-| `optimal` | `boolean` | Übergeben über `args[1].1`. |
-
-### mapOptionToDto
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapOptionToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="mapMeasurementToDto" type="MeasurementDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `msr` | `Measurement` | Übergeben über `args[0].0`. |
-| `optimal` | `boolean` | Übergeben über `args[1].1`. |
-
-### mapMeasurementToDto
-
-```json
-{
-  "beanId": "attributeServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapMeasurementToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

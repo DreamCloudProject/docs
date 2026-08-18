@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="renderTemplate" type="Map<String,Object>">
@@ -60,29 +61,6 @@ Content-Type: application/json
   "beanId": "pageRenderServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "renderTemplate",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="renderElements" type="Map<String,Object>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `requestElements` | `List<RequestElement>` | Passed through `args[0].0`. |
-
-### renderElements
-
-```json
-{
-  "beanId": "pageRenderServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "renderElements",
   "args": [
     {
       "0": null
@@ -115,3 +93,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

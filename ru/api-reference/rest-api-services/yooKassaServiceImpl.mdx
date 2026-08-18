@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="init" type="void">
@@ -80,29 +81,6 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "isYooKassaKeysDefined",
   "args": []
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createPayment" type="Payment">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `OrderDTO` | Передаётся через `args[0].0`. |
-
-### createPayment
-
-```json
-{
-  "beanId": "yooKassaServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
 }
 ```
 
@@ -154,50 +132,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="refundPayment" type="PaymentStatus">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `order` | `OrderDTO` | Передаётся через `args[0].0`. |
-
-### refundPayment
-
-```json
-{
-  "beanId": "yooKassaServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "refundPayment",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="payoutToVendor" type="Payout">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `vendor` | `Seller` | Передаётся через `args[0].0`. |
-| `orderId` | `String` | Передаётся через `args[1].1`. |
-| `amount` | `long` | Передаётся через `args[2].2`. |
-
-### payoutToVendor
-
-```json
-{
-  "beanId": "yooKassaServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "payoutToVendor",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="isStripeKeysDefined" type="boolean">
@@ -135,57 +136,7 @@ Content-Type: application/json
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
-| `orderId` | `String` | Передаётся через `args[0].0`. |
-| `stripeConnectId` | `String` | Передаётся через `args[1].1`. |
-| `paymentMethodId` | `String` | Передаётся через `args[2].2`. |
-| `nettoAmount` | `BigDecimal` | Передаётся через `args[3].3`. |
-| `tax` | `Order.Tax` | Передаётся через `args[4].4`. |
-
-### createIntent
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createIntent",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createIntent" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
 | `paymentRequestAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### createIntent
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createIntent",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createIntent" type="String">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `paymentRequest` | `PaymentRequest` | Передаётся через `args[0].0`. |
 
 ### createIntent
 
@@ -287,31 +238,6 @@ Content-Type: application/json
   "beanId": "stripeServiceMock",
   "scope": "PROTOTYPE",
   "functionName": "obtain3DSecureLink",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="payoutToVendor" type="Payout">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `vendor` | `Seller` | Передаётся через `args[0].0`. |
-| `orderId` | `String` | Передаётся через `args[1].1`. |
-| `amount` | `long` | Передаётся через `args[2].2`. |
-
-### payoutToVendor
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "payoutToVendor",
   "args": [
     {
       "0": null
@@ -811,27 +737,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="calculateTax" type="Order.Tax">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `buyer` | `Seller` | Передаётся через `args[0].0`. |
-| `seller` | `Seller` | Передаётся через `args[1].1`. |
-| `taxRates` | `Map<String, TaxRate>` | Передаётся через `args[2].2`. |
-
-### calculateTax
-
-```json
-{
-  "beanId": "stripeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "calculateTax",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

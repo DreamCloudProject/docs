@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getElements" type="List<Map<String, Object>>">
@@ -66,25 +67,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="setElements" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `elements` | `List<Map<String, Object>>` | Передаётся через `args[0].0`. |
-
-### setElements
-
-```json
-{
-  "beanId": "dummyTree",
-  "scope": "PROTOTYPE",
-  "functionName": "setElements",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

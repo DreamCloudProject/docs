@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="createPayoutInvoice" type="Attachment">
@@ -95,29 +96,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createContact" type="Contact">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `contact` | `Contact` | Передаётся через `args[0].0`. |
-
-### createContact
-
-```json
-{
-  "beanId": "lexOfficeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "createContact",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="retrieveContact" type="Contact">
 
 | Аргумент | Тип | Описание |
@@ -131,29 +109,6 @@ Content-Type: application/json
   "beanId": "lexOfficeServiceMock",
   "scope": "PROTOTYPE",
   "functionName": "retrieveContact",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="updateContact" type="Contact">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `contact` | `Contact` | Передаётся через `args[0].0`. |
-
-### updateContact
-
-```json
-{
-  "beanId": "lexOfficeServiceMock",
-  "scope": "PROTOTYPE",
-  "functionName": "updateContact",
   "args": [
     {
       "0": null
@@ -182,3 +137,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

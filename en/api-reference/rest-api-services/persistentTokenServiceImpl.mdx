@@ -45,55 +45,8 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
-
-<ResponseField name="createNewToken" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `token` | `PersistentRememberMeToken` | Passed through `args[0].0`. |
-
-### createNewToken
-
-```json
-{
-  "beanId": "persistentTokenServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createNewToken",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="updateToken" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `series` | `String` | Passed through `args[0].0`. |
-| `tokenValue` | `String` | Passed through `args[1].1`. |
-| `lastUsed` | `Date` | Passed through `args[2].2`. |
-
-### updateToken
-
-```json
-{
-  "beanId": "persistentTokenServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "updateToken",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
 
 <ResponseField name="getTokenForSeries" type="PersistentRememberMeToken">
 
@@ -140,3 +93,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

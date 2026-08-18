@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="searchResults" type="List<Certificate>">
@@ -250,29 +251,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createCertificate" type="Certificate">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `certificate` | `Certificate` | Übergeben über `args[0].0`. |
-
-### createCertificate
-
-```json
-{
-  "beanId": "certificateServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createCertificate",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveCertificate" type="Certificate">
 
 | Argument | Typ | Beschreibung |
@@ -367,53 +345,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="removeCertificates" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `certificateIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-
-### removeCertificates
-
-```json
-{
-  "beanId": "certificateServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeCertificates",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="addCertificatesByIds" type="void">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `certificatesIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
-| `sellerId` | `String` | Übergeben über `args[1].1`. |
-
-### addCertificatesByIds
-
-```json
-{
-  "beanId": "certificateServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addCertificatesByIds",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="getSellerCertificates" type="List<Certificate>">
 
 | Argument | Typ | Beschreibung |
@@ -436,3 +367,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
 
 <ResponseField name="getPaginationChats" type="Deque<Map<String, Object>>">
@@ -139,57 +140,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="searchChats" type="SearchResponse">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
-
-### searchChats
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchChats",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="searchMessages" type="SearchResponse">
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `searchRequest` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### searchMessages
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "searchMessages",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="searchMessages" type="SearchResponse">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `request` | `SearchRequest` | Передаётся через `args[0].0`. |
 
 ### searchMessages
 
@@ -258,29 +213,6 @@ Content-Type: application/json
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
-| `chat` | `Chat` | Передаётся через `args[0].0`. |
-
-### createChatAndNotify
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createChatAndNotify",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createChatAndNotify" type="Optional<Chat>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
 | `chatAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
 
 ### createChatAndNotify
@@ -304,29 +236,6 @@ Content-Type: application/json
 
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
-| `chatItem` | `Chat` | Передаётся через `args[0].0`. |
-
-### createChat
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createChat",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createChat" type="Optional<Chat>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
 | `chatAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
 
 ### createChat
@@ -336,29 +245,6 @@ Content-Type: application/json
   "beanId": "messageServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "createChat",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createMessageAndNotify" type="Optional<Message>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `message` | `Message` | Передаётся через `args[0].0`. |
-
-### createMessageAndNotify
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createMessageAndNotify",
   "args": [
     {
       "0": null
@@ -397,29 +283,6 @@ Content-Type: application/json
 | Аргумент | Тип | Описание |
 | --- | --- | --- |
 | `messageAsMap` | `LinkedHashMap<String, Object>` | Передаётся через `args[0].0`. |
-
-### createMessage
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createMessage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="createMessage" type="Optional<Message>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `messageItem` | `Message` | Передаётся через `args[0].0`. |
 
 ### createMessage
 
@@ -836,31 +699,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="sendNotificationEmail" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `profile` | `Profile` | Передаётся через `args[0].0`. |
-| `chatTopic` | `String` | Передаётся через `args[1].1`. |
-| `messageText` | `String` | Передаётся через `args[2].2`. |
-
-### sendNotificationEmail
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "sendNotificationEmail",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="isRightSidedMessageAdmin" type="boolean">
 
 | Аргумент | Тип | Описание |
@@ -1071,54 +909,6 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="mapChatToDto" type="ChatDTO">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `chat` | `Chat` | Передаётся через `args[0].0`. |
-| `optimal` | `boolean` | Передаётся через `args[1].1`. |
-
-### mapChatToDto
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapChatToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="addAttachmentToMessageByLoggedUser" type="boolean">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `messageId` | `String` | Передаётся через `args[0].0`. |
-| `attachment` | `Attachment` | Передаётся через `args[1].1`. |
-
-### addAttachmentToMessageByLoggedUser
-
-```json
-{
-  "beanId": "messageServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "addAttachmentToMessageByLoggedUser",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="removeAttachmentFromMessageByLoggedUser" type="boolean">
 
 | Аргумент | Тип | Описание |
@@ -1165,3 +955,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

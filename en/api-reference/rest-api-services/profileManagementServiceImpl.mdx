@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
 
+
 ## Methods
 
 <ResponseField name="getRepository" type="ProfileRepository">
@@ -183,57 +184,11 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="createProfile" type="Optional<Profile>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `profile` | `Profile` | Passed through `args[0].0`. |
-
-### createProfile
-
-```json
-{
-  "beanId": "profileManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "createProfile",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
 <ResponseField name="saveProfile" type="Optional<Profile>">
 
 | Argument | Type | Description |
 | --- | --- | --- |
 | `profileAsMap` | `LinkedHashMap<String, Object>` | Passed through `args[0].0`. |
-
-### saveProfile
-
-```json
-{
-  "beanId": "profileManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "saveProfile",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="saveProfile" type="Optional<Profile>">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `profile` | `Profile` | Passed through `args[0].0`. |
 
 ### saveProfile
 
@@ -265,29 +220,6 @@ Content-Type: application/json
   "beanId": "profileManagementServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeProfileAndClean",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
-
-<ResponseField name="removeProfilesByIds" type="void">
-
-| Argument | Type | Description |
-| --- | --- | --- |
-| `profilesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
-
-### removeProfilesByIds
-
-```json
-{
-  "beanId": "profileManagementServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "removeProfilesByIds",
   "args": [
     {
       "0": null
@@ -362,3 +294,4 @@ Content-Type: application/json
 ```
 
 </ResponseField>
+

@@ -45,32 +45,8 @@ Content-Type: application/json
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
 
+
 ## Методы
-
-<ResponseField name="recognizeAttributesForSellerSku" type="Map<String,Object>">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `urls` | `ArrayList<String>` | Передаётся через `args[0].0`. |
-| `sellerSkuType` | `String` | Передаётся через `args[1].1`. |
-| `isAbsolutePath` | `Boolean` | Передаётся через `args[2].2`. |
-
-### recognizeAttributesForSellerSku
-
-```json
-{
-  "beanId": "machineLearningServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "recognizeAttributesForSellerSku",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>
 
 <ResponseField name="generateDatasetForAwsComprehend" type="void">
 
@@ -123,29 +99,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="translateDatabaseForLanguage" type="void">
-
-| Аргумент | Тип | Описание |
-| --- | --- | --- |
-| `fromLangIsoCode` | `String` | Передаётся через `args[0].0`. |
-| `toLangIsoCode` | `String` | Передаётся через `args[1].1`. |
-| `targetDb` | `String` | Передаётся через `args[2].2`. |
-| `targetCollection` | `String` | Передаётся через `args[3].3`. |
-| `fieldNames` | `ArrayList<String>` | Передаётся через `args[4].4`. |
-
-### translateDatabaseForLanguage
-
-```json
-{
-  "beanId": "machineLearningServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "translateDatabaseForLanguage",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

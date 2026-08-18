@@ -45,6 +45,7 @@ Content-Type: application/json
 - ADMIN — vollständiger Zugriff auf öffentliche Methoden aller Services.
 - Wenn eine Methode intern eine Rolle prüft, kann GUEST null erhalten.
 
+
 ## Methoden
 
 <ResponseField name="getRepository" type="SellerRepository">
@@ -388,26 +389,3 @@ Content-Type: application/json
 
 </ResponseField>
 
-<ResponseField name="mapSellerToDto" type="SellerDTO">
-
-| Argument | Typ | Beschreibung |
-| --- | --- | --- |
-| `seller` | `Seller` | Übergeben über `args[0].0`. |
-| `optimal` | `boolean` | Übergeben über `args[1].1`. |
-
-### mapSellerToDto
-
-```json
-{
-  "beanId": "customerServiceImpl",
-  "scope": "PROTOTYPE",
-  "functionName": "mapSellerToDto",
-  "args": [
-    {
-      "0": null
-    }
-  ]
-}
-```
-
-</ResponseField>

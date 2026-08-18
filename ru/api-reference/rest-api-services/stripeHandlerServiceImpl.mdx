@@ -3,8 +3,6 @@ title: 'StripeHandlerServiceImpl'
 description: 'Вызов публичных методов сервиса через REST API: stripeHandlerServiceImpl'
 ---
 
-# StripeHandlerServiceImpl
-
 <ResponseField name="beanId" type="string">
 
 Идентификатор Spring bean, который содержит вызываемый сервис.
@@ -44,4 +42,3 @@ Content-Type: application/json
 - USER — требуется авторизация; доступны методы с проверкой USER.
 - ADMIN — полный доступ к public-методам всех сервисов.
 - Если метод проверяет роль внутри логики, GUEST может получить null.
-

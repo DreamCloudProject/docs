@@ -3,8 +3,6 @@ title: 'YookassaHandlerServiceImpl'
 description: 'Calling public service methods through the REST API: yookassaHandlerServiceImpl'
 ---
 
-# YookassaHandlerServiceImpl
-
 <ResponseField name="beanId" type="string">
 
 The Spring bean identifier containing the service being called.
@@ -44,4 +42,3 @@ Content-Type: application/json
 - USER — authentication is required; methods with USER checks are available.
 - ADMIN — full access to public methods of all services.
 - If a method checks a role internally, GUEST may receive null.
-

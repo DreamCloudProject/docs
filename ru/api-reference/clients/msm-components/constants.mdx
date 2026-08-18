@@ -12,8 +12,45 @@ description: 'Инстанс встроенного клиента и базов
 - `MSM2HtmlHelper`: HTML-хелпер (`MSM2.App.HtmlHelper`)
 - `MSM2ScriptHelper`: хелпер загрузки скриптов (`MSM2.App.ScriptHelper`)
 
+## Подключение в приложении
+
+В приложении обычно создаётся один общий экземпляр клиента и экспортируется из отдельного модуля:
+
+```js
+// services/Constants.js
+window.app = window.app || new MSM2.App();
+
+export const MSM2App = window.app;
+export const MSM2HtmlHelper = MSM2.App.HtmlHelper;
+export const MSM2AuthHelper = MSM2.App.AuthHelper;
+export const MSM2ScriptHelper = MSM2.App.ScriptHelper;
+```
+
+Остальные сервисы и компоненты используют этот экземпляр через `Utils` и не создают собственные WebSocket-соединения. Благодаря этому запросы, подписки и стандартные обработчики ответов работают через один клиент.
+
+## Примеры
+
+Проверка состояния пользователя:
+
+```js
+import { isLogged, getLoggedProfile } from "msm-components/dist/services.js";
+
+const loggedIn = await isLogged();
+if (loggedIn) {
+  const profile = await getLoggedProfile();
+  console.log(profile);
+}
+```
+
+Для работы с формами можно использовать HTML-хелпер:
+
+```js
+import { getPayloadOfForm } from "msm-components/dist/services.js";
+
+const payload = getPayloadOfForm(document.querySelector("form"));
+```
+
 ## Примечания
 
 - При использовании `msm-components` вам не нужно вызывать `new MSM2.App()` вручную.
 - `MSM2` должен уже существовать в браузере в момент загрузки `msm-components`.
-

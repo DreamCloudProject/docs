@@ -12,8 +12,38 @@ This module provides access to the built-in browser client instance and a few co
 - `MSM2HtmlHelper`: HTML helper (`MSM2.App.HtmlHelper`)
 - `MSM2ScriptHelper`: script loading helper (`MSM2.App.ScriptHelper`)
 
+## Application setup
+
+Create one shared client instance and export it from an application module:
+
+```js
+window.app = window.app || new MSM2.App();
+
+export const MSM2App = window.app;
+export const MSM2HtmlHelper = MSM2.App.HtmlHelper;
+export const MSM2AuthHelper = MSM2.App.AuthHelper;
+export const MSM2ScriptHelper = MSM2.App.ScriptHelper;
+```
+
+Other services and components reuse this instance instead of opening their own WebSocket connections.
+
+## Examples
+
+```js
+import { isLogged, getLoggedProfile } from "msm-components/dist/services.js";
+
+if (await isLogged()) {
+  console.log(await getLoggedProfile());
+}
+```
+
+```js
+import { getPayloadOfForm } from "msm-components/dist/services.js";
+
+const payload = getPayloadOfForm(document.querySelector("form"));
+```
+
 ## Notes
 
 - You don’t need to create `new MSM2.App()` yourself when you use `msm-components`.
 - `MSM2` must already exist in the browser at the moment `msm-components` is loaded.
-

@@ -13,6 +13,77 @@ These helpers use the built-in client instance (exported as `MSM2App`) to call t
 - `callRepository(repositoryId, query, eventType?, endpoint?)`
 - `updateBean(beanId, scope, payload, eventType?, endpoint?)`
 
+### Calling a backend service
+
+`callService` returns a `Promise` containing the full client response. The backend value is in `response.result`:
+
+```js
+import { callService } from "msm-components/dist/services.js";
+
+const response = await callService(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  "getLoggedProfile",
+  []
+);
+
+const profile = response.result;
+```
+
+Arguments are passed in the same order as the backend method parameters. Search requests commonly use a query object:
+
+```js
+const request = {
+  query: { isPublishedForSale: true },
+  ignoreRegexWrap: ["isPublishedForSale"],
+  offset: 0,
+  limit: 10,
+  sortName: "createdDate",
+  sortDirection: "DESC",
+};
+
+const response = await callService(
+  "searchManagerServiceImpl",
+  "PROTOTYPE",
+  "search",
+  [request]
+);
+
+const items = response.result?.data?.content ?? [];
+```
+
+If the backend method expects a string, serialize the request with `JSON.stringify(request)`. `scope` is usually `PROTOTYPE`; `eventType` can be `USER`, `SHARED`, or `GLOBAL`.
+
+### Calling a repository
+
+```js
+import { callRepository } from "msm-components/dist/services.js";
+
+const response = await callRepository("blogCategoryRepository", {
+  query: { _id: categoryId },
+  sortName: "_id",
+  sortDirection: "ASC",
+  skip: 0,
+  limit: 1,
+});
+
+const category = response.result?.[0];
+```
+
+### Updating a bean
+
+```js
+import { updateBean } from "msm-components/dist/services.js";
+
+const response = await updateBean(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  sellerPayload
+);
+```
+
+All three helpers use the shared built-in `MSM2App` instance, which must be available before they are called.
+
 ## Context and settings helpers
 
 - `getLangCode()`
@@ -30,6 +101,13 @@ These helpers use the built-in client instance (exported as `MSM2App`) to call t
 - `getLoggedProfile()`
 - `isOpenAiActive()`
 
+```js
+import { getWebSiteSettings, getSeoUrl } from "msm-components/dist/services.js";
+
+const settings = await getWebSiteSettings();
+const url = await getSeoUrl(entityId, "sellerSkuRepository");
+```
+
 ## Cookies and URL helpers
 
 - `getCookie(name)`
@@ -41,3 +119,10 @@ These helpers use the built-in client instance (exported as `MSM2App`) to call t
 - `escapeRegExp(string)`
 - `getPayloadOfForm(element)`
 
+```js
+import { languageAwareUrl, getCookie, setCookie } from "msm-components/dist/services.js";
+
+setCookie("promo", "spring", null, null, "/");
+console.log(getCookie("i18next"));
+const url = await languageAwareUrl("/catalog");
+```

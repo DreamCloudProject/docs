@@ -13,6 +13,45 @@ Diese Helper verwenden die Built-in Client-Instanz (exportiert als `MSM2App`), u
 - `callRepository(repositoryId, query, eventType?, endpoint?)`
 - `updateBean(beanId, scope, payload, eventType?, endpoint?)`
 
+### Backend-Service aufrufen
+
+`callService` gibt ein `Promise` mit der vollständigen Antwort zurück. Das Ergebnis steht in `response.result`:
+
+```js
+import { callService } from "msm-components/dist/services.js";
+
+const response = await callService(
+  "sellerRegistrationServiceImpl", "PROTOTYPE", "getLoggedProfile", []
+);
+const profile = response.result;
+```
+
+Argumente werden in derselben Reihenfolge wie in der Backend-Methode übergeben. Für Suchanfragen kann ein Query-Objekt verwendet werden:
+
+```js
+const response = await callService(
+  "searchManagerServiceImpl", "PROTOTYPE", "search",
+  [{ query: { isPublishedForSale: true }, offset: 0, limit: 10 }]
+);
+const items = response.result?.data?.content ?? [];
+```
+
+Wenn die Methode einen String erwartet, serialisiere das Objekt mit `JSON.stringify`. `scope` ist normalerweise `PROTOTYPE`, `eventType` kann `USER`, `SHARED` oder `GLOBAL` sein.
+
+### Repository und Bean
+
+```js
+import { callRepository, updateBean } from "msm-components/dist/services.js";
+
+const response = await callRepository("blogCategoryRepository", {
+  query: { _id: categoryId }, skip: 0, limit: 1
+});
+
+await updateBean("sellerRegistrationServiceImpl", "PROTOTYPE", sellerPayload);
+```
+
+Alle Helper verwenden die gemeinsame Built-in-Instanz `MSM2App`.
+
 ## Context- und Settings-Helper
 
 - `getLangCode()`
@@ -40,4 +79,3 @@ Diese Helper verwenden die Built-in Client-Instanz (exportiert als `MSM2App`), u
 - `setPlatformInfo()`
 - `escapeRegExp(string)`
 - `getPayloadOfForm(element)`
-

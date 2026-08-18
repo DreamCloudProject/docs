@@ -13,6 +13,94 @@ description: 'Универсальные вызовы и общие хелпер
 - `callRepository(repositoryId, query, eventType?, endpoint?)`
 - `updateBean(beanId, scope, payload, eventType?, endpoint?)`
 
+### Вызов backend-сервиса
+
+`callService` возвращает `Promise` с полным ответом клиента. Полезная нагрузка находится в `response.result`:
+
+```js
+import { callService } from "msm-components/dist/services.js";
+
+const response = await callService(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  "getLoggedProfile",
+  []
+);
+
+const profile = response.result;
+```
+
+Аргументы backend-метода передаются массивом в том же порядке, что и в его Java-сигнатуре. Например, поиск из клиентского приложения:
+
+```js
+const request = {
+  query: { isPublishedForSale: true },
+  ignoreRegexWrap: ["isPublishedForSale"],
+  offset: 0,
+  limit: 10,
+  sortName: "createdDate",
+  sortDirection: "DESC",
+};
+
+const response = await callService(
+  "searchManagerServiceImpl",
+  "PROTOTYPE",
+  "search",
+  [request]
+);
+
+const items = response.result?.data?.content ?? [];
+```
+
+Если backend-метод ожидает строку, сериализуйте запрос перед передачей:
+
+```js
+await callService(
+  "contentContainerServiceImpl",
+  "PROTOTYPE",
+  "searchContainersResults",
+  [JSON.stringify(request)]
+);
+```
+
+`scope` обычно равен `PROTOTYPE`. `eventType` определяет область публикации ответа (`USER`, `SHARED` или `GLOBAL`), а `endpoint` позволяет указать дополнительный destination для событий.
+
+### Вызов репозитория
+
+`callRepository` принимает имя репозитория и Mongo-подобный объект запроса:
+
+```js
+import { callRepository } from "msm-components/dist/services.js";
+
+const response = await callRepository("blogCategoryRepository", {
+  query: { _id: categoryId },
+  sortName: "_id",
+  sortDirection: "ASC",
+  skip: 0,
+  limit: 1,
+});
+
+const category = response.result?.[0];
+```
+
+### Обновление bean
+
+`updateBean` используется для отправки payload на backend без ручной работы с RxJS:
+
+```js
+import { updateBean } from "msm-components/dist/services.js";
+
+const response = await updateBean(
+  "sellerRegistrationServiceImpl",
+  "PROTOTYPE",
+  sellerPayload
+);
+
+const seller = response.result;
+```
+
+Все три helper-функции используют встроенный `MSM2App`, поэтому библиотека должна быть инициализирована до вызова сервиса. Ошибки и права доступа следует обрабатывать на уровне вызывающего кода.
+
 ## Хелперы контекста и настроек
 
 - `getLangCode()`
@@ -30,6 +118,18 @@ description: 'Универсальные вызовы и общие хелпер
 - `getLoggedProfile()`
 - `isOpenAiActive()`
 
+Пример получения настроек сайта и URL SEO:
+
+```js
+import {
+  getWebSiteSettings,
+  getSeoUrl,
+} from "msm-components/dist/services.js";
+
+const settings = await getWebSiteSettings();
+const url = await getSeoUrl(entityId, "sellerSkuRepository");
+```
+
 ## Cookies и URL хелперы
 
 - `getCookie(name)`
@@ -41,3 +141,16 @@ description: 'Универсальные вызовы и общие хелпер
 - `escapeRegExp(string)`
 - `getPayloadOfForm(element)`
 
+Пример языко-зависимого URL и cookie:
+
+```js
+import {
+  languageAwareUrl,
+  getCookie,
+  setCookie,
+} from "msm-components/dist/services.js";
+
+setCookie("promo", "spring", null, null, "/");
+const language = getCookie("i18next");
+const url = await languageAwareUrl("/catalog");
+```

@@ -12,8 +12,27 @@ Dieses Modul stellt Zugriff auf die Built-in Browser-Client-Instanz und einige C
 - `MSM2HtmlHelper`: HTML-Helper (`MSM2.App.HtmlHelper`)
 - `MSM2ScriptHelper`: Script-Loading Helper (`MSM2.App.ScriptHelper`)
 
+## Einbindung in der Anwendung
+
+```js
+window.app = window.app || new MSM2.App();
+export const MSM2App = window.app;
+export const MSM2HtmlHelper = MSM2.App.HtmlHelper;
+export const MSM2AuthHelper = MSM2.App.AuthHelper;
+export const MSM2ScriptHelper = MSM2.App.ScriptHelper;
+```
+
+Services und Komponenten verwenden diese gemeinsame Instanz und öffnen keine eigenen WebSocket-Verbindungen.
+
+## Beispiel
+
+```js
+import { isLogged, getLoggedProfile } from "msm-components/dist/services.js";
+
+if (await isLogged()) console.log(await getLoggedProfile());
+```
+
 ## Hinweise
 
 - Wenn du `msm-components` verwendest, musst du `new MSM2.App()` nicht selbst aufrufen.
 - `MSM2` muss im Browser bereits existieren, wenn `msm-components` geladen wird.
-

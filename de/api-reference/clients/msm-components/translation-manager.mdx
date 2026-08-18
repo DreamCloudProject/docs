@@ -13,6 +13,17 @@ Bevor du `translate()` verwendest, setze einmal den Pfad zu den Locales JSON Dat
 setLocalesPath("/path/to/locales/{{lng}}.json");
 ```
 
+Beispiel für öffentliche Locale-Dateien:
+
+```js
+import { setLocalesPath, translate } from "msm-components/dist/services.js";
+
+setLocalesPath("/admin/assets/locales/{{lng}}.json");
+const title = await translate("DashboardTitle");
+```
+
+`{{lng}}` wird durch den aktuellen Sprachcode ersetzt. Die Initialisierung erfolgt einmal beim Start der Anwendung.
+
 ## Exports
 
 Über `msm-components` kannst du nutzen:
@@ -30,8 +41,28 @@ setLocalesPath("/path/to/locales/{{lng}}.json");
 - `getLanguages()`
 - `getAlphabetForActiveLanguage()`
 
+## Beispiele
+
+```js
+import { loadManyTranslations } from "msm-components/dist/services.js";
+
+const texts = await loadManyTranslations(
+  "UserConfirmationDialogTitle",
+  "UserConfirmationButtonOk",
+  "AbortButton"
+);
+```
+
+`tr` und `translations` laden Werte bei Bedarf aus dem Übersetzungs-Repository:
+
+```js
+import { tr, translations } from "msm-components/dist/services.js";
+
+const label = await tr("SaveButton");
+const cancelLabel = await translations.CancelButton;
+```
+
 ## Hinweise
 
 - Wenn `setLocalesPath()` nicht aufgerufen wurde, werfen die Translation-Funktionen einen Fehler, um die Fehlkonfiguration sofort sichtbar zu machen.
 - Intern nutzt der Helper den Unified Service-Call Mechanismus (Service/Repository Calls) und hängt damit von der Built-in Client-Instanz ab, die `msm-components` bereitstellt.
-

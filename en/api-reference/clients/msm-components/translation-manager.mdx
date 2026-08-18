@@ -13,6 +13,16 @@ Before you use `translate()`, set the locales JSON path once:
 setLocalesPath("/path/to/locales/{{lng}}.json");
 ```
 
+In an application, point the path to public locale files:
+
+```js
+import { setLocalesPath } from "msm-components/dist/services.js";
+
+setLocalesPath("/admin/assets/locales/{{lng}}.json");
+```
+
+The `{{lng}}` placeholder is replaced with the current language. Initialize it once when the application starts.
+
 ## Exports
 
 From `msm-components` you can use:
@@ -30,8 +40,39 @@ From `msm-components` you can use:
 - `getLanguages()`
 - `getAlphabetForActiveLanguage()`
 
+## Examples
+
+```js
+import { setLocalesPath, translate } from "msm-components/dist/services.js";
+
+setLocalesPath("/assets/locales/{{lng}}.json");
+const title = await translate("DashboardTitle");
+const greeting = await translate("Greeting", { name: "Alex" });
+```
+
+Load several values at once:
+
+```js
+import { loadManyTranslations } from "msm-components/dist/services.js";
+
+const texts = await loadManyTranslations(
+  "UserConfirmationDialogTitle",
+  "UserConfirmationButtonOk",
+  "AbortButton"
+);
+```
+
+`tr` and `translations` lazily load values from the translation repository:
+
+```js
+import { tr, translations } from "msm-components/dist/services.js";
+
+const label = await tr("SaveButton");
+const cancelLabel = await translations.CancelButton;
+```
+
 ## Notes
 
 - If `setLocalesPath()` was not called, translation functions throw an error to make the misconfiguration obvious.
 - The helper uses the unified service call mechanism under the hood (service/repository calls), so it relies on the built-in client instance provided by `msm-components`.
-
+- Use `clearTranslationsCache()` when the active locale data has changed.

@@ -5,6 +5,31 @@ description: 'Route-Helper, der von msm-components exportiert wird'
 
 `RouteManager` ist ein kleiner Helper für Client-side Routing.
 
+## Initialisierung und Routen
+
+```js
+import { routeManager } from "msm-components/dist/services.js";
+
+routeManager.init("My application");
+routeManager.addRoute("/dashboard", "dashboard", "Dashboard");
+routeManager.addRoute("/users/:id.html", "user", "User");
+routeManager.loadRouteByCurrentUrl();
+```
+
+Eine Route besteht aus URL-Muster, Panel-Schlüssel und Übersetzungsschlüssel für den Titel.
+
+## Navigation
+
+```js
+routeManager.navigate("dashboard");
+routeManager.navigate("user", "42.html");
+
+const activeRoute = routeManager.getActiveRoute();
+console.log(activeRoute.props.id); // "42"
+```
+
+Die Navigation nutzt `history.pushState`; Zurück/Weiter wird über `popstate` verarbeitet. Mit `disable()` kann die Navigation deaktiviert werden, `removeActiveRoute()` löscht die gespeicherte Route aus `sessionStorage`.
+
 ## Export
 
 - `routeManager`
@@ -14,4 +39,3 @@ description: 'Route-Helper, der von msm-components exportiert wird'
 - verwaltet eine Route-Map und die aktuell aktive Route
 - navigiert über `history.pushState`
 - löst dynamische Routen über `URLPattern` auf
-

@@ -15,3 +15,52 @@ description: 'Хелпер роутинга, который экспортиру
 - навигация через `history.pushState`
 - поддерживает динамические роуты на основе `URLPattern`
 
+## Инициализация и регистрация маршрутов
+
+Маршрут состоит из URL-шаблона, ключа панели и заголовка. Зарегистрируйте маршруты до вызова `loadRouteByCurrentUrl()`:
+
+```js
+import { routeManager } from "msm-components/dist/services.js";
+
+routeManager.init("My application");
+routeManager.addRoute("/dashboard", "dashboard", "Dashboard");
+routeManager.addRoute("/users/:id.html", "user", "User");
+routeManager.loadRouteByCurrentUrl();
+```
+
+`init()` сохраняет имя приложения для заголовка страницы. При переходе `RouteManager` переводит заголовок через `TranslationManager` и формирует title в виде `My application | Dashboard`.
+
+## Навигация
+
+Для перехода используйте ключ панели, переданный в `addRoute`:
+
+```js
+routeManager.navigate("dashboard");
+```
+
+Для динамического маршрута передайте значение параметра:
+
+```js
+routeManager.navigate("user", "42.html");
+
+const activeRoute = routeManager.getActiveRoute();
+console.log(activeRoute.props.id); // "42"
+```
+
+Навигация использует `history.pushState`, поэтому страница не перезагружается. Изменения адреса браузера также обрабатываются через `popstate`.
+
+## Поиск маршрута
+
+Перед переходом можно проверить URL и получить его параметры:
+
+```js
+const route = routeManager.getRouteByUrl(
+  `${window.location.origin}/users/42.html`
+);
+
+if (route) {
+  console.log(route.panel, route.props);
+}
+```
+
+Для временного отключения навигации менеджера используйте `disable()`. Метод `removeActiveRoute()` удаляет сохранённый маршрут из `sessionStorage`.

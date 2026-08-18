@@ -13,6 +13,16 @@ description: 'Хелперы переводов, которые экспорти
 setLocalesPath("/path/to/locales/{{lng}}.json");
 ```
 
+В реальном приложении путь указывает на публичные JSON-файлы локализации, например:
+
+```js
+import { setLocalesPath } from "msm-components/dist/services.js";
+
+setLocalesPath("/admin/assets/locales/{{lng}}.json");
+```
+
+Шаблон `{{lng}}` заменяется текущим кодом языка. Инициализацию достаточно выполнить один раз при старте приложения.
+
 ## Экспорты
 
 Через `msm-components` можно использовать:
@@ -30,8 +40,55 @@ setLocalesPath("/path/to/locales/{{lng}}.json");
 - `getLanguages()`
 - `getAlphabetForActiveLanguage()`
 
+## Примеры использования
+
+`translate` работает асинхронно и совместим с ключами и опциями i18next:
+
+```js
+import {
+  setLocalesPath,
+  translate,
+} from "msm-components/dist/services.js";
+
+setLocalesPath("/assets/locales/{{lng}}.json");
+
+const title = await translate("DashboardTitle");
+const greeting = await translate("Greeting", { name: "Alex" });
+```
+
+Для нескольких ключей используйте один вызов `loadManyTranslations`:
+
+```js
+import { loadManyTranslations } from "msm-components/dist/services.js";
+
+const texts = await loadManyTranslations(
+  "UserConfirmationDialogTitle",
+  "UserConfirmationButtonOk",
+  "AbortButton"
+);
+
+console.log(texts.UserConfirmationButtonOk);
+```
+
+`tr` и `translations` предназначены для ленивой загрузки переводов из репозитория:
+
+```js
+import { tr, translations } from "msm-components/dist/services.js";
+
+const label = await tr("SaveButton");
+const cancelLabel = await translations.CancelButton;
+```
+
+Для перевода конкретной сущности с явным языком используйте `loadByLangCodeForEntity`:
+
+```js
+import { loadByLangCodeForEntity } from "msm-components/dist/services.js";
+
+const text = await loadByLangCodeForEntity(entityId, "de");
+```
+
 ## Примечания
 
 - Если `setLocalesPath()` не был вызван, функции переводов выбросят ошибку, чтобы проблема конфигурации была сразу заметна.
 - Внутри используется универсальный механизм сервисных вызовов (service/repository), поэтому это опирается на инстанс встроенного клиента, который предоставляет `msm-components`.
-
+- Кэш переводов можно сбросить через `clearTranslationsCache()`, например после смены набора локалей.

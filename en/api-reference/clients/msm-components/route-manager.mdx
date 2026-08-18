@@ -15,3 +15,40 @@ description: 'Route helper exported by msm-components'
 - navigates via `history.pushState`
 - resolves dynamic routes using `URLPattern`
 
+## Initialize and register routes
+
+Register routes before calling `loadRouteByCurrentUrl()`:
+
+```js
+import { routeManager } from "msm-components/dist/services.js";
+
+routeManager.init("My application");
+routeManager.addRoute("/dashboard", "dashboard", "Dashboard");
+routeManager.addRoute("/users/:id.html", "user", "User");
+routeManager.loadRouteByCurrentUrl();
+```
+
+The route consists of a URL pattern, a panel key, and a translation key for the title.
+
+## Navigation
+
+```js
+routeManager.navigate("dashboard");
+routeManager.navigate("user", "42.html");
+
+const activeRoute = routeManager.getActiveRoute();
+console.log(activeRoute.props.id); // "42"
+```
+
+Navigation uses `history.pushState` and handles browser back/forward through `popstate`.
+
+To resolve a URL before navigating:
+
+```js
+const route = routeManager.getRouteByUrl(
+  `${window.location.origin}/users/42.html`
+);
+if (route) console.log(route.panel, route.props);
+```
+
+Use `disable()` to temporarily disable navigation. `removeActiveRoute()` clears the saved route from `sessionStorage`.

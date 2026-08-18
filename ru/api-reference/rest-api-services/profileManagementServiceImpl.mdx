@@ -230,6 +230,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeProfilesByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `profilesIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeProfilesByIds
+
+```json
+{
+  "beanId": "profileManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeProfilesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="getGenders" type="List<Map<String, Object>>">
 
 | Аргумент | Тип | Описание |

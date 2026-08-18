@@ -325,6 +325,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeUsersByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `userIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeUsersByIds
+
+```json
+{
+  "beanId": "userManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUsersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="revertPasswordToSaved" type="Optional<User>">
 
 | Аргумент | Тип | Описание |

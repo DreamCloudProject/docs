@@ -48,6 +48,31 @@ Content-Type: application/json
 
 ## Methoden
 
+<ResponseField name="recognizeAttributesForSellerSku" type="Map<String,Object>">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `urls` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+| `sellerSkuType` | `String` | Übergeben über `args[1].1`. |
+| `isAbsolutePath` | `Boolean` | Übergeben über `args[2].2`. |
+
+### recognizeAttributesForSellerSku
+
+```json
+{
+  "beanId": "machineLearningServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "recognizeAttributesForSellerSku",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="generateDatasetForAwsComprehend" type="void">
 
 | Argument | Typ | Beschreibung |
@@ -89,6 +114,33 @@ Content-Type: application/json
   "beanId": "machineLearningServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "generateTranslationsForLanguage",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="translateDatabaseForLanguage" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `fromLangIsoCode` | `String` | Übergeben über `args[0].0`. |
+| `toLangIsoCode` | `String` | Übergeben über `args[1].1`. |
+| `targetDb` | `String` | Übergeben über `args[2].2`. |
+| `targetCollection` | `String` | Übergeben über `args[3].3`. |
+| `fieldNames` | `ArrayList<String>` | Übergeben über `args[4].4`. |
+
+### translateDatabaseForLanguage
+
+```json
+{
+  "beanId": "machineLearningServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "translateDatabaseForLanguage",
   "args": [
     {
       "0": null

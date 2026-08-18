@@ -345,6 +345,53 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeCertificates" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `certificateIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeCertificates
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCertificates",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="addCertificatesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `certificatesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+| `sellerId` | `String` | Passed through `args[1].1`. |
+
+### addCertificatesByIds
+
+```json
+{
+  "beanId": "certificateServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "addCertificatesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="getSellerCertificates" type="List<Certificate>">
 
 | Argument | Type | Description |

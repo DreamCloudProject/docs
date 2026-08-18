@@ -215,6 +215,32 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="sendEmailWithAttachments" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `to` | `String` | Übergeben über `args[0].0`. |
+| `subject` | `String` | Übergeben über `args[1].1`. |
+| `text` | `String` | Übergeben über `args[2].2`. |
+| `attachments` | `ArrayList<String>` | Übergeben über `args[3].3`. |
+
+### sendEmailWithAttachments
+
+```json
+{
+  "beanId": "emailSenderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "sendEmailWithAttachments",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="sendMimeMessage" type="void">
 
 | Argument | Typ | Beschreibung |

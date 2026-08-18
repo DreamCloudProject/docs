@@ -433,6 +433,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeSellerSkusByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `sellerSkusIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeSellerSkusByIds
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSellerSkusByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="createSellerSKU" type="Optional<SellerSKU>">
 
 | Argument | Type | Description |
@@ -469,6 +492,29 @@ Content-Type: application/json
   "beanId": "salesCatalogServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeUnitAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeUnitsByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `unitsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeUnitsByIds
+
+```json
+{
+  "beanId": "salesCatalogServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeUnitsByIds",
   "args": [
     {
       "0": null

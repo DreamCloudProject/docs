@@ -633,6 +633,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeTranslationsByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `translationIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeTranslationsByIds
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeTranslationsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="removeTranslationsByLanguage" type="void">
 
 | Argument | Typ | Beschreibung |
@@ -669,6 +692,29 @@ Content-Type: application/json
   "beanId": "translationServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "removeLanguageAndClean",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeLanguagesByIds" type="void">
+
+| Argument | Typ | Beschreibung |
+| --- | --- | --- |
+| `languageIds` | `ArrayList<String>` | Übergeben über `args[0].0`. |
+
+### removeLanguagesByIds
+
+```json
+{
+  "beanId": "translationServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeLanguagesByIds",
   "args": [
     {
       "0": null

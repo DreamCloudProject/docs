@@ -348,3 +348,50 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeCategoriesByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoriesIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeCategoriesByIds
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeCategoriesByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="lookupToParents" type="List<String>">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `categoryId` | `String` | Passed through `args[0].0`. |
+| `result` | `List<String>` | Passed through `args[1].1`. |
+
+### lookupToParents
+
+```json
+{
+  "beanId": "categoryServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "lookupToParents",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+

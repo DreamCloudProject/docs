@@ -94,6 +94,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="deletePages" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `pageIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### deletePages
+
+```json
+{
+  "beanId": "pageManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "deletePages",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="updatePage" type="void">
 
 | Аргумент | Тип | Описание |

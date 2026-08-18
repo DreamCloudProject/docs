@@ -114,6 +114,30 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeArticles" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogId` | `String` | Passed through `args[0].0`. |
+| `articleIds` | `ArrayList<String>` | Passed through `args[1].1`. |
+
+### removeArticles
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="getContainerArticles" type="List<Map<String, String>>">
 
 | Argument | Type | Description |
@@ -150,6 +174,29 @@ Content-Type: application/json
   "beanId": "contentContainerServiceImpl",
   "scope": "PROTOTYPE",
   "functionName": "getArticles",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
+<ResponseField name="removeContainersByIds" type="void">
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `blogsIds` | `ArrayList<String>` | Passed through `args[0].0`. |
+
+### removeContainersByIds
+
+```json
+{
+  "beanId": "contentContainerServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeContainersByIds",
   "args": [
     {
       "0": null

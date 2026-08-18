@@ -346,6 +346,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeOrdersByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeOrdersByIds
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeOrdersByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="removeCommerceItemFromOrder" type="boolean">
 
 | Аргумент | Тип | Описание |
@@ -384,6 +407,29 @@ Content-Type: application/json
   "scope": "PROTOTYPE",
   "functionName": "getOrdersFromLoggedUser",
   "args": []
+}
+```
+
+</ResponseField>
+
+<ResponseField name="getOrdersFromLoggedUserByIds" type="LinkedHashSet<OrderDTO>">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `orderIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### getOrdersFromLoggedUserByIds
+
+```json
+{
+  "beanId": "orderServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "getOrdersFromLoggedUserByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
 }
 ```
 

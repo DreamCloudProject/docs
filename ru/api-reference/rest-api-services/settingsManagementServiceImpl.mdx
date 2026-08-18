@@ -159,6 +159,29 @@ Content-Type: application/json
 
 </ResponseField>
 
+<ResponseField name="removeSettingsByIds" type="void">
+
+| Аргумент | Тип | Описание |
+| --- | --- | --- |
+| `settingsIds` | `ArrayList<String>` | Передаётся через `args[0].0`. |
+
+### removeSettingsByIds
+
+```json
+{
+  "beanId": "settingsManagementServiceImpl",
+  "scope": "PROTOTYPE",
+  "functionName": "removeSettingsByIds",
+  "args": [
+    {
+      "0": null
+    }
+  ]
+}
+```
+
+</ResponseField>
+
 <ResponseField name="removeSettingsAndClean" type="void">
 
 | Аргумент | Тип | Описание |

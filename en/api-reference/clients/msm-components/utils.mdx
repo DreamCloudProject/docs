@@ -72,13 +72,15 @@ const category = response.result?.[0];
 
 ### Updating a bean
 
+`updateBean` updates values on a bean registered with `@Component` or `@Service`.
+
 ```js
 import { updateBean } from "msm-components/dist/services.js";
 
 const response = await updateBean(
-  "sellerRegistrationServiceImpl",
+  "dummyBean",
   "PROTOTYPE",
-  sellerPayload
+  { description: "Updated description" }
 );
 ```
 

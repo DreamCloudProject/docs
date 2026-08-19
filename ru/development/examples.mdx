@@ -110,20 +110,18 @@ const category = response.result?.[0] ?? null;
 
 ## 5. Обновление bean
 
+`updateBean` обновляет значения bean, зарегистрированного с помощью `@Component` или `@Service`. Например, можно обновить `DummyBean`:
+
 ```js
 import { updateBean } from "msm-components/dist/services.js";
 
 const response = await updateBean(
-  "sellerRegistrationServiceImpl",
+  "dummyBean",
   "PROTOTYPE",
-  {
-    id: sellerId,
-    companyName: "Example company",
-    companyWebSite: "https://example.com",
-  }
+  { description: "Updated description" }
 );
 
-console.log("Updated seller", response.result);
+console.log("Updated bean", response.result);
 ```
 
 ## 6. React-компонент с загрузкой данных

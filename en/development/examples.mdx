@@ -60,9 +60,10 @@ const categoryResponse = await callRepository("blogCategoryRepository", {
   query: { _id: categoryId }, skip: 0, limit: 1,
 });
 
+// Updates values on a bean registered with @Component or @Service.
 await updateBean(
-  "sellerRegistrationServiceImpl", "PROTOTYPE",
-  { id: sellerId, companyName: "Example company" }
+  "dummyBean", "PROTOTYPE",
+  { description: "Updated description" }
 );
 ```
 

@@ -34,9 +34,10 @@ const response = await callRepository("blogCategoryRepository", {
   query: { _id: categoryId }, skip: 0, limit: 1,
 });
 
+// Aktualisiert Werte einer mit @Component oder @Service registrierten Bean.
 await updateBean(
-  "sellerRegistrationServiceImpl", "PROTOTYPE",
-  { id: sellerId, companyName: "Example company" }
+  "dummyBean", "PROTOTYPE",
+  { description: "Updated description" }
 );
 ```
 

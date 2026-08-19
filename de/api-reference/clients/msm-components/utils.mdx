@@ -40,6 +40,8 @@ Wenn die Methode einen String erwartet, serialisiere das Objekt mit `JSON.string
 
 ### Repository und Bean
 
+`updateBean` aktualisiert Werte einer Bean, die mit `@Component` oder `@Service` registriert wurde.
+
 ```js
 import { callRepository, updateBean } from "msm-components/dist/services.js";
 
@@ -47,7 +49,9 @@ const response = await callRepository("blogCategoryRepository", {
   query: { _id: categoryId }, skip: 0, limit: 1
 });
 
-await updateBean("sellerRegistrationServiceImpl", "PROTOTYPE", sellerPayload);
+await updateBean("dummyBean", "PROTOTYPE", {
+  description: "Updated description",
+});
 ```
 
 Alle Helper verwenden die gemeinsame Built-in-Instanz `MSM2App`.

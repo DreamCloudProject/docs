@@ -85,18 +85,18 @@ const category = response.result?.[0];
 
 ### Обновление bean
 
-`updateBean` используется для отправки payload на backend без ручной работы с RxJS:
+`updateBean` обновляет значения bean, зарегистрированного с помощью `@Component` или `@Service`, и отправляет payload на backend без ручной работы с RxJS. Например, можно обновить `DummyBean`:
 
 ```js
 import { updateBean } from "msm-components/dist/services.js";
 
 const response = await updateBean(
-  "sellerRegistrationServiceImpl",
+  "dummyBean",
   "PROTOTYPE",
-  sellerPayload
+  { description: "Updated description" }
 );
 
-const seller = response.result;
+const bean = response.result;
 ```
 
 Все три helper-функции используют встроенный `MSM2App`, поэтому библиотека должна быть инициализирована до вызова сервиса. Ошибки и права доступа следует обрабатывать на уровне вызывающего кода.

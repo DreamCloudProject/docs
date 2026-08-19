@@ -227,17 +227,6 @@
                       "en/development/examples",
                       "en/development/video-tutorials"
                     ]
-                  },
-                  {
-                    "group": "Essentials",
-                    "pages": [
-                      "essentials/markdown",
-                      "essentials/code",
-                      "essentials/images",
-                      "essentials/settings",
-                      "essentials/navigation",
-                      "essentials/reusable-snippets"
-                    ]
                   }
                 ]
               },
@@ -592,17 +581,6 @@
                       "de/development/examples",
                       "de/development/video-tutorials"
                     ]
-                  },
-                  {
-                    "group": "Essentials",
-                    "pages": [
-                      "essentials/markdown",
-                      "essentials/code",
-                      "essentials/images",
-                      "essentials/settings",
-                      "essentials/navigation",
-                      "essentials/reusable-snippets"
-                    ]
                   }
                 ]
               },
@@ -955,17 +933,6 @@
                     "pages": [
                       "ru/development/examples",
                       "ru/development/video-tutorials"
-                    ]
-                  },
-                  {
-                    "group": "Essentials",
-                    "pages": [
-                      "essentials/markdown",
-                      "essentials/code",
-                      "essentials/images",
-                      "essentials/settings",
-                      "essentials/navigation",
-                      "essentials/reusable-snippets"
                     ]
                   }
                 ]
